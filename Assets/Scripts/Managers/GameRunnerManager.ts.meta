@@ -1,0 +1,49 @@
+fileFormatVersion: 2
+guid: a0180cd51b5aed04e8404000d50739a6
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst TimerManager_1 = require(\"./TimerManager\");\r\nconst
+    CharacterController_1 = require(\"../Character/CharacterController\");\r\nconst
+    UIRunnerManager_1 = require(\"./UIRunnerManager\");\r\nconst HealthManager_1
+    = require(\"./HealthManager\");\r\nconst LevelManager_1 = require(\"./LevelManager\");\r\nconst
+    UnityEngine_SceneManagement_1 = require(\"UnityEngine.SceneManagement\");\r\nclass
+    GameRunnerManager extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    // Awake
+    is called when the script instance is being loaded\r\n    Awake() {\r\n       
+    // This is how the instance of this class is allocated. Which makes it a \"singleton\"\r\n       
+    // https://en.wikipedia.org/wiki/Singleton_pattern\r\n        if (GameRunnerManager.Instance
+    == null)\r\n            GameRunnerManager.Instance = this;\r\n        else\r\n           
+    UnityEngine_1.GameObject.Destroy(this);\r\n    }\r\n    Start() {\r\n       
+    this.isGameRunning = false;\r\n        this.OnStart();\r\n    }\r\n    OnStart()
+    {\r\n        UIRunnerManager_1.default.Instance.UIOnStart();\r\n        UnityEngine_1.Debug.Log(\"Llegue\");\r\n   
+    }\r\n    OnGameStart() {\r\n        this.isGameRunning = true;\r\n        UIRunnerManager_1.default.Instance.UIOnGame();\r\n       
+    HealthManager_1.default.Instance.ResetHealth();\r\n        CharacterController_1.default.Instance.characterGameController();\r\n       
+    TimerManager_1.default.Instance.StartTimer(); // This will instance the startTimer
+    method\r\n        LevelManager_1.default.Instance.StartGame();\r\n    }\r\n   
+    OnGamePause() {\r\n        LevelManager_1.default.Instance.PauseGame();\r\n       
+    UIRunnerManager_1.default.Instance.UIOnGamePause();\r\n    }\r\n    OnGamePlay()
+    {\r\n        TimerManager_1.default.Instance.ResetTimer();\r\n        LevelManager_1.default.Instance.ResumeGame();\r\n       
+    UIRunnerManager_1.default.Instance.UIOnGame();\r\n    }\r\n    OnGameOver() {\r\n       
+    this.isGameRunning = false;\r\n        LevelManager_1.default.Instance.PauseGame();\r\n       
+    UIRunnerManager_1.default.Instance.UIGameOver();\r\n    }\r\n    BackToLobby()
+    {\r\n        UnityEngine_SceneManagement_1.SceneManager.LoadScene(0);\r\n   
+    }\r\n}\r\nexports.default = GameRunnerManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2FtZVJ1bm5lck1hbmFnZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJHYW1lUnVubmVyTWFuYWdlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFxRDtBQUNyRCw2Q0FBZ0Q7QUFDaEQsaURBQTBDO0FBQzFDLDBFQUFtRTtBQUNuRSx1REFBZ0Q7QUFDaEQsbURBQTRDO0FBQzVDLGlEQUEwQztBQUMxQyw2RUFBMkQ7QUFFM0QsTUFBcUIsaUJBQWtCLFNBQVEscUNBQXFCO0lBS2hFLDJEQUEyRDtJQUNwRCxLQUFLO1FBQ1Isb0ZBQW9GO1FBQ3BGLGtEQUFrRDtRQUNsRCxJQUFJLGlCQUFpQixDQUFDLFFBQVEsSUFBSSxJQUFJO1lBQUUsaUJBQWlCLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQzs7WUFDckUsd0JBQVUsQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDbEMsQ0FBQztJQUVELEtBQUs7UUFFRCxJQUFJLENBQUMsYUFBYSxHQUFHLEtBQUssQ0FBQztRQUMzQixJQUFJLENBQUMsT0FBTyxFQUFFLENBQUM7SUFDbkIsQ0FBQztJQUVNLE9BQU87UUFDVix5QkFBZSxDQUFDLFFBQVEsQ0FBQyxTQUFTLEVBQUUsQ0FBQztRQUNyQyxtQkFBSyxDQUFDLEdBQUcsQ0FBQyxRQUFRLENBQUMsQ0FBQztJQUN4QixDQUFDO0lBRU0sV0FBVztRQUNkLElBQUksQ0FBQyxhQUFhLEdBQUcsSUFBSSxDQUFDO1FBQzFCLHlCQUFlLENBQUMsUUFBUSxDQUFDLFFBQVEsRUFBRSxDQUFDO1FBQ3BDLHVCQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsRUFBRSxDQUFDO1FBQ3JDLDZCQUFtQixDQUFDLFFBQVEsQ0FBQyx1QkFBdUIsRUFBRSxDQUFDO1FBQ3ZELHNCQUFZLENBQUMsUUFBUSxDQUFDLFVBQVUsRUFBRSxDQUFDLENBQUMsMkNBQTJDO1FBQy9FLHNCQUFZLENBQUMsUUFBUSxDQUFDLFNBQVMsRUFBRSxDQUFDO0lBQ3RDLENBQUM7SUFFTSxXQUFXO1FBQ2Qsc0JBQVksQ0FBQyxRQUFRLENBQUMsU0FBUyxFQUFFLENBQUM7UUFDbEMseUJBQWUsQ0FBQyxRQUFRLENBQUMsYUFBYSxFQUFFLENBQUE7SUFDNUMsQ0FBQztJQUVNLFVBQVU7UUFDYixzQkFBWSxDQUFDLFFBQVEsQ0FBQyxVQUFVLEVBQUUsQ0FBQztRQUNuQyxzQkFBWSxDQUFDLFFBQVEsQ0FBQyxVQUFVLEVBQUUsQ0FBQztRQUNuQyx5QkFBZSxDQUFDLFFBQVEsQ0FBQyxRQUFRLEVBQUUsQ0FBQTtJQUN2QyxDQUFDO0lBRU0sVUFBVTtRQUNiLElBQUksQ0FBQyxhQUFhLEdBQUcsS0FBSyxDQUFDO1FBQzNCLHNCQUFZLENBQUMsUUFBUSxDQUFDLFNBQVMsRUFBRSxDQUFDO1FBQ2xDLHlCQUFlLENBQUMsUUFBUSxDQUFDLFVBQVUsRUFBRSxDQUFDO0lBQzFDLENBQUM7SUFFTSxXQUFXO1FBQ2QsMENBQVksQ0FBQyxTQUFTLENBQUMsQ0FBQyxDQUFDLENBQUM7SUFDOUIsQ0FBQztDQUVKO0FBdERELG9DQXNEQyJ9","assetPath":"Assets/Scripts/Managers/GameRunnerManager.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"isGameRunning","type":"System.Boolean","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"GameRunnerManager","description":""},"isCompiled":true}'
+  typescriptHash: 5d610748ba1df49bd5fdfa49da6de742
+  onlyWriteTrigger: 0

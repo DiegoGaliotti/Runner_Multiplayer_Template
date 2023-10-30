@@ -1,0 +1,36 @@
+fileFormatVersion: 2
+guid: ecfc949b48182f041b830465436ebec5
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst CharacterController_1 = require(\"../Character/CharacterController\");\r\nclass
+    GameLobbyManager extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    // Awake
+    is called when the script instance is being loaded\r\n    Awake() {\r\n       
+    // This is how the instance of this class is allocated. Which makes it a \"singleton\"\r\n       
+    // https://en.wikipedia.org/wiki/Singleton_pattern\r\n        if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Equality(GameLobbyManager.Instance,
+    null))\r\n            GameLobbyManager.Instance = this;\r\n        else\r\n           
+    UnityEngine_1.GameObject.Destroy(this);\r\n    }\r\n    Start() {\r\n       
+    this.OnStart();\r\n    }\r\n    OnStart() {\r\n        CharacterController_1.default.Instance.characterMarketController();\r\n   
+    }\r\n    OnGameStart() {\r\n        CharacterController_1.default.Instance.characterMarketController();\r\n   
+    }\r\n    OnGamePause() {\r\n    }\r\n    OnGamePlay() {\r\n    }\r\n    OnGameReset()
+    {\r\n    }\r\n    OnGameOver() {\r\n    }\r\n}\r\nexports.default = GameLobbyManager;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2FtZUxvYmJ5TWFuYWdlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkdhbWVMb2JieU1hbmFnZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBcUQ7QUFDckQsNkNBQXlDO0FBRXpDLDBFQUFtRTtBQUtuRSxNQUFxQixnQkFBaUIsU0FBUSxxQ0FBcUI7SUFLL0QsMkRBQTJEO0lBQ3BELEtBQUs7UUFDUixvRkFBb0Y7UUFDcEYsa0RBQWtEO1FBQ2xELElBakJDLHFDQUFxQixDQW1EdWdMLFdBQVksQ0FsQ3JpTCxnQkFBZ0IsQ0FBQyxRQUFRLEVBQUksSUFBSTtZQUFFLGdCQUFnQixDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7O1lBQ25FLHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0lBQ2xDLENBQUM7SUFFRCxLQUFLO1FBQ0QsSUFBSSxDQUFDLE9BQU8sRUFBRSxDQUFDO0lBQ25CLENBQUM7SUFFTSxPQUFPO1FBQ1YsNkJBQW1CLENBQUMsUUFBUSxDQUFDLHlCQUF5QixFQUFFLENBQUM7SUFDN0QsQ0FBQztJQUVNLFdBQVc7UUFFZCw2QkFBbUIsQ0FBQyxRQUFRLENBQUMseUJBQXlCLEVBQUUsQ0FBQztJQUU3RCxDQUFDO0lBRU0sV0FBVztJQUVsQixDQUFDO0lBRU0sVUFBVTtJQUVqQixDQUFDO0lBRU0sV0FBVztJQUVsQixDQUFDO0lBRU0sVUFBVTtJQUVqQixDQUFDO0NBRUo7QUEzQ0QsbUNBMkNDIn0=","assetPath":"Assets/Scripts/Managers/GameLobbyManager.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"isGameRunning","type":"System.Boolean","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"GameLobbyManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: e2c6a229385c1f823917e02ea7efb7c6
+  onlyWriteTrigger: 0

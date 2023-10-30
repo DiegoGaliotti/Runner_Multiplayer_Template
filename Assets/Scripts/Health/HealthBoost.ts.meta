@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+guid: bb531660ed8352b4292832ff467dab19
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    HealthManager_1 = require(\"../Managers/HealthManager\");\r\nclass HealthBoost
+    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    //private objectCollider:
+    GameObject;\r\n    OnTriggerEnter(collider) {\r\n        // We verify that the
+    collision is with the player by comparing his tag\r\n        if (collider.CompareTag(\"Player\"))
+    {\r\n            // We ask the HealthManager to add the previously defined value
+    \"healthBoostAmount\"\r\n            HealthManager_1.default.Instance.generateHealth(this.healthBoostAmount);\r\n           
+    // We deactivate the current element\r\n            this.gameObject.SetActive(false);\r\n       
+    }\r\n    }\r\n}\r\nexports.default = HealthBoost;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSGVhbHRoQm9vc3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJIZWFsdGhCb29zdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBLGlEQUFzRDtBQUN0RCw2REFBd0Q7QUFFeEQsTUFBcUIsV0FBWSxTQUFRLHFDQUFxQjtJQUcxRCxxQ0FBcUM7SUFFckMsY0FBYyxDQUFDLFFBQWtCO1FBQzdCLHVFQUF1RTtRQUN2RSxJQUFJLFFBQVEsQ0FBQyxVQUFVLENBQUMsUUFBUSxDQUFDLEVBQUU7WUFDL0IsbUZBQW1GO1lBQ25GLHVCQUFhLENBQUMsUUFBUSxDQUFDLGNBQWMsQ0FBQyxJQUFJLENBQUMsaUJBQWlCLENBQUMsQ0FBQTtZQUM3RCxvQ0FBb0M7WUFDcEMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7U0FDcEM7SUFDTCxDQUFDO0NBRUo7QUFmRCw4QkFlQyJ9","assetPath":"Assets/Scripts/Health/HealthBoost.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"healthBoostAmount","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"HealthBoost","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: d9ffd9ac537ace1c090e1020fc46aee5
+  onlyWriteTrigger: 0

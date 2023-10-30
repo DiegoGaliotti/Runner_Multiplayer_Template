@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+guid: 8c001476afcb8554f8d04e2bbd6243d3
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    HealthManager_1 = require(\"../Managers/HealthManager\");\r\nclass ObstacleDamage
+    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    OnTriggerEnter(collider)
+    {\r\n        // We verify that the collision is with the player by comparing
+    his tag\r\n        if (collider.CompareTag(\"Player\")) {\r\n            // We
+    ask the HealthManager to add the previously defined value \"healthBoostAmount\"\r\n           
+    HealthManager_1.default.Instance.generateDamage(this.damageAmount);\r\n           
+    // We deactivate the current element\r\n            this.gameObject.SetActive(false);\r\n       
+    }\r\n    }\r\n}\r\nexports.default = ObstacleDamage;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiT2JzdGFjbGVEYW1hZ2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJPYnN0YWNsZURhbWFnZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBLGlEQUFzRDtBQUN0RCw2REFBd0Q7QUFFeEQsTUFBcUIsY0FBZSxTQUFRLHFDQUFxQjtJQUk3RCxjQUFjLENBQUMsUUFBa0I7UUFDN0IsdUVBQXVFO1FBQ3ZFLElBQUksUUFBUSxDQUFDLFVBQVUsQ0FBQyxRQUFRLENBQUMsRUFBRTtZQUMvQixtRkFBbUY7WUFDbkYsdUJBQWEsQ0FBQyxRQUFRLENBQUMsY0FBYyxDQUFDLElBQUksQ0FBQyxZQUFZLENBQUMsQ0FBQTtZQUN4RCxvQ0FBb0M7WUFDcEMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7U0FDcEM7SUFDTCxDQUFDO0NBQ0o7QUFiRCxpQ0FhQyJ9","assetPath":"Assets/Scripts/Health/ObstacleDamage.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"damageAmount","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"ObstacleDamage","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: cf605db722193cfb52b1edd2a082ca15
+  onlyWriteTrigger: 0

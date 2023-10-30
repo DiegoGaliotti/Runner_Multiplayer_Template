@@ -1,0 +1,35 @@
+fileFormatVersion: 2
+guid: 53e5146d944a6ff4b8deec3a947e5e48
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst MainMenuSceneManager_1 = require(\"./MainMenuSceneManager\");\r\nclass
+    OptionsUIManager extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    // Awake
+    is called when the script instance is being loaded\r\n    Awake() {\r\n       
+    // This is how the instance of this class is allocated. Which makes it a \"singleton\"\r\n       
+    // https://en.wikipedia.org/wiki/Singleton_pattern\r\n        if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Inequality(OptionsUIManager.Instance,
+    null))\r\n            UnityEngine_1.GameObject.Destroy(this.gameObject);\r\n       
+    OptionsUIManager.Instance = this;\r\n    }\r\n    Start() {\r\n        this.mainMenuButton.onClick.AddListener(this.ToMainMenu);
+    //start button addlistener\r\n    }\r\n    ToMainMenu() {\r\n        //Instanceate
+    the MainMenuSceneManager the method to take you for main menu scene \r\n       
+    MainMenuSceneManager_1.default.Instance.MainMenuScene();\r\n    }\r\n}\r\nexports.default
+    = OptionsUIManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiT3B0aW9uc1VJTWFuYWdlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk9wdGlvbnNVSU1hbmFnZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBcUQ7QUFDckQsNkNBQXlDO0FBRXpDLGlFQUEwRDtBQUcxRCxNQUFxQixnQkFBaUIsU0FBUSxxQ0FBcUI7SUFLM0QsMkRBQTJEO0lBQy9ELEtBQUs7UUFDRCxvRkFBb0Y7UUFDcEYsa0RBQWtEO1FBQ2xELElBZkMscUNBQXFCLENBNkI4MEwsYUFBYyxDQWQ5MkwsZ0JBQWdCLENBQUMsUUFBUSxFQUFJLElBQUk7WUFBRSx3QkFBVSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsVUFBVSxDQUFDLENBQUM7UUFDM0UsZ0JBQWdCLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQztJQUNyQyxDQUFDO0lBRUQsS0FBSztRQUNELElBQUksQ0FBQyxjQUFjLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsVUFBVSxDQUFDLENBQUMsQ0FBQywwQkFBMEI7SUFDeEYsQ0FBQztJQUVELFVBQVU7UUFDTixrRkFBa0Y7UUFDbEYsOEJBQW9CLENBQUMsUUFBUSxDQUFDLGFBQWEsRUFBRSxDQUFDO0lBQ2xELENBQUM7Q0FDSjtBQXJCRCxtQ0FxQkMifQ==","assetPath":"Assets/UI.Controller/OptionsUIManager.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"mainMenuButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"OptionsUIManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 4700783de6aa06881a667f389ce649c1
+  onlyWriteTrigger: 0

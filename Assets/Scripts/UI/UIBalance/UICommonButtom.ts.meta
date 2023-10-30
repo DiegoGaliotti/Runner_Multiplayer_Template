@@ -1,0 +1,34 @@
+fileFormatVersion: 2
+guid: 8daee07f5bc22a54b87152b761ceefbd
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst ZEPETO_World_1 = require(\"ZEPETO.World\");\r\nconst
+    ZEPETO_Multiplay_1 = require(\"ZEPETO.Multiplay\");\r\nconst UIBalances_1 = require(\"./UIBalances\");\r\nclass
+    UICommonBtn extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n       
+    this._multiplay = UnityEngine_1.GameObject.FindObjectOfType($typeof(ZEPETO_World_1.ZepetoWorldMultiplay));\r\n       
+    this.gainBalanceBtn.onClick.AddListener(() => this.OnClickGainBalance(UIBalances_1.Currency.energy,
+    1));\r\n        this._multiplay.add_RoomJoined((room) => {\r\n            this._room
+    = room;\r\n        });\r\n    }\r\n    OnClickGainBalance(currencyId, quantity)
+    {\r\n        const data = new ZEPETO_Multiplay_1.RoomData();\r\n        data.Add(\"currencyId\",
+    currencyId);\r\n        data.Add(\"quantity\", quantity);\r\n        this._multiplay.Room?.Send(\"onCredit\",
+    data.GetObject());\r\n    }\r\n}\r\nexports.default = UICommonBtn;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVUlDb21tb25CdXR0b20uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJVSUNvbW1vbkJ1dHRvbS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFxRDtBQUVyRCw2Q0FBc0M7QUFDdEMsK0NBQW9EO0FBQ3BELHVEQUFrRDtBQUNsRCw2Q0FBcUQ7QUFJckQsTUFBcUIsV0FBWSxTQUFRLHFDQUFxQjtJQU1sRCxLQUFLO1FBQ1QsSUFBSSxDQUFDLFVBQVUsR0FBRyx3QkFBVSxDQUFDLGdCQUFnQixTQUFDLG1DQUFvQixFQUFHLENBQUM7UUFDdEUsSUFBSSxDQUFDLGNBQWMsQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRSxDQUFDLElBQUksQ0FBQyxrQkFBa0IsQ0FBQyxxQkFBUSxDQUFDLE1BQU0sRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUFDO1FBRTNGLElBQUksQ0FBQyxVQUFVLGdCQUFlLENBQUMsSUFBVSxFQUFFLEVBQUU7WUFDekMsSUFBSSxDQUFDLEtBQUssR0FBRyxJQUFJLENBQUM7UUFDdEIsQ0FBQyxFQUFBO0lBQ0wsQ0FBQztJQUVPLGtCQUFrQixDQUFDLFVBQWtCLEVBQUUsUUFBZ0I7UUFDM0QsTUFBTSxJQUFJLEdBQUcsSUFBSSwyQkFBUSxFQUFFLENBQUM7UUFDNUIsSUFBSSxDQUFDLEdBQUcsQ0FBQyxZQUFZLEVBQUUsVUFBVSxDQUFDLENBQUM7UUFDbkMsSUFBSSxDQUFDLEdBQUcsQ0FBQyxVQUFVLEVBQUUsUUFBUSxDQUFDLENBQUM7UUFDL0IsSUFBSSxDQUFDLFVBQVUsQ0FBQyxJQUFJLEVBQUUsSUFBSSxDQUFDLFVBQVUsRUFBRSxJQUFJLENBQUMsU0FBUyxFQUFFLENBQUMsQ0FBQztJQUM3RCxDQUFDO0NBQ0o7QUFyQkQsOEJBcUJDIn0=","assetPath":"Assets/ProductSystem/Scenes/UICommonButtom.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"gainBalanceBtn","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"UICommonBtn","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: bbec06eb4d5bae4bd9f04065b52ca1ed
+  onlyWriteTrigger: 0

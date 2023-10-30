@@ -1,0 +1,44 @@
+fileFormatVersion: 2
+guid: 2c95540bd6c47e94699fda7ebfafefdc
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst MainMenuSceneManager_1
+    = require(\"./MainMenuSceneManager\");\r\n// This class manages everything related
+    to the ManeManu UI\r\nclass MainMenuUIManager extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    // Awake is called when the script instance is being loaded\r\n    Awake()
+    {\r\n        // This is how the instance of this class is allocated. Which makes
+    it a \"singleton\"\r\n        // https://en.wikipedia.org/wiki/Singleton_pattern\r\n       
+    if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Inequality(MainMenuUIManager.Instance,
+    null))\r\n            UnityEngine_1.GameObject.Destroy(this.gameObject);\r\n       
+    MainMenuUIManager.Instance = this;\r\n    }\r\n    // Start is called on the
+    frame when a script is enabled just before any of the Update methods is called
+    the first time\r\n    Start() {\r\n        this.startButton.onClick.AddListener(this.OnGameStart);
+    //start button addlistener\r\n        this.marketPlaceButton.onClick.AddListener(this.MarketPlace);
+    //start button addlistener\r\n        this.optionsButton.onClick.AddListener(this.Options);
+    //start button addlistener\r\n    }\r\n    // This method is called when the
+    Start Game button is pressed\r\n    OnGameStart() {\r\n        MainMenuSceneManager_1.default.Instance.LoadGameScene();
+    //Take to level 1 \r\n    }\r\n    // This method is called when the MarketPlace
+    button is pressed\r\n    MarketPlace() {\r\n        MainMenuSceneManager_1.default.Instance.MarketPlaceScene();
+    //Take to game MarketPlace\r\n    }\r\n    Options() {\r\n        MainMenuSceneManager_1.default.Instance.OptionsScene();
+    //Take to game Options\r\n    }\r\n}\r\nexports.default = MainMenuUIManager;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTWFpbk1lbnVVSU1hbmFnZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJNYWluTWVudVVJTWFuYWdlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUFnRDtBQUVoRCxpREFBcUQ7QUFDckQsaUVBQTBEO0FBRTFELDJEQUEyRDtBQUMzRCxNQUFxQixpQkFBa0IsU0FBUSxxQ0FBcUI7SUFRaEUsMkRBQTJEO0lBQzNELEtBQUs7UUFDRCxvRkFBb0Y7UUFDcEYsa0RBQWtEO1FBQ2xELElBaEJDLHFDQUFxQixDQXlDK2xLLGFBQWMsQ0F6Qi9uSyxpQkFBaUIsQ0FBQyxRQUFRLEVBQUksSUFBSTtZQUFFLHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxVQUFVLENBQUMsQ0FBQztRQUM1RSxpQkFBaUIsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDO0lBQ3RDLENBQUM7SUFFRCx1SEFBdUg7SUFDdkgsS0FBSztRQUNELElBQUksQ0FBQyxXQUFXLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsV0FBVyxDQUFDLENBQUMsQ0FBQywwQkFBMEI7UUFDbEYsSUFBSSxDQUFDLGlCQUFpQixDQUFDLE9BQU8sQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLFdBQVcsQ0FBQyxDQUFDLENBQUUsMEJBQTBCO1FBQ3pGLElBQUksQ0FBQyxhQUFhLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBRSwwQkFBMEI7SUFDckYsQ0FBQztJQUVELDhEQUE4RDtJQUM5RCxXQUFXO1FBQ1AsOEJBQW9CLENBQUMsUUFBUSxDQUFDLGFBQWEsRUFBRSxDQUFDLENBQUMsa0JBQWtCO0lBQ3JFLENBQUM7SUFFRCwrREFBK0Q7SUFDL0QsV0FBVztRQUNQLDhCQUFvQixDQUFDLFFBQVEsQ0FBQyxnQkFBZ0IsRUFBRSxDQUFDLENBQUMsMEJBQTBCO0lBQ2hGLENBQUM7SUFFRCxPQUFPO1FBQ0gsOEJBQW9CLENBQUMsUUFBUSxDQUFDLFlBQVksRUFBRSxDQUFDLENBQUMsc0JBQXNCO0lBQ3hFLENBQUM7Q0FFSjtBQXJDRCxvQ0FxQ0MifQ==","assetPath":"Assets/UI.Controller/MainMenuUIManager.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"startButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.UI","name":"marketPlaceButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.UI","name":"optionsButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"MainMenuUIManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 5e6aa7e09d3cf5eb9fb67a90ee2c1453
+  onlyWriteTrigger: 0

@@ -1,0 +1,37 @@
+fileFormatVersion: 2
+guid: 0b61ef26d58a00a46b4e8b32565ab7cb
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    ScoreManager_1 = require(\"../Managers/ScoreManager\");\r\n// This class controls
+    the behavior of points or coins in the game\r\nclass CurrencyObject extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    // Awake is called when the script instance is being loaded\r\n    Awake()
+    {\r\n        // Assigning a default value to the element\r\n        this.pointsValue;\r\n   
+    }\r\n    // This method handles the reset of the element itself.\r\n    ResetPoint()
+    {\r\n        //this.particleSystem.transform.position = this.transform.position;\r\n       
+    this.gameObject.SetActive(true);\r\n    }\r\n    // https://docs.unity3d.com/ScriptReference/Collider.OnTriggerEnter.html\r\n   
+    OnTriggerEnter(collider) {\r\n        // We verify that the collision is with
+    the player by comparing his tag\r\n        if (collider.CompareTag(\"Player\"))
+    {\r\n            // We ask the ScoreManager to add the value of this point\r\n           
+    ScoreManager_1.default.Instance.ScorePoints(this.currentPointsType, this.pointsValue);\r\n           
+    // We deactivate the current element\r\n            this.gameObject.SetActive(false);\r\n       
+    }\r\n    }\r\n}\r\nexports.default = CurrencyObject;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ3VycmVuY3lPYmplY3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJDdXJyZW5jeU9iamVjdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUVBLGlEQUFzRDtBQUN0RCwyREFBb0Q7QUFHcEQsa0VBQWtFO0FBQ2xFLE1BQXFCLGNBQWUsU0FBUSxxQ0FBcUI7SUFLN0QsMkRBQTJEO0lBQ3BELEtBQUs7UUFDUiwyQ0FBMkM7UUFDM0MsSUFBSSxDQUFDLFdBQVcsQ0FBQztJQUNyQixDQUFDO0lBRUQsdURBQXVEO0lBQ2hELFVBQVU7UUFDYixtRUFBbUU7UUFDbkUsSUFBSSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDcEMsQ0FBQztJQUVELHdFQUF3RTtJQUN4RSxjQUFjLENBQUMsUUFBa0I7UUFDN0IsdUVBQXVFO1FBQ3ZFLElBQUksUUFBUSxDQUFDLFVBQVUsQ0FBQyxRQUFRLENBQUMsRUFBRTtZQUMvQix5REFBeUQ7WUFDekQsc0JBQVksQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLElBQUksQ0FBQyxpQkFBaUIsRUFBRSxJQUFJLENBQUMsV0FBVyxDQUFDLENBQUM7WUFFNUUsb0NBQW9DO1lBQ3BDLElBQUksQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDO1NBQ3BDO0lBQ0wsQ0FBQztDQUVKO0FBN0JELGlDQTZCQyJ9","assetPath":"Assets/Scripts/Score/CurrencyObject.ts","manifest":{"properties":[{"assembly":"","name":"currentPointsType","type":"Currency","isArray":false,"initValue":[],"enumKeys":["star","energy"],"enumValues":["0","1"],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"mscorlib","name":"pointsValue","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"CurrencyObject","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 68ae2b5128de3dadad3fbaa7c82e22f7
+  onlyWriteTrigger: 0
