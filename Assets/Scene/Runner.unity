@@ -638,7 +638,7 @@ MonoBehaviour:
       rotationSpeed: 0
       rotationDampSpeed: 0
       viewportMargin: 3
-      characterCulling: 1
+      characterCulling: 0
       targetScaleWeight: 1
     collisionTimeThreshold: 0.1
   characterData:
