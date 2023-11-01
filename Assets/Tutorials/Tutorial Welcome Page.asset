@@ -17,11 +17,11 @@ MonoBehaviour:
       m_Calls: []
   m_Image: {fileID: 0}
   m_WindowTitle:
-    m_Untranslated: Window Title
+    m_Untranslated: Titulo
   m_Title:
-    m_Untranslated: This Is the Title
+    m_Untranslated: ZEPETO LOBBY
   m_Description:
-    m_Untranslated: This is the description.
+    m_Untranslated: DEscr
   m_Buttons:
   - Text:
       m_Untranslated: Close
