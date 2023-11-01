@@ -6,6 +6,13 @@ import {ZepetoPlayer, ZepetoPlayers } from 'ZEPETO.Character.Controller';
 import {ItemContent, Mannequin, MannequinPreviewer } from 'ZEPETO.Mannequin';
 import { ZepetoContext, ZepetoPropertyFlag } from 'Zepeto';
 
+
+
+import { DataStorage, loadDataStorage } from 'ZEPETO.Multiplay.DataStorage';
+
+
+
+
 export default class ClothingPickup extends ZepetoScriptBehaviour {
     public image : RawImage;
     public itemCode : string;
@@ -30,14 +37,14 @@ export default class ClothingPickup extends ZepetoScriptBehaviour {
         }
     }
 
-    public OnTriggerExit(other: Collider)
+    /*public OnTriggerExit(other: Collider)
     {
         if (other.gameObject.tag == "Player")
         {
             //Reset Back to the original items from the previewer
             this.Reset();
         }
-    }
+    }*/
 
     *DownloadItemTexture()
     {
@@ -60,7 +67,8 @@ export default class ClothingPickup extends ZepetoScriptBehaviour {
 
         
         this._previewer = new MannequinPreviewer( context, [this.itemContent]);
-        this._previewer.PreviewContents();
+        console.log(" ITEM CONTENT " + this.itemContent + " ITEM CODE " + this.itemCode );
+        //this._previewer.PreviewContents();
     }
     
     Reset()
