@@ -1,0 +1,46 @@
+fileFormatVersion: 2
+guid: 44f755a51a58aea49b59d21f6e203fef
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    ZEPETO_Module_Shop_1 = require(\"ZEPETO.Module.Shop\");\r\nconst UnityEngine_1
+    = require(\"UnityEngine\");\r\nconst ZEPETO_Character_Controller_1 = require(\"ZEPETO.Character.Controller\");\r\nconst
+    ZEPETO_Mannequin_1 = require(\"ZEPETO.Mannequin\");\r\nclass ClothingPickup extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n        this.StartCoroutine(this.DownloadItemTexture());\r\n       
+    this.itemContent = new ZEPETO_Mannequin_1.ItemContent();\r\n        this.itemContent.id
+    = this.itemCode;\r\n        this.itemContent.property = this.itemType;\r\n   
+    }\r\n    OnTriggerEnter(other) {\r\n        if (other.gameObject.tag == \"Player\")
+    {\r\n            //The Player objects name should be the userID. (Set From ZEPETOPlayersManager)\r\n           
+    this.EquipItem(other.gameObject.name);\r\n        }\r\n    }\r\n    OnTriggerExit(other)
+    {\r\n        if (other.gameObject.tag == \"Player\") {\r\n            //Reset
+    Back to the original items from the previewer\r\n            this.Reset();\r\n       
+    }\r\n    }\r\n    *DownloadItemTexture() {\r\n        // Download thumbnail texture
+    for the specified item code\r\n        var request = ZEPETO_Module_Shop_1.ShopService.DownloadItemThumbnail(this.itemCode);\r\n       
+    yield new UnityEngine_1.WaitUntil(() => request.keepWaiting == false);\r\n       
+    if (request.responseData.isSuccess) {\r\n            this.image.texture = request.responseData.texture;\r\n       
+    }\r\n    }\r\n    EquipItem(userID) {\r\n        console.log(\"Equipping: \"
+    + userID);\r\n        let player = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.GetPlayer(userID);\r\n       
+    let context = player.character.Context;\r\n        this._previewer = new ZEPETO_Mannequin_1.MannequinPreviewer(context,
+    [this.itemContent]);\r\n        this._previewer.PreviewContents();\r\n    }\r\n   
+    Reset() {\r\n        this._previewer.ResetContents();\r\n    }\r\n}\r\nexports.default
+    = ClothingPickup;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ2xvdGhpbmdQaWNrdXAuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJDbG90aGluZ1BpY2t1cC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFxRDtBQUVyRCwyREFBaUQ7QUFDakQsNkNBQWlEO0FBQ2pELDZFQUF5RTtBQUN6RSx1REFBNkU7QUFHN0UsTUFBcUIsY0FBZSxTQUFRLHFDQUFxQjtJQU83RCxLQUFLO1FBQ0QsSUFBSSxDQUFDLGNBQWMsQ0FBQyxJQUFJLENBQUMsbUJBQW1CLEVBQUUsQ0FBQyxDQUFDO1FBQ2hELElBQUksQ0FBQyxXQUFXLEdBQUcsSUFBSSw4QkFBVyxFQUFFLENBQUM7UUFDckMsSUFBSSxDQUFDLFdBQVcsQ0FBQyxFQUFFLEdBQUcsSUFBSSxDQUFDLFFBQVEsQ0FBQztRQUNwQyxJQUFJLENBQUMsV0FBVyxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUMsUUFBUSxDQUFDO0lBRTlDLENBQUM7SUFFTSxjQUFjLENBQUMsS0FBZTtRQUVqQyxJQUFJLEtBQUssQ0FBQyxVQUFVLENBQUMsR0FBRyxJQUFJLFFBQVEsRUFDcEM7WUFDSSwrRUFBK0U7WUFDL0UsSUFBSSxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsVUFBVSxDQUFDLElBQUksQ0FBQyxDQUFDO1NBQ3pDO0lBQ0wsQ0FBQztJQUVNLGFBQWEsQ0FBQyxLQUFlO1FBRWhDLElBQUksS0FBSyxDQUFDLFVBQVUsQ0FBQyxHQUFHLElBQUksUUFBUSxFQUNwQztZQUNJLHFEQUFxRDtZQUNyRCxJQUFJLENBQUMsS0FBSyxFQUFFLENBQUM7U0FDaEI7SUFDTCxDQUFDO0lBRUQsQ0FBQyxtQkFBbUI7UUFFaEIseURBQXlEO1FBQ3pELElBQUksT0FBTyxHQUFHLGdDQUFXLENBQUMscUJBQXFCLENBQUMsSUFBSSxDQUFDLFFBQVEsQ0FBQyxDQUFDO1FBRS9ELE1BQU0sSUFBSSx1QkFBUyxDQUFDLEdBQUUsRUFBRSxDQUFBLE9BQU8sQ0FBQyxXQUFXLElBQUksS0FBSyxDQUFDLENBQUM7UUFFdEQsSUFBRyxPQUFPLENBQUMsWUFBWSxDQUFDLFNBQVMsRUFDakM7WUFDSSxJQUFJLENBQUMsS0FBSyxDQUFDLE9BQU8sR0FBRyxPQUFPLENBQUMsWUFBWSxDQUFDLE9BQU8sQ0FBQztTQUNyRDtJQUNMLENBQUM7SUFFRCxTQUFTLENBQUMsTUFBYztRQUVwQixPQUFPLENBQUMsR0FBRyxDQUFDLGFBQWEsR0FBRyxNQUFNLENBQUMsQ0FBQztRQUNwQyxJQUFJLE1BQU0sR0FBaUIsMkNBQWEsQ0FBQyxRQUFRLENBQUMsU0FBUyxDQUFDLE1BQU0sQ0FBQyxDQUFDO1FBQ3BFLElBQUksT0FBTyxHQUFtQixNQUFNLENBQUMsU0FBUyxDQUFDLE9BQU8sQ0FBQztRQUd2RCxJQUFJLENBQUMsVUFBVSxHQUFHLElBQUkscUNBQWtCLENBQUUsT0FBTyxFQUFFLENBQUMsSUFBSSxDQUFDLFdBQVcsQ0FBQyxDQUFDLENBQUM7UUFDdkUsSUFBSSxDQUFDLFVBQVUsQ0FBQyxlQUFlLEVBQUUsQ0FBQztJQUN0QyxDQUFDO0lBRUQsS0FBSztRQUVELElBQUksQ0FBQyxVQUFVLENBQUMsYUFBYSxFQUFFLENBQUM7SUFDcEMsQ0FBQztDQUVKO0FBOURELGlDQThEQyJ9","assetPath":"Assets/Zepeto
+    Mannequin Module/ZepetoScript/ClothingPickup.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"image","type":"UnityEngine.UI.RawImage","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"itemCode","type":"System.String","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"ZEPETO","name":"itemType","type":"Zepeto.ZepetoPropertyFlag","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"ClothingPickup","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 0839668c7a3b0980c0af7367411b2d92
+  onlyWriteTrigger: 0

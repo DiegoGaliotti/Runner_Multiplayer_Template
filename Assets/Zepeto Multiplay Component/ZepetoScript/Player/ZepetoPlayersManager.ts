@@ -3,7 +3,7 @@ import {WorldService, ZepetoWorldMultiplay, Content, OfficialContentType, Zepeto
 import {Room} from "ZEPETO.Multiplay";
 import {SpawnInfo, ZepetoCharacter, ZepetoPlayer, ZepetoPlayers} from 'ZEPETO.Character.Controller';
 import {State, Player} from "ZEPETO.Multiplay.Schema";
-import {GameObject, Object, Quaternion, Vector3, WaitForSeconds} from "UnityEngine";
+import {Debug, GameObject, Object, Quaternion, Vector3, WaitForSeconds} from "UnityEngine";
 import PlayerSync from './PlayerSync';
 import TransformSyncHelper,{PositionExtrapolationType, PositionInterpolationType} from '../Transform/TransformSyncHelper';
 
@@ -116,7 +116,9 @@ export default class ZepetoPlayersManager extends ZepetoScriptBehaviour {
             ZepetoPlayers.instance.CreatePlayerWithUserId(sessionId, player.zepetoUserId, spawnInfo, isLocal);
             ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
                 this._zepetoCharacter = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character; // The reference of the instance of the ZepetoCharacter is taken
-                this._zepetoCharacter.gameObject.tag = "Player"; // The "player" tag is assigned and the ZepetoCharacter gameobject is disabled
+                this._zepetoCharacter.gameObject.tag = "Player";
+                this._zepetoCharacter.gameObject.name = sessionId;
+                Debug.Log("ESTA LLAMANDO ESTE CODIGO") // The "player" tag is assigned and the ZepetoCharacter gameobject is disabled
             });
 
         }

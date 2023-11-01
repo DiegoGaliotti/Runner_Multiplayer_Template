@@ -12,6 +12,11 @@
 		],
 		"types": [
 			"./Assets/World.multiplay/SchemaTypes",
+			"./Library/PackageCache/zepeto.mannequin@1.2.1/Script",
+			"./Library/PackageCache/zepeto.module@1.0.0/Core/Runtime",
+			"./Library/PackageCache/zepeto.module@1.0.0/Shop/Runtime",
+			"./Library/PackageCache/zepeto.module@1.0.0/Social/Runtime",
+			"./Library/PackageCache/zepeto.module@1.0.0/Teleport/Runtime",
 			"./Library/PackageCache/zepeto.world@1.11.1",
 			"./Library/PackageCache/zepeto.world@1.11.1/typings/InputSystem",
 			"./Library/PackageCache/zepeto.world@1.11.1/typings/PostProcessing/Editor",
@@ -24,8 +29,6 @@
 			"./Library/PackageCache/zepeto.world@1.11.1/typings/ZEPETO.IWP",
 			"./Library/PackageCache/zepeto.world.gui@1.2.2",
 			"./Library/PackageCache/zepeto.world.shared@1.6.1/Runtime",
-			"./Library/PackageCache/zepeto.script@1.7.1",
-			"./Library/PackageCache/zepeto.script@1.7.1/wrapper",
 			"./Library/PackageCache/zepeto.multiplay.script@1.6.0/Runtime",
 			"./Library/PackageCache/zepeto.multiplay.script@1.6.0/Runtime/shared",
 			"./Library/PackageCache/zepeto.multiplay.script@1.6.0/ZEPETO.Multiplay",
@@ -93,7 +96,9 @@
 			"./Library/PackageCache/zepeto.script.unityengine.typings@1.0.5/UnityEngine.VRModule",
 			"./Library/PackageCache/zepeto.script.unityengine.typings@1.0.5/UnityEngine.WindModule",
 			"./Library/PackageCache/zepeto.script.unityengine.typings@1.0.5/UnityEngine.XRModule",
-			"./Library/PackageCache/zepeto.script.leaderboard@1.1.8/Runtime"
+			"./Library/PackageCache/zepeto.script.leaderboard@1.1.8/Runtime",
+			"./Library/PackageCache/zepeto.script@1.11.0",
+			"./Library/PackageCache/zepeto.script@1.11.0/wrapper"
 		]
 	}
 }
