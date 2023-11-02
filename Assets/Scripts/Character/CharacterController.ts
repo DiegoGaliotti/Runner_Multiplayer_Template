@@ -9,6 +9,14 @@ export default class CharacterController extends ZepetoScriptBehaviour {
     public static Instance: CharacterController
     private _zepetoCharacter: ZepetoCharacter;
 
+    /*
+    public animator animatorA
+    public animator animatorB
+
+    public UITouchPad A
+    public UITouchPad B
+    */
+
     public Awake(): void 
     {
         // This is how the instance of this class is allocated. Which makes it a "singleton"
@@ -17,13 +25,20 @@ export default class CharacterController extends ZepetoScriptBehaviour {
         else GameObject.Destroy(this);
     }
 
+    CharacterController(sessionId: string, playerID: string, isLocal: boolean){
+
+    }
+
     // Start is called on the frame when a script is enabled just before any of the Update methods is called the first time.
+    Start(){
+
+    }
 
     characterMarketController(sessionId: string, playerID: string, isLocal: boolean){
         // Define the spawnInfo.
         const spawnInfo = new SpawnInfo();
-        spawnInfo.position = new Vector3(0, 1, 0); // Set Character Spawn Position
-        spawnInfo.rotation = Quaternion.Euler(0, 0, 0); // Set Character Spawn Rotation
+        spawnInfo.position = new Vector3(-200, 1, 0); // Set Character Spawn Position
+        spawnInfo.rotation = Quaternion.Euler(0, 180, 0); // Set Character Spawn Rotation
 
         ZepetoPlayers.instance.CreatePlayerWithUserId(sessionId, playerID, spawnInfo, isLocal);
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
@@ -32,7 +47,7 @@ export default class CharacterController extends ZepetoScriptBehaviour {
         });
     }
 
-    characterGameController(){
+    characterGameController(sessionId: string, playerID: string, isLocal: boolean){
         // Define the spawnInfo.
         const spawnInfo = new SpawnInfo();
         spawnInfo.position = new Vector3(0, 1, 0); // Set Character Spawn Position

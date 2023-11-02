@@ -46,4 +46,11 @@ export default class UIRunnerManager extends ZepetoScriptBehaviour {
         this.uIOnGame.SetActive(false);
         this.uIOnLeaderboard.SetActive(false);
     }
+
+    UIOnLobby(){
+        this.uIOnStart.SetActive(false);
+        this.uIOnGameOver.SetActive(false);
+        this.uIOnGame.SetActive(false);
+        this.uIOnLeaderboard.SetActive(false);
+    }
 }

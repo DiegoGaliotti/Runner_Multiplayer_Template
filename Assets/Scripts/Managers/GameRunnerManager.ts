@@ -1,16 +1,22 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import { Debug, GameObject } from 'UnityEngine';
+import { Quaternion, Vector3, Debug, GameObject } from 'UnityEngine';
 import TimerManager from './TimerManager';
 import CharacterController from '../Character/CharacterController';
 import UIRunnerManager from './UIRunnerManager';
 import HealthManager from './HealthManager';
 import LevelManager from './LevelManager';
 import { SceneManager } from 'UnityEngine.SceneManagement';
+import TeleportToRunner from '../Lobby/TeleportToRunner';
+import { SpawnInfo, ZepetoCharacter, ZepetoPlayer, ZepetoPlayers } from 'ZEPETO.Character.Controller';
 
 export default class GameRunnerManager extends ZepetoScriptBehaviour {
 
     public static Instance: GameRunnerManager; // This class instance
     public isGameRunning: bool; // Flag that indicates if the game is running
+    public teleportRunnerDoor: GameObject
+
+    private _localCharacter: ZepetoCharacter;
+
 
     // Awake is called when the script instance is being loaded
     public Awake(): void {
@@ -18,26 +24,28 @@ export default class GameRunnerManager extends ZepetoScriptBehaviour {
         // https://en.wikipedia.org/wiki/Singleton_pattern
         if (GameRunnerManager.Instance == null) GameRunnerManager.Instance = this;
         else GameObject.Destroy(this);
-    }
 
-    Start() {    
-        
-        this.isGameRunning = false;
-        this.OnStart();
+        ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
+            this._localCharacter = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;
+        });
     }
 
     public OnStart(){
+        this.isGameRunning = false;
         UIRunnerManager.Instance.UIOnStart();
-        Debug.Log("Llegue");
+        LevelManager.Instance.StartGame();
+        Debug.Log("ACA");
+        LevelManager.Instance.PauseGame();
     }
 
     public OnGameStart(){
         this.isGameRunning = true;
         UIRunnerManager.Instance.UIOnGame();
         HealthManager.Instance.ResetHealth();
-        CharacterController.Instance.characterGameController(); 
+        //CharacterController.Instance.characterGameController(); 
         TimerManager.Instance.StartTimer(); // This will instance the startTimer method
-        LevelManager.Instance.StartGame();
+        LevelManager.Instance.ResumeGame();
+        if (this.teleportRunnerDoor != null) this.teleportRunnerDoor.SetActive(false);
     }
 
     public OnGamePause(){
@@ -58,7 +66,14 @@ export default class GameRunnerManager extends ZepetoScriptBehaviour {
     }
 
     public BackToLobby(){
-        SceneManager.LoadScene(0);
+        ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
+            this._localCharacter = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;
+        });
+        const spawnInfo = new SpawnInfo();
+        spawnInfo.position = new Vector3(-200, 10, 0)
+        spawnInfo.rotation = Quaternion.Euler(0, 0, 0)
+        this._localCharacter.Teleport(spawnInfo.position, spawnInfo.rotation);
+        UIRunnerManager.Instance.UIOnLobby();
     }
 
 }

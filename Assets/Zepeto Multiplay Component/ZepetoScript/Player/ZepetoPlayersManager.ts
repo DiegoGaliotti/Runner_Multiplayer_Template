@@ -6,6 +6,7 @@ import {State, Player} from "ZEPETO.Multiplay.Schema";
 import {GameObject, Object, Quaternion, Vector3, WaitForSeconds} from "UnityEngine";
 import PlayerSync from './PlayerSync';
 import TransformSyncHelper,{PositionExtrapolationType, PositionInterpolationType} from '../Transform/TransformSyncHelper';
+import CharacterController from '../../../Scripts/Character/CharacterController';
 
 export enum ZepetoPlayerSpawnType {
     NoneSpawn,//Do not create players
@@ -109,16 +110,20 @@ export default class ZepetoPlayersManager extends ZepetoScriptBehaviour {
         this._currentPlayers.set(sessionId, player);
 
         if(this.ZepetoPlayerSpawnType == ZepetoPlayerSpawnType.MultiplayerSpawnOnJoinRoom) {
-            const spawnInfo = new SpawnInfo();
-            spawnInfo.position = this.transform.position;
-            spawnInfo.rotation = this.transform.rotation;
             const isLocal = this._room.SessionId === player.sessionId;
+            
+            CharacterController.Instance.characterMarketController(sessionId, player.zepetoUserId, isLocal)
+            
+            //ESTO ES COMO ERA ANTES, SE CAMBIAR POR LO DE ARRIBA. 
+            /*const spawnInfo = new SpawnInfo();
+            spawnInfo.position = new Vector3(-200, 10, 0); // Set Character Spawn Position
+            spawnInfo.rotation = Quaternion.Euler(0, 0, 0); // Set Character Spawn Rotation    
+            
             ZepetoPlayers.instance.CreatePlayerWithUserId(sessionId, player.zepetoUserId, spawnInfo, isLocal);
             ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
                 this._zepetoCharacter = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character; // The reference of the instance of the ZepetoCharacter is taken
                 this._zepetoCharacter.gameObject.tag = "Player"; // The "player" tag is assigned and the ZepetoCharacter gameobject is disabled
-            });
-
+            });*/
         }
     }
 

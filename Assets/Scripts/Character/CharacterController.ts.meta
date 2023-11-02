@@ -22,29 +22,32 @@ ScriptedImporter:
     { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
     ZEPETO_Character_Controller_1 = require(\"ZEPETO.Character.Controller\");\r\nconst
     UnityEngine_1 = require(\"UnityEngine\");\r\nconst ZEPETO_World_1 = require(\"ZEPETO.World\");\r\nclass
-    CharacterController extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Awake()
-    {\r\n        // This is how the instance of this class is allocated. Which makes
-    it a \"singleton\"\r\n        // https://en.wikipedia.org/wiki/Singleton_pattern\r\n       
-    if (CharacterController.Instance == null)\r\n            CharacterController.Instance
-    = this;\r\n        else\r\n            UnityEngine_1.GameObject.Destroy(this);\r\n   
-    }\r\n    // Start is called on the frame when a script is enabled just before
-    any of the Update methods is called the first time.\r\n    characterMarketController(sessionId,
-    playerID, isLocal) {\r\n        // Define the spawnInfo.\r\n        const spawnInfo
-    = new ZEPETO_Character_Controller_1.SpawnInfo();\r\n        spawnInfo.position
-    = new UnityEngine_1.Vector3(0, 1, 0); // Set Character Spawn Position\r\n       
-    spawnInfo.rotation = UnityEngine_1.Quaternion.Euler(0, 0, 0); // Set Character
-    Spawn Rotation\r\n        $extension(\"ZEPETO.Character.Controller.ZepetoPlayersExtension\").CreatePlayerWithUserId(//
+    CharacterController extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    /*\r\n   
+    public animator animatorA\r\n    public animator animatorB\r\n\r\n    public
+    UITouchPad A\r\n    public UITouchPad B\r\n    */\r\n    Awake() {\r\n       
+    // This is how the instance of this class is allocated. Which makes it a \"singleton\"\r\n       
+    // https://en.wikipedia.org/wiki/Singleton_pattern\r\n        if (CharacterController.Instance
+    == null)\r\n            CharacterController.Instance = this;\r\n        else\r\n           
+    UnityEngine_1.GameObject.Destroy(this);\r\n    }\r\n    CharacterController(sessionId,
+    playerID, isLocal) {\r\n    }\r\n    // Start is called on the frame when a script
+    is enabled just before any of the Update methods is called the first time.\r\n   
+    Start() {\r\n    }\r\n    characterMarketController(sessionId, playerID, isLocal)
+    {\r\n        // Define the spawnInfo.\r\n        const spawnInfo = new ZEPETO_Character_Controller_1.SpawnInfo();\r\n       
+    spawnInfo.position = new UnityEngine_1.Vector3(-200, 1, 0); // Set Character
+    Spawn Position\r\n        spawnInfo.rotation = UnityEngine_1.Quaternion.Euler(0,
+    180, 0); // Set Character Spawn Rotation\r\n        $extension(\"ZEPETO.Character.Controller.ZepetoPlayersExtension\").CreatePlayerWithUserId(//
     Set Character Spawn Rotation\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance,
     sessionId, playerID, spawnInfo, isLocal);\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
     => {\r\n            this._zepetoCharacter = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;
     // The reference of the instance of the ZepetoCharacter is taken\r\n           
     this._zepetoCharacter.gameObject.tag = \"Player\"; // The \"player\" tag is assigned
     and the ZepetoCharacter gameobject is disabled\r\n        });\r\n    }\r\n   
-    characterGameController() {\r\n        // Define the spawnInfo.\r\n        const
-    spawnInfo = new ZEPETO_Character_Controller_1.SpawnInfo();\r\n        spawnInfo.position
-    = new UnityEngine_1.Vector3(0, 1, 0); // Set Character Spawn Position\r\n       
-    spawnInfo.rotation = UnityEngine_1.Quaternion.Euler(0, 90, 0); // Set Character
-    Spawn Rotation\r\n        // Instance of the player zepeto\r\n        $extension(\"ZEPETO.Character.Controller.ZepetoPlayersExtension\").CreatePlayerWithZepetoId(//
+    characterGameController(sessionId, playerID, isLocal) {\r\n        // Define
+    the spawnInfo.\r\n        const spawnInfo = new ZEPETO_Character_Controller_1.SpawnInfo();\r\n       
+    spawnInfo.position = new UnityEngine_1.Vector3(0, 1, 0); // Set Character Spawn
+    Position\r\n        spawnInfo.rotation = UnityEngine_1.Quaternion.Euler(0, 90,
+    0); // Set Character Spawn Rotation\r\n        // Instance of the player zepeto\r\n       
+    $extension(\"ZEPETO.Character.Controller.ZepetoPlayersExtension\").CreatePlayerWithZepetoId(//
     Set Character Spawn Rotation\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance,
     ZEPETO_World_1.WorldService.userId, spawnInfo, true);\r\n        // The instantiation
     can take a few seconds, the following lines are executed once this happens\r\n       
@@ -54,6 +57,6 @@ ScriptedImporter:
     this._zepetoCharacter.gameObject.tag = \"Player\"; // The \"player\" tag is assigned
     and the ZepetoCharacter gameobject is disabled\r\n            this._zepetoCharacter.constraintRotation
     = true; // The player will be in the same position always.\r\n        });\r\n   
-    }\r\n}\r\nexports.default = CharacterController;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ2hhcmFjdGVyQ29udHJvbGxlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkNoYXJhY3RlckNvbnRyb2xsZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBc0Q7QUFDdEQsNkVBQXFHO0FBQ3JHLDZDQUE4RDtBQUM5RCwrQ0FBNEM7QUFHNUMsTUFBcUIsbUJBQW9CLFNBQVEscUNBQXFCO0lBSzNELEtBQUs7UUFFUixvRkFBb0Y7UUFDcEYsa0RBQWtEO1FBQ2xELElBQUksbUJBQW1CLENBQUMsUUFBUSxJQUFJLElBQUk7WUFBRSxtQkFBbUIsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDOztZQUN6RSx3QkFBVSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUNsQyxDQUFDO0lBRUQsd0hBQXdIO0lBRXhILHlCQUF5QixDQUFDLFNBQWlCLEVBQUUsUUFBZ0IsRUFBRSxPQUFnQjtRQUMzRSx3QkFBd0I7UUFDeEIsTUFBTSxTQUFTLEdBQUcsSUFBSSx1Q0FBUyxFQUFFLENBQUM7UUFDbEMsU0FBUyxDQUFDLFFBQVEsR0FBRyxJQUFJLHFCQUFPLENBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUFDLCtCQUErQjtRQUMxRSxTQUFTLENBQUMsUUFBUSxHQUFHLHdCQUFVLENBQUMsS0FBSyxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQywrQkFBK0I7UUFFL0UsaUVBQXVCLHNCQUFzQixDQUZHLCtCQUErQjtRQUUvRSwyQ0FBYSxDQUFDLFFBQVEsRUFBd0IsU0FBUyxFQUFFLFFBQVEsRUFBRSxTQUFTLEVBQUUsT0FBTyxFQUFFO1FBQ3ZGLDJDQUFhLENBQUMsUUFBUSxDQUFDLGtCQUFrQixDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDdkQsSUFBSSxDQUFDLGdCQUFnQixHQUFHLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDLENBQUMsZ0VBQWdFO1lBQ25KLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQyxVQUFVLENBQUMsR0FBRyxHQUFHLFFBQVEsQ0FBQyxDQUFDLDhFQUE4RTtRQUNuSSxDQUFDLENBQUMsQ0FBQztJQUNQLENBQUM7SUFFRCx1QkFBdUI7UUFDbkIsd0JBQXdCO1FBQ3hCLE1BQU0sU0FBUyxHQUFHLElBQUksdUNBQVMsRUFBRSxDQUFDO1FBQ2xDLFNBQVMsQ0FBQyxRQUFRLEdBQUcsSUFBSSxxQkFBTyxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQywrQkFBK0I7UUFDMUUsU0FBUyxDQUFDLFFBQVEsR0FBRyx3QkFBVSxDQUFDLEtBQUssQ0FBQyxDQUFDLEVBQUUsRUFBRSxFQUFFLENBQUMsQ0FBQyxDQUFDLENBQUMsK0JBQStCO1FBRWhGLGdDQUFnQztRQUNoQyxpRUFBdUIsd0JBQXdCLENBSEUsK0JBQStCO1FBR2hGLDJDQUFhLENBQUMsUUFBUSxFQUEwQiwyQkFBWSxDQUFDLE1BQU0sRUFBRSxTQUFTLEVBQUUsSUFBSSxFQUFFO1FBRXRGLCtGQUErRjtRQUMvRiwyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxrQkFBa0IsQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFO1lBQ3ZELElBQUksQ0FBQyxnQkFBZ0IsR0FBRywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUFDLFNBQVMsQ0FBQyxDQUFDLGdFQUFnRTtZQUNuSixJQUFJLENBQUMsZ0JBQWdCLENBQUMsVUFBVSxDQUFDLEdBQUcsR0FBRyxRQUFRLENBQUMsQ0FBQyw4RUFBOEU7WUFDL0gsSUFBSSxDQUFDLGdCQUFnQixDQUFDLGtCQUFrQixHQUFHLElBQUksQ0FBQyxDQUFDLGtEQUFrRDtRQUN2RyxDQUFDLENBQUMsQ0FBQztJQUNQLENBQUM7Q0FFSjtBQTdDRCxzQ0E2Q0MifQ==","assetPath":"Assets/Scripts/Character/CharacterController.ts","manifest":{"properties":[],"name":"CharacterController","description":""},"isCompiled":true}'
-  typescriptHash: de403b730903fcc51f4d66087acdf4f7
+    }\r\n}\r\nexports.default = CharacterController;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ2hhcmFjdGVyQ29udHJvbGxlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkNoYXJhY3RlckNvbnRyb2xsZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBc0Q7QUFDdEQsNkVBQXFHO0FBQ3JHLDZDQUE4RDtBQUM5RCwrQ0FBNEM7QUFHNUMsTUFBcUIsbUJBQW9CLFNBQVEscUNBQXFCO0lBS2xFOzs7Ozs7TUFNRTtJQUVLLEtBQUs7UUFFUixvRkFBb0Y7UUFDcEYsa0RBQWtEO1FBQ2xELElBQUksbUJBQW1CLENBQUMsUUFBUSxJQUFJLElBQUk7WUFBRSxtQkFBbUIsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDOztZQUN6RSx3QkFBVSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUNsQyxDQUFDO0lBRUQsbUJBQW1CLENBQUMsU0FBaUIsRUFBRSxRQUFnQixFQUFFLE9BQWdCO0lBRXpFLENBQUM7SUFFRCx3SEFBd0g7SUFDeEgsS0FBSztJQUVMLENBQUM7SUFFRCx5QkFBeUIsQ0FBQyxTQUFpQixFQUFFLFFBQWdCLEVBQUUsT0FBZ0I7UUFDM0Usd0JBQXdCO1FBQ3hCLE1BQU0sU0FBUyxHQUFHLElBQUksdUNBQVMsRUFBRSxDQUFDO1FBQ2xDLFNBQVMsQ0FBQyxRQUFRLEdBQUcsSUFBSSxxQkFBTyxDQUFDLENBQUMsR0FBRyxFQUFFLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUFDLCtCQUErQjtRQUM3RSxTQUFTLENBQUMsUUFBUSxHQUFHLHdCQUFVLENBQUMsS0FBSyxDQUFDLENBQUMsRUFBRSxHQUFHLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQywrQkFBK0I7UUFFakYsaUVBQXVCLHNCQUFzQixDQUZLLCtCQUErQjtRQUVqRiwyQ0FBYSxDQUFDLFFBQVEsRUFBd0IsU0FBUyxFQUFFLFFBQVEsRUFBRSxTQUFTLEVBQUUsT0FBTyxFQUFFO1FBQ3ZGLDJDQUFhLENBQUMsUUFBUSxDQUFDLGtCQUFrQixDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDdkQsSUFBSSxDQUFDLGdCQUFnQixHQUFHLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDLENBQUMsZ0VBQWdFO1lBQ25KLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQyxVQUFVLENBQUMsR0FBRyxHQUFHLFFBQVEsQ0FBQyxDQUFDLDhFQUE4RTtRQUNuSSxDQUFDLENBQUMsQ0FBQztJQUNQLENBQUM7SUFFRCx1QkFBdUIsQ0FBQyxTQUFpQixFQUFFLFFBQWdCLEVBQUUsT0FBZ0I7UUFDekUsd0JBQXdCO1FBQ3hCLE1BQU0sU0FBUyxHQUFHLElBQUksdUNBQVMsRUFBRSxDQUFDO1FBQ2xDLFNBQVMsQ0FBQyxRQUFRLEdBQUcsSUFBSSxxQkFBTyxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQywrQkFBK0I7UUFDMUUsU0FBUyxDQUFDLFFBQVEsR0FBRyx3QkFBVSxDQUFDLEtBQUssQ0FBQyxDQUFDLEVBQUUsRUFBRSxFQUFFLENBQUMsQ0FBQyxDQUFDLENBQUMsK0JBQStCO1FBRWhGLGdDQUFnQztRQUNoQyxpRUFBdUIsd0JBQXdCLENBSEUsK0JBQStCO1FBR2hGLDJDQUFhLENBQUMsUUFBUSxFQUEwQiwyQkFBWSxDQUFDLE1BQU0sRUFBRSxTQUFTLEVBQUUsSUFBSSxFQUFFO1FBRXRGLCtGQUErRjtRQUMvRiwyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxrQkFBa0IsQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFO1lBQ3ZELElBQUksQ0FBQyxnQkFBZ0IsR0FBRywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUFDLFNBQVMsQ0FBQyxDQUFDLGdFQUFnRTtZQUNuSixJQUFJLENBQUMsZ0JBQWdCLENBQUMsVUFBVSxDQUFDLEdBQUcsR0FBRyxRQUFRLENBQUMsQ0FBQyw4RUFBOEU7WUFDL0gsSUFBSSxDQUFDLGdCQUFnQixDQUFDLGtCQUFrQixHQUFHLElBQUksQ0FBQyxDQUFDLGtEQUFrRDtRQUN2RyxDQUFDLENBQUMsQ0FBQztJQUNQLENBQUM7Q0FFSjtBQTVERCxzQ0E0REMifQ==","assetPath":"Assets/Scripts/Character/CharacterController.ts","manifest":{"properties":[],"name":"CharacterController","description":""},"isCompiled":true}'
+  typescriptHash: 041046fce922dcee4829ae9a0a7ef393
   onlyWriteTrigger: 0
