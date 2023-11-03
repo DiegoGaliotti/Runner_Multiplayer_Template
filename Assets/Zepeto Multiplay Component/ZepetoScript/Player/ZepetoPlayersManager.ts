@@ -112,7 +112,7 @@ export default class ZepetoPlayersManager extends ZepetoScriptBehaviour {
         if(this.ZepetoPlayerSpawnType == ZepetoPlayerSpawnType.MultiplayerSpawnOnJoinRoom) {
             const isLocal = this._room.SessionId === player.sessionId;
             
-            CharacterController.Instance.characterMarketController(sessionId, player.zepetoUserId, isLocal)
+            CharacterController.Instance.CharacterController(sessionId, player.zepetoUserId, isLocal)
             
             //ESTO ES COMO ERA ANTES, SE CAMBIAR POR LO DE ARRIBA. 
             /*const spawnInfo = new SpawnInfo();

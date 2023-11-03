@@ -713,8 +713,8 @@ MonoBehaviour:
     center: {x: 0, y: 0.6, z: 0}
     radius: 0.23
     height: 1.2
-    walkSpeed: 0
-    runSpeed: 0
+    walkSpeed: 3
+    runSpeed: 8
     jumpPower: 12
     layer:
       serializedVersion: 2

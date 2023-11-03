@@ -32,10 +32,11 @@ export default class GameRunnerManager extends ZepetoScriptBehaviour {
 
     public OnStart(){
         this.isGameRunning = false;
+        CharacterController.Instance.CharacterRunnerController();
         UIRunnerManager.Instance.UIOnStart();
         LevelManager.Instance.StartGame();
-        Debug.Log("ACA");
         LevelManager.Instance.PauseGame();
+
     }
 
     public OnGameStart(){
@@ -74,6 +75,7 @@ export default class GameRunnerManager extends ZepetoScriptBehaviour {
         spawnInfo.rotation = Quaternion.Euler(0, 0, 0)
         this._localCharacter.Teleport(spawnInfo.position, spawnInfo.rotation);
         UIRunnerManager.Instance.UIOnLobby();
+        CharacterController.Instance.CharacterLobbyController();
     }
 
 }

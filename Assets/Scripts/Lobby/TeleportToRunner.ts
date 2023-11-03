@@ -21,10 +21,12 @@ export default class TeleportToRunner extends ZepetoScriptBehaviour {
         if (this._localCharacter == null || collider.gameObject != this._localCharacter.gameObject) {
             return;
         }
+        const spawnInfo = new SpawnInfo();
+        spawnInfo.rotation = Quaternion.Euler(0, 90, 0); // Set Character Spawn Rotation
         // Teleport the _localCharacter to the position of destinationObject
-        this._localCharacter.Teleport(this.destinationObject.transform.position, Quaternion.identity);
+        this._localCharacter.Teleport(this.destinationObject.transform.position, spawnInfo.rotation);
         GameRunnerManager.Instance.OnStart();
     }
 
-    
+
 }   
