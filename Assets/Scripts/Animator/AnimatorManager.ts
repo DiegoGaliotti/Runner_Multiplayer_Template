@@ -16,11 +16,6 @@ export default class AnimatorManager extends ZepetoScriptBehaviour {
         // https://en.wikipedia.org/wiki/Singleton_pattern
         if (AnimatorManager.Instance != null) GameObject.Destroy(this.gameObject);
         AnimatorManager.Instance = this;
-
-        ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()=> {
-            this.localPlayer = ZepetoPlayers.instance.LocalPlayer;
-            this.localPlayer.zepetoPlayer.character.gameObject.AddComponent<AnimationControllerRunner>();
-        });
     }
 
     public Start()

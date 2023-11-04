@@ -685,8 +685,8 @@ MonoBehaviour:
   setting: {fileID: 0}
   cameraData:
     cameraPrefab: {fileID: 5806182858035002866, guid: 5be4eddc5b02f4ec0a07a69db26df962, type: 3}
-    maxZoomDistance: 0
-    minZoomDistance: 0
+    maxZoomDistance: 7.37
+    minZoomDistance: 3.22
     maxPitch: 15
     minPitch: 15
     offset: {x: 0, y: 1, z: 0}
@@ -730,7 +730,7 @@ MonoBehaviour:
     useDefaultInputController: 1
     controlMode: 0
     verticalController: {fileID: 8523051459139762370, guid: 33446b9369e354b00a7ab43885afbe88, type: 3}
-    horizontalController: {fileID: 2787167779785370926, guid: 9b7a03709461140b4b3fc85aa8c5d741, type: 3}
+    horizontalController: {fileID: 2787167779785370926, guid: 73c1f49c79e713646bd9e1bfdfeb5156, type: 3}
     verticalDefaultController: {fileID: 8523051459139762370, guid: 33446b9369e354b00a7ab43885afbe88, type: 3}
     horizontalDefaultController: {fileID: 2787167779785370926, guid: 9b7a03709461140b4b3fc85aa8c5d741, type: 3}
   floatingUIData:
