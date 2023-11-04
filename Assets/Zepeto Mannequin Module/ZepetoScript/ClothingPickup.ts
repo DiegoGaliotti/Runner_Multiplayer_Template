@@ -6,13 +6,6 @@ import {ZepetoPlayer, ZepetoPlayers } from 'ZEPETO.Character.Controller';
 import {ItemContent, Mannequin, MannequinPreviewer } from 'ZEPETO.Mannequin';
 import { ZepetoContext, ZepetoPropertyFlag } from 'Zepeto';
 
-
-
-import { DataStorage, loadDataStorage } from 'ZEPETO.Multiplay.DataStorage';
-
-
-
-
 export default class ClothingPickup extends ZepetoScriptBehaviour {
     public image : RawImage;
     public itemCode : string;
@@ -68,7 +61,7 @@ export default class ClothingPickup extends ZepetoScriptBehaviour {
         
         this._previewer = new MannequinPreviewer( context, [this.itemContent]);
         console.log(" ITEM CONTENT " + this.itemContent + " ITEM CODE " + this.itemCode );
-        //this._previewer.PreviewContents();
+        this._previewer.PreviewContents();
     }
     
     Reset()

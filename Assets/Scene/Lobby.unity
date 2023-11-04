@@ -164,6 +164,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EquipPlatform (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5727501852848058971, guid: 100b9670e6d1e9640b1995affc520cd2, type: 3}
+      propertyPath: script.values.Array.data[1]
+      value: '{"type":"System.String, mscorlib","value":"CR_651ef8bbb3e7702dd24e7904"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5727501852848058971, guid: 100b9670e6d1e9640b1995affc520cd2, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"Zepeto.ZepetoPropertyFlag, ZEPETO","value":"{\"value__\":19}"}'
+      objectReference: {fileID: 0}
     - target: {fileID: 5727501852848058975, guid: 100b9670e6d1e9640b1995affc520cd2, type: 3}
       propertyPath: m_RootOrder
       value: 3
