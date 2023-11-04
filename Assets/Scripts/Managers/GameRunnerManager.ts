@@ -9,6 +9,7 @@ import { SceneManager } from 'UnityEngine.SceneManagement';
 import TeleportToRunner from '../Lobby/TeleportToRunner';
 import { SpawnInfo, ZepetoCharacter, ZepetoPlayer, ZepetoPlayers } from 'ZEPETO.Character.Controller';
 import AnimatorManager from '../Animator/AnimatorManager';
+import SideViewController from '../Camara/SideViewController';
 
 export default class GameRunnerManager extends ZepetoScriptBehaviour {
 
