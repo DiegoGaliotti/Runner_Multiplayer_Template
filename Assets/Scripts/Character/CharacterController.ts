@@ -8,9 +8,6 @@ export default class CharacterController extends ZepetoScriptBehaviour {
     public static Instance: CharacterController
     private _zepetoCharacter: ZepetoCharacter;
 
-    public animatorLobby: Animator;
-    public animatorRunner: Animator;
-
     public runSpeed: number = 8;
     public walkSpeed: number = 3;
 

@@ -8,6 +8,7 @@ import LevelManager from './LevelManager';
 import { SceneManager } from 'UnityEngine.SceneManagement';
 import TeleportToRunner from '../Lobby/TeleportToRunner';
 import { SpawnInfo, ZepetoCharacter, ZepetoPlayer, ZepetoPlayers } from 'ZEPETO.Character.Controller';
+import AnimatorManager from '../Animator/AnimatorManager';
 
 export default class GameRunnerManager extends ZepetoScriptBehaviour {
 
@@ -43,30 +44,38 @@ export default class GameRunnerManager extends ZepetoScriptBehaviour {
         this.isGameRunning = true;
         UIRunnerManager.Instance.UIOnGame();
         HealthManager.Instance.ResetHealth();
+        AnimatorManager.Instance.GameRunning(this.isGameRunning);
         //CharacterController.Instance.characterGameController(); 
         TimerManager.Instance.StartTimer(); // This will instance the startTimer method
         LevelManager.Instance.ResumeGame();
         if (this.teleportRunnerDoor != null) this.teleportRunnerDoor.SetActive(false);
-    }
+
+        }
 
     public OnGamePause(){
+        this.isGameRunning = false;
         LevelManager.Instance.PauseGame();
-        UIRunnerManager.Instance.UIOnGamePause()
+        UIRunnerManager.Instance.UIOnGamePause();
+        AnimatorManager.Instance.GameRunning(this.isGameRunning);
     }
 
     public OnGamePlay(){
+        this.isGameRunning = true;
         TimerManager.Instance.ResetTimer();
         LevelManager.Instance.ResumeGame();
         UIRunnerManager.Instance.UIOnGame()
+        AnimatorManager.Instance.GameRunning(this.isGameRunning);
     }
 
     public OnGameOver(){
         this.isGameRunning = false;
         LevelManager.Instance.PauseGame();
         UIRunnerManager.Instance.UIGameOver();
+        AnimatorManager.Instance.GameRunning(this.isGameRunning);
     }
 
     public BackToLobby(){
+        this.isGameRunning = false;
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
             this._localCharacter = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;
         });
@@ -75,6 +84,7 @@ export default class GameRunnerManager extends ZepetoScriptBehaviour {
         spawnInfo.rotation = Quaternion.Euler(0, 0, 0)
         this._localCharacter.Teleport(spawnInfo.position, spawnInfo.rotation);
         UIRunnerManager.Instance.UIOnLobby();
+        AnimatorManager.Instance.GameRunning(this.isGameRunning);
         CharacterController.Instance.CharacterLobbyController();
     }
 

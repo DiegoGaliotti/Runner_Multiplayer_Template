@@ -1,0 +1,41 @@
+fileFormatVersion: 2
+guid: 24ab89c14b2761340a8cb16529da9f8a
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst ZEPETO_Character_Controller_1
+    = require(\"ZEPETO.Character.Controller\");\r\nconst AnimationControllerRunner_1
+    = require(\"./AnimationControllerRunner\");\r\nclass AnimatorManager extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Awake() {\r\n        // This is
+    how the instance of this class is allocated. Which makes it a \"singleton\"\r\n       
+    // https://en.wikipedia.org/wiki/Singleton_pattern\r\n        if (AnimatorManager.Instance
+    != null)\r\n            UnityEngine_1.GameObject.Destroy(this.gameObject);\r\n       
+    AnimatorManager.Instance = this;\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    => {\r\n            this.localPlayer = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer;\r\n           
+    this.localPlayer.zepetoPlayer.character.gameObject.AddComponent($typeof(AnimationControllerRunner_1.default));\r\n       
+    });\r\n    }\r\n    Start() {\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    => {\r\n            this.localPlayer = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer;\r\n           
+    this.localPlayer.zepetoPlayer.character.gameObject.AddComponent($typeof(AnimationControllerRunner_1.default));\r\n       
+    });\r\n    }\r\n    GameRunning(isGameRunning) {\r\n        if (isGameRunning)
+    {\r\n            AnimationControllerRunner_1.default.Instance.ApplyOverrideAnimation(isGameRunning);\r\n       
+    }\r\n        else {\r\n            AnimationControllerRunner_1.default.Instance.ApplyOverrideAnimation(isGameRunning);\r\n       
+    }\r\n    }\r\n}\r\nexports.default = AnimatorManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQW5pbWF0b3JNYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiQW5pbWF0b3JNYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQTBFO0FBQzFFLGlEQUFxRDtBQUNyRCw2RUFBd0U7QUFDeEUsMkVBQW9FO0FBRXBFLE1BQXFCLGVBQWdCLFNBQVEscUNBQXFCO0lBUTlELEtBQUs7UUFDRCxvRkFBb0Y7UUFDcEYsa0RBQWtEO1FBQ2xELElBQUksZUFBZSxDQUFDLFFBQVEsSUFBSSxJQUFJO1lBQUUsd0JBQVUsQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxDQUFDO1FBQzFFLGVBQWUsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDO1FBRWhDLDJDQUFhLENBQUMsUUFBUSxDQUFDLGtCQUFrQixDQUFDLFdBQVcsQ0FBQyxHQUFFLEVBQUU7WUFDdEQsSUFBSSxDQUFDLFdBQVcsR0FBRywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUM7WUFDdEQsSUFBSSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDLFVBQVUsQ0FBQyxZQUFZLFNBQUMsbUNBQXlCLEdBQUk7UUFDakcsQ0FBQyxDQUFDLENBQUM7SUFDUCxDQUFDO0lBRU0sS0FBSztRQUVSLDJDQUFhLENBQUMsUUFBUSxDQUFDLGtCQUFrQixDQUFDLFdBQVcsQ0FBQyxHQUFFLEVBQUU7WUFDdEQsSUFBSSxDQUFDLFdBQVcsR0FBRywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUM7WUFDdEQsSUFBSSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDLFVBQVUsQ0FBQyxZQUFZLFNBQUMsbUNBQXlCLEdBQUk7UUFDakcsQ0FBQyxDQUFDLENBQUM7SUFDUCxDQUFDO0lBRUQsV0FBVyxDQUFDLGFBQXNCO1FBRTlCLElBQUcsYUFBYSxFQUFDO1lBQ2IsbUNBQXlCLENBQUMsUUFBUSxDQUFDLHNCQUFzQixDQUFDLGFBQWEsQ0FBQyxDQUFDO1NBQzVFO2FBQ0c7WUFDQSxtQ0FBeUIsQ0FBQyxRQUFRLENBQUMsc0JBQXNCLENBQUMsYUFBYSxDQUFDLENBQUM7U0FDNUU7SUFDTCxDQUFDO0NBSUo7QUF4Q0Qsa0NBd0NDIn0=","assetPath":"Assets/Scripts/Animator/AnimatorManager.ts","manifest":{"properties":[{"assembly":"UnityEngine.AnimationModule","name":"AnimatorRunner","type":"UnityEngine.RuntimeAnimatorController","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.AnimationModule","name":"AnimatorV2","type":"UnityEngine.RuntimeAnimatorController","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"AnimatorManager","description":""},"isCompiled":true}'
+  typescriptHash: 6e81cac025ba2f3f34317022e2016edd
+  onlyWriteTrigger: 0
