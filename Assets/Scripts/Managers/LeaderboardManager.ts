@@ -11,8 +11,6 @@ export default class LeaderboarManager extends ZepetoScriptBehaviour {
     public endRank: number;
     public resetRule: ResetRule;
 
-    public leaderboarRankingInfo: string;
-
     //public uILeaderboard: UILeaderboard;
 
     public static Instance: LeaderboarManager; // This class instance
@@ -29,55 +27,23 @@ export default class LeaderboarManager extends ZepetoScriptBehaviour {
         LeaderboardAPI.SetScore(this.leaderboardId, score, this.OnResult, this.OnError);
     }
 
-
     GetLeaderboard(){
         LeaderboardAPI.GetRangeRank(this.leaderboardId, this.startRank, this.endRank, this.resetRule, false, this.OnResult1, this.OnError); 
     }
 
     OnResult1(result: GetRangeRankResponse) {
-        if (result.rankInfo.myRank) {
-            const myRank = result.rankInfo.myRank;
-            const name = myRank.name;
-            const score = myRank.score;
-    
-            // Now, you can use 'name' and 'score' in your logic.
-            console.log(`name: ${name}, score: ${score}`);
-            
+        if (result.rankInfo.rankList) {
             // Update the UILeaderboard with the name and score.
-            UILeaderboard.Instance.onUpdateLeaderboard(name, score, myRank);
+            console.log("LeaderboardManager On Result1");
+            UILeaderboard.Instance.onUpdateLeaderboard(result.rankInfo.rankList);
+            console.log(result.rankInfo.rankList);
         }
 
-        let leaderboardInfo = "Leaderboard:\n";
-
-        if (result.rankInfo.myRank) {
-            leaderboardInfo += `My Rank: ${result.rankInfo.myRank.rank}, Score: ${result.rankInfo.myRank.score}\n`;
-        }
-
-        if (result.rankInfo.rankList) {
-            for (let i = 0; i < result.rankInfo.rankList.length; i++) {
-                const rank = result.rankInfo.rankList[i];
-                leaderboardInfo = `Rank ${rank.rank}: ${rank.member}, Score: ${rank.score}\n`;
-            }
-        }
-
-        this.leaderboarRankingInfo += leaderboardInfo;
-
-        if (result.rankInfo.rankList) {
-            console.log("Lista de Clasificación:");
-            for (let i = 0; i < result.rankInfo.rankList.length; i++) {
-                const rank = result.rankInfo.rankList[i];
-                console.log(`Rank ${i + 1}:`);
-                console.log(`Member: ${rank.member}`);
-                console.log(`Rank: ${rank.rank}`);
-                console.log(`Score: ${rank.score}`);
-                console.log("-------------------");
-            }
-        } 
+        
         else {
             console.log("La lista de clasificación está vacía.");
         }
 
-        this.leaderboarRankingInfo += leaderboardInfo;
     }
 
     OnResult(result: SetScoreResponse) {

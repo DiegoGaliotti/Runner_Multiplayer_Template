@@ -28,7 +28,6 @@ export default class GetRangeRank extends ZepetoScriptBehaviour {
             console.log(`name: ${name}, score: ${score}`);
             
             // Update the UILeaderboard with the name and score.
-            UILeaderboard.Instance.onUpdateLeaderboard(name, score, myRank);
         }
         if (result.rankInfo.rankList) {
             console.log("Lista de Clasificación:");

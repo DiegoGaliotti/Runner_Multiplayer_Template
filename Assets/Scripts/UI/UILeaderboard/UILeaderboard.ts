@@ -5,15 +5,13 @@ import { Button } from 'UnityEngine.UI';
 import { Rank } from 'ZEPETO.Script.Leaderboard';
 import UIRunnerManager from '../../Managers/UIRunnerManager';
 import LeaderboarManager from '../../Managers/LeaderboardManager';
+import { SymbolTable } from 'typescript';
 
 export default class UILeaderboard extends ZepetoScriptBehaviour {
     
-    public nombreText: TextMeshProUGUI;
-    public puntajeText: TextMeshProUGUI;
-    public rankText: TextMeshProUGUI;
-    public closeButton: Button;
 
-    public info: TextMeshProUGUI;
+    public rankBoard: TextMeshProUGUI;
+    public closeButton: Button;
 
     public static Instance: UILeaderboard;
 
@@ -22,17 +20,21 @@ export default class UILeaderboard extends ZepetoScriptBehaviour {
         else GameObject.Destroy(this);
     }
 
-    public onUpdateLeaderboard: (name: string, score: number, rank: Rank) => void;
+    public onUpdateLeaderboard: (ranking: Rank[]) => void;
 
-    Update() {
+    Start() {
         this.closeButton.onClick.AddListener(this.Close);
-        this.info.text = LeaderboarManager.Instance.leaderboarRankingInfo;
 
-        this.onUpdateLeaderboard = (name, score, rank) => {
-            this.nombreText.text = `Name: ${name}`;
-            this.puntajeText.text = `Score: ${score}`;
-            this.rankText.text = `Rank: ${rank.rank}`;
-        }
+        console.log("on Start");
+        this.onUpdateLeaderboard = (ranking: Rank[]) => {
+            console.log("esto es el " + ranking);
+            this.rankBoard.text = "";
+            for (const rank of ranking){
+                let fila = " " + rank.rank + " - " + rank.name + " - " + rank.score + "\n";
+                this.rankBoard.text += fila;
+                console.log(fila);
+            }
+        }       
     }
 
     Close(){
