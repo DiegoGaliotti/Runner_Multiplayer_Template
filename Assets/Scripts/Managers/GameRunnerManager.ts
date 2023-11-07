@@ -5,11 +5,12 @@ import CharacterController from '../Character/CharacterController';
 import UIRunnerManager from './UIRunnerManager';
 import HealthManager from './HealthManager';
 import LevelManager from './LevelManager';
-import { SceneManager } from 'UnityEngine.SceneManagement';
 import TeleportToRunner from '../Lobby/TeleportToRunner';
 import { SpawnInfo, ZepetoCharacter, ZepetoPlayer, ZepetoPlayers } from 'ZEPETO.Character.Controller';
 import AnimatorManager from '../Animator/AnimatorManager';
 import SideViewController from '../Camara/SideViewController';
+import ScoreManager from './ScoreManager';
+import LeaderboarManager from './LeaderboardManager';
 
 export default class GameRunnerManager extends ZepetoScriptBehaviour {
 
@@ -32,6 +33,10 @@ export default class GameRunnerManager extends ZepetoScriptBehaviour {
         });
     }
 
+    public Start(){
+        UIRunnerManager.Instance.UIOnLobby();
+    }
+
     public OnStart(){
         this.isGameRunning = false;
         CharacterController.Instance.CharacterRunnerController();
@@ -42,37 +47,39 @@ export default class GameRunnerManager extends ZepetoScriptBehaviour {
     }
 
     public OnGameStart(){
+        ScoreManager.Instance.ResetCoins();
         this.isGameRunning = true;
         UIRunnerManager.Instance.UIOnGame();
         HealthManager.Instance.ResetHealth();
         AnimatorManager.Instance.GameRunning(this.isGameRunning);
-        //CharacterController.Instance.characterGameController(); 
         TimerManager.Instance.StartTimer(); // This will instance the startTimer method
         LevelManager.Instance.ResumeGame();
         if (this.teleportRunnerDoor != null) this.teleportRunnerDoor.SetActive(false);
-
-        }
+    }
 
     public OnGamePause(){
         this.isGameRunning = false;
-        LevelManager.Instance.PauseGame();
-        UIRunnerManager.Instance.UIOnGamePause();
         AnimatorManager.Instance.GameRunning(this.isGameRunning);
+        UIRunnerManager.Instance.UILeaderboard();
     }
 
     public OnGamePlay(){
         this.isGameRunning = true;
         TimerManager.Instance.ResetTimer();
         LevelManager.Instance.ResumeGame();
-        UIRunnerManager.Instance.UIOnGame()
         AnimatorManager.Instance.GameRunning(this.isGameRunning);
+        UIRunnerManager.Instance.UIOnGame()
     }
 
     public OnGameOver(){
         this.isGameRunning = false;
         LevelManager.Instance.PauseGame();
-        UIRunnerManager.Instance.UIGameOver();
         AnimatorManager.Instance.GameRunning(this.isGameRunning);
+        const score = ScoreManager.Instance.EndGameScore();
+        Debug.Log("El score es de:"+ score.toString())
+        LeaderboarManager.Instance.SetScore(score);
+        ScoreManager.Instance.ResetCoins();
+        UIRunnerManager.Instance.UIGameOver();
     }
 
     public BackToLobby(){
@@ -84,9 +91,9 @@ export default class GameRunnerManager extends ZepetoScriptBehaviour {
         spawnInfo.position = new Vector3(-200, 10, 0)
         spawnInfo.rotation = Quaternion.Euler(0, 0, 0)
         this._localCharacter.Teleport(spawnInfo.position, spawnInfo.rotation);
-        UIRunnerManager.Instance.UIOnLobby();
         AnimatorManager.Instance.GameRunning(this.isGameRunning);
         CharacterController.Instance.CharacterLobbyController();
+        UIRunnerManager.Instance.UIOnLobby();
     }
 
 }

@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: cd9eb9d1dd64bf64c82a62ec37a5c3be
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    GameRunnerManager_1 = require(\"../../Managers/GameRunnerManager\");\r\nclass
+    UILobby extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n       
+    this.leaderboardButton.onClick.AddListener(GameRunnerManager_1.default.Instance.OnGamePause);\r\n   
+    }\r\n}\r\nexports.default = UILobby;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVUlMb2JieS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlVJTG9iYnkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFDQSxpREFBc0Q7QUFDdEQsd0VBQWlFO0FBRWpFLE1BQXFCLE9BQVEsU0FBUSxxQ0FBcUI7SUFJdEQsS0FBSztRQUNELElBQUksQ0FBQyxpQkFBaUIsQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUFDLDJCQUFpQixDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsQ0FBQztJQUN2RixDQUFDO0NBRUo7QUFSRCwwQkFRQyJ9","assetPath":"Assets/Scripts/UI/UILobby/UILobby.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"leaderboardButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"UILobby","description":""},"isCompiled":true}'
+  typescriptHash: f0177a741af2eee5bce6c13ea8602cfb
+  onlyWriteTrigger: 0
