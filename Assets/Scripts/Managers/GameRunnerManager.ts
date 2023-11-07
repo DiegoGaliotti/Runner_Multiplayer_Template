@@ -47,7 +47,7 @@ export default class GameRunnerManager extends ZepetoScriptBehaviour {
     }
 
     public OnGameStart(){
-        ScoreManager.Instance.ResetCoins();
+        ScoreManager.Instance.ResetPoins();
         this.isGameRunning = true;
         UIRunnerManager.Instance.UIOnGame();
         HealthManager.Instance.ResetHealth();
@@ -60,6 +60,7 @@ export default class GameRunnerManager extends ZepetoScriptBehaviour {
     public OnGamePause(){
         this.isGameRunning = false;
         AnimatorManager.Instance.GameRunning(this.isGameRunning);
+        LeaderboarManager.Instance.GetLeaderboard();
         UIRunnerManager.Instance.UILeaderboard();
     }
 
@@ -75,10 +76,8 @@ export default class GameRunnerManager extends ZepetoScriptBehaviour {
         this.isGameRunning = false;
         LevelManager.Instance.PauseGame();
         AnimatorManager.Instance.GameRunning(this.isGameRunning);
-        const score = ScoreManager.Instance.EndGameScore();
-        Debug.Log("El score es de:"+ score.toString())
-        LeaderboarManager.Instance.SetScore(score);
-        ScoreManager.Instance.ResetCoins();
+        LeaderboarManager.Instance.SetScore(ScoreManager.Instance.GetTotalScore());
+        ScoreManager.Instance.ResetPoins();
         UIRunnerManager.Instance.UIGameOver();
     }
 

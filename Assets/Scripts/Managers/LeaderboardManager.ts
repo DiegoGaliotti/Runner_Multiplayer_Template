@@ -1,14 +1,17 @@
 import { GameObject } from 'UnityEngine';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script';
 import { SetScoreResponse, LeaderboardAPI, GetRangeRankResponse, ResetRule } from 'ZEPETO.Script.Leaderboard';
+import { TextMeshProUGUI } from 'TMPro';
 import UILeaderboard from '../UI/UILeaderboard/UILeaderboard';
 
 export default class LeaderboarManager extends ZepetoScriptBehaviour {
 
     public leaderboardId: string;
-    public startRank: number = 1;
-    public endRank: number = 10;
+    public startRank: number;
+    public endRank: number;
     public resetRule: ResetRule;
+
+    public leaderboardText : TextMeshProUGUI;
     //public uILeaderboard: UILeaderboard;
 
     public static Instance: LeaderboarManager; // This class instance
@@ -26,7 +29,7 @@ export default class LeaderboarManager extends ZepetoScriptBehaviour {
     }
 
     GetLeaderboard(){
-        LeaderboardAPI.GetRangeRank(this.leaderboardId, this.startRank, this.endRank, this.resetRule, false, this.OnResult, this.OnError); 
+        LeaderboardAPI.GetRangeRank(this.leaderboardId, this.startRank, this.endRank, this.resetRule, false, this.OnResult1, this.OnError); 
     }
 
     OnResult1(result: GetRangeRankResponse) {
@@ -41,6 +44,22 @@ export default class LeaderboarManager extends ZepetoScriptBehaviour {
             // Update the UILeaderboard with the name and score.
             UILeaderboard.Instance.onUpdateLeaderboard(name, score, myRank);
         }
+
+        let leaderboardInfo = "Leaderboard:\n";
+
+        if (result.rankInfo.myRank) {
+            leaderboardInfo += `My Rank: ${result.rankInfo.myRank.rank}, Score: ${result.rankInfo.myRank.score}\n`;
+        }
+
+        if (result.rankInfo.rankList) {
+            for (let i = 0; i < result.rankInfo.rankList.length; i++) {
+                const rank = result.rankInfo.rankList[i];
+                leaderboardInfo += `Rank ${rank.rank}: ${rank.member}, Score: ${rank.score}\n`;
+            }
+        }
+
+        this.leaderboardText.text = leaderboardInfo;
+
         if (result.rankInfo.rankList) {
             console.log("Lista de Clasificación:");
             for (let i = 0; i < result.rankInfo.rankList.length; i++) {
@@ -54,11 +73,10 @@ export default class LeaderboarManager extends ZepetoScriptBehaviour {
         } else {
             console.log("La lista de clasificación está vacía.");
         }
-
     }
 
     OnResult(result: SetScoreResponse) {
-        console.log(`result.isSuccess: ${result.isSuccess}`);
+        console.log(`Result Message- result.isSuccess: ${result.isSuccess}`);
     }
 
     OnError(error: string) {

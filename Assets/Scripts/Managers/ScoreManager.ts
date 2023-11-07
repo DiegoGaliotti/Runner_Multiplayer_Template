@@ -47,7 +47,7 @@ export default class ScoreManager extends ZepetoScriptBehaviour {
     }
 
     // This method resets the internal value of the accumulated points to 0, for each type of points you have
-    public ResetCoins(): void {
+    public ResetPoins(): void {
         for (const pointsType in this.pointsAmounts) {
             if (this.pointsAmounts.hasOwnProperty(pointsType)) {
                 this.pointsAmounts[pointsType] = 0;
@@ -56,7 +56,7 @@ export default class ScoreManager extends ZepetoScriptBehaviour {
         this.totalScore = 0;
     }
 
-    public EndGameScore(): number {
+    public GetTotalScore(): number {
         for (const points in this.pointsAmounts) {
             if (this.pointsAmounts.hasOwnProperty(points)) {
                 const pointAmount = this.pointsAmounts[points];
