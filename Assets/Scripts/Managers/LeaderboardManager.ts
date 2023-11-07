@@ -11,7 +11,8 @@ export default class LeaderboarManager extends ZepetoScriptBehaviour {
     public endRank: number;
     public resetRule: ResetRule;
 
-    public leaderboardText : TextMeshProUGUI;
+    public leaderboarRankingInfo: string;
+
     //public uILeaderboard: UILeaderboard;
 
     public static Instance: LeaderboarManager; // This class instance
@@ -27,6 +28,7 @@ export default class LeaderboarManager extends ZepetoScriptBehaviour {
     SetScore(score: number) {
         LeaderboardAPI.SetScore(this.leaderboardId, score, this.OnResult, this.OnError);
     }
+
 
     GetLeaderboard(){
         LeaderboardAPI.GetRangeRank(this.leaderboardId, this.startRank, this.endRank, this.resetRule, false, this.OnResult1, this.OnError); 
@@ -54,11 +56,11 @@ export default class LeaderboarManager extends ZepetoScriptBehaviour {
         if (result.rankInfo.rankList) {
             for (let i = 0; i < result.rankInfo.rankList.length; i++) {
                 const rank = result.rankInfo.rankList[i];
-                leaderboardInfo += `Rank ${rank.rank}: ${rank.member}, Score: ${rank.score}\n`;
+                leaderboardInfo = `Rank ${rank.rank}: ${rank.member}, Score: ${rank.score}\n`;
             }
         }
 
-        this.leaderboardText.text = leaderboardInfo;
+        this.leaderboarRankingInfo += leaderboardInfo;
 
         if (result.rankInfo.rankList) {
             console.log("Lista de Clasificación:");
@@ -70,9 +72,12 @@ export default class LeaderboarManager extends ZepetoScriptBehaviour {
                 console.log(`Score: ${rank.score}`);
                 console.log("-------------------");
             }
-        } else {
+        } 
+        else {
             console.log("La lista de clasificación está vacía.");
         }
+
+        this.leaderboarRankingInfo += leaderboardInfo;
     }
 
     OnResult(result: SetScoreResponse) {

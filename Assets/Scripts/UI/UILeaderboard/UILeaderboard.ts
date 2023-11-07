@@ -24,9 +24,9 @@ export default class UILeaderboard extends ZepetoScriptBehaviour {
 
     public onUpdateLeaderboard: (name: string, score: number, rank: Rank) => void;
 
-    Start() {
+    Update() {
         this.closeButton.onClick.AddListener(this.Close);
-        this.info = LeaderboarManager.Instance.leaderboardText;
+        this.info.text = LeaderboarManager.Instance.leaderboarRankingInfo;
 
         this.onUpdateLeaderboard = (name, score, rank) => {
             this.nombreText.text = `Name: ${name}`;
