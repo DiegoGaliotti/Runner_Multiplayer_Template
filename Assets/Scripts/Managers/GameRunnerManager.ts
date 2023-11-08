@@ -39,6 +39,7 @@ export default class GameRunnerManager extends ZepetoScriptBehaviour {
 
     public OnStart(){
         this.isGameRunning = false;
+        if (this.teleportRunnerDoor != null) this.teleportRunnerDoor.SetActive(true)
         CharacterController.Instance.CharacterRunnerController();
         UIRunnerManager.Instance.UIOnStart();
         LevelManager.Instance.StartGame();
@@ -74,7 +75,7 @@ export default class GameRunnerManager extends ZepetoScriptBehaviour {
 
     public OnGameOver(){
         this.isGameRunning = false;
-        LevelManager.Instance.PauseGame();
+        LevelManager.Instance.EndGame();
         AnimatorManager.Instance.GameRunning(this.isGameRunning);
         LeaderboarManager.Instance.SetScore(ScoreManager.Instance.GetTotalScore());
         TimerManager.Instance.ResetTimer();

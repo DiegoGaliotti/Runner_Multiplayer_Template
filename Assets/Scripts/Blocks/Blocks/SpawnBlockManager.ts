@@ -51,26 +51,26 @@ export default class SpawnBlockManager extends ZepetoScriptBehaviour {
         this.CheckBlockPosition();
     }
 
-
-
     ResumeSpawnBlockManager() {
-        if (this.generatedBlocks.length != 0) {
-            for (const block of this.generatedBlocks) {
-                if (block != null) {
-                    block.GetComponent<BlocksMoveLeft>().SetMoving(true);
+
+        if(this.generatedBlocks != null){
+            if (this.generatedBlocks.length != 0) {
+                for (const block of this.generatedBlocks) {
+                    if (block != null) {
+                        block.GetComponent<BlocksMoveLeft>().SetMoving(true);
+                    }
                 }
             }
+            else
+                this.GenerateRandomBlock();
         }
-        else
-            this.GenerateRandomBlock();
-
     }
 
 
     CheckBlockPosition() {
 
         // Check if blockGenerated is not null (exists).
-        if (this.blockGenerated) {
+        if (this.blockGenerated && this.blockGenerated != null) {
 
             // If the block's x-position is less than or equal to 0 and we haven't spawned a block yet.
             if (this.blockGenerated.transform.position.x <= this.respawnBlockPositionX && !this.blockSpawned) {
@@ -155,5 +155,14 @@ export default class SpawnBlockManager extends ZepetoScriptBehaviour {
         this.generatedBlocks = this.generatedBlocks.filter(block => block != null);
     }
 
+    DestroyAllBlocks(){
+ // Lista temporal de bloques a destruir
+        this.StopSpawnBlockManager();
+        for (const block of this.generatedBlocks) {
+            if (block != null) {
+                GameObject.Destroy(block); // Marca el bloque para destruirlo añadiéndolo a la lista
+            }
+        }
+    }
 }
 
