@@ -77,6 +77,7 @@ export default class GameRunnerManager extends ZepetoScriptBehaviour {
         LevelManager.Instance.PauseGame();
         AnimatorManager.Instance.GameRunning(this.isGameRunning);
         LeaderboarManager.Instance.SetScore(ScoreManager.Instance.GetTotalScore());
+        TimerManager.Instance.ResetTimer();
         ScoreManager.Instance.ResetPoins();
         UIRunnerManager.Instance.UIGameOver();
     }
