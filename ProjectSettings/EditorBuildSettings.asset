@@ -6,10 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scene/Lobby.unity
-    guid: 520481c9fc2787640be93e9e2e9f9584
-  - enabled: 1
-    path: Assets/Scene/Runner.unity
-    guid: 642111ba64284c24396578b3d7aacb88
+    path: Assets/Scene/Lobby&Runner.unity
+    guid: c8e9725b7fc1a344a8bc21cbd6116742
   m_configObjects:
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 09cac3b0e41604dacab6217291fdc87b, type: 2}

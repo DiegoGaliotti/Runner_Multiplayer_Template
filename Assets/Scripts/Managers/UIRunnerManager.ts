@@ -8,6 +8,7 @@ export default class UIRunnerManager extends ZepetoScriptBehaviour {
     public uIOnGame: GameObject;// Este GameObject es para referenciar con la UI del juego mientras corres
     public uIOnGameOver: GameObject;// Este GameObject es para referenciar con la UI aparece cuando perdes
     public uIOnLeaderboard: GameObject;// Este GameObject es para referenciar con la UI aparece cuando entras al leaderboard y pausas el juego
+    public uIOnLobby: GameObject;
 
     public static Instance: UIRunnerManager; // This class instance
 
@@ -24,13 +25,15 @@ export default class UIRunnerManager extends ZepetoScriptBehaviour {
         this.uIOnGameOver.SetActive(false);
         this.uIOnGame.SetActive(false);
         this.uIOnLeaderboard.SetActive(false);
+        this.uIOnLobby.SetActive(false);
     }
 
-    UIOnGamePause(){
+    UILeaderboard(){
         this.uIOnStart.SetActive(false);
         this.uIOnGameOver.SetActive(false);
         this.uIOnGame.SetActive(false);
         this.uIOnLeaderboard.SetActive(true);
+        this.uIOnLobby.SetActive(false);
     }
 
     UIOnGame(){
@@ -38,6 +41,7 @@ export default class UIRunnerManager extends ZepetoScriptBehaviour {
         this.uIOnGameOver.SetActive(false);
         this.uIOnGame.SetActive(true);
         this.uIOnLeaderboard.SetActive(false);
+        this.uIOnLobby.SetActive(false);
     }
 
     UIGameOver(){
@@ -45,5 +49,14 @@ export default class UIRunnerManager extends ZepetoScriptBehaviour {
         this.uIOnGameOver.SetActive(true);
         this.uIOnGame.SetActive(false);
         this.uIOnLeaderboard.SetActive(false);
+        this.uIOnLobby.SetActive(false);
+    }
+
+    UIOnLobby(){
+        this.uIOnStart.SetActive(false);
+        this.uIOnGameOver.SetActive(false);
+        this.uIOnGame.SetActive(false);
+        this.uIOnLeaderboard.SetActive(false);
+        this.uIOnLobby.SetActive(true);
     }
 }

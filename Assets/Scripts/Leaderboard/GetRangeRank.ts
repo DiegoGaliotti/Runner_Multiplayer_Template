@@ -5,6 +5,8 @@ import { GameObject } from 'UnityEngine';
 
 export default class GetRangeRank extends ZepetoScriptBehaviour {
 
+    //Te trae la información del Leaderboar, es decir, el rango, el score y el nameID del jugador. 
+
     public leaderboardId: string;
     public startRank: number;
     public endRank: number;
@@ -13,7 +15,7 @@ export default class GetRangeRank extends ZepetoScriptBehaviour {
 
     Start() {
         LeaderboardAPI.GetRangeRank(this.leaderboardId, this.startRank, this.endRank, this.resetRule, false, 
-            this.OnResult, this.OnError);
+            this.OnResult, this.OnError); //Esta es la logica que me hace buscar el ranking.
     }
 
     OnResult(result: GetRangeRankResponse) {
@@ -26,7 +28,6 @@ export default class GetRangeRank extends ZepetoScriptBehaviour {
             console.log(`name: ${name}, score: ${score}`);
             
             // Update the UILeaderboard with the name and score.
-            UILeaderboard.Instance.onUpdateLeaderboard(name, score, myRank);
         }
         if (result.rankInfo.rankList) {
             console.log("Lista de Clasificación:");

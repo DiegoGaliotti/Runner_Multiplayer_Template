@@ -2915,7 +2915,7 @@ GameObject:
   - component: {fileID: 7040682236662863791}
   - component: {fileID: 7040682236662863788}
   m_Layer: 5
-  m_Name: UILeaderboard
+  m_Name: UILeaderboardV1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2958,19 +2958,24 @@ MonoBehaviour:
   m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  applyRootMotion: 0
   script:
     keys:
     - nombreText
     - puntajeText
     - rankText
     - onUpdateLeaderboard
+    - closeButton
+    - info
     unityValues:
     - {fileID: 7040682235361056916}
     - {fileID: 7040682236460281120}
     - {fileID: 7040682236139607324}
     - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     values:
+    - 
+    - 
     - 
     - 
     - 
