@@ -21,29 +21,39 @@ ScriptedImporter:
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\nexports.Currency = void 0;\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
     ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nvar Currency;\r\n(function (Currency)
-    {\r\n    Currency[Currency[\"star\"] = 0] = \"star\";\r\n    Currency[Currency[\"energy\"]
-    = 1] = \"energy\";\r\n})(Currency = exports.Currency || (exports.Currency = {}));
+    {\r\n    Currency[Currency[\"star\"] = 0] = \"star\";\r\n    Currency[Currency[\"cherry\"]
+    = 1] = \"cherry\";\r\n})(Currency = exports.Currency || (exports.Currency = {}));
     // This enum is a manager for using diferent tipe of points\r\n// This class
     manages the score\r\nclass ScoreManager extends ZEPETO_Script_1.ZepetoScriptBehaviour
     {\r\n    constructor() {\r\n        super(...arguments);\r\n        this.pointsAmounts
-    = {\r\n            [Currency.star]: 0,\r\n            [Currency.energy]: 0\r\n       
+    = {\r\n            [Currency.star]: 0,\r\n            [Currency.cherry]: 0\r\n       
     }; // Internal dictionary of accumulated points and we declare thats start on
-    0\r\n    }\r\n    // Awake is called when the script instance is being loaded\r\n   
-    Awake() {\r\n        // This is how the instance of this class is allocated.
-    Which makes it a \"singleton\"\r\n        // https://en.wikipedia.org/wiki/Singleton_pattern\r\n       
-    if (ScoreManager.Instance == null)\r\n            ScoreManager.Instance = this;\r\n       
-    else\r\n            UnityEngine_1.GameObject.Destroy(this);\r\n    }\r\n    //
-    This method is called when the player scores a point depending on the point it
-    get\r\n    ScorePoints(pointsType, amount) {\r\n        // Add the value of the
-    point passed by parameter to the internal total value\r\n        if (this.pointsAmounts.hasOwnProperty(pointsType))
+    0\r\n        this.scoreGenerator = {\r\n            [Currency.star]: 1,\r\n           
+    [Currency.cherry]: 5\r\n        }; // Internal dictionary of the value each currency
+    generate on the total score\r\n        this.totalScore = 0;\r\n    }\r\n    //
+    Awake is called when the script instance is being loaded\r\n    Awake() {\r\n       
+    // This is how the instance of this class is allocated. Which makes it a \"singleton\"\r\n       
+    // https://en.wikipedia.org/wiki/Singleton_pattern\r\n        if (ScoreManager.Instance
+    == null)\r\n            ScoreManager.Instance = this;\r\n        else\r\n           
+    UnityEngine_1.GameObject.Destroy(this);\r\n    }\r\n    // This method is called
+    when the player scores a point depending on the point it get\r\n    ScorePoints(pointsType,
+    amount) {\r\n        // Add the value of the point passed by parameter to the
+    internal total value\r\n        if (this.pointsAmounts.hasOwnProperty(pointsType))
     {\r\n            this.pointsAmounts[pointsType] += amount;\r\n        }\r\n   
     }\r\n    // This method returns the internal value of the accumulated points\r\n   
     GetPoints(pointsType) {\r\n        if (this.pointsAmounts.hasOwnProperty(pointsType))
     {\r\n            return this.pointsAmounts[pointsType];\r\n        }\r\n       
     return 0;\r\n    }\r\n    // This method resets the internal value of the accumulated
-    points to 0, for each type of points you have\r\n    ResetCoins() {\r\n       
+    points to 0, for each type of points you have\r\n    ResetPoins() {\r\n       
     for (const pointsType in this.pointsAmounts) {\r\n            if (this.pointsAmounts.hasOwnProperty(pointsType))
     {\r\n                this.pointsAmounts[pointsType] = 0;\r\n            }\r\n       
-    }\r\n    }\r\n}\r\nexports.default = ScoreManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU2NvcmVNYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiU2NvcmVNYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUFBLDZDQUF5QztBQUN6QyxpREFBc0Q7QUFRdEQsSUFBWSxRQUdYO0FBSEQsV0FBWSxRQUFRO0lBQ2hCLHVDQUFRLENBQUE7SUFDUiwyQ0FBVSxDQUFBO0FBQ2QsQ0FBQyxFQUhXLFFBQVEsR0FBUixnQkFBUSxLQUFSLGdCQUFRLFFBR25CLENBQUMsMkRBQTJEO0FBRTdELCtCQUErQjtBQUMvQixNQUFxQixZQUFhLFNBQVEscUNBQXFCO0lBQS9EOztRQUdZLGtCQUFhLEdBQThCO1lBQy9DLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxFQUFFLENBQUM7WUFDbEIsQ0FBQyxRQUFRLENBQUMsTUFBTSxDQUFDLEVBQUUsQ0FBQztTQUN2QixDQUFDLENBQUMsNEVBQTRFO0lBbUNuRixDQUFDO0lBakNHLDJEQUEyRDtJQUNwRCxLQUFLO1FBQ1Isb0ZBQW9GO1FBQ3BGLGtEQUFrRDtRQUNsRCxJQUFJLFlBQVksQ0FBQyxRQUFRLElBQUksSUFBSTtZQUFFLFlBQVksQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDOztZQUMzRCx3QkFBVSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUNsQyxDQUFDO0lBRUQscUZBQXFGO0lBQzlFLFdBQVcsQ0FBQyxVQUFvQixFQUFFLE1BQWM7UUFDbkQsNkVBQTZFO1FBQzdFLElBQUksSUFBSSxDQUFDLGFBQWEsQ0FBQyxjQUFjLENBQUMsVUFBVSxDQUFDLEVBQUU7WUFDL0MsSUFBSSxDQUFDLGFBQWEsQ0FBQyxVQUFVLENBQUMsSUFBSSxNQUFNLENBQUM7U0FDNUM7SUFDTCxDQUFDO0lBRUQsbUVBQW1FO0lBQzVELFNBQVMsQ0FBQyxVQUFvQjtRQUNqQyxJQUFJLElBQUksQ0FBQyxhQUFhLENBQUMsY0FBYyxDQUFDLFVBQVUsQ0FBQyxFQUFFO1lBQy9DLE9BQU8sSUFBSSxDQUFDLGFBQWEsQ0FBQyxVQUFVLENBQUMsQ0FBQztTQUN6QztRQUNELE9BQU8sQ0FBQyxDQUFDO0lBQ2IsQ0FBQztJQUVELHlHQUF5RztJQUNsRyxVQUFVO1FBQ2IsS0FBSyxNQUFNLFVBQVUsSUFBSSxJQUFJLENBQUMsYUFBYSxFQUFFO1lBQ3pDLElBQUksSUFBSSxDQUFDLGFBQWEsQ0FBQyxjQUFjLENBQUMsVUFBVSxDQUFDLEVBQUU7Z0JBQy9DLElBQUksQ0FBQyxhQUFhLENBQUMsVUFBVSxDQUFDLEdBQUcsQ0FBQyxDQUFDO2FBQ3RDO1NBQ0o7SUFDTCxDQUFDO0NBRUo7QUF6Q0QsK0JBeUNDIn0=","assetPath":"Assets/Scripts/Managers/ScoreManager.ts","manifest":{"properties":[],"name":"ScoreManager","description":""},"isCompiled":true}'
-  typescriptHash: ac9cb1509d52ef931e213b697dca0a0a
+    }\r\n        this.totalScore = 0;\r\n    }\r\n    GetTotalScore() {\r\n       
+    for (const points in this.pointsAmounts) {\r\n            if (this.pointsAmounts.hasOwnProperty(points))
+    {\r\n                const pointAmount = this.pointsAmounts[points];\r\n               
+    if (this.scoreGenerator.hasOwnProperty(points)) {\r\n                    const
+    score = this.scoreGenerator[points];\r\n                    const scoreType =
+    pointAmount * score;\r\n                    this.totalScore += scoreType;\r\n               
+    }\r\n            }\r\n        }\r\n        return this.totalScore;\r\n    }\r\n}\r\nexports.default
+    = ScoreManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU2NvcmVNYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiU2NvcmVNYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUFBLDZDQUFrRDtBQUNsRCxpREFBc0Q7QUFFdEQsSUFBWSxRQUdYO0FBSEQsV0FBWSxRQUFRO0lBQ2hCLHVDQUFRLENBQUE7SUFDUiwyQ0FBVSxDQUFBO0FBQ2QsQ0FBQyxFQUhXLFFBQVEsR0FBUixnQkFBUSxLQUFSLGdCQUFRLFFBR25CLENBQUMsMkRBQTJEO0FBRTdELCtCQUErQjtBQUMvQixNQUFxQixZQUFhLFNBQVEscUNBQXFCO0lBQS9EOztRQUdZLGtCQUFhLEdBQThCO1lBQy9DLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxFQUFFLENBQUM7WUFDbEIsQ0FBQyxRQUFRLENBQUMsTUFBTSxDQUFDLEVBQUUsQ0FBQztTQUN2QixDQUFDLENBQUMsNEVBQTRFO1FBRXZFLG1CQUFjLEdBQThCO1lBQ2hELENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxFQUFFLENBQUM7WUFDbEIsQ0FBQyxRQUFRLENBQUMsTUFBTSxDQUFDLEVBQUUsQ0FBQztTQUN2QixDQUFDLENBQUMsNkVBQTZFO1FBRXpFLGVBQVUsR0FBVyxDQUFDLENBQUM7SUFpRGxDLENBQUM7SUEvQ0csMkRBQTJEO0lBQ3BELEtBQUs7UUFDUixvRkFBb0Y7UUFDcEYsa0RBQWtEO1FBQ2xELElBQUksWUFBWSxDQUFDLFFBQVEsSUFBSSxJQUFJO1lBQUUsWUFBWSxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7O1lBQzNELHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0lBQ2xDLENBQUM7SUFFRCxxRkFBcUY7SUFDOUUsV0FBVyxDQUFDLFVBQW9CLEVBQUUsTUFBYztRQUNuRCw2RUFBNkU7UUFDN0UsSUFBSSxJQUFJLENBQUMsYUFBYSxDQUFDLGNBQWMsQ0FBQyxVQUFVLENBQUMsRUFBRTtZQUMvQyxJQUFJLENBQUMsYUFBYSxDQUFDLFVBQVUsQ0FBQyxJQUFJLE1BQU0sQ0FBQztTQUM1QztJQUNMLENBQUM7SUFFRCxtRUFBbUU7SUFDNUQsU0FBUyxDQUFDLFVBQW9CO1FBQ2pDLElBQUksSUFBSSxDQUFDLGFBQWEsQ0FBQyxjQUFjLENBQUMsVUFBVSxDQUFDLEVBQUU7WUFDL0MsT0FBTyxJQUFJLENBQUMsYUFBYSxDQUFDLFVBQVUsQ0FBQyxDQUFDO1NBQ3pDO1FBQ0QsT0FBTyxDQUFDLENBQUM7SUFDYixDQUFDO0lBRUQseUdBQXlHO0lBQ2xHLFVBQVU7UUFDYixLQUFLLE1BQU0sVUFBVSxJQUFJLElBQUksQ0FBQyxhQUFhLEVBQUU7WUFDekMsSUFBSSxJQUFJLENBQUMsYUFBYSxDQUFDLGNBQWMsQ0FBQyxVQUFVLENBQUMsRUFBRTtnQkFDL0MsSUFBSSxDQUFDLGFBQWEsQ0FBQyxVQUFVLENBQUMsR0FBRyxDQUFDLENBQUM7YUFDdEM7U0FDSjtRQUNELElBQUksQ0FBQyxVQUFVLEdBQUcsQ0FBQyxDQUFDO0lBQ3hCLENBQUM7SUFFTSxhQUFhO1FBQ2hCLEtBQUssTUFBTSxNQUFNLElBQUksSUFBSSxDQUFDLGFBQWEsRUFBRTtZQUNyQyxJQUFJLElBQUksQ0FBQyxhQUFhLENBQUMsY0FBYyxDQUFDLE1BQU0sQ0FBQyxFQUFFO2dCQUMzQyxNQUFNLFdBQVcsR0FBRyxJQUFJLENBQUMsYUFBYSxDQUFDLE1BQU0sQ0FBQyxDQUFDO2dCQUMvQyxJQUFHLElBQUksQ0FBQyxjQUFjLENBQUMsY0FBYyxDQUFDLE1BQU0sQ0FBQyxFQUFDO29CQUMxQyxNQUFNLEtBQUssR0FBRyxJQUFJLENBQUMsY0FBYyxDQUFDLE1BQU0sQ0FBQyxDQUFDO29CQUMxQyxNQUFNLFNBQVMsR0FBRyxXQUFXLEdBQUcsS0FBSyxDQUFDO29CQUN0QyxJQUFJLENBQUMsVUFBVSxJQUFJLFNBQVMsQ0FBQztpQkFDaEM7YUFDSjtTQUNKO1FBQ0QsT0FBTyxJQUFJLENBQUMsVUFBVSxDQUFDO0lBQzNCLENBQUM7Q0FDSjtBQTlERCwrQkE4REMifQ==","assetPath":"Assets/Scripts/Managers/ScoreManager.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"totalScore","type":"System.Single","isArray":false,"initValue":["0"],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"ScoreManager","description":""},"isCompiled":true}'
+  typescriptHash: edbee72d83645d02eabbae1e6378ee73
   onlyWriteTrigger: 0
