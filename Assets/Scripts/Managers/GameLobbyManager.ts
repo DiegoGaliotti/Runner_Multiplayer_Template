@@ -24,12 +24,11 @@ export default class GameLobbyManager extends ZepetoScriptBehaviour {
     }
 
     public OnStart(){
-        CharacterController.Instance.characterMarketController(); 
+        
+
     }
 
     public OnGameStart(){
-
-        CharacterController.Instance.characterMarketController(); 
 
     }
 

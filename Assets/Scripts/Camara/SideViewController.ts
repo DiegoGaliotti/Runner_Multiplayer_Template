@@ -8,11 +8,12 @@ import * as UnityEngine from 'UnityEngine';
 export default class SideViewController extends ZepetoScriptBehaviour {
 
     public customCamera: UnityEngine.Camera;
-    public cameraDistanceZ: number = 2.5;
-    public cameraDistanceX: number = 1.8;
-    public cameraDistanceY: number = 0;
 
-    private originSpawnPoint: Vector3 = new Vector3(0, 0, 0);
+    //Camera setting, distance and location, 
+    private cameraDistanceZ: number = 4;
+    private cameraDistanceX: number = 3.5;
+    private cameraDistanceY: number = 2.5;
+
     private myCharacter: ZepetoCharacter;
     private startPos: Vector2 = Vector2.zero;
     private curPos: Vector2 = Vector2.zero;
@@ -61,7 +62,7 @@ export default class SideViewController extends ZepetoScriptBehaviour {
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
             ZepetoPlayers.instance.LocalPlayer.zepetoCamera.gameObject.SetActive(false);
             this.myCharacter = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;
-            this.customCamera.transform.position = this.myCharacter.transform.position  + this.originSpawnPoint;
+            this.customCamera.transform.position = this.myCharacter.transform.position;
             this.StartCoroutine(this.InputControlLoop());
         });
     }
@@ -84,7 +85,7 @@ export default class SideViewController extends ZepetoScriptBehaviour {
                     // Left-Right
                     let optMoveDir = new Vector3(moveDir.x, 0, 0);
                     optMoveDir = Vector3.op_Multiply(optMoveDir, Time.deltaTime * 80);
-                    this.myCharacter.Move(camRot * optMoveDir);
+                    this.myCharacter.Move(optMoveDir);
                 }
             }
         }

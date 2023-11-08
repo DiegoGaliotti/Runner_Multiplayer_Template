@@ -1,0 +1,45 @@
+fileFormatVersion: 2
+guid: 5d31af756e6e4e94c87ce5f7a50bd692
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
+    \\\"__esModule\\\", { value: true });\\r\\nconst UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nconst
+    ZEPETO_Character_Controller_1 = require(\\\"ZEPETO.Character.Controller\\\");\\r\\nconst
+    ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nconst AnimatorManager_1
+    = require(\\\"./AnimatorManager\\\");\\r\\nclass AnimationControllerRunner extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\\r\\n    Awake() {\\r\\n        // This
+    is how the instance of this class is allocated. Which makes it a \\\"singleton\\\"\\r\\n       
+    // https://en.wikipedia.org/wiki/Singleton_pattern\\r\\n        if (AnimationControllerRunner.Instance
+    != null)\\r\\n            UnityEngine_1.GameObject.Destroy(this.gameObject);\\r\\n       
+    AnimationControllerRunner.Instance = this;\\r\\n    }\\r\\n    Start() {\\r\\n       
+    this.animator = this.GetComponentInChildren($typeof(UnityEngine_1.Animator));\\r\\n   
+    }\\r\\n    ApplyOverrideAnimation(isGameRunning) {\\r\\n        let state = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.CurrentState;\\r\\n       
+    //Override the animations based on the type enum\\r\\n        switch (isGameRunning)
+    {\\r\\n            case true:\\r\\n                UnityEngine_1.Debug.Log(\\\"Ac\xE1
+    estoy\\\");\\r\\n                this.animator.runtimeAnimatorController = AnimatorManager_1.default.Instance.AnimatorRunner;\\r\\n               
+    break;\\r\\n            case false:\\r\\n                this.animator.runtimeAnimatorController
+    = AnimatorManager_1.default.Instance.AnimatorV2;\\r\\n                break;\\r\\n       
+    }\\r\\n        this.animator.SetInteger(\\\"State\\\", state);\\r\\n    }\\r\\n   
+    ResetOverrides() {\\r\\n        //Reset Animations back to original states\\r\\n       
+    let state = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.CurrentState;\\r\\n       
+    this.animator.runtimeAnimatorController = AnimatorManager_1.default.Instance.AnimatorV2;\\r\\n       
+    this.animator.SetInteger(\\\"State\\\", state);\\r\\n    }\\r\\n}\\r\\nexports.default
+    = AnimationControllerRunner;\\r\\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQW5pbWF0aW9uQ29udHJvbGxlclJ1bm5lci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkFuaW1hdGlvbkNvbnRyb2xsZXJSdW5uZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFDQSw2Q0FBMkk7QUFDM0ksNkVBQTBFO0FBQzFFLGlEQUFxRDtBQUNyRCx1REFBZ0Q7QUFFaEQsTUFBcUIseUJBQTBCLFNBQVEscUNBQXFCO0lBTXhFLEtBQUs7UUFDRCxvRkFBb0Y7UUFDcEYsa0RBQWtEO1FBQ2xELElBQUkseUJBQXlCLENBQUMsUUFBUSxJQUFJLElBQUk7WUFBRSx3QkFBVSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsVUFBVSxDQUFDLENBQUM7UUFDcEYseUJBQXlCLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQztJQUM5QyxDQUFDO0lBRU0sS0FBSztRQUVSLElBQUksQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDLHNCQUFzQixTQUFDLHNCQUFRLEVBQUcsQ0FBQztJQUM1RCxDQUFDO0lBRU0sc0JBQXNCLENBQUMsYUFBc0I7UUFFaEQsSUFBSSxLQUFLLEdBQW1CLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDLFlBQVksQ0FBQztRQUVuRyxnREFBZ0Q7UUFDaEQsUUFBTyxhQUFhLEVBQ3BCO1lBQ0ksS0FBSyxJQUFJO2dCQUNMLG1CQUFLLENBQUMsR0FBRyxDQUFDLFdBQVcsQ0FBQyxDQUFDO2dCQUN2QixJQUFJLENBQUMsUUFBUSxDQUFDLHlCQUF5QixHQUFHLHlCQUFlLENBQUMsUUFBUSxDQUFDLGNBQWMsQ0FBQztnQkFDbEYsTUFBTTtZQUNWLEtBQUssS0FBSztnQkFDTixJQUFJLENBQUMsUUFBUSxDQUFDLHlCQUF5QixHQUFHLHlCQUFlLENBQUMsUUFBUSxDQUFDLFVBQVUsQ0FBQztnQkFDOUUsTUFBTTtTQUNiO1FBRUQsSUFBSSxDQUFDLFFBQVEsQ0FBQyxVQUFVLENBQUMsT0FBTyxFQUFDLEtBQUssQ0FBQyxDQUFDO0lBQzVDLENBQUM7SUFFTSxjQUFjO1FBRWpCLDBDQUEwQztRQUMxQyxJQUFJLEtBQUssR0FBbUIsMkNBQWEsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLFlBQVksQ0FBQyxTQUFTLENBQUMsWUFBWSxDQUFDO1FBQ25HLElBQUksQ0FBQyxRQUFRLENBQUMseUJBQXlCLEdBQUcseUJBQWUsQ0FBQyxRQUFRLENBQUMsVUFBVSxDQUFDO1FBQzlFLElBQUksQ0FBQyxRQUFRLENBQUMsVUFBVSxDQUFDLE9BQU8sRUFBQyxLQUFLLENBQUMsQ0FBQztJQUM1QyxDQUFDO0NBRUo7QUE3Q0QsNENBNkNDIn0=\",\"assetPath\":\"Assets/Scripts/Animator/AnimationControllerRunner.ts\",\"manifest\":{\"properties\":[],\"name\":\"AnimationControllerRunner\",\"description\":\"\"},\"isCompiled\":true}"
+  typescriptHash: 52a949a1d1ec5eb9e1c2ce6aaedb8564
+  onlyWriteTrigger: 0
