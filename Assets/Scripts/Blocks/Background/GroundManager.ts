@@ -12,6 +12,7 @@ export default class GroundManager extends ZepetoScriptBehaviour {
     public groundSpeed: number = 1;
     private groundWidth: number = 1;
     private isGroundInTheScene: bool = false;
+    public xleftBound: number = -40;
 
     
     private groundMoveLeft: GroundMoveLeft;
@@ -55,7 +56,7 @@ export default class GroundManager extends ZepetoScriptBehaviour {
 
     public RepeatGround() {
         
-        if (this.movingGround.transform.position.x < -40) {
+        if (this.movingGround.transform.position.x < this.xleftBound) {
             this.movingGround.transform.position = this.groundStartPos;
 
         }
