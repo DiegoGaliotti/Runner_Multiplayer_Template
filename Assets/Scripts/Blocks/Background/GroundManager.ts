@@ -11,7 +11,7 @@ export default class GroundManager extends ZepetoScriptBehaviour {
     private groundStartPos: Vector3 = new Vector3(0, 0, 0);
     public groundSpeed: number = 1;
     private isGroundInTheScene: bool = false;
-    public xleftBound: number = -40;
+    public xleftBound: number = -30;
 
     
     private groundMoveLeft: GroundMoveLeft;
@@ -41,15 +41,14 @@ export default class GroundManager extends ZepetoScriptBehaviour {
     }
     
     Update() {
-
-        if (this.isGroundMoving ) {
+             
             if (this.movingGround) {
+               
                 this.groundMoveLeft.SetGroundSpeed(this.groundSpeed);
                 this.RepeatGround();
 
             }
 
-        }
     }
 
 
