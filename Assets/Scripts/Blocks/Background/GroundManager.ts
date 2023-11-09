@@ -10,7 +10,8 @@ export default class GroundManager extends ZepetoScriptBehaviour {
     public ground: GameObject;
     private groundStartPos: Vector3 = new Vector3(0, 0, 0);
     public groundSpeed: number = 1;
-    private groundWidth: number = 1;
+    private isGroundInTheScene: bool = false;
+    public xleftBound: number = -40;
 
     
     private groundMoveLeft: GroundMoveLeft;
@@ -25,27 +26,20 @@ export default class GroundManager extends ZepetoScriptBehaviour {
         if (GroundManager.Instance == null) GroundManager.Instance = this;
         else GameObject.Destroy(this);
 
-
-
     }
 
     public StartGroundManager() {
 
-      
-
-        this.movingGround = GameObject.Instantiate(this.ground, this.groundStartPos, Quaternion.identity) as GameObject;
-
+        if (this.isGroundInTheScene == false) {
+            this.movingGround = GameObject.Instantiate(this.ground, this.groundStartPos, Quaternion.identity) as GameObject;
+            this.isGroundInTheScene = true;
+        }
+        this.movingGround.transform.position = this.groundStartPos;
         this.groundMoveLeft = this.movingGround.GetComponent<GroundMoveLeft>();
-
-       // this.groundWidth = this.movingGround.GetComponent<BoxCollider>().size.x;
-
-        this.isGroundMoving = this.groundMoveLeft.isMoving
-        
-       
-        
-
+    
+        this.isGroundMoving = this.groundMoveLeft.isMoving;
     }
-
+    
     Update() {
 
         if (this.isGroundMoving ) {
@@ -53,18 +47,15 @@ export default class GroundManager extends ZepetoScriptBehaviour {
                 this.groundMoveLeft.SetGroundSpeed(this.groundSpeed);
                 this.RepeatGround();
 
-
-
             }
 
         }
     }
 
 
-
     public RepeatGround() {
         
-        if (this.movingGround.transform.position.x < this.groundStartPos.x - this.groundWidth/4) {
+        if (this.movingGround.transform.position.x < this.xleftBound) {
             this.movingGround.transform.position = this.groundStartPos;
 
         }
@@ -79,6 +70,7 @@ export default class GroundManager extends ZepetoScriptBehaviour {
 
     }
 
+    
 
 
 }

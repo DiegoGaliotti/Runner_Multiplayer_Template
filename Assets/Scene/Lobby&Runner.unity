@@ -691,7 +691,7 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     values:
-    - '{"type":"System.Single, mscorlib","value":"3"}'
+    - '{"type":"System.Single, mscorlib","value":"10"}'
     - '{"type":"System.Single, mscorlib","value":"0"}'
     unityArrayValues: []
     arrayValues: []
@@ -950,7 +950,7 @@ MonoBehaviour:
     - {fileID: 0}
     values:
     - 
-    - '{"type":"System.Single, mscorlib","value":"0"}'
+    - '{"type":"System.Single, mscorlib","value":"0.51"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: b44fb3c6e154f4e8ebfd4e80313b1c9a, type: 3}
