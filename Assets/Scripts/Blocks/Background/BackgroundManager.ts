@@ -8,7 +8,7 @@ export default class BackgroundManager extends ZepetoScriptBehaviour {
 
     public backgroundSpeed: number = 1;
     private backGroundWidth: number;
-    private startPos: Vector3 = new Vector3(10, 0, 0);
+    private startPos: Vector3 = new Vector3(20, 9, 4);
     public isMoving: bool = false;
     //public backgroundManager: GameObject;
     //private backgroundSprite: SpriteRenderer;
@@ -24,13 +24,15 @@ export default class BackgroundManager extends ZepetoScriptBehaviour {
         this.SetMoving(true);
         this.MoveBackGroundLeft();
         this.backGroundWidth = this.GetComponent<BoxCollider>().size.x / 2;
-        this.startPos = this.transform.position;
+        //this.startPos = this.transform.position;
     }
 
     Update() {
         if (this.SetMoving)
         {
             this.RepeatBackGround();
+            console.log("start pos: " +this.startPos);
+            console.log("dif : " + (this.startPos.x - this.backGroundWidth));
             this.MoveBackGroundLeft();
         }
     }
