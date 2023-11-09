@@ -31,8 +31,6 @@ export default class BackgroundManager extends ZepetoScriptBehaviour {
         if (this.SetMoving)
         {
             this.RepeatBackGround();
-            console.log("start pos: " +this.startPos);
-            console.log("dif : " + (this.startPos.x - this.backGroundWidth));
             this.MoveBackGroundLeft();
         }
     }

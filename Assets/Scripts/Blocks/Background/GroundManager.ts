@@ -10,7 +10,6 @@ export default class GroundManager extends ZepetoScriptBehaviour {
     public ground: GameObject;
     private groundStartPos: Vector3 = new Vector3(0, 0, 0);
     public groundSpeed: number = 1;
-    private groundWidth: number = 1;
     private isGroundInTheScene: bool = false;
     public xleftBound: number = -40;
 
