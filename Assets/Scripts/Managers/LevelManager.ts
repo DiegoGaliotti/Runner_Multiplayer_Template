@@ -26,8 +26,13 @@ export default class LevelManager extends ZepetoScriptBehaviour {
     }
 
     ResumeGame() {
-        SpawnBlockManager.Instance.ResumeSpawnBlockManager();
+        SpawnBlockManager.Instance.StartSpawnBlockManager();
         EnviromentManager.Instance.ResumeEnviromentManager();
+    }
+
+    EndGame(){
+        SpawnBlockManager.Instance.DestroyAllBlocks();
+        EnviromentManager.Instance.PauseEnviromentManager();
     }
 
 

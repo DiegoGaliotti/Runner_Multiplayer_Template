@@ -32,4 +32,6 @@ export default class EnviromentManager extends ZepetoScriptBehaviour {
         BackgroundManager.Instance.ResumeBackgroundManager();
         GroundManager.Instance.ResumeGroundManager();
     }
+
+    
 }
