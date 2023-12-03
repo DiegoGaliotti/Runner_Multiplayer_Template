@@ -14,6 +14,8 @@
     "com.unity.ugui": "1.0.0",
     "zepeto.buildit.loader": "0.0.3",
     "zepeto.character": "3.1.21",
+    "zepeto.iwp": "1.2.2",
+    "zepeto.mannequin": "1.2.1",
     "zepeto.world": "1.21.10",
     "zepeto.world.gui": "1.2.2",
     "com.unity.modules.ai": "1.0.0",
