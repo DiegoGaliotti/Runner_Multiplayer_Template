@@ -19,22 +19,22 @@ ScriptedImporter:
   WrapperFilters: []
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
-    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
-    ZEPETO_Character_Controller_1 = require(\"ZEPETO.Character.Controller\");\r\nconst
-    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst GameRunnerManager_1 =
-    require(\"../Managers/GameRunnerManager\");\r\nclass TeleportToRunner extends
-    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n        // Find the
-    local player and Set it to _localCharacter\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    { value: true });\r\nconst __UnityEngine__ = require(\"UnityEngine\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst ZEPETO_Character_Controller_1
+    = require(\"ZEPETO.Character.Controller\");\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    GameRunnerManager_1 = require(\"../Managers/GameRunnerManager\");\r\nclass TeleportToRunner
+    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n        //
+    Find the local player and Set it to _localCharacter\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
     => {\r\n            this._localCharacter = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\r\n       
     });\r\n    }\r\n    OnTriggerEnter(collider) {\r\n        // Do not execute the
     function if _localCharacter is not set yet or if the collided gameObject is not
-    _localCharacter\r\n        if (this._localCharacter == null || UnityEngine_1.GameObject.op_Inequality(collider.gameObject,
+    _localCharacter\r\n        if (this._localCharacter == null || __UnityEngine__.Object.op_Inequality(collider.gameObject,
     this._localCharacter.gameObject)) {\r\n            return;\r\n        }\r\n       
     const spawnInfo = new ZEPETO_Character_Controller_1.SpawnInfo();\r\n        spawnInfo.rotation
     = UnityEngine_1.Quaternion.Euler(0, 90, 0); // Set Character Spawn Rotation\r\n       
     // Teleport the _localCharacter to the position of destinationObject\r\n       
     this._localCharacter.Teleport(this.destinationObject.transform.position, spawnInfo.rotation);\r\n       
     GameRunnerManager_1.default.Instance.OnStart();\r\n    }\r\n}\r\nexports.default
-    = TeleportToRunner;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVGVsZXBvcnRUb1J1bm5lci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlRlbGVwb3J0VG9SdW5uZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSw2Q0FBd0U7QUFDeEUsNkVBQXNHO0FBQ3RHLGlEQUFzRDtBQUN0RCxxRUFBOEQ7QUFFOUQsTUFBcUIsZ0JBQWlCLFNBQVEscUNBQXFCO0lBTS9ELEtBQUs7UUFDRCxzREFBc0Q7UUFDdEQsMkNBQWEsQ0FBQyxRQUFRLENBQUMsa0JBQWtCLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRTtZQUN2RCxJQUFJLENBQUMsZUFBZSxHQUFHLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDO1FBQ3JGLENBQUMsQ0FBQyxDQUFDO0lBQ1AsQ0FBQztJQUVELGNBQWMsQ0FBQyxRQUFrQjtRQUM3QixxSEFBcUg7UUFDckgsSUFBSSxJQUFJLENBQUMsZUFBZSxJQUFJLElBQUksSUFwQkEsd0JBQVUsQ0ErQnlwVCxhQUFjLENBWDdxVCxRQUFRLENBQUMsVUFBVSxFQUFJLElBQUksQ0FBQyxlQUFlLENBQUMsVUFBVSxDQUFBLEVBQUU7WUFDeEYsT0FBTztTQUNWO1FBQ0QsTUFBTSxTQUFTLEdBQUcsSUFBSSx1Q0FBUyxFQUFFLENBQUM7UUFDbEMsU0FBUyxDQUFDLFFBQVEsR0FBRyx3QkFBVSxDQUFDLEtBQUssQ0FBQyxDQUFDLEVBQUUsRUFBRSxFQUFFLENBQUMsQ0FBQyxDQUFDLENBQUMsK0JBQStCO1FBQ2hGLG9FQUFvRTtRQUNwRSxJQUFJLENBQUMsZUFBZSxDQUFDLFFBQVEsQ0FBQyxJQUFJLENBQUMsaUJBQWlCLENBQUMsU0FBUyxDQUFDLFFBQVEsRUFBRSxTQUFTLENBQUMsUUFBUSxDQUFDLENBQUM7UUFDN0YsMkJBQWlCLENBQUMsUUFBUSxDQUFDLE9BQU8sRUFBRSxDQUFDO0lBQ3pDLENBQUM7Q0FHSjtBQTFCRCxtQ0EwQkMifQ==","assetPath":"Assets/Scripts/Lobby/TeleportToRunner.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"destinationObject","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"TeleportToRunner","description":""},"isCompiled":true}'
+    = TeleportToRunner;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVGVsZXBvcnRUb1J1bm5lci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlRlbGVwb3J0VG9SdW5uZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQUEsNkNBQXdFO0FBQ3hFLDZFQUFzRztBQUN0RyxpREFBc0Q7QUFDdEQscUVBQThEO0FBRTlELE1BQXFCLGdCQUFpQixTQUFRLHFDQUFxQjtJQU0vRCxLQUFLO1FBQ0Qsc0RBQXNEO1FBQ3RELDJDQUFhLENBQUMsUUFBUSxDQUFDLGtCQUFrQixDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDdkQsSUFBSSxDQUFDLGVBQWUsR0FBRywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUFDLFNBQVMsQ0FBQztRQUNyRixDQUFDLENBQUMsQ0FBQztJQUNQLENBQUM7SUFFRCxjQUFjLENBQUMsUUFBa0I7UUFDN0IscUhBQXFIO1FBQ3JILElBQUksSUFBSSxDQUFDLGVBQWUsSUFBSSxJQUFJLDJCQVdtcVQsYUFBYyxDQVg3cVQsUUFBUSxDQUFDLFVBQVUsRUFBSSxJQUFJLENBQUMsZUFBZSxDQUFDLFVBQVUsQ0FBQSxFQUFFO1lBQ3hGLE9BQU87U0FDVjtRQUNELE1BQU0sU0FBUyxHQUFHLElBQUksdUNBQVMsRUFBRSxDQUFDO1FBQ2xDLFNBQVMsQ0FBQyxRQUFRLEdBQUcsd0JBQVUsQ0FBQyxLQUFLLENBQUMsQ0FBQyxFQUFFLEVBQUUsRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUFDLCtCQUErQjtRQUNoRixvRUFBb0U7UUFDcEUsSUFBSSxDQUFDLGVBQWUsQ0FBQyxRQUFRLENBQUMsSUFBSSxDQUFDLGlCQUFpQixDQUFDLFNBQVMsQ0FBQyxRQUFRLEVBQUUsU0FBUyxDQUFDLFFBQVEsQ0FBQyxDQUFDO1FBQzdGLDJCQUFpQixDQUFDLFFBQVEsQ0FBQyxPQUFPLEVBQUUsQ0FBQztJQUN6QyxDQUFDO0NBR0o7QUExQkQsbUNBMEJDIn0=","assetPath":"Assets/Scripts/Lobby/TeleportToRunner.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"destinationObject","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"TeleportToRunner","description":"","hasAnimatorMove":false},"isCompiled":true}'
   typescriptHash: b5ff7758ffc5c7e0fed4a1fac7272f68
   onlyWriteTrigger: 0

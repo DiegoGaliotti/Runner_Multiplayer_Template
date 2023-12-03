@@ -101,6 +101,7 @@ export default class ZepetoPlayersManager extends ZepetoScriptBehaviour {
         // [RoomState] Create a player instance for players that enter the Room
         join.forEach((player: Player, sessionId: string) => this.OnJoinPlayer(sessionId, player));
 
+
         // [RoomState] Remove the player instance for players that exit the room
         leave.forEach((player: Player, sessionId: string) => this.OnLeavePlayer(sessionId, player));
     }
@@ -108,11 +109,14 @@ export default class ZepetoPlayersManager extends ZepetoScriptBehaviour {
     private OnJoinPlayer(sessionId: string, player: Player) {
         console.log(`[OnJoinPlayer] players - sessionId : ${sessionId}`);
         this._currentPlayers.set(sessionId, player);
+    
 
         if(this.ZepetoPlayerSpawnType == ZepetoPlayerSpawnType.MultiplayerSpawnOnJoinRoom) {
             const isLocal = this._room.SessionId === player.sessionId;
             
+
             CharacterController.Instance.CharacterController(sessionId, player.zepetoUserId, isLocal)
+            
             
             //ESTO ES COMO ERA ANTES, SE CAMBIAR POR LO DE ARRIBA. 
             /*const spawnInfo = new SpawnInfo();
