@@ -20,10 +20,11 @@ ScriptedImporter:
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
-    UnityEngine_SceneManagement_1 = require(\"UnityEngine.SceneManagement\");\r\nclass
-    LoadLevel1 extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    OnTriggerEnter(collider)
-    {\r\n        // We verify that the collision is with the player by comparing
-    his tag\r\n        if (collider.CompareTag(\"Player\")) {\r\n            UnityEngine_SceneManagement_1.SceneManager.LoadScene(1);\r\n       
-    }\r\n    }\r\n}\r\nexports.default = LoadLevel1;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTG9hZExldmVsMS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkxvYWRMZXZlbDEudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBcUQ7QUFFckQsNkVBQTJEO0FBRTNELE1BQXFCLFVBQVcsU0FBUSxxQ0FBcUI7SUFHekQsY0FBYyxDQUFDLFFBQWtCO1FBQzdCLHVFQUF1RTtRQUN2RSxJQUFJLFFBQVEsQ0FBQyxVQUFVLENBQUMsUUFBUSxDQUFDLEVBQUU7WUFDL0IsMENBQVksQ0FBQyxTQUFTLENBQUMsQ0FBQyxDQUFDLENBQUM7U0FDN0I7SUFHTCxDQUFDO0NBQ0o7QUFYRCw2QkFXQyJ9","assetPath":"Assets/Scripts/Lobby/LoadLevel1.ts","manifest":{"properties":[],"name":"LoadLevel1","description":""},"isCompiled":true}'
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst UnityEngine_SceneManagement_1
+    = require(\"UnityEngine.SceneManagement\");\r\nclass LoadLevel1 extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    OnTriggerEnter(collider) {\r\n        // We verify that the collision
+    is with the player by comparing his tag\r\n        if (collider.CompareTag(\"Player\"))
+    {\r\n            UnityEngine_SceneManagement_1.SceneManager.LoadScene(1);\r\n       
+    }\r\n    }\r\n}\r\nexports.default = LoadLevel1;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTG9hZExldmVsMS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkxvYWRMZXZlbDEudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBcUQ7QUFDckQsNkNBQW1FO0FBQ25FLDZFQUEyRDtBQUUzRCxNQUFxQixVQUFXLFNBQVEscUNBQXFCO0lBR3pELGNBQWMsQ0FBQyxRQUFrQjtRQUM3Qix1RUFBdUU7UUFDdkUsSUFBSSxRQUFRLENBQUMsVUFBVSxDQUFDLFFBQVEsQ0FBQyxFQUFFO1lBQy9CLDBDQUFZLENBQUMsU0FBUyxDQUFDLENBQUMsQ0FBQyxDQUFDO1NBQzdCO0lBR0wsQ0FBQztDQUNKO0FBWEQsNkJBV0MifQ==","assetPath":"Assets/Scripts/Lobby/LoadLevel1.ts","manifest":{"properties":[],"name":"LoadLevel1","description":"","hasAnimatorMove":false},"isCompiled":true}'
   typescriptHash: f752c9f433cf906d3f326802284ab37b
   onlyWriteTrigger: 0

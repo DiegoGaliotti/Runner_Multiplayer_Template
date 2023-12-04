@@ -40,6 +40,7 @@ export default class CharacterController extends ZepetoScriptBehaviour {
             // The reference of the instance of the ZepetoCharacter is taken
             this._zepetoCharacter.gameObject.tag = "Player"; 
             // The "player" tag is assigned and the ZepetoCharacter gameobject is disabled
+            this._zepetoCharacter.gameObject.name = sessionId;
         });
     }
 

@@ -23,8 +23,8 @@ export default class extends Sandbox {
 
         const player = new Player();
         player.sessionId = client.sessionId;
-        if (client.hashCode) {
-            player.zepetoHash = client.hashCode;
+        if (client.userId) {
+            player.zepetoHash = client.userId;
         }
         if (client.userId) {
             player.zepetoUserId = client.userId;
