@@ -20,40 +20,42 @@ ScriptedImporter:
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\nexports.Currency = void 0;\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
-    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nvar Currency;\r\n(function (Currency)
-    {\r\n    Currency[Currency[\"star\"] = 0] = \"star\";\r\n    Currency[Currency[\"cherry\"]
-    = 1] = \"cherry\";\r\n})(Currency = exports.Currency || (exports.Currency = {}));
-    // This enum is a manager for using diferent tipe of points\r\n// This class
-    manages the score\r\nclass ScoreManager extends ZEPETO_Script_1.ZepetoScriptBehaviour
-    {\r\n    constructor() {\r\n        super(...arguments);\r\n        this.pointsAmounts
-    = {\r\n            [Currency.star]: 0,\r\n            [Currency.cherry]: 0\r\n       
-    }; // Internal dictionary of accumulated points and we declare thats start on
-    0\r\n        this.scoreGenerator = {\r\n            [Currency.star]: 1,\r\n           
-    [Currency.cherry]: 5\r\n        }; // Internal dictionary of the value each currency
-    generate on the total score\r\n        this.totalScore = 0;\r\n    }\r\n    //
-    Awake is called when the script instance is being loaded\r\n    Awake() {\r\n       
-    // This is how the instance of this class is allocated. Which makes it a \"singleton\"\r\n       
-    // https://en.wikipedia.org/wiki/Singleton_pattern\r\n        if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Equality(ScoreManager.Instance,
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\n// This enum is a manager for
+    using diferent tipe of points\r\nvar Currency;\r\n(function (Currency) {\r\n   
+    Currency[Currency[\"collectable1\"] = 0] = \"collectable1\";\r\n    Currency[Currency[\"collectable2\"]
+    = 1] = \"collectable2\";\r\n})(Currency = exports.Currency || (exports.Currency
+    = {}));\r\n// This class manages the score\r\nclass ScoreManager extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    constructor() {\r\n        super(...arguments);\r\n        // Internal
+    dictionary of accumulated points and we declare thats start on 0\r\n        this.pointsAmounts
+    = {\r\n            [Currency.collectable1]: 0,\r\n            [Currency.collectable2]:
+    0\r\n        };\r\n        // Internal dictionary of the value each currency
+    generate on the total score\r\n        this.scoreGenerator = {\r\n           
+    [Currency.collectable1]: 1,\r\n            [Currency.collectable2]: 5\r\n       
+    };\r\n        // Total score accumulated across all types of points\r\n       
+    this.totalScore = 0;\r\n    }\r\n    // Awake is called when the script instance
+    is being loaded\r\n    Awake() {\r\n        // Allocating the instance of this
+    class to make it a \"singleton\"\r\n        if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Equality(ScoreManager.Instance,
     null))\r\n            ScoreManager.Instance = this;\r\n        else\r\n           
     UnityEngine_1.GameObject.Destroy(this);\r\n    }\r\n    // This method is called
-    when the player scores a point depending on the point it get\r\n    ScorePoints(pointsType,
-    amount) {\r\n        // Add the value of the point passed by parameter to the
+    when the player scores points depending on the type and amount\r\n    ScorePoints(pointsType,
+    amount) {\r\n        // Add the value of the points passed by parameter to the
     internal total value\r\n        if (this.pointsAmounts.hasOwnProperty(pointsType))
     {\r\n            this.pointsAmounts[pointsType] += amount;\r\n        }\r\n   
-    }\r\n    // This method returns the internal value of the accumulated points\r\n   
-    GetPoints(pointsType) {\r\n        if (this.pointsAmounts.hasOwnProperty(pointsType))
+    }\r\n    // This method resets the internal value of the accumulated points to
+    0 for each type\r\n    GetPoints(pointsType) {\r\n        if (this.pointsAmounts.hasOwnProperty(pointsType))
     {\r\n            return this.pointsAmounts[pointsType];\r\n        }\r\n       
     return 0;\r\n    }\r\n    // This method resets the internal value of the accumulated
-    points to 0, for each type of points you have\r\n    ResetPoins() {\r\n       
+    points to 0, for each type of points you have\r\n    ResetPoints() {\r\n       
     for (const pointsType in this.pointsAmounts) {\r\n            if (this.pointsAmounts.hasOwnProperty(pointsType))
     {\r\n                this.pointsAmounts[pointsType] = 0;\r\n            }\r\n       
-    }\r\n        this.totalScore = 0;\r\n    }\r\n    GetTotalScore() {\r\n       
-    for (const points in this.pointsAmounts) {\r\n            if (this.pointsAmounts.hasOwnProperty(points))
-    {\r\n                const pointAmount = this.pointsAmounts[points];\r\n               
-    if (this.scoreGenerator.hasOwnProperty(points)) {\r\n                    const
-    score = this.scoreGenerator[points];\r\n                    const scoreType =
-    pointAmount * score;\r\n                    this.totalScore += scoreType;\r\n               
-    }\r\n            }\r\n        }\r\n        return this.totalScore;\r\n    }\r\n}\r\nexports.default
-    = ScoreManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU2NvcmVNYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiU2NvcmVNYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUFBLDZDQUFrRDtBQUNsRCxpREFBc0Q7QUFFdEQsSUFBWSxRQUdYO0FBSEQsV0FBWSxRQUFRO0lBQ2hCLHVDQUFRLENBQUE7SUFDUiwyQ0FBVSxDQUFBO0FBQ2QsQ0FBQyxFQUhXLFFBQVEsR0FBUixnQkFBUSxLQUFSLGdCQUFRLFFBR25CLENBQUMsMkRBQTJEO0FBRTdELCtCQUErQjtBQUMvQixNQUFxQixZQUFhLFNBQVEscUNBQXFCO0lBQS9EOztRQUdZLGtCQUFhLEdBQThCO1lBQy9DLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxFQUFFLENBQUM7WUFDbEIsQ0FBQyxRQUFRLENBQUMsTUFBTSxDQUFDLEVBQUUsQ0FBQztTQUN2QixDQUFDLENBQUMsNEVBQTRFO1FBRXZFLG1CQUFjLEdBQThCO1lBQ2hELENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxFQUFFLENBQUM7WUFDbEIsQ0FBQyxRQUFRLENBQUMsTUFBTSxDQUFDLEVBQUUsQ0FBQztTQUN2QixDQUFDLENBQUMsNkVBQTZFO1FBRXpFLGVBQVUsR0FBVyxDQUFDLENBQUM7SUFpRGxDLENBQUM7SUEvQ0csMkRBQTJEO0lBQ3BELEtBQUs7UUFDUixvRkFBb0Y7UUFDcEYsa0RBQWtEO1FBQ2xELElBM0JDLHFDQUFxQixDQXNFeXFJLFdBQVksQ0EzQ3ZzSSxZQUFZLENBQUMsUUFBUSxFQUFJLElBQUk7WUFBRSxZQUFZLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQzs7WUFDM0Qsd0JBQVUsQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDbEMsQ0FBQztJQUVELHFGQUFxRjtJQUM5RSxXQUFXLENBQUMsVUFBb0IsRUFBRSxNQUFjO1FBQ25ELDZFQUE2RTtRQUM3RSxJQUFJLElBQUksQ0FBQyxhQUFhLENBQUMsY0FBYyxDQUFDLFVBQVUsQ0FBQyxFQUFFO1lBQy9DLElBQUksQ0FBQyxhQUFhLENBQUMsVUFBVSxDQUFDLElBQUksTUFBTSxDQUFDO1NBQzVDO0lBQ0wsQ0FBQztJQUVELG1FQUFtRTtJQUM1RCxTQUFTLENBQUMsVUFBb0I7UUFDakMsSUFBSSxJQUFJLENBQUMsYUFBYSxDQUFDLGNBQWMsQ0FBQyxVQUFVLENBQUMsRUFBRTtZQUMvQyxPQUFPLElBQUksQ0FBQyxhQUFhLENBQUMsVUFBVSxDQUFDLENBQUM7U0FDekM7UUFDRCxPQUFPLENBQUMsQ0FBQztJQUNiLENBQUM7SUFFRCx5R0FBeUc7SUFDbEcsVUFBVTtRQUNiLEtBQUssTUFBTSxVQUFVLElBQUksSUFBSSxDQUFDLGFBQWEsRUFBRTtZQUN6QyxJQUFJLElBQUksQ0FBQyxhQUFhLENBQUMsY0FBYyxDQUFDLFVBQVUsQ0FBQyxFQUFFO2dCQUMvQyxJQUFJLENBQUMsYUFBYSxDQUFDLFVBQVUsQ0FBQyxHQUFHLENBQUMsQ0FBQzthQUN0QztTQUNKO1FBQ0QsSUFBSSxDQUFDLFVBQVUsR0FBRyxDQUFDLENBQUM7SUFDeEIsQ0FBQztJQUVNLGFBQWE7UUFDaEIsS0FBSyxNQUFNLE1BQU0sSUFBSSxJQUFJLENBQUMsYUFBYSxFQUFFO1lBQ3JDLElBQUksSUFBSSxDQUFDLGFBQWEsQ0FBQyxjQUFjLENBQUMsTUFBTSxDQUFDLEVBQUU7Z0JBQzNDLE1BQU0sV0FBVyxHQUFHLElBQUksQ0FBQyxhQUFhLENBQUMsTUFBTSxDQUFDLENBQUM7Z0JBQy9DLElBQUcsSUFBSSxDQUFDLGNBQWMsQ0FBQyxjQUFjLENBQUMsTUFBTSxDQUFDLEVBQUM7b0JBQzFDLE1BQU0sS0FBSyxHQUFHLElBQUksQ0FBQyxjQUFjLENBQUMsTUFBTSxDQUFDLENBQUM7b0JBQzFDLE1BQU0sU0FBUyxHQUFHLFdBQVcsR0FBRyxLQUFLLENBQUM7b0JBQ3RDLElBQUksQ0FBQyxVQUFVLElBQUksU0FBUyxDQUFDO2lCQUNoQzthQUNKO1NBQ0o7UUFDRCxPQUFPLElBQUksQ0FBQyxVQUFVLENBQUM7SUFDM0IsQ0FBQztDQUNKO0FBOURELCtCQThEQyJ9","assetPath":"Assets/Scripts/Managers/ScoreManager.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"totalScore","type":"System.Single","isArray":false,"initValue":["0"],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"ScoreManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
-  typescriptHash: edbee72d83645d02eabbae1e6378ee73
+    }\r\n        this.totalScore = 0;\r\n    }\r\n    // This method calculates and
+    returns the total score based on the accumulated points and their values\r\n   
+    GetTotalScore() {\r\n        for (const points in this.pointsAmounts) {\r\n           
+    if (this.pointsAmounts.hasOwnProperty(points)) {\r\n                const pointAmount
+    = this.pointsAmounts[points];\r\n                if (this.scoreGenerator.hasOwnProperty(points))
+    {\r\n                    const score = this.scoreGenerator[points];\r\n                   
+    const scoreType = pointAmount * score;\r\n                    this.totalScore
+    += scoreType;\r\n                }\r\n            }\r\n        }\r\n        return
+    this.totalScore;\r\n    }\r\n}\r\nexports.default = ScoreManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU2NvcmVNYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiU2NvcmVNYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUFBLDZDQUF5QztBQUN6QyxpREFBc0Q7QUFFdEQsMkRBQTJEO0FBQzNELElBQVksUUFHWDtBQUhELFdBQVksUUFBUTtJQUNoQix1REFBZ0IsQ0FBQTtJQUNoQix1REFBZ0IsQ0FBQTtBQUNwQixDQUFDLEVBSFcsUUFBUSxHQUFSLGdCQUFRLEtBQVIsZ0JBQVEsUUFHbkI7QUFFRCwrQkFBK0I7QUFDL0IsTUFBcUIsWUFBYSxTQUFRLHFDQUFxQjtJQUEvRDs7UUFLSSw0RUFBNEU7UUFDcEUsa0JBQWEsR0FBOEI7WUFDL0MsQ0FBQyxRQUFRLENBQUMsWUFBWSxDQUFDLEVBQUUsQ0FBQztZQUMxQixDQUFDLFFBQVEsQ0FBQyxZQUFZLENBQUMsRUFBRSxDQUFDO1NBQzdCLENBQUM7UUFFRiw2RUFBNkU7UUFDckUsbUJBQWMsR0FBOEI7WUFDaEQsQ0FBQyxRQUFRLENBQUMsWUFBWSxDQUFDLEVBQUUsQ0FBQztZQUMxQixDQUFDLFFBQVEsQ0FBQyxZQUFZLENBQUMsRUFBRSxDQUFDO1NBQzdCLENBQUM7UUFFRixxREFBcUQ7UUFDOUMsZUFBVSxHQUFXLENBQUMsQ0FBQztJQWlEbEMsQ0FBQztJQS9DRywyREFBMkQ7SUFDcEQsS0FBSztRQUNSLGlFQUFpRTtRQUNqRSxJQWhDQyxxQ0FBcUIsQ0E0RXE3SCxXQUFZLENBNUNuOUgsWUFBWSxDQUFDLFFBQVEsRUFBSSxJQUFJO1lBQUUsWUFBWSxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7O1lBQzNELHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0lBQ2xDLENBQUM7SUFFRCx1RkFBdUY7SUFDaEYsV0FBVyxDQUFDLFVBQW9CLEVBQUUsTUFBYztRQUNuRCw4RUFBOEU7UUFDOUUsSUFBSSxJQUFJLENBQUMsYUFBYSxDQUFDLGNBQWMsQ0FBQyxVQUFVLENBQUMsRUFBRTtZQUMvQyxJQUFJLENBQUMsYUFBYSxDQUFDLFVBQVUsQ0FBQyxJQUFJLE1BQU0sQ0FBQztTQUM1QztJQUNMLENBQUM7SUFFRCxxRkFBcUY7SUFDOUUsU0FBUyxDQUFDLFVBQW9CO1FBQ2pDLElBQUksSUFBSSxDQUFDLGFBQWEsQ0FBQyxjQUFjLENBQUMsVUFBVSxDQUFDLEVBQUU7WUFDL0MsT0FBTyxJQUFJLENBQUMsYUFBYSxDQUFDLFVBQVUsQ0FBQyxDQUFDO1NBQ3pDO1FBQ0QsT0FBTyxDQUFDLENBQUM7SUFDYixDQUFDO0lBRUQseUdBQXlHO0lBQ2xHLFdBQVc7UUFDZCxLQUFLLE1BQU0sVUFBVSxJQUFJLElBQUksQ0FBQyxhQUFhLEVBQUU7WUFDekMsSUFBSSxJQUFJLENBQUMsYUFBYSxDQUFDLGNBQWMsQ0FBQyxVQUFVLENBQUMsRUFBRTtnQkFDL0MsSUFBSSxDQUFDLGFBQWEsQ0FBQyxVQUFVLENBQUMsR0FBRyxDQUFDLENBQUM7YUFDdEM7U0FDSjtRQUNELElBQUksQ0FBQyxVQUFVLEdBQUcsQ0FBQyxDQUFDO0lBQ3hCLENBQUM7SUFFRCxzR0FBc0c7SUFDL0YsYUFBYTtRQUNoQixLQUFLLE1BQU0sTUFBTSxJQUFJLElBQUksQ0FBQyxhQUFhLEVBQUU7WUFDckMsSUFBSSxJQUFJLENBQUMsYUFBYSxDQUFDLGNBQWMsQ0FBQyxNQUFNLENBQUMsRUFBRTtnQkFDM0MsTUFBTSxXQUFXLEdBQUcsSUFBSSxDQUFDLGFBQWEsQ0FBQyxNQUFNLENBQUMsQ0FBQztnQkFDL0MsSUFBRyxJQUFJLENBQUMsY0FBYyxDQUFDLGNBQWMsQ0FBQyxNQUFNLENBQUMsRUFBQztvQkFDMUMsTUFBTSxLQUFLLEdBQUcsSUFBSSxDQUFDLGNBQWMsQ0FBQyxNQUFNLENBQUMsQ0FBQztvQkFDMUMsTUFBTSxTQUFTLEdBQUcsV0FBVyxHQUFHLEtBQUssQ0FBQztvQkFDdEMsSUFBSSxDQUFDLFVBQVUsSUFBSSxTQUFTLENBQUM7aUJBQ2hDO2FBQ0o7U0FDSjtRQUNELE9BQU8sSUFBSSxDQUFDLFVBQVUsQ0FBQztJQUMzQixDQUFDO0NBQ0o7QUFuRUQsK0JBbUVDIn0=","assetPath":"Assets/Scripts/Managers/ScoreManager.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"totalScore","type":"System.Single","isArray":false,"initValue":["0"],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"ScoreManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 663ffdafd32f30d5768b05dc96f52065
   onlyWriteTrigger: 0

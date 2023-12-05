@@ -112,14 +112,14 @@ MonoBehaviour:
   applyRootMotion: 0
   script:
     keys:
-    - currentPointsType
     - pointsValue
+    - currentCollectable
     unityValues:
     - {fileID: 0}
     - {fileID: 0}
     values:
-    - '{"type":"System.Int32, mscorlib","value":"0"}'
     - '{"type":"System.Single, mscorlib","value":"1"}'
+    - '{"type":"System.Int32, mscorlib","value":"0"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 0b61ef26d58a00a46b4e8b32565ab7cb, type: 3}

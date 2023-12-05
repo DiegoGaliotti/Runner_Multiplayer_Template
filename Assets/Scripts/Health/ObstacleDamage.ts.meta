@@ -20,13 +20,15 @@ ScriptedImporter:
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
-    HealthManager_1 = require(\"../Managers/HealthManager\");\r\nclass ObstacleDamage
-    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    OnTriggerEnter(collider)
-    {\r\n        // We verify that the collision is with the player by comparing
-    his tag\r\n        if (collider.CompareTag(\"Player\")) {\r\n            // We
-    ask the HealthManager to add the previously defined value \"healthBoostAmount\"\r\n           
-    HealthManager_1.default.Instance.generateDamage(this.damageAmount);\r\n           
+    HealthManager_1 = require(\"../Managers/HealthManager\");\r\n// This class represents
+    an object that inflicts damage to the player when collided with\r\nclass ObstacleDamage
+    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    // This method is called
+    when another collider enters the trigger collider attached to this object\r\n   
+    OnTriggerEnter(collider) {\r\n        // We verify that the collision is with
+    the player by comparing his tag\r\n        if (collider.CompareTag(\"Player\"))
+    {\r\n            // We ask the HealthManager to deduct the previously defined
+    damage amount\r\n            HealthManager_1.default.Instance.GenerateDamage(this.damageAmount);\r\n           
     // We deactivate the current element\r\n            this.gameObject.SetActive(false);\r\n       
-    }\r\n    }\r\n}\r\nexports.default = ObstacleDamage;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiT2JzdGFjbGVEYW1hZ2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJPYnN0YWNsZURhbWFnZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBLGlEQUFzRDtBQUN0RCw2REFBd0Q7QUFFeEQsTUFBcUIsY0FBZSxTQUFRLHFDQUFxQjtJQUk3RCxjQUFjLENBQUMsUUFBa0I7UUFDN0IsdUVBQXVFO1FBQ3ZFLElBQUksUUFBUSxDQUFDLFVBQVUsQ0FBQyxRQUFRLENBQUMsRUFBRTtZQUMvQixtRkFBbUY7WUFDbkYsdUJBQWEsQ0FBQyxRQUFRLENBQUMsY0FBYyxDQUFDLElBQUksQ0FBQyxZQUFZLENBQUMsQ0FBQTtZQUN4RCxvQ0FBb0M7WUFDcEMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7U0FDcEM7SUFDTCxDQUFDO0NBQ0o7QUFiRCxpQ0FhQyJ9","assetPath":"Assets/Scripts/Health/ObstacleDamage.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"damageAmount","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"ObstacleDamage","description":"","hasAnimatorMove":false},"isCompiled":true}'
-  typescriptHash: cf605db722193cfb52b1edd2a082ca15
+    }\r\n    }\r\n}\r\nexports.default = ObstacleDamage;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiT2JzdGFjbGVEYW1hZ2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJPYnN0YWNsZURhbWFnZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBLGlEQUFzRDtBQUN0RCw2REFBd0Q7QUFFeEQsd0ZBQXdGO0FBQ3hGLE1BQXFCLGNBQWUsU0FBUSxxQ0FBcUI7SUFLN0Qsa0dBQWtHO0lBQ2xHLGNBQWMsQ0FBQyxRQUFrQjtRQUM3Qix1RUFBdUU7UUFDdkUsSUFBSSxRQUFRLENBQUMsVUFBVSxDQUFDLFFBQVEsQ0FBQyxFQUFFO1lBQy9CLDBFQUEwRTtZQUMxRSx1QkFBYSxDQUFDLFFBQVEsQ0FBQyxjQUFjLENBQUMsSUFBSSxDQUFDLFlBQVksQ0FBQyxDQUFDO1lBRXpELG9DQUFvQztZQUNwQyxJQUFJLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQztTQUNwQztJQUNMLENBQUM7Q0FDSjtBQWhCRCxpQ0FnQkMifQ==","assetPath":"Assets/Scripts/Health/ObstacleDamage.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"damageAmount","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"ObstacleDamage","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 408b93617151201d7744383814b8e410
   onlyWriteTrigger: 0

@@ -20,10 +20,11 @@ ScriptedImporter:
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
-    GameRunnerManager_1 = require(\"../../Managers/GameRunnerManager\");\r\nclass
-    UIOnStart extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n       
-    this.GameStartButton.onClick.AddListener(this.StartGame);\r\n    }\r\n    StartGame()
-    {\r\n        GameRunnerManager_1.default.Instance.OnGameStart();\r\n    }\r\n}\r\nexports.default
-    = UIOnStart;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVUlPblN0YXJ0LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiVUlPblN0YXJ0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsaURBQXFEO0FBRXJELHdFQUFpRTtBQUVqRSxNQUFxQixTQUFVLFNBQVEscUNBQXFCO0lBSXhELEtBQUs7UUFDRCxJQUFJLENBQUMsZUFBZSxDQUFDLE9BQU8sQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLFNBQVMsQ0FBQyxDQUFBO0lBQzVELENBQUM7SUFFRCxTQUFTO1FBQ0wsMkJBQWlCLENBQUMsUUFBUSxDQUFDLFdBQVcsRUFBRSxDQUFDO0lBQzdDLENBQUM7Q0FFSjtBQVpELDRCQVlDIn0=","assetPath":"Assets/Scripts/UI/UIRunner/UIOnStart.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"GameStartButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"UIOnStart","description":"","hasAnimatorMove":false},"isCompiled":true}'
-  typescriptHash: e8f6ab0cfe296e25622e5c1e0e766600
+    GameRunnerManager_1 = require(\"../../Managers/GameRunnerManager\");\r\n// Class
+    that represents the UI at the start of the game\r\nclass UIOnStart extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    // Start is called before the first frame update\r\n    Start() {\r\n       
+    // Adding a listener to the button click event calling the OnGameStart method
+    of the GameRunnerManager instance\r\n        this.GameStartButton.onClick.AddListener(GameRunnerManager_1.default.Instance.OnRunnerStart);\r\n   
+    }\r\n}\r\nexports.default = UIOnStart;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVUlPblN0YXJ0LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiVUlPblN0YXJ0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsaURBQXFEO0FBRXJELHdFQUFpRTtBQUVqRSx3REFBd0Q7QUFDeEQsTUFBcUIsU0FBVSxTQUFRLHFDQUFxQjtJQUt4RCxnREFBZ0Q7SUFDaEQsS0FBSztRQUNELCtHQUErRztRQUMvRyxJQUFJLENBQUMsZUFBZSxDQUFDLE9BQU8sQ0FBQyxXQUFXLENBQUMsMkJBQWlCLENBQUMsUUFBUSxDQUFDLGFBQWEsQ0FBQyxDQUFBO0lBQ3RGLENBQUM7Q0FDSjtBQVZELDRCQVVDIn0=","assetPath":"Assets/Scripts/UI/UIRunner/UIOnStart.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"GameStartButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"UIOnStart","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: e524c711fc8ef73fb08d37729ab3f198
   onlyWriteTrigger: 0

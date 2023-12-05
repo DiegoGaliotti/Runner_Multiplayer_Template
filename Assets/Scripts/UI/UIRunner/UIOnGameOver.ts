@@ -1,26 +1,20 @@
 import { Button } from 'UnityEngine.UI';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import GameRunnerManager from '../../Managers/GameRunnerManager';
-import { SpawnInfo, ZepetoCharacter, ZepetoPlayer, ZepetoPlayers } from 'ZEPETO.Character.Controller';
-import { Quaternion, Vector3, } from 'UnityEngine';
 
+// Class that represents the game over user interface
 export default class UIOnGameOver extends ZepetoScriptBehaviour {
 
-    public backToLobbyButton: Button; //Reference to the button to go back to main menu
-    public restartButton: Button; //Reference to the button to go back to main menu
+    // References to UI buttons
+    public backToLobbyButton: Button; // Reference to the button to go back to the main menu
+    public restartButton: Button; // Reference to the button to restart the game
 
-
-    Start() {    
-        this.backToLobbyButton.onClick.AddListener(this.BackToLobby)
-        this.restartButton.onClick.AddListener(this.Restart)
+    // Start is called before the first frame update
+    Start() { 
+        // Adding listeners to the button click events to execute the corresponding methods  
+        // Calling the BackToLobby method of the GameRunnerManager instance
+        this.backToLobbyButton.onClick.AddListener(GameRunnerManager.Instance.BackToLobby)
+        // Calling the OnGameStart method of the GameRunnerManager instance to restart the game
+        this.restartButton.onClick.AddListener(GameRunnerManager.Instance.OnRunnerStart)
     }
-
-    BackToLobby(){
-        GameRunnerManager.Instance.BackToLobby();
-    }
-
-    Restart(){
-        GameRunnerManager.Instance.OnGameStart();
-    }
-
 }

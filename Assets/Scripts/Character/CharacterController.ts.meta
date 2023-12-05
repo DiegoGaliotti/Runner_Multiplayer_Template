@@ -21,35 +21,38 @@ ScriptedImporter:
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
     ZEPETO_Character_Controller_1 = require(\"ZEPETO.Character.Controller\");\r\nconst
-    UnityEngine_1 = require(\"UnityEngine\");\r\nclass CharacterController extends
-    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor() {\r\n        super(...arguments);\r\n       
-    this.runSpeed = 8;\r\n        this.walkSpeed = 3;\r\n    }\r\n    //public UITouchPad
-    A\r\n    //public UITouchPad B\r\n    Awake() {\r\n        // This is how the
-    instance of this class is allocated. Which makes it a \"singleton\"\r\n       
-    // https://en.wikipedia.org/wiki/Singleton_pattern\r\n        if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Equality(CharacterController.Instance,
+    UnityEngine_1 = require(\"UnityEngine\");\r\n// Class that manages the control
+    and behavior of the game character\r\nclass CharacterController extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    constructor() {\r\n        super(...arguments);\r\n        // Run and
+    walk speeds for the character\r\n        this.runSpeed = 8;\r\n        this.walkSpeed
+    = 3;\r\n    }\r\n    // Awake is called when the script instance is being loaded\r\n   
+    Awake() {\r\n        // Allocating the instance of this class to make it a \"singleton\"\r\n       
+    if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Equality(CharacterController.Instance,
     null))\r\n            CharacterController.Instance = this;\r\n        else\r\n           
-    UnityEngine_1.GameObject.Destroy(this);\r\n    }\r\n    // Start is called on
-    the frame when a script is enabled just before any of the Update methods is called
-    the first time.\r\n    Start() {\r\n    }\r\n    CharacterController(sessionId,
-    playerID, isLocal) {\r\n        // Define the spawnInfo.\r\n        const spawnInfo
-    = new ZEPETO_Character_Controller_1.SpawnInfo();\r\n        spawnInfo.position
-    = new UnityEngine_1.Vector3(-200, 1, 0); // Set Character Spawn Position\r\n       
+    UnityEngine_1.GameObject.Destroy(this);\r\n    }\r\n    // Method to create and
+    control the character in the lobby\r\n    CharacterController(sessionId, playerID,
+    isLocal) {\r\n        // Define the spawnInfo.\r\n        const spawnInfo = new
+    ZEPETO_Character_Controller_1.SpawnInfo();\r\n        spawnInfo.position = new
+    UnityEngine_1.Vector3(-200, 1, 0); // Set Character Spawn Position\r\n       
     spawnInfo.rotation = UnityEngine_1.Quaternion.Euler(0, 180, 0); // Set Character
-    Spawn Rotation\r\n        $extension(\"ZEPETO.Character.Controller.ZepetoPlayersExtension\").CreatePlayerWithUserId(//
+    Spawn Rotation\r\n        // Create a player with the specified session ID, player
+    ID, spawn info, and local status\r\n        $extension(\"ZEPETO.Character.Controller.ZepetoPlayersExtension\").CreatePlayerWithUserId(//
     Set Character Spawn Rotation\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance,
-    sessionId, playerID, spawnInfo, isLocal);\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    sessionId, playerID, spawnInfo, isLocal);\r\n        // Listen for the addition
+    of a local player and set the reference to the ZepetoCharacter\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
     => {\r\n            this._zepetoCharacter = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\r\n           
     // The reference of the instance of the ZepetoCharacter is taken\r\n           
     this._zepetoCharacter.gameObject.tag = \"Player\";\r\n            // The \"player\"
-    tag is assigned and the ZepetoCharacter gameobject is disabled\r\n           
+    tag is assigned, and the ZepetoCharacter gameobject is disabled\r\n           
     this._zepetoCharacter.gameObject.name = sessionId;\r\n        });\r\n    }\r\n   
-    CharacterLobbyController() {\r\n        let player = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\r\n       
+    // Method to configure the character for lobby control\r\n    CharacterLobbyController()
+    {\r\n        let player = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\r\n       
     player.additionalRunSpeed = this.runSpeed;\r\n        player.additionalWalkSpeed
     = this.walkSpeed;\r\n        player.constraintRotation = false;\r\n    }\r\n   
-    CharacterRunnerController() {\r\n        // Define the spawnInfo.\r\n       
-    let player = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\r\n       
+    // Method to configure the character for runner game control\r\n    CharacterRunnerController()
+    {\r\n        // Define the spawnInfo.\r\n        let player = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\r\n       
     player.additionalRunSpeed = -this.runSpeed;\r\n        player.additionalWalkSpeed
     = -this.walkSpeed;\r\n        player.constraintRotation = true;\r\n    }\r\n}\r\nexports.default
-    = CharacterController;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ2hhcmFjdGVyQ29udHJvbGxlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkNoYXJhY3RlckNvbnRyb2xsZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBc0Q7QUFDdEQsNkVBQXFHO0FBQ3JHLDZDQUErRTtBQUcvRSxNQUFxQixtQkFBb0IsU0FBUSxxQ0FBcUI7SUFBdEU7O1FBS1csYUFBUSxHQUFXLENBQUMsQ0FBQztRQUNyQixjQUFTLEdBQVcsQ0FBQyxDQUFDO0lBa0RqQyxDQUFDO0lBaERHLHFCQUFxQjtJQUNyQixxQkFBcUI7SUFHZCxLQUFLO1FBRVIsb0ZBQW9GO1FBQ3BGLGtEQUFrRDtRQUNsRCxJQXJCQyxxQ0FBcUIsQ0E2RGk3SSxXQUFZLENBeEMvOEksbUJBQW1CLENBQUMsUUFBUSxFQUFJLElBQUk7WUFBRSxtQkFBbUIsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDOztZQUN6RSx3QkFBVSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUNsQyxDQUFDO0lBRUQsd0hBQXdIO0lBQ3hILEtBQUs7SUFFTCxDQUFDO0lBRUQsbUJBQW1CLENBQUMsU0FBaUIsRUFBRSxRQUFnQixFQUFFLE9BQWdCO1FBQ3JFLHdCQUF3QjtRQUN4QixNQUFNLFNBQVMsR0FBRyxJQUFJLHVDQUFTLEVBQUUsQ0FBQztRQUNsQyxTQUFTLENBQUMsUUFBUSxHQUFHLElBQUkscUJBQU8sQ0FBQyxDQUFDLEdBQUcsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQywrQkFBK0I7UUFDN0UsU0FBUyxDQUFDLFFBQVEsR0FBRyx3QkFBVSxDQUFDLEtBQUssQ0FBQyxDQUFDLEVBQUUsR0FBRyxFQUFFLENBQUMsQ0FBQyxDQUFDLENBQUMsK0JBQStCO1FBRWpGLGlFQUF1QixzQkFBc0IsQ0FGSywrQkFBK0I7UUFFakYsMkNBQWEsQ0FBQyxRQUFRLEVBQXdCLFNBQVMsRUFBRSxRQUFRLEVBQUUsU0FBUyxFQUFFLE9BQU8sRUFBRTtRQUN2RiwyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxrQkFBa0IsQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFO1lBQ3ZELElBQUksQ0FBQyxnQkFBZ0IsR0FBRywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUFDLFNBQVMsQ0FBQztZQUNsRixnRUFBZ0U7WUFDaEUsSUFBSSxDQUFDLGdCQUFnQixDQUFDLFVBQVUsQ0FBQyxHQUFHLEdBQUcsUUFBUSxDQUFDO1lBQ2hELDhFQUE4RTtZQUM5RSxJQUFJLENBQUMsZ0JBQWdCLENBQUMsVUFBVSxDQUFDLElBQUksR0FBRyxTQUFTLENBQUM7UUFDdEQsQ0FBQyxDQUFDLENBQUM7SUFDUCxDQUFDO0lBRUQsd0JBQXdCO1FBQ3BCLElBQUksTUFBTSxHQUFHLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDO1FBQ3ZFLE1BQU0sQ0FBQyxrQkFBa0IsR0FBRyxJQUFJLENBQUMsUUFBUSxDQUFDO1FBQzFDLE1BQU0sQ0FBQyxtQkFBbUIsR0FBRyxJQUFJLENBQUMsU0FBUyxDQUFDO1FBQzVDLE1BQU0sQ0FBQyxrQkFBa0IsR0FBRyxLQUFLLENBQUM7SUFDdEMsQ0FBQztJQUVELHlCQUF5QjtRQUNyQix3QkFBd0I7UUFDeEIsSUFBSSxNQUFNLEdBQUcsMkNBQWEsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLFlBQVksQ0FBQyxTQUFTLENBQUM7UUFDdkUsTUFBTSxDQUFDLGtCQUFrQixHQUFHLENBQUMsSUFBSSxDQUFDLFFBQVEsQ0FBQztRQUMzQyxNQUFNLENBQUMsbUJBQW1CLEdBQUcsQ0FBQyxJQUFJLENBQUMsU0FBUyxDQUFDO1FBQzdDLE1BQU0sQ0FBQyxrQkFBa0IsR0FBRyxJQUFJLENBQUM7SUFDckMsQ0FBQztDQUVKO0FBeERELHNDQXdEQyJ9","assetPath":"Assets/Scripts/Character/CharacterController.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"runSpeed","type":"System.Single","isArray":false,"initValue":["8"],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"walkSpeed","type":"System.Single","isArray":false,"initValue":["3"],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"CharacterController","description":"","hasAnimatorMove":false},"isCompiled":true}'
-  typescriptHash: eda48e377b2e3b81b1fc409f3f78efc8
+    = CharacterController;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ2hhcmFjdGVyQ29udHJvbGxlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkNoYXJhY3RlckNvbnRyb2xsZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBc0Q7QUFDdEQsNkVBQXdGO0FBQ3hGLDZDQUErRDtBQUUvRCxvRUFBb0U7QUFDcEUsTUFBcUIsbUJBQW9CLFNBQVEscUNBQXFCO0lBQXRFOztRQVFJLHdDQUF3QztRQUNqQyxhQUFRLEdBQVcsQ0FBQyxDQUFDO1FBQ3JCLGNBQVMsR0FBVyxDQUFDLENBQUM7SUErQ2pDLENBQUM7SUE3Q0csMkRBQTJEO0lBQ3BELEtBQUs7UUFFUixpRUFBaUU7UUFDakUsSUFyQkMscUNBQXFCLENBOER5L0gsV0FBWSxDQXpDdmhJLG1CQUFtQixDQUFDLFFBQVEsRUFBSSxJQUFJO1lBQUUsbUJBQW1CLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQzs7WUFDekUsd0JBQVUsQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDbEMsQ0FBQztJQUVELDBEQUEwRDtJQUNuRCxtQkFBbUIsQ0FBQyxTQUFpQixFQUFFLFFBQWdCLEVBQUUsT0FBZ0I7UUFDNUUsd0JBQXdCO1FBQ3hCLE1BQU0sU0FBUyxHQUFHLElBQUksdUNBQVMsRUFBRSxDQUFDO1FBQ2xDLFNBQVMsQ0FBQyxRQUFRLEdBQUcsSUFBSSxxQkFBTyxDQUFDLENBQUMsR0FBRyxFQUFFLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUFDLCtCQUErQjtRQUM3RSxTQUFTLENBQUMsUUFBUSxHQUFHLHdCQUFVLENBQUMsS0FBSyxDQUFDLENBQUMsRUFBRSxHQUFHLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQywrQkFBK0I7UUFFakYseUZBQXlGO1FBQ3pGLGlFQUF1QixzQkFBc0IsQ0FISywrQkFBK0I7UUFHakYsMkNBQWEsQ0FBQyxRQUFRLEVBQXdCLFNBQVMsRUFBRSxRQUFRLEVBQUUsU0FBUyxFQUFFLE9BQU8sRUFBRTtRQUV2Rix5RkFBeUY7UUFDekYsMkNBQWEsQ0FBQyxRQUFRLENBQUMsa0JBQWtCLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRTtZQUN2RCxJQUFJLENBQUMsZ0JBQWdCLEdBQUcsMkNBQWEsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLFlBQVksQ0FBQyxTQUFTLENBQUM7WUFDbEYsZ0VBQWdFO1lBQ2hFLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQyxVQUFVLENBQUMsR0FBRyxHQUFHLFFBQVEsQ0FBQztZQUNoRCwrRUFBK0U7WUFDL0UsSUFBSSxDQUFDLGdCQUFnQixDQUFDLFVBQVUsQ0FBQyxJQUFJLEdBQUcsU0FBUyxDQUFDO1FBQ3RELENBQUMsQ0FBQyxDQUFDO0lBQ1AsQ0FBQztJQUVELHNEQUFzRDtJQUMvQyx3QkFBd0I7UUFDM0IsSUFBSSxNQUFNLEdBQUcsMkNBQWEsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLFlBQVksQ0FBQyxTQUFTLENBQUM7UUFDdkUsTUFBTSxDQUFDLGtCQUFrQixHQUFHLElBQUksQ0FBQyxRQUFRLENBQUM7UUFDMUMsTUFBTSxDQUFDLG1CQUFtQixHQUFHLElBQUksQ0FBQyxTQUFTLENBQUM7UUFDNUMsTUFBTSxDQUFDLGtCQUFrQixHQUFHLEtBQUssQ0FBQztJQUN0QyxDQUFDO0lBRUQsNERBQTREO0lBQ3JELHlCQUF5QjtRQUM1Qix3QkFBd0I7UUFDeEIsSUFBSSxNQUFNLEdBQUcsMkNBQWEsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLFlBQVksQ0FBQyxTQUFTLENBQUM7UUFDdkUsTUFBTSxDQUFDLGtCQUFrQixHQUFHLENBQUMsSUFBSSxDQUFDLFFBQVEsQ0FBQztRQUMzQyxNQUFNLENBQUMsbUJBQW1CLEdBQUcsQ0FBQyxJQUFJLENBQUMsU0FBUyxDQUFDO1FBQzdDLE1BQU0sQ0FBQyxrQkFBa0IsR0FBRyxJQUFJLENBQUM7SUFDckMsQ0FBQztDQUVKO0FBekRELHNDQXlEQyJ9","assetPath":"Assets/Scripts/Character/CharacterController.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"runSpeed","type":"System.Single","isArray":false,"initValue":["8"],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"walkSpeed","type":"System.Single","isArray":false,"initValue":["3"],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"CharacterController","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 289186fa819bb574338de930aedef0ed
   onlyWriteTrigger: 0

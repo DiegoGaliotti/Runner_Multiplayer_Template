@@ -22,17 +22,25 @@ ScriptedImporter:
     { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
     ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst ZEPETO_Character_Controller_1
     = require(\"ZEPETO.Character.Controller\");\r\nconst AnimationControllerRunner_1
-    = require(\"./AnimationControllerRunner\");\r\nclass AnimatorManager extends
-    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Awake() {\r\n        // This is
-    how the instance of this class is allocated. Which makes it a \"singleton\"\r\n       
-    // https://en.wikipedia.org/wiki/Singleton_pattern\r\n        if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Inequality(AnimatorManager.Instance,
+    = require(\"./AnimationControllerRunner\");\r\n// Class that manages the Zepeto
+    character animations\r\nclass AnimatorManager extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    // Awake is called when the script instance is being loaded\r\n    Awake()
+    {\r\n        // Allocating the instance of this class to make it a \"singleton\"\r\n       
+    if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Inequality(AnimatorManager.Instance,
     null))\r\n            UnityEngine_1.GameObject.Destroy(this.gameObject);\r\n       
-    AnimatorManager.Instance = this;\r\n    }\r\n    Start() {\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    AnimatorManager.Instance = this;\r\n    }\r\n    // Start is called before the
+    first frame update\r\n    Start() {\r\n        // Listen for the addition of
+    a local player\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
     => {\r\n            this.localPlayer = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer;\r\n           
+    // Add AnimationControllerRunner component to the Zepeto character\r\n           
     this.localPlayer.zepetoPlayer.character.gameObject.AddComponent($typeof(AnimationControllerRunner_1.default));\r\n       
-    });\r\n    }\r\n    GameRunning(isGameRunning) {\r\n        if (isGameRunning)
-    {\r\n            AnimationControllerRunner_1.default.Instance.ApplyOverrideAnimation(isGameRunning);\r\n       
-    }\r\n        else {\r\n            AnimationControllerRunner_1.default.Instance.ApplyOverrideAnimation(isGameRunning);\r\n       
-    }\r\n    }\r\n}\r\nexports.default = AnimatorManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQW5pbWF0b3JNYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiQW5pbWF0b3JNYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQTBFO0FBQzFFLGlEQUFxRDtBQUNyRCw2RUFBd0U7QUFDeEUsMkVBQW9FO0FBRXBFLE1BQXFCLGVBQWdCLFNBQVEscUNBQXFCO0lBUTlELEtBQUs7UUFDRCxvRkFBb0Y7UUFDcEYsa0RBQWtEO1FBQ2xELElBZkMscUNBQXFCLENBdUNrakwsYUFBYyxDQXhCbGxMLGVBQWUsQ0FBQyxRQUFRLEVBQUksSUFBSTtZQUFFLHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxVQUFVLENBQUMsQ0FBQztRQUMxRSxlQUFlLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQztJQUNwQyxDQUFDO0lBRU0sS0FBSztRQUVSLDJDQUFhLENBQUMsUUFBUSxDQUFDLGtCQUFrQixDQUFDLFdBQVcsQ0FBQyxHQUFFLEVBQUU7WUFDdEQsSUFBSSxDQUFDLFdBQVcsR0FBRywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUM7WUFDdEQsSUFBSSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDLFVBQVUsQ0FBQyxZQUFZLFNBQUMsbUNBQXlCLEdBQUk7UUFDakcsQ0FBQyxDQUFDLENBQUM7SUFDUCxDQUFDO0lBRUQsV0FBVyxDQUFDLGFBQXNCO1FBRTlCLElBQUcsYUFBYSxFQUFDO1lBQ2IsbUNBQXlCLENBQUMsUUFBUSxDQUFDLHNCQUFzQixDQUFDLGFBQWEsQ0FBQyxDQUFDO1NBQzVFO2FBQ0c7WUFDQSxtQ0FBeUIsQ0FBQyxRQUFRLENBQUMsc0JBQXNCLENBQUMsYUFBYSxDQUFDLENBQUM7U0FDNUU7SUFDTCxDQUFDO0NBSUo7QUFuQ0Qsa0NBbUNDIn0=","assetPath":"Assets/Scripts/Animator/AnimatorManager.ts","manifest":{"properties":[{"assembly":"UnityEngine.AnimationModule","name":"AnimatorRunner","type":"UnityEngine.RuntimeAnimatorController","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.AnimationModule","name":"AnimatorV2","type":"UnityEngine.RuntimeAnimatorController","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"AnimatorManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
-  typescriptHash: b052c05d5919e2003e56f6731da8edff
+    });\r\n    }\r\n    // Method to handle animations based on the game state\r\n   
+    GameRunning(isGameRunning) {\r\n        // Access the AnimationControllerRunner
+    singleton instance\r\n        const animationControllerRunner = AnimationControllerRunner_1.default.Instance;\r\n       
+    if (isGameRunning) {\r\n            // Apply override animation for game running\r\n           
+    animationControllerRunner.ApplyOverrideAnimation(true);\r\n        }\r\n       
+    else {\r\n            // Apply override animation for game not running\r\n           
+    animationControllerRunner.ApplyOverrideAnimation(false);\r\n        }\r\n   
+    }\r\n}\r\nexports.default = AnimatorManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQW5pbWF0b3JNYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiQW5pbWF0b3JNYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQW1FO0FBQ25FLGlEQUFxRDtBQUNyRCw2RUFBd0U7QUFDeEUsMkVBQW9FO0FBRXBFLHFEQUFxRDtBQUNyRCxNQUFxQixlQUFnQixTQUFRLHFDQUFxQjtJQVk5RCwyREFBMkQ7SUFDM0QsS0FBSztRQUNELGlFQUFpRTtRQUNqRSxJQXBCQyxxQ0FBcUIsQ0ErQ2k3SixhQUFjLENBM0JqOUosZUFBZSxDQUFDLFFBQVEsRUFBSSxJQUFJO1lBQUUsd0JBQVUsQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxDQUFDO1FBQzFFLGVBQWUsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDO0lBQ3BDLENBQUM7SUFFRCxnREFBZ0Q7SUFDekMsS0FBSztRQUNSLDRDQUE0QztRQUM1QywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxrQkFBa0IsQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFO1lBQ3ZELElBQUksQ0FBQyxXQUFXLEdBQUcsMkNBQWEsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDO1lBQ3RELGtFQUFrRTtZQUNsRSxJQUFJLENBQUMsV0FBVyxDQUFDLFlBQVksQ0FBQyxTQUFTLENBQUMsVUFBVSxDQUFDLFlBQVksU0FBQyxtQ0FBeUIsR0FBSTtRQUNqRyxDQUFDLENBQUMsQ0FBQztJQUNQLENBQUM7SUFFRCxzREFBc0Q7SUFDdEQsV0FBVyxDQUFDLGFBQXNCO1FBQzlCLDBEQUEwRDtRQUMxRCxNQUFNLHlCQUF5QixHQUFHLG1DQUF5QixDQUFDLFFBQVEsQ0FBQztRQUVyRSxJQUFJLGFBQWEsRUFBRTtZQUNmLDRDQUE0QztZQUM1Qyx5QkFBeUIsQ0FBQyxzQkFBc0IsQ0FBQyxJQUFJLENBQUMsQ0FBQztTQUMxRDthQUFNO1lBQ0gsZ0RBQWdEO1lBQ2hELHlCQUF5QixDQUFDLHNCQUFzQixDQUFDLEtBQUssQ0FBQyxDQUFDO1NBQzNEO0lBQ0wsQ0FBQztDQUNKO0FBMUNELGtDQTBDQyJ9","assetPath":"Assets/Scripts/Animator/AnimatorManager.ts","manifest":{"properties":[{"assembly":"UnityEngine.AnimationModule","name":"AnimatorRunner","type":"UnityEngine.RuntimeAnimatorController","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.AnimationModule","name":"AnimatorV2","type":"UnityEngine.RuntimeAnimatorController","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"AnimatorManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 9c85eb5a49fc63a46bbe0aa896a53f20
   onlyWriteTrigger: 0
