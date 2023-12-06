@@ -5,7 +5,7 @@ import CharacterController from '../Character/CharacterController';
 import UIRunnerManager from './UIRunnerManager';
 import HealthManager from './HealthManager';
 import LevelManager from './LevelManager';
-import { SpawnInfo, ZepetoCharacter, ZepetoPlayers } from 'ZEPETO.Character.Controller';
+import { SpawnInfo, ZepetoCharacter, ZepetoPlayer, ZepetoPlayers } from 'ZEPETO.Character.Controller';
 import AnimatorManager from '../Animator/AnimatorManager';
 import ScoreManager from './ScoreManager';
 import LeaderboarManager from './LeaderboardManager';

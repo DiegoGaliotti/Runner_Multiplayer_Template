@@ -314,19 +314,10 @@ MonoBehaviour:
   script:
     keys:
     - customCamera
-    - cameraDistanceZ
-    - cameraDistanceX
-    - cameraDistanceY
     unityValues:
     - {fileID: 1847928813}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
     values:
     - 
-    - '{"type":"System.Single, mscorlib","value":"4"}'
-    - '{"type":"System.Single, mscorlib","value":"3.5"}'
-    - '{"type":"System.Single, mscorlib","value":"2.5"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 0add6edba5ac5a640ab2b298ef2686b7, type: 3}
@@ -413,9 +404,7 @@ MonoBehaviour:
     - startRank
     - endRank
     - resetRule
-    - leaderboarRankingInfo
     unityValues:
-    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
@@ -425,7 +414,6 @@ MonoBehaviour:
     - '{"type":"System.Single, mscorlib","value":"1"}'
     - '{"type":"System.Single, mscorlib","value":"10"}'
     - '{"type":"ZEPETO.Script.Leaderboard.ResetRule, ZEPETO.Script.Leaderboard","value":"{\"value__\":2}"}'
-    - '{"type":"System.String, mscorlib","value":""}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: b8de67cbbf82d8e41b92458d6dcbc7a0, type: 3}
@@ -696,7 +684,7 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     values:
-    - '{"type":"System.Single, mscorlib","value":"10"}'
+    - '{"type":"System.Single, mscorlib","value":"5"}'
     - '{"type":"System.Single, mscorlib","value":"0"}'
     unityArrayValues: []
     arrayValues: []
@@ -2406,6 +2394,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalB
       objectReference: {fileID: 0}
+    - target: {fileID: 5407980012960362452, guid: 8cf773d553b15406f84ecea8475a3270, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5407980012960592884, guid: 8cf773d553b15406f84ecea8475a3270, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3162,7 +3154,7 @@ GameObject:
   - component: {fileID: 6954238653240104826}
   - component: {fileID: 5790056205732292300}
   m_Layer: 5
-  m_Name: text-cherry
+  m_Name: text-collectable2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3481,7 +3473,7 @@ GameObject:
   - component: {fileID: 7090460663731688062}
   - component: {fileID: 5577051352869145858}
   m_Layer: 5
-  m_Name: cherry_button
+  m_Name: collectable2_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4247,7 +4239,7 @@ GameObject:
   - component: {fileID: 6070786156017746328}
   - component: {fileID: 1714567662225808803}
   m_Layer: 5
-  m_Name: text_star
+  m_Name: text_collectable1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4304,7 +4296,7 @@ GameObject:
   - component: {fileID: 1345115879813443278}
   - component: {fileID: 4548940737012160957}
   m_Layer: 5
-  m_Name: star_button
+  m_Name: collectable1_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4656,7 +4648,7 @@ GameObject:
   - component: {fileID: 8479837778391849780}
   - component: {fileID: 8479837778391849523}
   m_Layer: 5
-  m_Name: comp_energy
+  m_Name: comp_collectable2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4673,7 +4665,7 @@ GameObject:
   - component: {fileID: 8479837778391849785}
   - component: {fileID: 8479837778391849526}
   m_Layer: 5
-  m_Name: comp_star
+  m_Name: comp_collectable1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5380,8 +5372,8 @@ MonoBehaviour:
     keys:
     - healthSlider
     - timeTxt
-    - starTxt
-    - cherryTxt
+    - collectable1Txt
+    - collectable2Txt
     unityValues:
     - {fileID: 8961632566541248719}
     - {fileID: 8961632567442875716}
