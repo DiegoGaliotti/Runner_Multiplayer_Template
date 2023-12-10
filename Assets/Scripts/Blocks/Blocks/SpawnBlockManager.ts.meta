@@ -18,75 +18,82 @@ ScriptedImporter:
   wrapperTypes: []
   WrapperFilters: []
   wrapperOutputDirectory: Generated
-  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
-    \\\"__esModule\\\", { value: true });\\r\\nconst __UnityEngine__ = require(\\\"UnityEngine\\\");\\r\\n//
-    Import necessary modules from the UnityEngine library\\r\\nconst UnityEngine_1
-    = require(\\\"UnityEngine\\\");\\r\\nconst ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nconst
-    BlocksMoveLeft_1 = require(\\\"./BlocksMoveLeft\\\");\\r\\n// Define the ObstacleSpawnManager
-    class which extends the ZepetoScriptBehaviour class\\r\\nclass SpawnBlockManager
-    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\\r\\n    constructor() {\\r\\n       
-    super(...arguments);\\r\\n        //Array to store generated blocks in the game.\\r\\n       
-    this.generatedBlocks = [];\\r\\n        // Define the position where new blocks
-    will be spawned\\r\\n        this.spawnBlockPosition = new UnityEngine_1.Vector3(20,
-    0, 0);\\r\\n        //Define the position to trigger de new block.\\r\\n       
-    this.respawnBlockPositionX = 0;\\r\\n        //The x limit where the block is
-    destroy.\\r\\n        this.xLeftBoundDestroy = -20;\\r\\n        //All blocks
-    Speed.\\r\\n        this.allBlocksSpeed = 1;\\r\\n        // Indicator to know
-    if a block has already been spawned\\r\\n        this.blockSpawned = false;\\r\\n       
-    this.blockRespawnPosition = 0;\\r\\n    }\\r\\n    Awake() {\\r\\n        //
-    This is how the instance of this class is allocated. Which makes it a \\\"singleton\\\"\\r\\n       
-    // https://en.wikipedia.org/wiki/Singleton_pattern\\r\\n        if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Equality(SpawnBlockManager.Instance,
-    null))\\r\\n            SpawnBlockManager.Instance = this;\\r\\n        else\\r\\n           
-    UnityEngine_1.GameObject.Destroy(this);\\r\\n    }\\r\\n    StartSpawnBlockManager()
-    {\\r\\n        this.GenerateRandomBlock();\\r\\n    }\\r\\n    // This function
-    is called once per frame\\r\\n    Update() {\\r\\n        this.CheckBlockPosition();\\r\\n   
-    }\\r\\n    ResumeSpawnBlockManager() {\\r\\n        if (this.generatedBlocks
-    != null) {\\r\\n            if (this.generatedBlocks.length != 0) {\\r\\n               
-    for (const block of this.generatedBlocks) {\\r\\n                    if (__UnityEngine__.Object.op_Inequality(block,
-    null)) {\\r\\n                        block.GetComponent($typeof(BlocksMoveLeft_1.default)).SetMoving(true);\\r\\n                   
-    }\\r\\n                }\\r\\n            }\\r\\n            else\\r\\n               
-    this.GenerateRandomBlock();\\r\\n        }\\r\\n    }\\r\\n    CheckBlockPosition()
-    {\\r\\n        // Check if blockGenerated is not null (exists).\\r\\n       
-    if (this.blockGenerated && __UnityEngine__.Object.op_Inequality(this.blockGenerated,
-    null)) {\\r\\n            // If the block's x-position is less than or equal
-    to 0 and we haven't spawned a block yet.\\r\\n            if (this.blockGenerated.transform.position.x
-    <= this.respawnBlockPositionX && !this.blockSpawned) {\\r\\n                //
-    Generate a new random block.\\r\\n                this.GenerateRandomBlock();\\r\\n               
-    // Indicate that we have spawned a block.\\r\\n                this.blockSpawned
-    = true;\\r\\n            }\\r\\n            // If the block's x-position is greater
-    than 0 (moved back for some reason).\\r\\n            else if (this.blockGenerated.transform.position.x
-    > this.respawnBlockPositionX) {\\r\\n                // Reset the block spawn
-    indicator.\\r\\n                this.blockSpawned = false;\\r\\n            }\\r\\n       
-    }\\r\\n    }\\r\\n    GenerateRandomBlock() {\\r\\n        // Function to generate
-    a random block from the blocks array.\\r\\n        // Get a random number between
-    0 and the length of the blocks array.\\r\\n        let n = Math.floor(UnityEngine_1.Random.Range(0,
-    this.blocks.length));\\r\\n        // Instantiate a random block from the blocks
-    array at the specified spawn position.\\r\\n        const newBlock = UnityEngine_1.GameObject.Instantiate(this.blocks[n],
-    this.spawnBlockPosition, UnityEngine_1.Quaternion.identity, // No rotation applied\\r\\n       
-    this.transform);\\r\\n        // Assign the newly spawned block to our blockGenerated
-    variable.\\r\\n        this.blockGenerated = newBlock;\\r\\n        // Add the
-    block to the generatedBlocks list.\\r\\n        this.generatedBlocks.push(this.blockGenerated);\\r\\n       
-    // Set the speed of the newly spawned block\\r\\n        this.blockGenerated.GetComponent($typeof(BlocksMoveLeft_1.default)).SetBlockSpeed(this.allBlocksSpeed);\\r\\n       
-    //Call function to destroy the blocks that are beyond a point.\\r\\n        this.DestroyBlock();\\r\\n   
-    }\\r\\n    StopSpawnBlockManager() {\\r\\n        for (const block of this.generatedBlocks)
-    {\\r\\n            if (__UnityEngine__.Object.op_Inequality(block, null)) {\\r\\n               
-    block.GetComponent($typeof(BlocksMoveLeft_1.default)).SetMoving(false);\\r\\n           
-    }\\r\\n        }\\r\\n    }\\r\\n    SetBlockSpeed(value) {\\r\\n        this.allBlocksSpeed
-    = value;\\r\\n    }\\r\\n    DestroyBlock() {\\r\\n        let blocksToDestroy
-    = []; // Lista temporal de bloques a destruir\\r\\n        for (const block of
-    this.generatedBlocks) {\\r\\n            if (__UnityEngine__.Object.op_Inequality(block,
-    null)) {\\r\\n                if (block.transform.position.x <= this.xLeftBoundDestroy)
-    {\\r\\n                    blocksToDestroy.push(block); // Marca el bloque para
-    destruirlo a\xF1adi\xE9ndolo a la lista\\r\\n                }\\r\\n           
-    }\\r\\n        }\\r\\n        // Destruye los bloques marcados.\\r\\n       
-    for (const block of blocksToDestroy) {\\r\\n            block.GetComponent($typeof(BlocksMoveLeft_1.default)).DestroyBlock();\\r\\n       
-    }\\r\\n        // Filtra las referencias nulas en generatedBlocks.\\r\\n       
-    this.generatedBlocks = this.generatedBlocks.filter(block => __UnityEngine__.Object.op_Inequality(block,
-    null));\\r\\n    }\\r\\n    DestroyAllBlocks() {\\r\\n        // Lista temporal
-    de bloques a destruir\\r\\n        this.StopSpawnBlockManager();\\r\\n       
-    for (const block of this.generatedBlocks) {\\r\\n            if (__UnityEngine__.Object.op_Inequality(block,
-    null)) {\\r\\n                UnityEngine_1.GameObject.Destroy(block); // Marca
-    el bloque para destruirlo a\xF1adi\xE9ndolo a la lista\\r\\n            }\\r\\n       
-    }\\r\\n    }\\r\\n}\\r\\nexports.default = SpawnBlockManager;\\r\\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU3Bhd25CbG9ja01hbmFnZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJTcGF3bkJsb2NrTWFuYWdlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSx3REFBd0Q7QUFDeEQsNkNBQXFFO0FBQ3JFLGlEQUFxRDtBQUNyRCxxREFBOEM7QUFFOUMsc0ZBQXNGO0FBQ3RGLE1BQXFCLGlCQUFrQixTQUFRLHFDQUFxQjtJQUFwRTs7UUFNSSw4Q0FBOEM7UUFFdkMsb0JBQWUsR0FBaUIsRUFBRSxDQUFDO1FBRTFDLHVEQUF1RDtRQUNoRCx1QkFBa0IsR0FBWSxJQUFJLHFCQUFPLENBQUMsRUFBRSxFQUFFLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQztRQUUzRCw4Q0FBOEM7UUFDdEMsMEJBQXFCLEdBQVcsQ0FBQyxDQUFDO1FBRTFDLHlDQUF5QztRQUNsQyxzQkFBaUIsR0FBVyxDQUFDLEVBQUUsQ0FBQztRQUV2QyxtQkFBbUI7UUFDWixtQkFBYyxHQUFXLENBQUMsQ0FBQztRQUtsQyx3REFBd0Q7UUFDaEQsaUJBQVksR0FBWSxLQUFLLENBQUM7UUFFOUIseUJBQW9CLEdBQVcsQ0FBQyxDQUFBO0lBb0k1QyxDQUFDO0lBbElVLEtBQUs7UUFDUixvRkFBb0Y7UUFDcEYsa0RBQWtEO1FBQ2xELElBckNDLHFDQUFxQixDQXNLODlDLFdBQVksQ0FqSTUvQyxpQkFBaUIsQ0FBQyxRQUFRLEVBQUksSUFBSTtZQUFFLGlCQUFpQixDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7O1lBQ3JFLHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0lBQ2xDLENBQUM7SUFFRCxzQkFBc0I7UUFDbEIsSUFBSSxDQUFDLG1CQUFtQixFQUFFLENBQUM7SUFDL0IsQ0FBQztJQUdELHlDQUF5QztJQUN6QyxNQUFNO1FBQ0YsSUFBSSxDQUFDLGtCQUFrQixFQUFFLENBQUM7SUFDOUIsQ0FBQztJQUVELHVCQUF1QjtRQUVuQixJQUFHLElBQUksQ0FBQyxl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\",\"assetPath\":\"Assets/Scripts/Blocks/Blocks/SpawnBlockManager.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"blocks\",\"type\":\"UnityEngine.GameObject[]\",\"isArray\":true,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"generatedBlocks\",\"type\":\"UnityEngine.GameObject[]\",\"isArray\":true,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"spawnBlockPosition\",\"type\":\"UnityEngine.Vector3\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"mscorlib\",\"name\":\"xLeftBoundDestroy\",\"type\":\"System.Single\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"mscorlib\",\"name\":\"allBlocksSpeed\",\"type\":\"System.Single\",\"isArray\":false,\"initValue\":[\"1\"],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"SpawnBlockManager\",\"description\":\"\",\"hasAnimatorMove\":false},\"isCompiled\":true}"
-  typescriptHash: 078dab40334c9137f204211b458db610
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst __UnityEngine__ = require(\"UnityEngine\");\r\n//
+    Import necessary modules from the UnityEngine library\r\nconst UnityEngine_1
+    = require(\"UnityEngine\");\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    BlocksMoveLeft_1 = require(\"./BlocksMoveLeft\");\r\n// Define the SpawnBlockManager
+    class which extends the ZepetoScriptBehaviour class\r\nclass SpawnBlockManager
+    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor() {\r\n       
+    super(...arguments);\r\n        // Array to store generated blocks in the game\r\n       
+    this.generatedBlocks = [];\r\n        // Position where new blocks will be spawned\r\n       
+    this.spawnBlockPosition = new UnityEngine_1.Vector3(20, 0, 0);\r\n        //
+    Position to trigger the new block\r\n        this.respawnBlockPositionX = 0;\r\n       
+    // X limit where the block is destroyed\r\n        this.xLeftBoundDestroy = -20;\r\n       
+    // All blocks speed\r\n        this.allBlocksSpeed = 1;\r\n        // Indicator
+    to know if a block has already been spawned\r\n        this.blockSpawned = false;\r\n       
+    // Variable initialized with a value of 0\r\n        this.blockRespawnPosition
+    = 0;\r\n    }\r\n    // Awake is called when the script instance is being loaded\r\n   
+    Awake() {\r\n        // Allocating the instance of this class to make it a \"singleton\"\r\n       
+    if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Equality(SpawnBlockManager.Instance,
+    null))\r\n            SpawnBlockManager.Instance = this;\r\n        else\r\n           
+    UnityEngine_1.GameObject.Destroy(this);\r\n    }\r\n    // Method to start the
+    block manager\r\n    StartSpawnBlockManager() {\r\n        this.GenerateRandomBlock();\r\n   
+    }\r\n    // Update is called once per frame\r\n    Update() {\r\n        this.CheckBlockPosition();\r\n   
+    }\r\n    // Method to resume the block manager\r\n    ResumeSpawnBlockManager()
+    {\r\n        if (this.generatedBlocks != null) {\r\n            if (this.generatedBlocks.length
+    != 0) {\r\n                // Iterate through generated blocks\r\n               
+    for (const block of this.generatedBlocks) {\r\n                    // Check if
+    the block is not null\r\n                    if (__UnityEngine__.Object.op_Inequality(block,
+    null)) {\r\n                        // SetMoving(true) on the BlocksMoveLeft
+    component of the block\r\n                        block.GetComponent($typeof(BlocksMoveLeft_1.default)).SetMoving(true);\r\n                   
+    }\r\n                }\r\n            }\r\n            else\r\n               
+    // If there are no generated blocks, generate a random block\r\n               
+    this.GenerateRandomBlock();\r\n        }\r\n    }\r\n    // Method to check the
+    position of the block\r\n    CheckBlockPosition() {\r\n        // Check if blockGenerated
+    is not null (exists).\r\n        if (this.blockGenerated && __UnityEngine__.Object.op_Inequality(this.blockGenerated,
+    null)) {\r\n            // If the block''s x-position is less than or equal to
+    0 and we haven''t spawned a block yet.\r\n            if (this.blockGenerated.transform.position.x
+    <= this.respawnBlockPositionX && !this.blockSpawned) {\r\n                //
+    Generate a new random block.\r\n                this.GenerateRandomBlock();\r\n               
+    // Indicate that we have spawned a block.\r\n                this.blockSpawned
+    = true;\r\n            }\r\n            // If the block''s x-position is greater
+    than 0 (moved back for some reason).\r\n            else if (this.blockGenerated.transform.position.x
+    > this.respawnBlockPositionX) {\r\n                // Reset the block spawn indicator.\r\n               
+    this.blockSpawned = false;\r\n            }\r\n        }\r\n    }\r\n    // Method
+    to generate a random block\r\n    GenerateRandomBlock() {\r\n        // Get a
+    random number between 0 and the length of the blocks array.\r\n        let n
+    = Math.floor(UnityEngine_1.Random.Range(0, this.blocks.length));\r\n        //
+    Instantiate a random block from the blocks array at the specified spawn position.\r\n       
+    const newBlock = UnityEngine_1.GameObject.Instantiate(this.blocks[n], this.spawnBlockPosition,
+    UnityEngine_1.Quaternion.identity, // No rotation applied\r\n        this.transform);\r\n       
+    // Assign the newly spawned block to our blockGenerated variable.\r\n       
+    this.blockGenerated = newBlock;\r\n        // Add the block to the generatedBlocks
+    list.\r\n        this.generatedBlocks.push(this.blockGenerated);\r\n        //
+    Set the speed of the newly spawned block\r\n        this.blockGenerated.GetComponent($typeof(BlocksMoveLeft_1.default)).SetBlockSpeed(this.allBlocksSpeed);\r\n       
+    // Call function to destroy the blocks that are beyond a point.\r\n        this.DestroyBlock();\r\n   
+    }\r\n    // Method to stop the block manager\r\n    StopSpawnBlockManager() {\r\n       
+    for (const block of this.generatedBlocks) {\r\n            if (__UnityEngine__.Object.op_Inequality(block,
+    null)) {\r\n                block.GetComponent($typeof(BlocksMoveLeft_1.default)).SetMoving(false);\r\n           
+    }\r\n        }\r\n    }\r\n    // Method to set the speed of the blocks\r\n   
+    SetBlockSpeed(value) {\r\n        this.allBlocksSpeed = value;\r\n    }\r\n   
+    // Method to destroy blocks\r\n    DestroyBlock() {\r\n        let blocksToDestroy
+    = [];\r\n        // Check if the block is not null\r\n        for (const block
+    of this.generatedBlocks) {\r\n            // Check if the block is not null\r\n           
+    if (__UnityEngine__.Object.op_Inequality(block, null)) {\r\n                //
+    Check if the block''s x-position is less than or equal to the specified bound\r\n               
+    if (block.transform.position.x <= this.xLeftBoundDestroy) {\r\n                   
+    // Mark the block for destruction by adding it to the blocksToDestroy list\r\n                   
+    blocksToDestroy.push(block);\r\n                }\r\n            }\r\n       
+    }\r\n        // Destroy the blocks marked for destruction\r\n        for (const
+    block of blocksToDestroy) {\r\n            block.GetComponent($typeof(BlocksMoveLeft_1.default)).DestroyBlock();\r\n       
+    }\r\n        // Filter out null references in generatedBlocks\r\n        this.generatedBlocks
+    = this.generatedBlocks.filter(block => __UnityEngine__.Object.op_Inequality(block,
+    null));\r\n    }\r\n    // Method to destroy all blocks\r\n    DestroyAllBlocks()
+    {\r\n        // Stop the spawn manager\r\n        this.StopSpawnBlockManager();\r\n       
+    // Iterate through generated blocks\r\n        for (const block of this.generatedBlocks)
+    {\r\n            // Check if the block is not null\r\n            if (__UnityEngine__.Object.op_Inequality(block,
+    null)) {\r\n                // Destroy the block\r\n                UnityEngine_1.GameObject.Destroy(block);\r\n           
+    }\r\n        }\r\n    }\r\n}\r\nexports.default = SpawnBlockManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU3Bhd25CbG9ja01hbmFnZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJTcGF3bkJsb2NrTWFuYWdlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSx3REFBd0Q7QUFDeEQsNkNBQXFFO0FBQ3JFLGlEQUFxRDtBQUNyRCxxREFBOEM7QUFFOUMsbUZBQW1GO0FBQ25GLE1BQXFCLGlCQUFrQixTQUFRLHFDQUFxQjtJQUFwRTs7UUFRSSw4Q0FBOEM7UUFDdkMsb0JBQWUsR0FBaUIsRUFBRSxDQUFDO1FBRTFDLDRDQUE0QztRQUNyQyx1QkFBa0IsR0FBWSxJQUFJLHFCQUFPLENBQUMsRUFBRSxFQUFFLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQztRQUUzRCxvQ0FBb0M7UUFDNUIsMEJBQXFCLEdBQVcsQ0FBQyxDQUFDO1FBRTFDLHVDQUF1QztRQUNoQyxzQkFBaUIsR0FBVyxDQUFDLEVBQUUsQ0FBQztRQUV2QyxtQkFBbUI7UUFDWixtQkFBYyxHQUFXLENBQUMsQ0FBQztRQUtsQyx3REFBd0Q7UUFDaEQsaUJBQVksR0FBWSxLQUFLLENBQUM7UUFFdEMseUNBQXlDO1FBQ2pDLHlCQUFvQixHQUFXLENBQUMsQ0FBQztJQW9JN0MsQ0FBQztJQWxJRywyREFBMkQ7SUFDcEQsS0FBSztRQUNSLGlFQUFpRTtRQUNqRSxJQXZDQyxxQ0FBcUIsQ0F3S3FoQixXQUFZLENBakluakIsaUJBQWlCLENBQUMsUUFBUSxFQUFJLElBQUk7WUFBRSxpQkFBaUIsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDOztZQUNyRSx3QkFBVSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUNsQyxDQUFDO0lBRUQsb0NBQW9DO0lBQ3BDLHNCQUFzQjtRQUNsQixJQUFJLENBQUMsbUJBQW1CLEVBQUUsQ0FBQztJQUMvQixDQUFDO0lBRUQsa0NBQWtDO0lBQ2xDLE1BQU07UUFDRixJQUFJLENBQUMsa0JBQWtCLEVBQUUsQ0FBQztJQUM5QixDQUFDO0lBRUQscUNB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","assetPath":"Assets/Scripts/Blocks/Blocks/SpawnBlockManager.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"blocks","type":"UnityEngine.GameObject[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"generatedBlocks","type":"UnityEngine.GameObject[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"spawnBlockPosition","type":"UnityEngine.Vector3","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"xLeftBoundDestroy","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"allBlocksSpeed","type":"System.Single","isArray":false,"initValue":["1"],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"SpawnBlockManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 8213601d69fd2affcd4823e5aebcb125
   onlyWriteTrigger: 0

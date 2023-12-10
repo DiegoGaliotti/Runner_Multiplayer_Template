@@ -12,9 +12,14 @@ export default class UIOnGameOver extends ZepetoScriptBehaviour {
     // Start is called before the first frame update
     Start() { 
         // Adding listeners to the button click events to execute the corresponding methods  
-        // Calling the BackToLobby method of the GameRunnerManager instance
-        this.backToLobbyButton.onClick.AddListener(GameRunnerManager.Instance.BackToLobby)
+        // Calling the BackToLobby method
+        this.backToLobbyButton.onClick.AddListener(this.BackToLoby)
         // Calling the OnGameStart method of the GameRunnerManager instance to restart the game
         this.restartButton.onClick.AddListener(GameRunnerManager.Instance.OnRunnerStart)
+    }
+
+    // This Method is calling the BackToLobby method of the GameRunnerManager instance
+    BackToLoby(){
+        GameRunnerManager.Instance.BackToLobby();
     }
 }

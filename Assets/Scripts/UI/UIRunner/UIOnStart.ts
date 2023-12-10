@@ -11,6 +11,12 @@ export default class UIOnStart extends ZepetoScriptBehaviour {
     // Start is called before the first frame update
     Start() {    
         // Adding a listener to the button click event calling the OnGameStart method of the GameRunnerManager instance
-        this.GameStartButton.onClick.AddListener(GameRunnerManager.Instance.OnRunnerStart)
+        this.GameStartButton.onClick.AddListener(this.OnRunnerStart)
     }
+
+    // This method call the method of the GameRunnerManager instance
+    OnRunnerStart(){
+        GameRunnerManager.Instance.OnRunnerStart();
+    }
+
 }
