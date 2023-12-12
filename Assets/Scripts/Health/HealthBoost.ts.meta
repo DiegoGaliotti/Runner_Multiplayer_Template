@@ -20,13 +20,15 @@ ScriptedImporter:
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
-    HealthManager_1 = require(\"../Managers/HealthManager\");\r\nclass HealthBoost
-    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    //private objectCollider:
-    GameObject;\r\n    OnTriggerEnter(collider) {\r\n        // We verify that the
-    collision is with the player by comparing his tag\r\n        if (collider.CompareTag(\"Player\"))
-    {\r\n            // We ask the HealthManager to add the previously defined value
-    \"healthBoostAmount\"\r\n            HealthManager_1.default.Instance.generateHealth(this.healthBoostAmount);\r\n           
+    HealthManager_1 = require(\"../Managers/HealthManager\");\r\n// This class represents
+    an object that boosts the player''s health when collided with\r\nclass HealthBoost
+    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    // This method is called
+    when another collider enters the trigger collider attached to this object\r\n   
+    OnTriggerEnter(collider) {\r\n        // We verify that the collision is with
+    the player by comparing his tag\r\n        if (collider.CompareTag(\"Player\"))
+    {\r\n            // We ask the HealthManager to add the previously defined health
+    boost amount\r\n            HealthManager_1.default.Instance.GenerateHealth(this.healthBoostAmount);\r\n           
     // We deactivate the current element\r\n            this.gameObject.SetActive(false);\r\n       
-    }\r\n    }\r\n}\r\nexports.default = HealthBoost;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSGVhbHRoQm9vc3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJIZWFsdGhCb29zdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBLGlEQUFzRDtBQUN0RCw2REFBd0Q7QUFFeEQsTUFBcUIsV0FBWSxTQUFRLHFDQUFxQjtJQUcxRCxxQ0FBcUM7SUFFckMsY0FBYyxDQUFDLFFBQWtCO1FBQzdCLHVFQUF1RTtRQUN2RSxJQUFJLFFBQVEsQ0FBQyxVQUFVLENBQUMsUUFBUSxDQUFDLEVBQUU7WUFDL0IsbUZBQW1GO1lBQ25GLHVCQUFhLENBQUMsUUFBUSxDQUFDLGNBQWMsQ0FBQyxJQUFJLENBQUMsaUJBQWlCLENBQUMsQ0FBQTtZQUM3RCxvQ0FBb0M7WUFDcEMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7U0FDcEM7SUFDTCxDQUFDO0NBRUo7QUFmRCw4QkFlQyJ9","assetPath":"Assets/Scripts/Health/HealthBoost.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"healthBoostAmount","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"HealthBoost","description":"","hasAnimatorMove":false},"isCompiled":true}'
-  typescriptHash: d9ffd9ac537ace1c090e1020fc46aee5
+    }\r\n    }\r\n}\r\nexports.default = HealthBoost;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSGVhbHRoQm9vc3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJIZWFsdGhCb29zdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBLGlEQUFzRDtBQUN0RCw2REFBd0Q7QUFFeEQscUZBQXFGO0FBQ3JGLE1BQXFCLFdBQVksU0FBUSxxQ0FBcUI7SUFLMUQsa0dBQWtHO0lBQ2xHLGNBQWMsQ0FBQyxRQUFrQjtRQUM3Qix1RUFBdUU7UUFDdkUsSUFBSSxRQUFRLENBQUMsVUFBVSxDQUFDLFFBQVEsQ0FBQyxFQUFFO1lBQy9CLDZFQUE2RTtZQUM3RSx1QkFBYSxDQUFDLFFBQVEsQ0FBQyxjQUFjLENBQUMsSUFBSSxDQUFDLGlCQUFpQixDQUFDLENBQUM7WUFFOUQsb0NBQW9DO1lBQ3BDLElBQUksQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDO1NBQ3BDO0lBQ0wsQ0FBQztDQUNKO0FBaEJELDhCQWdCQyJ9","assetPath":"Assets/Scripts/Health/HealthBoost.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"healthBoostAmount","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"HealthBoost","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: a0b04c8131431fcad741a5dcaef414df
   onlyWriteTrigger: 0

@@ -20,27 +20,44 @@ ScriptedImporter:
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
-    UnityEngine_1 = require(\"UnityEngine\");\r\nconst GroundMoveLeft_1 = require(\"./GroundMoveLeft\");\r\nclass
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst GroundMoveLeft_1 = require(\"./GroundMoveLeft\");\r\n//
+    Define the GroundManager class which extends the ZepetoScriptBehaviour class\r\nclass
     GroundManager extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor()
-    {\r\n        super(...arguments);\r\n        this.groundStartPos = new UnityEngine_1.Vector3(0,
-    0, 0);\r\n        this.groundSpeed = 1;\r\n        this.isGroundInTheScene =
-    false;\r\n        this.xleftBound = -30;\r\n        this.isGroundMoving = false;\r\n   
-    }\r\n    Awake() {\r\n        // This is how the instance of this class is allocated.
-    Which makes it a \"singleton\"\r\n        // https://en.wikipedia.org/wiki/Singleton_pattern\r\n       
-    if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Equality(GroundManager.Instance,
+    {\r\n        super(...arguments);\r\n        // Initial position of the ground\r\n       
+    this.groundStartPos = new UnityEngine_1.Vector3(0, 0, 0);\r\n        // Speed
+    of the ground movement\r\n        this.groundSpeed = 1;\r\n        // Flag indicating
+    whether the ground is currently in the scene\r\n        this.isGroundInTheScene
+    = false;\r\n        // X position at which the ground should be repeated\r\n       
+    this.xleftBound = -30;\r\n        // Flag indicating whether the ground is currently
+    moving\r\n        this.isGroundMoving = false;\r\n    }\r\n    // Awake is called
+    when the script instance is being loaded\r\n    Awake() {\r\n        // Allocating
+    the instance of this class to make it a \"singleton\"\r\n        if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Equality(GroundManager.Instance,
     null))\r\n            GroundManager.Instance = this;\r\n        else\r\n           
-    UnityEngine_1.GameObject.Destroy(this);\r\n    }\r\n    StartGroundManager()
-    {\r\n        if (this.isGroundInTheScene == false) {\r\n            this.movingGround
-    = UnityEngine_1.GameObject.Instantiate(this.ground, this.groundStartPos, UnityEngine_1.Quaternion.identity);\r\n           
-    this.isGroundInTheScene = true;\r\n        }\r\n        this.movingGround.transform.position
-    = this.groundStartPos;\r\n        this.groundMoveLeft = this.movingGround.GetComponent($typeof(GroundMoveLeft_1.default));\r\n       
-    this.isGroundMoving = this.groundMoveLeft.isMoving;\r\n    }\r\n    Update()
-    {\r\n        if (this.movingGround) {\r\n            this.groundMoveLeft.SetGroundSpeed(this.groundSpeed);\r\n           
-    this.RepeatGround();\r\n        }\r\n    }\r\n    RepeatGround() {\r\n       
-    if (this.movingGround.transform.position.x < this.xleftBound) {\r\n           
-    this.movingGround.transform.position = this.groundStartPos;\r\n        }\r\n   
-    }\r\n    PauseGroundManager() {\r\n        this.groundMoveLeft.SetMoving(false);\r\n   
-    }\r\n    ResumeGroundManager() {\r\n        this.groundMoveLeft.SetMoving(true);\r\n   
-    }\r\n}\r\nexports.default = GroundManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR3JvdW5kTWFuYWdlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkdyb3VuZE1hbmFnZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFDQSxpREFBcUQ7QUFDckQsNkNBQXdHO0FBQ3hHLHFEQUE2QztBQUU3QyxNQUFxQixhQUFjLFNBQVEscUNBQXFCO0lBQWhFOztRQUtZLG1CQUFjLEdBQVksSUFBSSxxQkFBTyxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUM7UUFDaEQsZ0JBQVcsR0FBVyxDQUFDLENBQUM7UUFDdkIsdUJBQWtCLEdBQVMsS0FBSyxDQUFDO1FBQ2xDLGVBQVUsR0FBVyxDQUFDLEVBQUUsQ0FBQztRQUt4QixtQkFBYyxHQUFTLEtBQUssQ0FBQztJQXdEekMsQ0FBQztJQXJEVSxLQUFLO1FBQ1Isb0ZBQW9GO1FBQ3BGLGtEQUFrRDtRQUVsRCxJQXhCQyxxQ0FBcUIsQ0E4RTQxSixXQUFZLENBdEQxM0osYUFBYSxDQUFDLFFBQVEsRUFBSSxJQUFJO1lBQUUsYUFBYSxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7O1lBQzdELHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0lBRWxDLENBQUM7SUFFTSxrQkFBa0I7UUFFckIsSUFBSSxJQUFJLENBQUMsa0JBQWtCLElBQUksS0FBSyxFQUFFO1lBQ2xDLElBQUksQ0FBQyxZQUFZLEdBQUcsd0JBQVUsQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLE1BQU0sRUFBRSxJQUFJLENBQUMsY0FBYyxFQUFFLHdCQUFVLENBQUMsUUFBUSxDQUFlLENBQUM7WUFDaEgsSUFBSSxDQUFDLGtCQUFrQixHQUFHLElBQUksQ0FBQztTQUNsQztRQUNELElBQUksQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUMsY0FBYyxDQUFDO1FBQzNELElBQUksQ0FBQyxjQUFjLEdBQUcsSUFBSSxDQUFDLFlBQVksQ0FBQyxZQUFZLFNBQUMsd0JBQWMsRUFBRyxDQUFDO1FBRXZFLElBQUksQ0FBQyxjQUFjLEdBQUcsSUFBSSxDQUFDLGNBQWMsQ0FBQyxRQUFRLENBQUM7SUFDdkQsQ0FBQztJQUVELE1BQU07UUFFRSxJQUFJLElBQUksQ0FBQyxZQUFZLEVBQUU7WUFFbkIsSUFBSSxDQUFDLGNBQWMsQ0FBQyxjQUFjLENBQUMsSUFBSSxDQUFDLFdBQVcsQ0FBQyxDQUFDO1lBQ3JELElBQUksQ0FBQyxZQUFZLEVBQUUsQ0FBQztTQUV2QjtJQUVULENBQUM7SUFHTSxZQUFZO1FBRWYsSUFBSSxJQUFJLENBQUMsWUFBWSxDQUFDLFNBQVMsQ0FBQyxRQUFRLENBQUMsQ0FBQyxHQUFHLElBQUksQ0FBQyxVQUFVLEVBQUU7WUFDMUQsSUFBSSxDQUFDLFlBQVksQ0FBQyxTQUFTLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQyxjQUFjLENBQUM7U0FFOUQ7SUFDTCxDQUFDO0lBRU0sa0JBQWtCO1FBQ3JCLElBQUksQ0FBQyxjQUFjLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDO0lBQ3pDLENBQUM7SUFFTSxtQkFBbUI7UUFDdEIsSUFBSSxDQUFDLGNBQWMsQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUM7SUFFeEMsQ0FBQztDQUtKO0FBckVELGdDQXFFQyJ9","assetPath":"Assets/Scripts/Blocks/Background/GroundManager.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"ground","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"groundSpeed","type":"System.Single","isArray":false,"initValue":["1"],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"xleftBound","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"GroundManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
-  typescriptHash: 761075b88ca510c6ce48c562bd7bca6f
+    UnityEngine_1.GameObject.Destroy(this);\r\n    }\r\n    // Method to start the
+    ground manager\r\n    StartGroundManager() {\r\n        // Check if the ground
+    is already in the scene\r\n        if (this.isGroundInTheScene == false) {\r\n           
+    // Instantiate the ground prefab at the specified start position\r\n           
+    this.movingGround = UnityEngine_1.GameObject.Instantiate(this.ground, this.groundStartPos,
+    UnityEngine_1.Quaternion.identity);\r\n            this.isGroundInTheScene =
+    true;\r\n        }\r\n        // Set the position of the moving ground to the
+    initial position\r\n        this.movingGround.transform.position = this.groundStartPos;\r\n       
+    // Get the GroundMoveLeft script attached to the moving ground\r\n        this.groundMoveLeft
+    = this.movingGround.GetComponent($typeof(GroundMoveLeft_1.default));\r\n       
+    // Get the current state of ground movement\r\n        this.isGroundMoving =
+    this.groundMoveLeft.isMoving;\r\n    }\r\n    // Update is called once per frame\r\n   
+    Update() {\r\n        // Check if the moving ground exists\r\n        if (this.movingGround)
+    {\r\n            // Set the speed of the moving ground\r\n            this.groundMoveLeft.SetGroundSpeed(this.groundSpeed);\r\n           
+    // Check if the ground position should be repeated\r\n            this.RepeatGround();\r\n       
+    }\r\n    }\r\n    // Method to repeat the ground when it goes beyond a certain
+    point\r\n    RepeatGround() {\r\n        // Check if the moving ground''s x-position
+    is less than the left bound\r\n        if (this.movingGround.transform.position.x
+    < this.xleftBound) {\r\n            // Reset the position of the moving ground
+    to the initial position\r\n            this.movingGround.transform.position =
+    this.groundStartPos;\r\n        }\r\n    }\r\n    // Method to pause the ground
+    manager\r\n    PauseGroundManager() {\r\n        // Set the moving state of the
+    ground to false\r\n        this.groundMoveLeft.SetMoving(false);\r\n    }\r\n   
+    // Method to resume the ground manager\r\n    ResumeGroundManager() {\r\n       
+    // Set the moving state of the ground to true\r\n        this.groundMoveLeft.SetMoving(true);\r\n   
+    }\r\n}\r\nexports.default = GroundManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR3JvdW5kTWFuYWdlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkdyb3VuZE1hbmFnZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFDQSxpREFBcUQ7QUFDckQsNkNBQThEO0FBQzlELHFEQUE2QztBQUU3QywrRUFBK0U7QUFDL0UsTUFBcUIsYUFBYyxTQUFRLHFDQUFxQjtJQUFoRTs7UUFRSSxpQ0FBaUM7UUFDekIsbUJBQWMsR0FBWSxJQUFJLHFCQUFPLENBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQztRQUV2RCwrQkFBK0I7UUFDeEIsZ0JBQVcsR0FBVyxDQUFDLENBQUM7UUFFL0IsK0RBQStEO1FBQ3ZELHVCQUFrQixHQUFZLEtBQUssQ0FBQztRQUU1QyxvREFBb0Q7UUFDN0MsZUFBVSxHQUFXLENBQUMsRUFBRSxDQUFDO1FBUWhDLHlEQUF5RDtRQUNqRCxtQkFBYyxHQUFZLEtBQUssQ0FBQztJQTRENUMsQ0FBQztJQTFERywyREFBMkQ7SUFDcEQsS0FBSztRQUNSLGlFQUFpRTtRQUNqRSxJQXJDQyxxQ0FBcUIsQ0E2RnEyRyxXQUFZLENBeERuNEcsYUFBYSxDQUFDLFFBQVEsRUFBSSxJQUFJO1lBQUUsYUFBYSxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7O1lBQzdELHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0lBQ2xDLENBQUM7SUFFRCxxQ0FBcUM7SUFDOUIsa0JBQWtCO1FBQ3JCLDhDQUE4QztRQUM5QyxJQUFJLElBQUksQ0FBQyxrQkFBa0IsSUFBSSxLQUFLLEVBQUU7WUFDbEMsZ0VBQWdFO1lBQ2hFLElBQUksQ0FBQyxZQUFZLEdBQUcsd0JBQVUsQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLE1BQU0sRUFBRSxJQUFJLENBQUMsY0FBYyxFQUFFLHdCQUFVLENBQUMsUUFBUSxDQUFlLENBQUM7WUFDaEgsSUFBSSxDQUFDLGtCQUFrQixHQUFHLElBQUksQ0FBQztTQUNsQztRQUVELGdFQUFnRTtRQUNoRSxJQUFJLENBQUMsWUFBWSxDQUFDLFNBQVMsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDLGNBQWMsQ0FBQztRQUUzRCw4REFBOEQ7UUFDOUQsSUFBSSxDQUFDLGNBQWMsR0FBRyxJQUFJLENBQUMsWUFBWSxDQUFDLFlBQVksU0FBQyx3QkFBYyxFQUFHLENBQUM7UUFFdkUsMkNBQTJDO1FBQzNDLElBQUksQ0FBQyxjQUFjLEdBQUcsSUFBSSxDQUFDLGNBQWMsQ0FBQyxRQUFRLENBQUM7SUFDdkQsQ0FBQztJQUVELGtDQUFrQztJQUNsQyxNQUFNO1FBQ0Ysb0NBQW9DO1FBQ3BDLElBQUksSUFBSSxDQUFDLFlBQVksRUFBRTtZQUNuQixxQ0FBcUM7WUFDckMsSUFBSSxDQUFDLGNBQWMsQ0FBQyxjQUFjLENBQUMsSUFBSSxDQUFDLFdBQVcsQ0FBQyxDQUFDO1lBRXJELGtEQUFrRDtZQUNsRCxJQUFJLENBQUMsWUFBWSxFQUFFLENBQUM7U0FDdkI7SUFDTCxDQUFDO0lBRUQsa0VBQWtFO0lBQzNELFlBQVk7UUFDZixzRUFBc0U7UUFDdEUsSUFBSSxJQUFJLENBQUMsWUFBWSxDQUFDLFNBQVMsQ0FBQyxRQUFRLENBQUMsQ0FBQyxHQUFHLElBQUksQ0FBQyxVQUFVLEVBQUU7WUFDMUQsa0VBQWtFO1lBQ2xFLElBQUksQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUMsY0FBYyxDQUFDO1NBQzlEO0lBQ0wsQ0FBQztJQUVELHFDQUFxQztJQUM5QixrQkFBa0I7UUFDckIsOENBQThDO1FBQzlDLElBQUksQ0FBQyxjQUFjLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDO0lBQ3pDLENBQUM7SUFFRCxzQ0FBc0M7SUFDL0IsbUJBQW1CO1FBQ3RCLDZDQUE2QztRQUM3QyxJQUFJLENBQUMsY0FBYyxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUN4QyxDQUFDO0NBQ0o7QUF2RkQsZ0NBdUZDIn0=","assetPath":"Assets/Scripts/Blocks/Background/GroundManager.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"ground","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"groundSpeed","type":"System.Single","isArray":false,"initValue":["1"],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"xleftBound","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"GroundManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 8289a4514b97acc6eed86b55f2b96435
   onlyWriteTrigger: 0

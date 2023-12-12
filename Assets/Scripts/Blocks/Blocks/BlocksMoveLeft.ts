@@ -3,40 +3,43 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import { Vector3, GameObject, Time } from "UnityEngine";
 
-// Define the ObstacleMoveLeft class which extends the ZepetoScriptBehaviour class
-export default class BlocksMoveLeft extends ZepetoScriptBehaviour
-{
+// Define the BlocksMoveLeft class which extends the ZepetoScriptBehaviour class
+export default class BlocksMoveLeft extends ZepetoScriptBehaviour {
     
+    // Speed of the block movement
     public blockSpeed: number = 0;
 
-    public isMoving: bool = true;
+    // Flag indicating whether the block is currently moving
+    public isMoving: boolean = true;
 
-    // This function is called once per frame.
+    // This function is called once per frame
     Update(){
-        // Move the obstacle to the left (negative x-direction) based on the speed and time since the last frame.
-        if(this.isMoving){
+        // Move the block to the left (negative x-direction) based on the speed and time since the last frame.
+        if (this.isMoving) {
             this.MoveLeft();
         }
     }
-    //Method to set the speed of the block.
-    public SetBlockSpeed(value:number){
-        this.blockSpeed = value
+
+    // Method to set the speed of the block
+    public SetBlockSpeed(value: number){
+        this.blockSpeed = value;
     }
 
-    //Method to destroy generated block.
+    // Method to destroy the generated block
     public DestroyBlock(){
         GameObject.Destroy(this.gameObject);
     }
 
+    // Method to move the block to the left
     public MoveLeft(){
-        // Move the obstacle to the left (negative x-direction) based on the speed and time since the last frame.
+        // Move the block to the left (negative x-direction) based on the speed and time since the last frame.
+        this.transform.position += Vector3.left * this.blockSpeed * Time.deltaTime;
 
-        this.transform.position +=  Vector3.left * this.blockSpeed * Time.deltaTime;
-        // If the obstacle's x-position reaches or crosses the left boundary
-        
+        // If the block's x-position reaches or crosses the left boundary, you might want to handle this condition here
     }
 
-    public SetMoving(value: bool): void{
+    // Method to set the moving state of the block
+    public SetMoving(value: boolean): void{
         this.isMoving = value;
     }
 }

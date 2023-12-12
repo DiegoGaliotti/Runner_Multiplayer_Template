@@ -1,42 +1,49 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script';
 import { PlayerInput, InputAction } from 'UnityEngine.InputSystem';
-import { CallbackContext } from 'UnityEngine.InputSystem.InputAction';
-import { CharacterState, ZepetoCharacter, ZepetoPlayers, ZepetoCamera } from 'ZEPETO.Character.Controller';
+import { ZepetoCharacter, ZepetoPlayers } from 'ZEPETO.Character.Controller';
 import { Quaternion, Time, Vector2, Vector3 } from 'UnityEngine';
 import * as UnityEngine from 'UnityEngine';
 
+// Class that manages the side view camera and player input
 export default class SideViewController extends ZepetoScriptBehaviour {
 
+    // Custom camera used for side view
     public customCamera: UnityEngine.Camera;
 
-    //Camera setting, distance and location, 
+    // Camera distance parameters
     private cameraDistanceZ: number = 4;
     private cameraDistanceX: number = 3.5;
     private cameraDistanceY: number = 2.5;
 
+    // Reference to the ZepetoCharacter controlled by the player
     private myCharacter: ZepetoCharacter;
+
+    // Variables for tracking touch input
     private startPos: Vector2 = Vector2.zero;
     private curPos: Vector2 = Vector2.zero;
-
     private playerInput: PlayerInput;
     private touchPositionAction: InputAction;
     private touchTriggerAction: InputAction;
-
     private isTriggered: boolean = false;
     private isTouchDown: boolean = false;
 
+    // Check if player can move based on touch input
     private CanMove(): boolean {
         return this.isTouchDown && !this.isTriggered;
     }
 
+    // Called when the script instance is enabled
     OnEnable() {
         this.playerInput = this.gameObject.GetComponent<PlayerInput>();
     }
 
+    // Start is called before the first frame update
     Start() {
+        // Set up touch input actions
         this.touchTriggerAction = this.playerInput.actions.FindAction("MoveTrigger");
         this.touchPositionAction = this.playerInput.actions.FindAction("Move");
 
+        // Add event handlers for touch input actions
         this.touchTriggerAction.add_started(context => {
             this.isTriggered = true;
             this.isTouchDown = true;
@@ -58,7 +65,7 @@ export default class SideViewController extends ZepetoScriptBehaviour {
             }
         });
 
-        // Turn off zepeto camera
+        // Turn off Zepeto camera and set up input control loop
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
             ZepetoPlayers.instance.LocalPlayer.zepetoCamera.gameObject.SetActive(false);
             this.myCharacter = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;
@@ -67,12 +74,13 @@ export default class SideViewController extends ZepetoScriptBehaviour {
         });
     }
 
+    // Coroutine to handle continuous input control
     private *InputControlLoop() {
         while (true) {
             yield new UnityEngine.WaitForEndOfFrame();
-            
-            if (this.myCharacter && this.CanMove()) {
 
+            if (this.myCharacter && this.CanMove()) {
+                // Calculate movement direction based on touch input
                 const camRot = Quaternion.Euler(0, UnityEngine.Camera.main.transform.rotation.eulerAngles.y, 0);
                 let moveDir = Vector2.op_Subtraction(this.curPos, this.startPos);
                 moveDir = Vector2.op_Division(moveDir, 100);
@@ -82,7 +90,7 @@ export default class SideViewController extends ZepetoScriptBehaviour {
                         moveDir.Normalize();
                     }
 
-                    // Left-Right
+                    // Left-Right movement
                     let optMoveDir = new Vector3(moveDir.x, 0, 0);
                     optMoveDir = Vector3.op_Multiply(optMoveDir, Time.deltaTime * 80);
                     this.myCharacter.Move(optMoveDir);
@@ -91,12 +99,13 @@ export default class SideViewController extends ZepetoScriptBehaviour {
         }
     }
 
-    // Follow zepeto character
+    // LateUpdate is called every frame, if the Behaviour is enabled
     LateUpdate() {
         if (null == this.myCharacter) {
             return;
         }
 
+        // Follow the Zepeto character with the camera
         let characterPos = this.myCharacter.transform.position;
         let cameraPosition = new Vector3(characterPos.x + this.cameraDistanceX, characterPos.y + this.cameraDistanceY, characterPos.z - this.cameraDistanceZ);
         this.customCamera.transform.position = cameraPosition;

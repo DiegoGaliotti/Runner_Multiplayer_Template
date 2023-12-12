@@ -1,44 +1,49 @@
-import { GameObject, KeyCode } from 'UnityEngine';
+import { GameObject } from 'UnityEngine';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script';
 
+// This enum is a manager for using diferent tipe of points
 export enum Currency {
-    star = 0,
-    cherry = 1,
-} // This enum is a manager for using diferent tipe of points
+    collectable1 = 0,
+    collectable2 = 1,
+}
 
 // This class manages the score
 export default class ScoreManager extends ZepetoScriptBehaviour {
 
-    public static Instance: ScoreManager; // This class instanceate
+    // Singleton instance of this class
+    public static Instance: ScoreManager;
+
+    // Internal dictionary of accumulated points and we declare thats start on 0
     private pointsAmounts: { [key: string]: number } = {
-        [Currency.star]: 0,
-        [Currency.cherry]: 0
-    }; // Internal dictionary of accumulated points and we declare thats start on 0
+        [Currency.collectable1]: 0,
+        [Currency.collectable2]: 0
+    }; 
 
+    // Internal dictionary of the value each currency generate on the total score
     private scoreGenerator: { [key: string]: number } = {
-        [Currency.star]: 1,
-        [Currency.cherry]: 5
-    }; // Internal dictionary of the value each currency generate on the total score
+        [Currency.collectable1]: 1,
+        [Currency.collectable2]: 5
+    }; 
 
+    // Total score accumulated across all types of points
     public totalScore: number = 0;
 
     // Awake is called when the script instance is being loaded
     public Awake(): void {
-        // This is how the instance of this class is allocated. Which makes it a "singleton"
-        // https://en.wikipedia.org/wiki/Singleton_pattern
+        // Allocating the instance of this class to make it a "singleton"
         if (ScoreManager.Instance == null) ScoreManager.Instance = this;
         else GameObject.Destroy(this);
     }
 
-    // This method is called when the player scores a point depending on the point it get
+    // This method is called when the player scores points depending on the type and amount
     public ScorePoints(pointsType: Currency, amount: number): void {
-        // Add the value of the point passed by parameter to the internal total value
+        // Add the value of the points passed by parameter to the internal total value
         if (this.pointsAmounts.hasOwnProperty(pointsType)) {
             this.pointsAmounts[pointsType] += amount;
         }
     }
 
-    // This method returns the internal value of the accumulated points
+    // This method resets the internal value of the accumulated points to 0 for each type
     public GetPoints(pointsType: Currency): number {
         if (this.pointsAmounts.hasOwnProperty(pointsType)) {
             return this.pointsAmounts[pointsType];
@@ -47,7 +52,7 @@ export default class ScoreManager extends ZepetoScriptBehaviour {
     }
 
     // This method resets the internal value of the accumulated points to 0, for each type of points you have
-    public ResetPoins(): void {
+    public ResetPoints(): void {
         for (const pointsType in this.pointsAmounts) {
             if (this.pointsAmounts.hasOwnProperty(pointsType)) {
                 this.pointsAmounts[pointsType] = 0;
@@ -56,6 +61,7 @@ export default class ScoreManager extends ZepetoScriptBehaviour {
         this.totalScore = 0;
     }
 
+    // This method calculates and returns the total score based on the accumulated points and their values
     public GetTotalScore(): number {
         for (const points in this.pointsAmounts) {
             if (this.pointsAmounts.hasOwnProperty(points)) {

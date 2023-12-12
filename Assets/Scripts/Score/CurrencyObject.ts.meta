@@ -19,20 +19,21 @@ ScriptedImporter:
   WrapperFilters: []
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
-    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
-    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst ScoreManager_1 = require(\"../Managers/ScoreManager\");\r\n//
-    This class controls the behavior of points or coins in the game\r\nclass CurrencyObject
-    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    // Awake is called when
-    the script instance is being loaded\r\n    Awake() {\r\n        // Assigning
-    a default value to the element\r\n        this.pointsValue;\r\n    }\r\n    //
-    This method handles the reset of the element itself.\r\n    ResetPoint() {\r\n       
-    //this.particleSystem.transform.position = this.transform.position;\r\n       
-    this.gameObject.SetActive(true);\r\n    }\r\n    // https://docs.unity3d.com/ScriptReference/Collider.OnTriggerEnter.html\r\n   
-    OnTriggerEnter(collider) {\r\n        // We verify that the collision is with
-    the player by comparing his tag\r\n        if (collider.CompareTag(\"Player\"))
-    {\r\n            // We ask the ScoreManager to add the value of this point\r\n           
-    ScoreManager_1.default.Instance.ScorePoints(this.currentPointsType, this.pointsValue);\r\n           
-    // We deactivate the current element\r\n            this.gameObject.SetActive(false);\r\n       
-    }\r\n    }\r\n}\r\nexports.default = CurrencyObject;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ3VycmVuY3lPYmplY3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJDdXJyZW5jeU9iamVjdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUEwRTtBQUUxRSxpREFBc0Q7QUFDdEQsMkRBQW9EO0FBR3BELGtFQUFrRTtBQUNsRSxNQUFxQixjQUFlLFNBQVEscUNBQXFCO0lBSzdELDJEQUEyRDtJQUNwRCxLQUFLO1FBQ1IsMkNBQTJDO1FBQzNDLElBQUksQ0FBQyxXQUFXLENBQUM7SUFDckIsQ0FBQztJQUVELHVEQUF1RDtJQUNoRCxVQUFVO1FBQ2IsbUVBQW1FO1FBQ25FLElBQUksQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQyxDQUFDO0lBQ3BDLENBQUM7SUFFRCx3RUFBd0U7SUFDeEUsY0FBYyxDQUFDLFFBQWtCO1FBQzdCLHVFQUF1RTtRQUN2RSxJQUFJLFFBQVEsQ0FBQyxVQUFVLENBQUMsUUFBUSxDQUFDLEVBQUU7WUFDL0IseURBQXlEO1lBQ3pELHNCQUFZLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsaUJBQWlCLEVBQUUsSUFBSSxDQUFDLFdBQVcsQ0FBQyxDQUFDO1lBRTVFLG9DQUFvQztZQUNwQyxJQUFJLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQztTQUNwQztJQUNMLENBQUM7Q0FFSjtBQTdCRCxpQ0E2QkMifQ==","assetPath":"Assets/Scripts/Score/CurrencyObject.ts","manifest":{"properties":[{"assembly":"","name":"currentPointsType","type":"Currency","isArray":false,"initValue":[],"enumKeys":["star","cherry"],"enumValues":["0","1"],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"mscorlib","name":"pointsValue","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"CurrencyObject","description":"","hasAnimatorMove":false},"isCompiled":true}'
-  typescriptHash: 68ae2b5128de3dadad3fbaa7c82e22f7
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    ScoreManager_1 = require(\"../Managers/ScoreManager\");\r\n// This class controls
+    the behavior of points or coins in the game\r\nclass CurrencyObject extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    // Awake is called when the script instance is being loaded\r\n    Awake()
+    {\r\n        // Assigning a default value to the element (Note: the original
+    code seems to be missing a value assignment here)\r\n        this.pointsValue;\r\n   
+    }\r\n    // This method handles the reset of the element itself.\r\n    ResetPoint()
+    {\r\n        // Resetting the position of the element and activating it\r\n       
+    this.gameObject.SetActive(true);\r\n    }\r\n    // This method is called when
+    another collider enters the trigger collider attached to this object\r\n    OnTriggerEnter(collider)
+    {\r\n        // We verify that the collision is with the player by comparing
+    his tag\r\n        if (collider.CompareTag(\"Player\")) {\r\n            // We
+    ask the ScoreManager to add the value of this point\r\n            ScoreManager_1.default.Instance.ScorePoints(this.currentCollectable,
+    this.pointsValue);\r\n            // We deactivate the current element\r\n           
+    this.gameObject.SetActive(false);\r\n        }\r\n    }\r\n}\r\nexports.default
+    = CurrencyObject;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ3VycmVuY3lPYmplY3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJDdXJyZW5jeU9iamVjdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBLGlEQUFzRDtBQUN0RCwyREFBb0Q7QUFHcEQsa0VBQWtFO0FBQ2xFLE1BQXFCLGNBQWUsU0FBUSxxQ0FBcUI7SUFRN0QsMkRBQTJEO0lBQ3BELEtBQUs7UUFDUixpSEFBaUg7UUFDakgsSUFBSSxDQUFDLFdBQVcsQ0FBQztJQUNyQixDQUFDO0lBRUQsdURBQXVEO0lBQ2hELFVBQVU7UUFDYiwwREFBMEQ7UUFDMUQsSUFBSSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDcEMsQ0FBQztJQUVELGtHQUFrRztJQUNsRyxjQUFjLENBQUMsUUFBa0I7UUFDN0IsdUVBQXVFO1FBQ3ZFLElBQUksUUFBUSxDQUFDLFVBQVUsQ0FBQyxRQUFRLENBQUMsRUFBRTtZQUMvQix5REFBeUQ7WUFDekQsc0JBQVksQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLElBQUksQ0FBQyxrQkFBa0IsRUFBRSxJQUFJLENBQUMsV0FBVyxDQUFDLENBQUM7WUFDN0Usb0NBQW9DO1lBQ3BDLElBQUksQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDO1NBQ3BDO0lBQ0wsQ0FBQztDQUVKO0FBL0JELGlDQStCQyJ9","assetPath":"Assets/Scripts/Score/CurrencyObject.ts","manifest":{"properties":[{"assembly":"","name":"currentCollectable","type":"Currency","isArray":false,"initValue":[],"enumKeys":["collectable1","collectable2"],"enumValues":["0","1"],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"mscorlib","name":"pointsValue","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"CurrencyObject","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 7b602495c226b85067b8e06f09c8681d
   onlyWriteTrigger: 0
