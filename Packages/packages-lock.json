@@ -9,6 +9,15 @@
       },
       "url": "https://upm.zepeto.run"
     },
+    "asset.city": {
+      "version": "1.0.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "asset.commons": "1.0.6"
+      },
+      "url": "https://upm.zepeto.run"
+    },
     "asset.commons": {
       "version": "1.0.6",
       "depth": 1,
