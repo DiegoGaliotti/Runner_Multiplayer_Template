@@ -1,0 +1,51 @@
+fileFormatVersion: 2
+guid: d1acc4911de17fa4e9a6864dc52f67c6
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst ZepetoPlayersManager_1 = require(\"../../Zepeto
+    Multiplay Component/ZepetoScript/Player/ZepetoPlayersManager\");\r\n// Definition
+    of the PlayerVisibilityManager class that extends ZepetoScriptBehaviour\r\nclass
+    PlayerVisibilityManager extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n   
+    // Awake is called when the script instance is being loaded\r\n    Awake() {\r\n       
+    // Allocating the instance of this class to make it a \"singleton\"\r\n       
+    if (PlayerVisibilityManager.Instance != null)\r\n            UnityEngine_1.GameObject.Destroy(this.gameObject);\r\n       
+    PlayerVisibilityManager.Instance = this;\r\n    }\r\n    // Method to show all
+    players in the room\r\n    ViewAllPlayers() {\r\n        // Get characters of
+    other players in the room through ZepetoPlayersManager\r\n        const charactersInRoom
+    = ZepetoPlayersManager_1.default.instance.GetOthersCharactersInRoom();\r\n       
+    // Iterate through each character and show them\r\n        charactersInRoom.forEach(character
+    => {\r\n            // Activate the character''s object\r\n            character.gameObject.SetActive(true);\r\n           
+    // Uncomment these lines if you also want to enable specific renderers and colliders\r\n           
+    /*\r\n            character.GetComponentsInChildren<Renderer>().forEach(r =>
+    {\r\n                r.enabled = true;\r\n            })\r\n            character.GetComponentsInChildren<Collider>().forEach(r
+    => {\r\n                r.enabled = true;\r\n            })\r\n            */\r\n       
+    });\r\n    }\r\n    // Method to hide all players in the room\r\n    HideAllPlayers()
+    {\r\n        // Get characters of other players in the room through ZepetoPlayersManager\r\n       
+    const charactersInRoom = ZepetoPlayersManager_1.default.instance.GetOthersCharactersInRoom();\r\n       
+    // Iterate through each character and hide them\r\n        charactersInRoom.forEach(character
+    => {\r\n            // Deactivate the character''s object\r\n            character.gameObject.SetActive(false);\r\n           
+    // Uncomment these lines if you also want to disable specific renderers and colliders\r\n           
+    /*\r\n            character.GetComponentsInChildren<Renderer>().forEach(r =>
+    {\r\n                r.enabled = false;\r\n            })\r\n            character.GetComponentsInChildren<Collider>().forEach(r
+    => {\r\n                r.enabled = false;\r\n            })\r\n            */\r\n       
+    });\r\n    }\r\n}\r\nexports.default = PlayerVisibilityManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUGxheWVyVmlzaWJpbGl0eU1hbmFnZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJQbGF5ZXJWaXNpYmlsaXR5TWFuYWdlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFxRDtBQUNyRCw2Q0FBNkQ7QUFDN0Qsb0hBQTZHO0FBRzdHLHFGQUFxRjtBQUNyRixNQUFxQix1QkFBd0IsU0FBUSxxQ0FBcUI7SUFLdEUsMkRBQTJEO0lBQzNELEtBQUs7UUFDRCxpRUFBaUU7UUFDakUsSUFBSSx1QkFBdUIsQ0FBQyxRQUFRLElBQUksSUFBSTtZQUFFLHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxVQUFVLENBQUMsQ0FBQztRQUNsRix1QkFBdUIsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDO0lBQzVDLENBQUM7SUFFRCx5Q0FBeUM7SUFDekMsY0FBYztRQUNWLDJFQUEyRTtRQUMzRSxNQUFNLGdCQUFnQixHQUFHLDhCQUFvQixDQUFDLFFBQVEsQ0FBQyx5QkFBeUIsRUFBRSxDQUFDO1FBRW5GLCtDQUErQztRQUMvQyxnQkFBZ0IsQ0FBQyxPQUFPLENBQUMsU0FBUyxDQUFDLEVBQUU7WUFDakMsa0NBQWtDO1lBQ2xDLFNBQVMsQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQyxDQUFDO1lBRXJDLG9GQUFvRjtZQUNwRjs7Ozs7OztjQU9FO1FBQ04sQ0FBQyxDQUFDLENBQUM7SUFDUCxDQUFDO0lBRUQseUNBQXlDO0lBQ3pDLGNBQWM7UUFDViwyRUFBMkU7UUFDM0UsTUFBTSxnQkFBZ0IsR0FBRyw4QkFBb0IsQ0FBQyxRQUFRLENBQUMseUJBQXlCLEVBQUUsQ0FBQztRQUVuRiwrQ0FBK0M7UUFDL0MsZ0JBQWdCLENBQUMsT0FBTyxDQUFDLFNBQVMsQ0FBQyxFQUFFO1lBQ2pDLG9DQUFvQztZQUNwQyxTQUFTLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQztZQUV0QyxxRkFBcUY7WUFDckY7Ozs7Ozs7Y0FPRTtRQUNOLENBQUMsQ0FBQyxDQUFDO0lBQ1AsQ0FBQztDQUNKO0FBdkRELDBDQXVEQyJ9","assetPath":"Assets/Scripts/Managers/PlayerVisibilityManager.ts","manifest":{"properties":[],"name":"PlayerVisibilityManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 9960d091267ca6abb42c3fb15aeaff99
+  onlyWriteTrigger: 0

@@ -116,18 +116,6 @@ export default class ZepetoPlayersManager extends ZepetoScriptBehaviour {
             
 
             CharacterController.Instance.CharacterController(sessionId, player.zepetoUserId, isLocal)
-            
-            
-            //ESTO ES COMO ERA ANTES, SE CAMBIAR POR LO DE ARRIBA. 
-            /*const spawnInfo = new SpawnInfo();
-            spawnInfo.position = new Vector3(-200, 10, 0); // Set Character Spawn Position
-            spawnInfo.rotation = Quaternion.Euler(0, 0, 0); // Set Character Spawn Rotation    
-            
-            ZepetoPlayers.instance.CreatePlayerWithUserId(sessionId, player.zepetoUserId, spawnInfo, isLocal);
-            ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
-                this._zepetoCharacter = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character; // The reference of the instance of the ZepetoCharacter is taken
-                this._zepetoCharacter.gameObject.tag = "Player"; // The "player" tag is assigned and the ZepetoCharacter gameobject is disabled
-            });*/
         }
     }
 
@@ -206,5 +194,22 @@ export default class ZepetoPlayersManager extends ZepetoScriptBehaviour {
         
         yield new WaitForSeconds(10);
         this.CreateAllPlayers();
+    }
+
+    // New method to get all characters in the room
+    public GetOthersCharactersInRoom(): ZepetoCharacter[] {
+        const characters: ZepetoCharacter[] = [];
+        const localCharacter: ZepetoCharacter = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;
+        // Iterate through the current players and add their characters to the list
+        this._currentPlayers.forEach((player: Player) => {
+            const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(player.sessionId);
+            if (zepetoPlayer) {
+                const character = zepetoPlayer.character;
+                if (character && character != localCharacter) {
+                    characters.push(character);
+                }
+            }
+        });
+        return characters;
     }
 }
