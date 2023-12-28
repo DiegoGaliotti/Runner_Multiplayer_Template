@@ -4,7 +4,7 @@ Embark on an exciting journey in the multiplayer lobby, where you can not only s
 
 ![image](https://github.com/DiegoGaliotti/Runner_Multiplayer_Template/assets/68599501/1d7eb317-6071-4dce-9a13-90820681ccb5)
 
-Press the Play button on the title screen to initiate the action. A local player will spawn at the starting point, dashing forward in a race against time. Jump and collect various items to boost your score. Beware! Touching obstacles or plummeting below the terrain will deplete your energy.
+Press the Play button on the title screen to initiate the action. A local player will spawn at the starting point, dashing forward in a race against time. Jump and collect various items to boost your score. Beware! Touching obstacles will deplete your energy.
 
 ![image](https://github.com/DiegoGaliotti/Runner_Multiplayer_Template/assets/68599501/89950ff5-4278-4f2b-b2ae-1d28b3b4d8fd)
 
