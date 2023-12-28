@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TutorialTitle:
     m_Untranslated: Tutorial - Change blocks
-  m_ProgressTrackingEnabled: 0
-  m_LessonId: 
+  m_ProgressTrackingEnabled: 1
+  m_LessonId: edf780e8-ce46-413c-879d-f63dafe3dee8
   m_Version: 1
   m_SceneManagementBehavior: 1
   m_Scenes:

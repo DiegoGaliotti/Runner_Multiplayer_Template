@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7044447824259603262}
   - component: {fileID: 7044447824260700670}
   - component: {fileID: 2491174457570260728}
+  - component: {fileID: -8592287926911985994}
   m_Layer: 6
   m_Name: cherryblossom_furniture_bench
   m_TagString: Untagged
@@ -90,8 +91,32 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7044447824262956862}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.3203655, y: 0.35890165, z: 0.38430053}
   m_Center: {x: 0, y: 0.17945082, z: 0.000000052154064}
+--- !u!114 &-8592287926911985994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7044447824262956862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyRootMotion: 0
+  script:
+    keys:
+    - damageAmount
+    unityValues:
+    - {fileID: 0}
+    values:
+    - '{"type":"System.Single, mscorlib","value":"1"}'
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: 8c001476afcb8554f8d04e2bbd6243d3, type: 3}
+    isExpaned: 0
