@@ -94,6 +94,19 @@ MonoBehaviour:
           m_MaskType: 0
           m_MaskSizeModifier: 0
           m_UnmaskedControls: []
+        - m_SelectorType: 1
+          m_ViewType:
+            m_TypeName: 
+          m_EditorWindowType:
+            m_TypeName: Unity.Tutorials.Core.Editor.TutorialWindow, Unity.Tutorials.Core.Editor,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+          m_AlternateEditorWindowTypes:
+            m_Items:
+            - Type:
+                m_TypeName: 
+          m_MaskType: 0
+          m_MaskSizeModifier: 0
+          m_UnmaskedControls: []
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 

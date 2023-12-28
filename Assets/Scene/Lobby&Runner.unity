@@ -7188,15 +7188,12 @@ MonoBehaviour:
     keys:
     - ground
     - groundSpeed
-    - xleftBound
     unityValues:
     - {fileID: 8311289556186115064, guid: e2ed0f29f8cc0ca4592350cab5eaf6a1, type: 3}
-    - {fileID: 0}
     - {fileID: 0}
     values:
     - 
     - '{"type":"System.Single, mscorlib","value":"3"}'
-    - '{"type":"System.Single, mscorlib","value":"-30"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: b44fb3c6e154f4e8ebfd4e80313b1c9a, type: 3}
@@ -11879,7 +11876,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -13.550217}
+  m_AnchoredPosition: {x: 0, y: -13.550232}
   m_SizeDelta: {x: -101.99999, y: -111.10002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &1553123772
@@ -12983,26 +12980,22 @@ MonoBehaviour:
     keys:
     - blocks
     - generatedBlocks
-    - spawnBlockPosition
-    - xLeftBoundDestroy
     - allBlocksSpeed
     unityValues:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
     values:
-    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":2,\"type\":\"UnityEngine.Object,
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":4,\"type\":\"UnityEngine.Object,
       UnityEngine.CoreModule\",\"isUnity\":true}"}'
-    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":2,\"length\":0,\"type\":\"UnityEngine.Object,
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":4,\"length\":0,\"type\":\"UnityEngine.Object,
       UnityEngine.CoreModule\",\"isUnity\":true}"}'
-    - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":24.0,\"y\":0.10000000149011612,\"z\":0.0}"}'
-    - '{"type":"System.Single, mscorlib","value":"-20"}'
     - '{"type":"System.Single, mscorlib","value":"3"}'
     unityArrayValues:
     - {fileID: 937649155625450388, guid: a515b3bb10029486aacf689f5d71cc7b, type: 3}
     - {fileID: 5468121514540234229, guid: 6ab0cc452e6a4ce429cac92e92a4d026, type: 3}
+    - {fileID: 2997553031134198048, guid: 0c95cb5e0ea1c204198703c3e40347d6, type: 3}
+    - {fileID: 5865422883164982551, guid: b2403ffbe6608dc4dae229bc41c85763, type: 3}
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 33abd7457c3f24d9682cef34595be7a7, type: 3}
     isExpaned: 0

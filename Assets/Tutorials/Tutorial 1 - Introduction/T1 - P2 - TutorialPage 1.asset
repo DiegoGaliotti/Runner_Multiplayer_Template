@@ -35,72 +35,24 @@ MonoBehaviour:
             m_TypeName: UnityEditor.GameView, UnityEditor.CoreModule, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
-            m_Items:
-            - Type:
-                m_TypeName: 
+            m_Items: []
           m_MaskType: 1
           m_MaskSizeModifier: 0
-          m_UnmaskedControls:
-          - m_SelectorMode: 1
-            m_GUIContent:
-              m_Text: 
-              m_Image: {fileID: 0}
-              m_Tooltip: 
-            m_ControlName: Play
-            m_PropertyPath: 
-            m_TargetType:
-              m_TypeName: 
-            m_GUIStyleName: 
-            m_ObjectReference:
-              m_SceneObjectReference:
-                m_SceneGuid: 
-                m_GameObjectGuid: 
-                m_SerializedComponentType:
-                  m_TypeName: 
-                m_ComponentIndex: 0
-                m_AssetObject: {fileID: 0}
-                m_Prefab: {fileID: 0}
-              m_FutureObjectReference: {fileID: 0}
-            m_VisualElementClassName: 
-            m_VisualElementName: 
-            m_VisualElementTypeName: 
-        - m_SelectorType: 0
+          m_UnmaskedControls: []
+        - m_SelectorType: 1
           m_ViewType:
             m_TypeName: UnityEditor.PaneDragTab, UnityEditor.CoreModule, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
           m_EditorWindowType:
-            m_TypeName: UnityEditor.GameView, UnityEditor.CoreModule, Version=0.0.0.0,
-              Culture=neutral, PublicKeyToken=null
+            m_TypeName: Unity.Tutorials.Core.Editor.TutorialWindow, Unity.Tutorials.Core.Editor,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items:
             - Type:
                 m_TypeName: 
           m_MaskType: 0
           m_MaskSizeModifier: 0
-          m_UnmaskedControls:
-          - m_SelectorMode: 0
-            m_GUIContent:
-              m_Text: 
-              m_Image: {fileID: 0}
-              m_Tooltip: 
-            m_ControlName: Next
-            m_PropertyPath: 
-            m_TargetType:
-              m_TypeName: 
-            m_GUIStyleName: 
-            m_ObjectReference:
-              m_SceneObjectReference:
-                m_SceneGuid: 
-                m_GameObjectGuid: 
-                m_SerializedComponentType:
-                  m_TypeName: 
-                m_ComponentIndex: 0
-                m_AssetObject: {fileID: 0}
-                m_Prefab: {fileID: 0}
-              m_FutureObjectReference: {fileID: 0}
-            m_VisualElementClassName: 
-            m_VisualElementName: 
-            m_VisualElementTypeName: 
+          m_UnmaskedControls: []
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 

@@ -19,13 +19,13 @@ MonoBehaviour:
   m_Version: 1
   m_SceneManagementBehavior: 1
   m_Scenes:
-  - {fileID: 102900000, guid: 642111ba64284c24396578b3d7aacb88, type: 3}
+  - {fileID: 102900000, guid: c8e9725b7fc1a344a8bc21cbd6116742, type: 3}
   m_DefaultSceneCameraSettings:
     m_CameraMode: 0
     m_FocusMode: 0
     m_Orthographic: 0
-    m_Size: 0
-    m_Pivot: {x: 0, y: 0, z: 0}
+    m_Size: 23.965714
+    m_Pivot: {x: -207.55713, y: 10.837854, z: 1.7364877}
     m_Rotation: {x: 0, y: 0, z: 0, w: 0}
     m_FrameObject:
       m_SceneGuid: 

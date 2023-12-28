@@ -16,7 +16,7 @@ export default class SpawnBlockManager extends ZepetoScriptBehaviour {
     public generatedBlocks: GameObject[] = [];
 
     // Position where new blocks will be spawned
-    private spawnBlockPosition: Vector3 = new Vector3(20, 0, 0);
+    private spawnBlockPosition: Vector3 = new Vector3(24, 0.1, 0);
 
     // Position to trigger the new block
     private respawnBlockPositionX: number = 0;
