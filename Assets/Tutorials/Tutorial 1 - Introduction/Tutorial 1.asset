@@ -13,19 +13,20 @@ MonoBehaviour:
   m_Name: Tutorial 1
   m_EditorClassIdentifier: 
   TutorialTitle:
-    m_Untranslated: Tutorial 1 - LOBBY
+    m_Untranslated: Tutorial 1 - How to play
   m_ProgressTrackingEnabled: 1
   m_LessonId: 97c83cbc-24d1-42db-a4f9-37ad18c9b5f6
   m_Version: 1
-  m_SceneManagementBehavior: 0
-  m_Scenes: []
+  m_SceneManagementBehavior: 1
+  m_Scenes:
+  - {fileID: 102900000, guid: c8e9725b7fc1a344a8bc21cbd6116742, type: 3}
   m_DefaultSceneCameraSettings:
-    m_CameraMode: 0
-    m_FocusMode: 0
-    m_Orthographic: 0
-    m_Size: 0
-    m_Pivot: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: 0, w: 0}
+    m_CameraMode: 1
+    m_FocusMode: 1
+    m_Orthographic: 1
+    m_Size: 13.7003145
+    m_Pivot: {x: -201.21013, y: 8.060138, z: 8.620688}
+    m_Rotation: {x: 0.039259743, y: 0, z: 0, w: -0.999229}
     m_FrameObject:
       m_SceneGuid: 
       m_GameObjectGuid: 
@@ -34,7 +35,7 @@ MonoBehaviour:
       m_ComponentIndex: 0
       m_AssetObject: {fileID: 0}
       m_Prefab: {fileID: 0}
-    m_Enabled: 0
+    m_Enabled: 1
   m_WindowLayout: {fileID: 0}
   m_Pages:
     m_Items:

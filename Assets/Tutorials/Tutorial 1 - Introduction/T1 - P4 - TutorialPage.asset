@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff771ccdf4150419d9ff4d342b069aae, type: 3}
-  m_Name: 11-TutorialPage 1
+  m_Name: T1 - P4 - TutorialPage
   m_EditorClassIdentifier: 
   m_Paragraphs:
     m_Items:
@@ -26,8 +26,33 @@ MonoBehaviour:
       m_Criteria:
         m_Items: []
       m_MaskingSettings:
-        m_MaskingEnabled: 0
-        m_UnmaskedViews: []
+        m_MaskingEnabled: 1
+        m_UnmaskedViews:
+        - m_SelectorType: 1
+          m_ViewType:
+            m_TypeName: 
+          m_EditorWindowType:
+            m_TypeName: UnityEditor.GameView, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+          m_AlternateEditorWindowTypes:
+            m_Items:
+            - Type:
+                m_TypeName: 
+          m_MaskType: 0
+          m_MaskSizeModifier: 0
+          m_UnmaskedControls: []
+        - m_SelectorType: 0
+          m_ViewType:
+            m_TypeName: UnityEditor.PaneDragTab, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+          m_EditorWindowType:
+            m_TypeName: UnityEditor.GameView, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+          m_AlternateEditorWindowTypes:
+            m_Items: []
+          m_MaskType: 0
+          m_MaskSizeModifier: 1
+          m_UnmaskedControls: []
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -35,7 +60,7 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 0
       Title:
-        m_Untranslated: Block Prefab Folder.
+        m_Untranslated: Step 3 - Runner Game
       Text:
         m_Untranslated: 
       m_Tutorial: {fileID: 0}
@@ -54,10 +79,10 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 1
       Title:
-        m_Untranslated: Search to the folder with the blocks.
+        m_Untranslated: Start Runnung and Jump!
       Text:
-        m_Untranslated: In the project, select the LevelCreator folder within Assets.
-          Then, choose the Blocks Prefabs folder.
+        m_Untranslated: Press the start button. Start jumping to collect different
+          collectibles, avoid obstacles and use health boosts to recharge life.
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}

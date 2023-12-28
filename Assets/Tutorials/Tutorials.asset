@@ -21,7 +21,7 @@ MonoBehaviour:
   Title:
     m_Untranslated: ZEPETO RUNNER TEMPLATE
   Subtitle:
-    m_Untranslated: Rnner game developers tutorial
+    m_Untranslated: Runner game developers tutorial
   Description:
     m_Untranslated: Custom lobby and start playing!
   ProjectLayout: {fileID: 0}

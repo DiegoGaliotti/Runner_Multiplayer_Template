@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff771ccdf4150419d9ff4d342b069aae, type: 3}
-  m_Name: 12-TutorialPage
+  m_Name: T2 - P3 - Splawn Block Manager
   m_EditorClassIdentifier: 
   m_Paragraphs:
     m_Items:
@@ -20,14 +20,36 @@ MonoBehaviour:
       Text:
         m_Untranslated: 
       m_Tutorial: {fileID: 0}
-      m_Image: {fileID: 0}
+      m_Image: {fileID: 2800000, guid: f4f8f711a327fe245834d01d4de4479e, type: 3}
       m_Video: {fileID: 0}
       m_CriteriaCompletion: 0
       m_Criteria:
         m_Items: []
       m_MaskingSettings:
-        m_MaskingEnabled: 0
-        m_UnmaskedViews: []
+        m_MaskingEnabled: 1
+        m_UnmaskedViews:
+        - m_SelectorType: 1
+          m_ViewType:
+            m_TypeName: 
+          m_EditorWindowType:
+            m_TypeName: UnityEditor.SceneHierarchyWindow, UnityEditor.CoreModule,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+          m_AlternateEditorWindowTypes:
+            m_Items: []
+          m_MaskType: 1
+          m_MaskSizeModifier: 0
+          m_UnmaskedControls: []
+        - m_SelectorType: 1
+          m_ViewType:
+            m_TypeName: 
+          m_EditorWindowType:
+            m_TypeName: UnityEditor.InspectorWindow, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+          m_AlternateEditorWindowTypes:
+            m_Items: []
+          m_MaskType: 0
+          m_MaskSizeModifier: 0
+          m_UnmaskedControls: []
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -35,9 +57,9 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 0
       Title:
-        m_Untranslated: Replace Blocks.
+        m_Untranslated: Spawn Block Manager
       Text:
-        m_Untranslated: 
+        m_Untranslated: How does it work
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}
@@ -54,18 +76,18 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 1
       Title:
-        m_Untranslated: 'Replace block 3 and 4 with the existing blocks. '
+        m_Untranslated: Spawn Block Manager Inspector
       Text:
-        m_Untranslated: 'Select block 3 from the Block Prefab folder.
+        m_Untranslated: 'Select the Object Manager>LevelManager>SpawnBlockManager
+          in the Hierarchy. In the inspector you will find two groups:
 
+          -
+          Blocks: The blocks you place will be those that are randomly generated
+          in the game.
 
-          Drag
-          the block inside the Zepeto Script section, in the Blocks array, replacing
-          block 1.
-
-
-          Repeat this process to replace block 4 with block
-          2.'
+          - Generated Blocks: You can see the blocks that
+          are generated and edit the speed at which the blocks move, by default at
+          3.'
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}

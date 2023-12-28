@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff771ccdf4150419d9ff4d342b069aae, type: 3}
-  m_Name: 10-TutorialPage 1
+  m_Name: T2 - P5 - LastPage
   m_EditorClassIdentifier: 
   m_Paragraphs:
     m_Items:
@@ -35,7 +35,7 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 0
       Title:
-        m_Untranslated: Spawn Block Manager.
+        m_Untranslated: Play
       Text:
         m_Untranslated: 
       m_Tutorial: {fileID: 0}
@@ -54,10 +54,28 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 1
       Title:
-        m_Untranslated: Head to the folder where the blocks are located
+        m_Untranslated: Run Game
       Text:
-        m_Untranslated: In the Hierarchy, select the Manager gameObject. Then, select
-          Level Manager and inside of it , click on the 'Spawn Block Manager' gameObject.
+        m_Untranslated: Hit PLAY and enjoy your created level!
+      m_Tutorial: {fileID: 0}
+      m_Image: {fileID: 0}
+      m_Video: {fileID: 0}
+      m_CriteriaCompletion: 0
+      m_Criteria:
+        m_Items: []
+      m_MaskingSettings:
+        m_MaskingEnabled: 0
+        m_UnmaskedViews: []
+      m_Summary: 
+      m_Description: 
+      m_InstructionBoxTitle: 
+      m_InstructionText: 
+      m_TutorialButtonText: 
+    - m_Type: 2
+      Title:
+        m_Untranslated: 
+      Text:
+        m_Untranslated: 'Tutorial X: Make the best game!'
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}

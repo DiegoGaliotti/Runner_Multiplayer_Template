@@ -16,16 +16,16 @@ export default class SpawnBlockManager extends ZepetoScriptBehaviour {
     public generatedBlocks: GameObject[] = [];
 
     // Position where new blocks will be spawned
-    public spawnBlockPosition: Vector3 = new Vector3(20, 0, 0);
+    private spawnBlockPosition: Vector3 = new Vector3(20, 0, 0);
 
     // Position to trigger the new block
     private respawnBlockPositionX: number = 0;
 
     // X limit where the block is destroyed
-    public xLeftBoundDestroy: number = -20;
+    private xLeftBoundDestroy: number = -20;
 
     // All blocks speed
-    public allBlocksSpeed: number = 1;
+    public allBlocksSpeed: number = 3;
 
     // Variable to keep track of the most recently generated block
     private blockGenerated: GameObject;

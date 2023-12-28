@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff771ccdf4150419d9ff4d342b069aae, type: 3}
-  m_Name: 5-StartPage
+  m_Name: T2 - P4 -  TutorialPage 1
   m_EditorClassIdentifier: 
   m_Paragraphs:
     m_Items:
@@ -35,10 +35,35 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 0
       Title:
-        m_Untranslated: Introduction
+        m_Untranslated: Add and change blocks
       Text:
-        m_Untranslated: In this tutorial, you will learn how to change the game blocks
-          to create various environments and levels.
+        m_Untranslated: How to change and add blocks to your runner
+      m_Tutorial: {fileID: 0}
+      m_Image: {fileID: 0}
+      m_Video: {fileID: 0}
+      m_CriteriaCompletion: 0
+      m_Criteria:
+        m_Items: []
+      m_MaskingSettings:
+        m_MaskingEnabled: 0
+        m_UnmaskedViews: []
+      m_Summary: 
+      m_Description: 
+      m_InstructionBoxTitle: 
+      m_InstructionText: 
+      m_TutorialButtonText: 
+    - m_Type: 1
+      Title:
+        m_Untranslated: Level Creator > Blocks Prefabs
+      Text:
+        m_Untranslated: 'Enter the LevelCreator>BlocksPregabs folder where you will
+          find 4 pre-created blocks.
+
+          Let''s add two more blocks to our
+          level!
+
+          Add blocks 3 and 4 to the SpawnBlockManager Inspector.
+          With this, the game spawns the level with 4 different blocks!'
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}
