@@ -9,6 +9,7 @@ import { SpawnInfo, ZepetoCharacter, ZepetoPlayer, ZepetoPlayers } from 'ZEPETO.
 import AnimatorManager from '../Animator/AnimatorManager';
 import ScoreManager from './ScoreManager';
 import LeaderboarManager from './LeaderboardManager';
+import PlayerVisibilityManager from './PlayerVisibilityManager';
 
 // Class that manages the overall game flow
 export default class GameRunnerManager extends ZepetoScriptBehaviour {
@@ -55,6 +56,7 @@ export default class GameRunnerManager extends ZepetoScriptBehaviour {
         // Create a new level and the pause movements
         LevelManager.Instance.StartGame();
         LevelManager.Instance.PauseGame();
+        PlayerVisibilityManager.Instance.HideAllPlayers();
     }
 
     // Method called when the runner game starts
@@ -115,6 +117,7 @@ export default class GameRunnerManager extends ZepetoScriptBehaviour {
         spawnInfo.rotation = Quaternion.Euler(0, 0, 0);
         this._localCharacter.Teleport(spawnInfo.position, spawnInfo.rotation);
         AnimatorManager.Instance.GameRunning(this.isGameRunning);
+        PlayerVisibilityManager.Instance.ViewAllPlayers();
         CharacterController.Instance.CharacterLobbyController();
         UIRunnerManager.Instance.UIOnLobby();
     }
