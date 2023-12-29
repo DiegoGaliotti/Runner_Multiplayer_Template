@@ -125,6 +125,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cherryblossom_buildings_gate
       objectReference: {fileID: 0}
+    - target: {fileID: 8003149991858015415, guid: 8935a131d21a04adba8fbb25cac94d46, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8935a131d21a04adba8fbb25cac94d46, type: 3}
 --- !u!4 &5868894902447623857 stripped

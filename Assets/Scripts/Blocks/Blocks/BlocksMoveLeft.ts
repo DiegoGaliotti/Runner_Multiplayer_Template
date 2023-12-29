@@ -7,10 +7,10 @@ import { Vector3, GameObject, Time } from "UnityEngine";
 export default class BlocksMoveLeft extends ZepetoScriptBehaviour {
     
     // Speed of the block movement
-    public blockSpeed: number = 0;
+    private blockSpeed: number = 0;
 
     // Flag indicating whether the block is currently moving
-    public isMoving: boolean = true;
+    private isMoving: boolean = true;
 
     // This function is called once per frame
     Update(){

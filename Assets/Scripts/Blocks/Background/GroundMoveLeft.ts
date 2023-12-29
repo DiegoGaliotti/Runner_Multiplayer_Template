@@ -6,7 +6,7 @@ import { Vector3, Time } from "UnityEngine";
 export default class GroundMoveLeft extends ZepetoScriptBehaviour {
 
     // Speed of the ground movement
-    public groundSpeed: number = 0;
+    private groundSpeed: number = 0;
 
     // Flag indicating whether the ground is currently moving
     public isMoving: boolean = false;

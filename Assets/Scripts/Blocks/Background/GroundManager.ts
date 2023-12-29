@@ -16,13 +16,13 @@ export default class GroundManager extends ZepetoScriptBehaviour {
     private groundStartPos: Vector3 = new Vector3(0, 0, 0);
 
     // Speed of the ground movement
-    public groundSpeed: number = 1;
+    public groundSpeed: number = 3;
 
     // Flag indicating whether the ground is currently in the scene
     private isGroundInTheScene: boolean = false;
 
     // X position at which the ground should be repeated
-    public xleftBound: number = -30;
+    private xleftBound: number = -30;
 
     // Reference to the GroundMoveLeft script attached to the moving ground
     private groundMoveLeft: GroundMoveLeft;
