@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tutorial 3
   m_EditorClassIdentifier: 
   TutorialTitle:
-    m_Untranslated: Create blocks
+    m_Untranslated: Tutorial 3 - Create new Blocks
   m_ProgressTrackingEnabled: 1
   m_LessonId: 1d1de9fc-2a6e-4d50-91d0-ab17d8e85a60
   m_Version: 1
