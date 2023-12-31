@@ -21,22 +21,25 @@ ScriptedImporter:
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\n// Import necessary modules from the ZEPETO.Script and UnityEngine
     libraries\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst UnityEngine_1
-    = require(\"UnityEngine\");\r\n// Define the ObstacleMoveLeft class which extends
+    = require(\"UnityEngine\");\r\n// Define the BlocksMoveLeft class which extends
     the ZepetoScriptBehaviour class\r\nclass BlocksMoveLeft extends ZEPETO_Script_1.ZepetoScriptBehaviour
-    {\r\n    constructor() {\r\n        super(...arguments);\r\n        this.blockSpeed
-    = 0;\r\n        this.isMoving = true;\r\n    }\r\n    // This function is called
-    once per frame.\r\n    Update() {\r\n        // Move the obstacle to the left
-    (negative x-direction) based on the speed and time since the last frame.\r\n       
-    if (this.isMoving) {\r\n            this.MoveLeft();\r\n        }\r\n    }\r\n   
-    //Method to set the speed of the block.\r\n    SetBlockSpeed(value) {\r\n       
-    this.blockSpeed = value;\r\n    }\r\n    //Method to destroy generated block.\r\n   
-    DestroyBlock() {\r\n        UnityEngine_1.GameObject.Destroy(this.gameObject);\r\n   
-    }\r\n    MoveLeft() {\r\n        // Move the obstacle to the left (negative x-direction)
-    based on the speed and time since the last frame.\r\n        this.transform.position
-    = UnityEngine_1.Vector3.op_Addition(this.transform.position, UnityEngine_1.Vector3.op_Multiply(UnityEngine_1.Vector3.op_Multiply(UnityEngine_1.Vector3.left,
-    this.blockSpeed), UnityEngine_1.Time.deltaTime));\r\n        // If the obstacle''s
-    x-position reaches or crosses the left boundary\r\n    }\r\n    SetMoving(value)
-    {\r\n        this.isMoving = value;\r\n    }\r\n}\r\nexports.default = BlocksMoveLeft;\r\n//#
-    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQmxvY2tzTW92ZUxlZnQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJCbG9ja3NNb3ZlTGVmdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBLDRFQUE0RTtBQUM1RSxpREFBcUQ7QUFDckQsNkNBQXdEO0FBRXhELGtGQUFrRjtBQUNsRixNQUFxQixjQUFlLFNBQVEscUNBQXFCO0lBQWpFOztRQUdXLGVBQVUsR0FBVyxDQUFDLENBQUM7UUFFdkIsYUFBUSxHQUFTLElBQUksQ0FBQztJQThCakMsQ0FBQztJQTVCRywwQ0FBMEM7SUFDMUMsTUFBTTtRQUNGLHlHQUF5RztRQUN6RyxJQUFHLElBQUksQ0FBQyxRQUFRLEVBQUM7WUFDYixJQUFJLENBQUMsUUFBUSxFQUFFLENBQUM7U0FDbkI7SUFDTCxDQUFDO0lBQ0QsdUNBQXVDO0lBQ2hDLGFBQWEsQ0FBQyxLQUFZO1FBQzdCLElBQUksQ0FBQyxVQUFVLEdBQUcsS0FBSyxDQUFBO0lBQzNCLENBQUM7SUFFRCxvQ0FBb0M7SUFDN0IsWUFBWTtRQUNmLHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxVQUFVLENBQUMsQ0FBQztJQUN4QyxDQUFDO0lBRU0sUUFBUTtRQUNYLHlHQUF5RztRQUV6RyxJQUFJLENBQUMsU0FBUyxDQUFDLFFBQVEsR0E5QnRCLHFCQUFPLENBdUNtOG9CLFdBQVksQ0FUdjlvQixJQUFJLENBQUMsU0FBUyxDQUFDLFFBQVEsRUE5QnRCLHFCQUFPLENBdUNtdXBCLFdBQVksQ0F2Q3R2cEIscUJBQU8sQ0F1Q211cEIsV0FBWSxDQVQzdHBCLHFCQUFPLENBQUMsSUFBSSxFQUFHLElBQUksQ0FBQyxVQUFVLEdBQUcsa0JBQUksQ0FBQyxTQUFTLEdBQUM7UUFDNUUsb0VBQW9FO0lBRXhFLENBQUM7SUFFTSxTQUFTLENBQUMsS0FBVztRQUN4QixJQUFJLENBQUMsUUFBUSxHQUFHLEtBQUssQ0FBQztJQUMxQixDQUFDO0NBQ0o7QUFuQ0QsaUNBbUNDIn0=","assetPath":"Assets/Scripts/Blocks/Blocks/BlocksMoveLeft.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"blockSpeed","type":"System.Single","isArray":false,"initValue":["0"],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"isMoving","type":"System.Boolean","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"BlocksMoveLeft","description":"","hasAnimatorMove":false},"isCompiled":true}'
-  typescriptHash: 73aab3d4eb6eff662366c7b841062325
+    {\r\n    constructor() {\r\n        super(...arguments);\r\n        // Speed
+    of the block movement\r\n        this.blockSpeed = 0;\r\n        // Flag indicating
+    whether the block is currently moving\r\n        this.isMoving = true;\r\n   
+    }\r\n    // This function is called once per frame\r\n    Update() {\r\n       
+    // Move the block to the left (negative x-direction) based on the speed and time
+    since the last frame.\r\n        if (this.isMoving) {\r\n            this.MoveLeft();\r\n       
+    }\r\n    }\r\n    // Method to set the speed of the block\r\n    SetBlockSpeed(value)
+    {\r\n        this.blockSpeed = value;\r\n    }\r\n    // Method to destroy the
+    generated block\r\n    DestroyBlock() {\r\n        UnityEngine_1.GameObject.Destroy(this.gameObject);\r\n   
+    }\r\n    // Method to move the block to the left\r\n    MoveLeft() {\r\n       
+    // Move the block to the left (negative x-direction) based on the speed and time
+    since the last frame.\r\n        this.transform.position = UnityEngine_1.Vector3.op_Addition(this.transform.position,
+    UnityEngine_1.Vector3.op_Multiply(UnityEngine_1.Vector3.op_Multiply(UnityEngine_1.Vector3.left,
+    this.blockSpeed), UnityEngine_1.Time.deltaTime));\r\n        // If the block''s
+    x-position reaches or crosses the left boundary, you might want to handle this
+    condition here\r\n    }\r\n    // Method to set the moving state of the block\r\n   
+    SetMoving(value) {\r\n        this.isMoving = value;\r\n    }\r\n}\r\nexports.default
+    = BlocksMoveLeft;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQmxvY2tzTW92ZUxlZnQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJCbG9ja3NNb3ZlTGVmdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBLDRFQUE0RTtBQUM1RSxpREFBcUQ7QUFDckQsNkNBQXdEO0FBRXhELGdGQUFnRjtBQUNoRixNQUFxQixjQUFlLFNBQVEscUNBQXFCO0lBQWpFOztRQUVJLDhCQUE4QjtRQUN0QixlQUFVLEdBQVcsQ0FBQyxDQUFDO1FBRS9CLHdEQUF3RDtRQUNoRCxhQUFRLEdBQVksSUFBSSxDQUFDO0lBZ0NyQyxDQUFDO0lBOUJHLHlDQUF5QztJQUN6QyxNQUFNO1FBQ0Ysc0dBQXNHO1FBQ3RHLElBQUksSUFBSSxDQUFDLFFBQVEsRUFBRTtZQUNmLElBQUksQ0FBQyxRQUFRLEVBQUUsQ0FBQztTQUNuQjtJQUNMLENBQUM7SUFFRCx1Q0FBdUM7SUFDaEMsYUFBYSxDQUFDLEtBQWE7UUFDOUIsSUFBSSxDQUFDLFVBQVUsR0FBRyxLQUFLLENBQUM7SUFDNUIsQ0FBQztJQUVELHdDQUF3QztJQUNqQyxZQUFZO1FBQ2Ysd0JBQVUsQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxDQUFDO0lBQ3hDLENBQUM7SUFFRCx1Q0FBdUM7SUFDaEMsUUFBUTtRQUNYLHNHQUFzRztRQUN0RyxJQUFJLENBQUMsU0FBUyxDQUFDLFFBQVEsR0FoQ3RCLHFCQUFPLENBMEM4cW9CLFdBQVksQ0FWbHNvQixJQUFJLENBQUMsU0FBUyxDQUFDLFFBQVEsRUFoQ3RCLHFCQUFPLENBMEM4OG9CLFdBQVksQ0ExQ2orb0IscUJBQU8sQ0EwQzg4b0IsV0FBWSxDQVZ2OG9CLHFCQUFPLENBQUMsSUFBSSxFQUFHLElBQUksQ0FBQyxVQUFVLEdBQUcsa0JBQUksQ0FBQyxTQUFTLEdBQUM7UUFFM0UsK0dBQStHO0lBQ25ILENBQUM7SUFFRCw4Q0FBOEM7SUFDdkMsU0FBUyxDQUFDLEtBQWM7UUFDM0IsSUFBSSxDQUFDLFFBQVEsR0FBRyxLQUFLLENBQUM7SUFDMUIsQ0FBQztDQUNKO0FBdENELGlDQXNDQyJ9","assetPath":"Assets/Scripts/Blocks/Blocks/BlocksMoveLeft.ts","manifest":{"properties":[],"name":"BlocksMoveLeft","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 59166d75acc6a74eb49a02a0e0e8493d
   onlyWriteTrigger: 0

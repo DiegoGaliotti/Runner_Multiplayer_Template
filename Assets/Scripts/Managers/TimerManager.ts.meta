@@ -21,24 +21,32 @@ ScriptedImporter:
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
     ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst GameRunnerManager_1 =
-    require(\"./GameRunnerManager\");\r\nclass TimerManager extends ZEPETO_Script_1.ZepetoScriptBehaviour
-    {\r\n    constructor() {\r\n        super(...arguments);\r\n        this.gameSecondsTime
-    = 10;\r\n    }\r\n    Awake() {\r\n        // This is how the instance of this
-    class is allocated. Which makes it a \"singleton\"\r\n        // https://en.wikipedia.org/wiki/Singleton_pattern\r\n       
-    if (TimerManager.Instance == null)\r\n            TimerManager.Instance = this;\r\n       
-    else\r\n            UnityEngine_1.GameObject.Destroy(this);\r\n    }\r\n    Update()
-    {\r\n        if (this.currentTime >= this.gameSecondsTime) {\r\n            GameRunnerManager_1.default.Instance.OnGameOver();\r\n       
-    }\r\n    }\r\n    // This methods resets the current time value\r\n    StartTimer()
-    {\r\n        this.startTime = UnityEngine_1.Time.time;\r\n        //this.gameSecondsTime
-    = this.gameSecondsTime*60\r\n    }\r\n    //This method stakes a timestamp and
-    saves it in its respective variable\r\n    ResetTimer() {\r\n        this.currentTime
-    = 0;\r\n    }\r\n    // This method returns the value of the time elapsed between
-    the timestamp and this moment un miliseconds\r\n    GetTime() {\r\n        this.currentTime
+    require(\"./GameRunnerManager\");\r\n// This class manages the game timer\r\nclass
+    TimerManager extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor()
+    {\r\n        super(...arguments);\r\n        // Duration of the game timer in
+    seconds\r\n        this.gameSecondsTime = 10;\r\n    }\r\n    // Awake is called
+    when the script instance is being loaded\r\n    Awake() {\r\n        // Allocating
+    the instance of this class to make it a \"singleton\"\r\n        if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Equality(TimerManager.Instance,
+    null))\r\n            TimerManager.Instance = this;\r\n        else\r\n           
+    UnityEngine_1.GameObject.Destroy(this);\r\n    }\r\n    // Update is called every
+    frame\r\n    Update() {\r\n        // Check if the current time has exceeded
+    the specified game duration\r\n        if (this.currentTime >= this.gameSecondsTime)
+    {\r\n            // Trigger game over when time exceeds the limit\r\n           
+    GameRunnerManager_1.default.Instance.OnRunnerGameOver();\r\n        }\r\n   
+    }\r\n    // This methods resets the current time value\r\n    StartTimer() {\r\n       
+    // Set the start time to the current time when the timer starts\r\n        this.startTime
+    = UnityEngine_1.Time.time;\r\n    }\r\n    // This method resets the current
+    time to zero\r\n    ResetTimer() {\r\n        this.currentTime = 0;\r\n    }\r\n   
+    // This method returns the value of the time elapsed between the start time and
+    this moment in seconds\r\n    GetTime() {\r\n        // Calculate and update
+    the current time elapsed since the timer started\r\n        this.currentTime
     = UnityEngine_1.Time.time - this.startTime;\r\n        return this.currentTime;\r\n   
-    }\r\n    // This method returns the same as GetTime but with format\r\n    GetTimeFormated()
-    {\r\n        let time = this.GetTime();\r\n        let minutes = Math.floor(time
-    / 59).toString();\r\n        let seconds = ((time % 59)).toFixed(0).padStart(2,
-    ''0'');\r\n        return minutes + \":\" + seconds;\r\n    }\r\n}\r\nexports.default
-    = TimerManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVGltZXJNYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiVGltZXJNYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQStEO0FBQy9ELGlEQUFxRDtBQUNyRCwyREFBb0Q7QUFFcEQsTUFBcUIsWUFBYSxTQUFRLHFDQUFxQjtJQUEvRDs7UUFNVyxvQkFBZSxHQUFXLEVBQUUsQ0FBQztJQXdDeEMsQ0FBQztJQXRDVSxLQUFLO1FBQ1Isb0ZBQW9GO1FBQ3BGLGtEQUFrRDtRQUNsRCxJQUFJLFlBQVksQ0FBQyxRQUFRLElBQUksSUFBSTtZQUFFLFlBQVksQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDOztZQUMzRCx3QkFBVSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUNsQyxDQUFDO0lBRUQsTUFBTTtRQUNGLElBQUksSUFBSSxDQUFFLFdBQVcsSUFBSSxJQUFJLENBQUMsZUFBZSxFQUFDO1lBQzFDLDJCQUFpQixDQUFDLFFBQVEsQ0FBQyxVQUFVLEVBQUUsQ0FBQztTQUMzQztJQUNMLENBQUM7SUFFRCw2Q0FBNkM7SUFDdEMsVUFBVTtRQUNiLElBQUksQ0FBQyxTQUFTLEdBQUcsa0JBQUksQ0FBQyxJQUFJLENBQUM7UUFDM0IsZ0RBQWdEO0lBQ3BELENBQUM7SUFFRCx3RUFBd0U7SUFDakUsVUFBVTtRQUNiLElBQUksQ0FBQyxXQUFXLEdBQUcsQ0FBQyxDQUFDO0lBQ3pCLENBQUM7SUFFRCx5R0FBeUc7SUFDbEcsT0FBTztRQUNWLElBQUksQ0FBQyxXQUFXLEdBQUcsa0JBQUksQ0FBQyxJQUFJLEdBQUcsSUFBSSxDQUFDLFNBQVMsQ0FBQztRQUM5QyxPQUFPLElBQUksQ0FBQyxXQUFXLENBQUM7SUFDNUIsQ0FBQztJQUVELDBEQUEwRDtJQUNuRCxlQUFlO1FBQ2xCLElBQUksSUFBSSxHQUFHLElBQUksQ0FBQyxPQUFPLEVBQVksQ0FBQztRQUNwQyxJQUFJLE9BQU8sR0FBRyxJQUFJLENBQUMsS0FBSyxDQUFDLElBQUksR0FBQyxFQUFFLENBQUMsQ0FBQyxRQUFRLEVBQVksQ0FBQztRQUN2RCxJQUFJLE9BQU8sR0FBRyxDQUFDLENBQUMsSUFBSSxHQUFHLEVBQUUsQ0FBQyxDQUFDLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQyxDQUFDLFFBQVEsQ0FBQyxDQUFDLEVBQUUsR0FBRyxDQUFXLENBQUM7UUFFbEUsT0FBTyxPQUFPLEdBQUcsR0FBRyxHQUFHLE9BQU8sQ0FBQztJQUNuQyxDQUFDO0NBQ0o7QUE5Q0QsK0JBOENDIn0=","assetPath":"Assets/Scripts/Managers/TimerManager.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"gameSecondsTime","type":"System.Single","isArray":false,"initValue":["10"],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"TimerManager","description":""},"isCompiled":true}'
-  typescriptHash: 110c01646e24a79ce5040038e1a0e96b
+    }\r\n    // This method returns the formatted string representation of the elapsed
+    time\r\n    GetTimeFormated() {\r\n        // Get the time in seconds\r\n       
+    let time = this.GetTime();\r\n        // Calculate minutes and seconds\r\n       
+    let minutes = Math.floor(time / 59).toString();\r\n        let seconds = ((time
+    % 59)).toFixed(0).padStart(2, ''0'');\r\n        // Return the formatted time
+    as a string\r\n        return minutes + \":\" + seconds;\r\n    }\r\n}\r\nexports.default
+    = TimerManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVGltZXJNYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiVGltZXJNYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQStDO0FBQy9DLGlEQUFxRDtBQUNyRCwyREFBb0Q7QUFFcEQsb0NBQW9DO0FBQ3BDLE1BQXFCLFlBQWEsU0FBUSxxQ0FBcUI7SUFBL0Q7O1FBV0ksd0NBQXdDO1FBQ2pDLG9CQUFlLEdBQVcsRUFBRSxDQUFDO0lBOEN4QyxDQUFDO0lBNUNHLDJEQUEyRDtJQUNwRCxLQUFLO1FBQ1IsaUVBQWlFO1FBQ2pFLElBckJDLHFDQUFxQixDQThEa2lKLFdBQVksQ0F6Q2hrSixZQUFZLENBQUMsUUFBUSxFQUFJLElBQUk7WUFBRSxZQUFZLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQzs7WUFDM0Qsd0JBQVUsQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDbEMsQ0FBQztJQUVELCtCQUErQjtJQUMvQixNQUFNO1FBQ0YscUVBQXFFO1FBQ3JFLElBQUksSUFBSSxDQUFFLFdBQVcsSUFBSSxJQUFJLENBQUMsZUFBZSxFQUFDO1lBQzFDLGdEQUFnRDtZQUNoRCwyQkFBaUIsQ0FBQyxRQUFRLENBQUMsZ0JBQWdCLEVBQUUsQ0FBQztTQUNqRDtJQUNMLENBQUM7SUFFRCw2Q0FBNkM7SUFDdEMsVUFBVTtRQUNiLCtEQUErRDtRQUMvRCxJQUFJLENBQUMsU0FBUyxHQUFHLGtCQUFJLENBQUMsSUFBSSxDQUFDO0lBQy9CLENBQUM7SUFFRCw4Q0FBOEM7SUFDdkMsVUFBVTtRQUNiLElBQUksQ0FBQyxXQUFXLEdBQUcsQ0FBQyxDQUFDO0lBQ3pCLENBQUM7SUFFRCxzR0FBc0c7SUFDL0YsT0FBTztRQUNWLHdFQUF3RTtRQUN4RSxJQUFJLENBQUMsV0FBVyxHQUFHLGtCQUFJLENBQUMsSUFBSSxHQUFHLElBQUksQ0FBQyxTQUFTLENBQUM7UUFDOUMsT0FBTyxJQUFJLENBQUMsV0FBVyxDQUFDO0lBQzVCLENBQUM7SUFFRCw4RUFBOEU7SUFDdkUsZUFBZTtRQUNsQiwwQkFBMEI7UUFDMUIsSUFBSSxJQUFJLEdBQUcsSUFBSSxDQUFDLE9BQU8sRUFBWSxDQUFDO1FBQ3BDLGdDQUFnQztRQUNoQyxJQUFJLE9BQU8sR0FBRyxJQUFJLENBQUMsS0FBSyxDQUFDLElBQUksR0FBQyxFQUFFLENBQUMsQ0FBQyxRQUFRLEVBQVksQ0FBQztRQUN2RCxJQUFJLE9BQU8sR0FBRyxDQUFDLENBQUMsSUFBSSxHQUFHLEVBQUUsQ0FBQyxDQUFDLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQyxDQUFDLFFBQVEsQ0FBQyxDQUFDLEVBQUUsR0FBRyxDQUFXLENBQUM7UUFDbEUsd0NBQXdDO1FBQ3hDLE9BQU8sT0FBTyxHQUFHLEdBQUcsR0FBRyxPQUFPLENBQUM7SUFDbkMsQ0FBQztDQUNKO0FBMURELCtCQTBEQyJ9","assetPath":"Assets/Scripts/Managers/TimerManager.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"gameSecondsTime","type":"System.Single","isArray":false,"initValue":["10"],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"TimerManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 7f1e19c72b6af82d58a51780aa5f0931
   onlyWriteTrigger: 0

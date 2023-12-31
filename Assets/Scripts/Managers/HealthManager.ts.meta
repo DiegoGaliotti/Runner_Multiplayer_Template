@@ -21,24 +21,34 @@ ScriptedImporter:
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
     ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst GameRunnerManager_1 =
-    require(\"./GameRunnerManager\");\r\nclass HealthManager extends ZEPETO_Script_1.ZepetoScriptBehaviour
-    {\r\n    //Awake is called when the script instance is being loaded\r\n    Awake()
-    {\r\n        //This is hoe the instance of this class is allocated. Wich makes
-    it a singleton\r\n        if (HealthManager.Instance == null)\r\n           
-    HealthManager.Instance = this;\r\n        else\r\n            UnityEngine_1.GameObject.Destroy(this);\r\n       
-    //The current Health is iqual to the max Health\r\n        this.ResetHealth();\r\n   
-    }\r\n    //This method will take health to the character, depending on the amount
-    of damage the obstacle generate\r\n    generateDamage(amount) {\r\n        this.currentHealth
-    -= amount;\r\n        if (this.currentHealth <= 0) {\r\n            GameRunnerManager_1.default.Instance.OnGameOver();\r\n       
-    }\r\n    }\r\n    //This method will increase the health of the character depending
-    on de amount of life the item give to the player\r\n    generateHealth(amount)
-    {\r\n        if (this.currentHealth < this.maxHealth) {\r\n            if ((this.maxHealth
-    - this.currentHealth) < amount) {\r\n                this.currentHealth = this.maxHealth;\r\n           
-    }\r\n            else {\r\n                this.currentHealth += amount;\r\n           
-    }\r\n        }\r\n    }\r\n    // This method returns the internal value of the
-    player health\r\n    getCurrentHealth() {\r\n        return this.currentHealth;\r\n   
-    }\r\n    // This method reset the heath of the character \r\n    ResetHealth()
-    {\r\n        this.currentHealth = this.maxHealth;\r\n    }\r\n}\r\nexports.default
-    = HealthManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSGVhbHRoTWFuYWdlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkhlYWx0aE1hbmFnZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFFQSw2Q0FBeUM7QUFDekMsaURBQXNEO0FBQ3RELDJEQUFvRDtBQUVwRCxNQUFxQixhQUFjLFNBQVEscUNBQXFCO0lBTzVELDBEQUEwRDtJQUMxRCxLQUFLO1FBQ0QsZ0ZBQWdGO1FBQ2hGLElBQUksYUFBYSxDQUFDLFFBQVEsSUFBSSxJQUFJO1lBQUUsYUFBYSxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7O1lBQzdELHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO1FBQzlCLCtDQUErQztRQUMvQyxJQUFJLENBQUMsV0FBVyxFQUFFLENBQUM7SUFDdkIsQ0FBQztJQUVELHdHQUF3RztJQUNqRyxjQUFjLENBQUMsTUFBYztRQUNoQyxJQUFJLENBQUMsYUFBYSxJQUFJLE1BQU0sQ0FBQztRQUM3QixJQUFHLElBQUksQ0FBQyxhQUFhLElBQUksQ0FBQyxFQUFDO1lBQ3ZCLDJCQUFpQixDQUFDLFFBQVEsQ0FBQyxVQUFVLEVBQUUsQ0FBQztTQUMzQztJQUNMLENBQUM7SUFFRCxrSEFBa0g7SUFDM0csY0FBYyxDQUFDLE1BQWM7UUFDaEMsSUFBSSxJQUFJLENBQUMsYUFBYSxHQUFHLElBQUksQ0FBQyxTQUFTLEVBQUU7WUFDckMsSUFBSSxDQUFDLElBQUksQ0FBQyxTQUFTLEdBQUcsSUFBSSxDQUFDLGFBQWEsQ0FBQyxHQUFHLE1BQU0sRUFBRTtnQkFDaEQsSUFBSSxDQUFDLGFBQWEsR0FBRyxJQUFJLENBQUMsU0FBUyxDQUFDO2FBQ3ZDO2lCQUNJO2dCQUNELElBQUksQ0FBQyxhQUFhLElBQUksTUFBTSxDQUFDO2FBQ2hDO1NBQ0o7SUFDTCxDQUFDO0lBRUQsOERBQThEO0lBQ3ZELGdCQUFnQjtRQUNuQixPQUFPLElBQUksQ0FBQyxhQUFhLENBQUM7SUFDOUIsQ0FBQztJQUVELGdEQUFnRDtJQUN6QyxXQUFXO1FBQ2QsSUFBSSxDQUFDLGFBQWEsR0FBRyxJQUFJLENBQUMsU0FBUyxDQUFDO0lBQ3hDLENBQUM7Q0FHSjtBQS9DRCxnQ0ErQ0MifQ==","assetPath":"Assets/Scripts/Managers/HealthManager.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"maxHealth","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"currentHealth","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"HealthManager","description":""},"isCompiled":true}'
-  typescriptHash: b5171a28fc6c247eda9013eed0fc63ae
+    require(\"./GameRunnerManager\");\r\n// This class manages the health of the
+    player character\r\nclass HealthManager extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    // Awake is called when the script instance is being loaded\r\n    Awake()
+    {\r\n        // Allocating the instance of this class to make it a \"singleton\"\r\n       
+    if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Equality(HealthManager.Instance,
+    null))\r\n            HealthManager.Instance = this;\r\n        else\r\n           
+    UnityEngine_1.GameObject.Destroy(this);\r\n        //The current Health is iqual
+    to the max Health\r\n        this.ResetHealth();\r\n    }\r\n    // This method
+    deducts health from the character based on the amount of damage the obstacle
+    generates\r\n    GenerateDamage(amount) {\r\n        // Decrease the current
+    health by the specified amount\r\n        this.currentHealth -= amount;\r\n       
+    // Check if the current health is zero or below\r\n        if (this.currentHealth
+    <= 0) {\r\n            // Trigger game over when health reaches zero or below\r\n           
+    GameRunnerManager_1.default.Instance.OnRunnerGameOver();\r\n        }\r\n   
+    }\r\n    // This method increases the health of the character depending on the
+    amount of life the item gives to the player\r\n    GenerateHealth(amount) {\r\n       
+    // Check if the current health is less than the maximum health\r\n        if
+    (this.currentHealth < this.maxHealth) {\r\n            // Check if the amount
+    to be added would exceed the maximum health\r\n            if ((this.maxHealth
+    - this.currentHealth) < amount) {\r\n                // Set the current health
+    to the maximum health if the addition exceeds the limit\r\n                this.currentHealth
+    = this.maxHealth;\r\n            }\r\n            else {\r\n                //
+    Otherwise, increase the current health by the specified amount\r\n               
+    this.currentHealth += amount;\r\n            }\r\n        }\r\n    }\r\n    //
+    This method returns the current value of the player''s health\r\n    GetCurrentHealth()
+    {\r\n        return this.currentHealth;\r\n    }\r\n    // This method resets
+    the health of the character to the maximum health\r\n    ResetHealth() {\r\n       
+    this.currentHealth = this.maxHealth;\r\n    }\r\n}\r\nexports.default = HealthManager;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSGVhbHRoTWFuYWdlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkhlYWx0aE1hbmFnZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSw2Q0FBeUM7QUFDekMsaURBQXNEO0FBQ3RELDJEQUFvRDtBQUVwRCx3REFBd0Q7QUFDeEQsTUFBcUIsYUFBYyxTQUFRLHFDQUFxQjtJQVU1RCwyREFBMkQ7SUFDM0QsS0FBSztRQUNELGlFQUFpRTtRQUNqRSxJQWpCQyxxQ0FBcUIsQ0E0RDIySSxXQUFZLENBM0N6NEksYUFBYSxDQUFDLFFBQVEsRUFBSSxJQUFJO1lBQUUsYUFBYSxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7O1lBQzdELHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO1FBRTlCLCtDQUErQztRQUMvQyxJQUFJLENBQUMsV0FBVyxFQUFFLENBQUM7SUFDdkIsQ0FBQztJQUVELHFHQUFxRztJQUM5RixjQUFjLENBQUMsTUFBYztRQUNoQyxzREFBc0Q7UUFDdEQsSUFBSSxDQUFDLGFBQWEsSUFBSSxNQUFNLENBQUM7UUFFN0IsK0NBQStDO1FBQy9DLElBQUcsSUFBSSxDQUFDLGFBQWEsSUFBSSxDQUFDLEVBQUM7WUFDdkIsc0RBQXNEO1lBQ3RELDJCQUFpQixDQUFDLFFBQVEsQ0FBQyxnQkFBZ0IsRUFBRSxDQUFDO1NBQ2pEO0lBQ0wsQ0FBQztJQUNELGlIQUFpSDtJQUMxRyxjQUFjLENBQUMsTUFBYztRQUNoQyw4REFBOEQ7UUFDOUQsSUFBSSxJQUFJLENBQUMsYUFBYSxHQUFHLElBQUksQ0FBQyxTQUFTLEVBQUU7WUFDckMsa0VBQWtFO1lBQ2xFLElBQUksQ0FBQyxJQUFJLENBQUMsU0FBUyxHQUFHLElBQUksQ0FBQyxhQUFhLENBQUMsR0FBRyxNQUFNLEVBQUU7Z0JBQ2hELGlGQUFpRjtnQkFDakYsSUFBSSxDQUFDLGFBQWEsR0FBRyxJQUFJLENBQUMsU0FBUyxDQUFDO2FBQ3ZDO2lCQUNJO2dCQUNELGlFQUFpRTtnQkFDakUsSUFBSSxDQUFDLGFBQWEsSUFBSSxNQUFNLENBQUM7YUFDaEM7U0FDSjtJQUNMLENBQUM7SUFFRCwrREFBK0Q7SUFDeEQsZ0JBQWdCO1FBQ25CLE9BQU8sSUFBSSxDQUFDLGFBQWEsQ0FBQztJQUM5QixDQUFDO0lBRUQsdUVBQXVFO0lBQ2hFLFdBQVc7UUFDZCxJQUFJLENBQUMsYUFBYSxHQUFHLElBQUksQ0FBQyxTQUFTLENBQUM7SUFDeEMsQ0FBQztDQUNKO0FBeERELGdDQXdEQyJ9","assetPath":"Assets/Scripts/Managers/HealthManager.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"maxHealth","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"currentHealth","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"HealthManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 5171157cfeb6189033ec4f9e645f7971
   onlyWriteTrigger: 0

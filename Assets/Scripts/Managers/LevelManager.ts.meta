@@ -22,19 +22,23 @@ ScriptedImporter:
     { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
     ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst SpawnBlockManager_1 =
     require(\"../Blocks/Blocks/SpawnBlockManager\");\r\nconst EnviromentManager_1
-    = require(\"./EnviromentManager\");\r\nclass LevelManager extends ZEPETO_Script_1.ZepetoScriptBehaviour
-    {\r\n    Awake() {\r\n        // This is how the instance of this class is allocated.
-    Which makes it a \"singleton\"\r\n        // https://en.wikipedia.org/wiki/Singleton_pattern\r\n       
-    if (LevelManager.Instance == null)\r\n            LevelManager.Instance = this;\r\n       
-    else\r\n            UnityEngine_1.GameObject.Destroy(this);\r\n    }\r\n    StartGame()
-    {\r\n        SpawnBlockManager_1.default.Instance.StartSpawnBlockManager();\r\n       
+    = require(\"./EnviromentManager\");\r\n// Define the LevelManager class which
+    extends the ZepetoScriptBehaviour class\r\nclass LevelManager extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    Awake() {\r\n        // This is how the instance of this class is allocated,
+    making it a \"singleton\"\r\n        if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Equality(LevelManager.Instance,
+    null))\r\n            LevelManager.Instance = this;\r\n        else\r\n           
+    UnityEngine_1.GameObject.Destroy(this);\r\n    }\r\n    // Start the game by
+    starting the spawn and environment managers\r\n    StartGame() {\r\n        SpawnBlockManager_1.default.Instance.StartSpawnBlockManager();\r\n       
     EnviromentManager_1.default.Instance.StartEnviromentManager();\r\n    }\r\n   
-    PauseGame() {\r\n        SpawnBlockManager_1.default.Instance.StopSpawnBlockManager();\r\n       
+    // Pause the game by stopping the spawn and environment managers\r\n    PauseGame()
+    {\r\n        SpawnBlockManager_1.default.Instance.StopSpawnBlockManager();\r\n       
     EnviromentManager_1.default.Instance.PauseEnviromentManager();\r\n    }\r\n   
-    ResumeGame() {\r\n        SpawnBlockManager_1.default.Instance.StartSpawnBlockManager();\r\n       
+    // Resume the game by starting the spawn and environment managers\r\n    ResumeGame()
+    {\r\n        SpawnBlockManager_1.default.Instance.StartSpawnBlockManager();\r\n       
     EnviromentManager_1.default.Instance.ResumeEnviromentManager();\r\n    }\r\n   
+    // End the game by destroying all blocks and pausing the environment manager\r\n   
     EndGame() {\r\n        SpawnBlockManager_1.default.Instance.DestroyAllBlocks();\r\n       
     EnviromentManager_1.default.Instance.PauseEnviromentManager();\r\n    }\r\n}\r\nexports.default
-    = LevelManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTGV2ZWxNYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTGV2ZWxNYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQWdEO0FBQ2hELGlEQUFxRDtBQUNyRCwwRUFBbUU7QUFDbkUsMkRBQW9EO0FBRXBELE1BQXFCLFlBQWEsU0FBUSxxQ0FBcUI7SUFLcEQsS0FBSztRQUNSLG9GQUFvRjtRQUNwRixrREFBa0Q7UUFDbEQsSUFBSSxZQUFZLENBQUMsUUFBUSxJQUFJLElBQUk7WUFBRSxZQUFZLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQzs7WUFDM0Qsd0JBQVUsQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDbEMsQ0FBQztJQUVNLFNBQVM7UUFDWiwyQkFBaUIsQ0FBQyxRQUFRLENBQUMsc0JBQXNCLEVBQUUsQ0FBQztRQUNwRCwyQkFBaUIsQ0FBQyxRQUFRLENBQUMsc0JBQXNCLEVBQUUsQ0FBQztJQUN4RCxDQUFDO0lBRUQsU0FBUztRQUNMLDJCQUFpQixDQUFDLFFBQVEsQ0FBQyxxQkFBcUIsRUFBRSxDQUFDO1FBQ25ELDJCQUFpQixDQUFDLFFBQVEsQ0FBQyxzQkFBc0IsRUFBRSxDQUFDO0lBQ3hELENBQUM7SUFFRCxVQUFVO1FBQ04sMkJBQWlCLENBQUMsUUFBUSxDQUFDLHNCQUFzQixFQUFFLENBQUM7UUFDcEQsMkJBQWlCLENBQUMsUUFBUSxDQUFDLHVCQUF1QixFQUFFLENBQUM7SUFDekQsQ0FBQztJQUVELE9BQU87UUFDSCwyQkFBaUIsQ0FBQyxRQUFRLENBQUMsZ0JBQWdCLEVBQUUsQ0FBQztRQUM5QywyQkFBaUIsQ0FBQyxRQUFRLENBQUMsc0JBQXNCLEVBQUUsQ0FBQztJQUN4RCxDQUFDO0NBR0o7QUFqQ0QsK0JBaUNDIn0=","assetPath":"Assets/Scripts/Managers/LevelManager.ts","manifest":{"properties":[],"name":"LevelManager","description":""},"isCompiled":true}'
-  typescriptHash: 819860d4656b3c1f32bc2adee093c974
+    = LevelManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTGV2ZWxNYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTGV2ZWxNYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQXlDO0FBQ3pDLGlEQUFxRDtBQUNyRCwwRUFBbUU7QUFDbkUsMkRBQW9EO0FBRXBELDhFQUE4RTtBQUM5RSxNQUFxQixZQUFhLFNBQVEscUNBQXFCO0lBSXBELEtBQUs7UUFDUiwrRUFBK0U7UUFDL0UsSUFYQyxxQ0FBcUIsQ0FzQ3kwSyxXQUFZLENBM0J2MkssWUFBWSxDQUFDLFFBQVEsRUFBSSxJQUFJO1lBQUUsWUFBWSxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7O1lBQzNELHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0lBQ2xDLENBQUM7SUFFRCxnRUFBZ0U7SUFDekQsU0FBUztRQUNaLDJCQUFpQixDQUFDLFFBQVEsQ0FBQyxzQkFBc0IsRUFBRSxDQUFDO1FBQ3BELDJCQUFpQixDQUFDLFFBQVEsQ0FBQyxzQkFBc0IsRUFBRSxDQUFDO0lBQ3hELENBQUM7SUFFRCxnRUFBZ0U7SUFDaEUsU0FBUztRQUNMLDJCQUFpQixDQUFDLFFBQVEsQ0FBQyxxQkFBcUIsRUFBRSxDQUFDO1FBQ25ELDJCQUFpQixDQUFDLFFBQVEsQ0FBQyxzQkFBc0IsRUFBRSxDQUFDO0lBQ3hELENBQUM7SUFFRCxpRUFBaUU7SUFDakUsVUFBVTtRQUNOLDJCQUFpQixDQUFDLFFBQVEsQ0FBQyxzQkFBc0IsRUFBRSxDQUFDO1FBQ3BELDJCQUFpQixDQUFDLFFBQVEsQ0FBQyx1QkFBdUIsRUFBRSxDQUFDO0lBQ3pELENBQUM7SUFFRCw0RUFBNEU7SUFDNUUsT0FBTztRQUNILDJCQUFpQixDQUFDLFFBQVEsQ0FBQyxnQkFBZ0IsRUFBRSxDQUFDO1FBQzlDLDJCQUFpQixDQUFDLFFBQVEsQ0FBQyxzQkFBc0IsRUFBRSxDQUFDO0lBQ3hELENBQUM7Q0FDSjtBQWpDRCwrQkFpQ0MifQ==","assetPath":"Assets/Scripts/Managers/LevelManager.ts","manifest":{"properties":[],"name":"LevelManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 5f0a58672447733baae726e04a5395f4
   onlyWriteTrigger: 0

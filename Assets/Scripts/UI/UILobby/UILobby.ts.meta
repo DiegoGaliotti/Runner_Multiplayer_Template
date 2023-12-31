@@ -20,9 +20,11 @@ ScriptedImporter:
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
-    GameRunnerManager_1 = require(\"../../Managers/GameRunnerManager\");\r\nclass
-    UILobby extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n       
-    this.leaderboardButton.onClick.AddListener(GameRunnerManager_1.default.Instance.OnGamePause);\r\n   
-    }\r\n}\r\nexports.default = UILobby;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVUlMb2JieS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlVJTG9iYnkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFDQSxpREFBc0Q7QUFDdEQsd0VBQWlFO0FBRWpFLE1BQXFCLE9BQVEsU0FBUSxxQ0FBcUI7SUFJdEQsS0FBSztRQUNELElBQUksQ0FBQyxpQkFBaUIsQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUFDLDJCQUFpQixDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsQ0FBQztJQUN2RixDQUFDO0NBRUo7QUFSRCwwQkFRQyJ9","assetPath":"Assets/Scripts/UI/UILobby/UILobby.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"leaderboardButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"UILobby","description":""},"isCompiled":true}'
-  typescriptHash: f0177a741af2eee5bce6c13ea8602cfb
+    GameRunnerManager_1 = require(\"../../Managers/GameRunnerManager\");\r\n// Class
+    that represents the lobby user interface\r\nclass UILobby extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    // Start is called before the first frame update\r\n    Start() {\r\n       
+    // Adding a listener to the leaderboardButton click event to execute the OnGamePause
+    method\r\n        this.leaderboardButton.onClick.AddListener(GameRunnerManager_1.default.Instance.OnRunnerPause);\r\n   
+    }\r\n}\r\nexports.default = UILobby;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVUlMb2JieS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlVJTG9iYnkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFDQSxpREFBc0Q7QUFDdEQsd0VBQWlFO0FBRWpFLGlEQUFpRDtBQUNqRCxNQUFxQixPQUFRLFNBQVEscUNBQXFCO0lBS3RELGdEQUFnRDtJQUNoRCxLQUFLO1FBQ0QsMkZBQTJGO1FBQzNGLElBQUksQ0FBQyxpQkFBaUIsQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUFDLDJCQUFpQixDQUFDLFFBQVEsQ0FBQyxhQUFhLENBQUMsQ0FBQztJQUN6RixDQUFDO0NBQ0o7QUFWRCwwQkFVQyJ9","assetPath":"Assets/Scripts/UI/UILobby/UILobby.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"leaderboardButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"UILobby","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: b32b6412ece8f439e964f0a6135f3d37
   onlyWriteTrigger: 0

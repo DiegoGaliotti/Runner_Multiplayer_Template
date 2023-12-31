@@ -709,20 +709,18 @@ declare module "@colyseus/schema" {
 declare module "ZEPETO.Multiplay" {
 
     import { State, Schema } from 'ZEPETO.Multiplay.Schema';
+    
+    interface SystemError {
+        code: string,
+        message: string
+    }
 
     interface SandboxPlayer {
         readonly sessionId: string;
         readonly userId: string;
-        readonly hashCode?: string;
         
         send<T>(type: string | number, message?: T): void;
         send(message: Schema): void;
-    }
-
-    class BroadcastMessage {
-        sender: string;
-        data: any;
-        constructor(sender: string, data: any);
     }
 
     interface IBroadcastOptions {
@@ -730,24 +728,15 @@ declare module "ZEPETO.Multiplay" {
     }
 
     interface SandboxOptions {
-        readonly applicationId: string;
         readonly isSandbox: boolean;
-        readonly tickInterval: number;
-        readonly isPrivate: boolean;
         readonly matchMakingValue: {[key: string]: any};
     }
     
     abstract class Sandbox {
-        readonly applicationId: string;
         readonly locked: boolean;
-        readonly metadata: any;
-        readonly clock: any;
         readonly roomId: string;
-        readonly roomType: string;
         readonly uniqueId?: string;
         readonly maxClients: number;
-        readonly patchRate: number;
-        readonly autoDispose: boolean;
         readonly state: State;
         readonly clients: IterableIterator<SandboxPlayer>;
         readonly allowReconnectionTime: number;
@@ -758,21 +747,45 @@ declare module "ZEPETO.Multiplay" {
         lock(): Promise<void>;
         unlock(): Promise<void>;
         onTick?(deltaTime: number): void;
-        onDispose?(): void | Promise<any>;
-        onMessage?<T = any>(messageType: '*', callback: (client: SandboxPlayer, type: string | number, message: T) => void): any;
-        onMessage?<T = any>(messageType: string | number, callback: (client: SandboxPlayer, message: T) => void): any;
-        broadcast?(type: string | number, message?: any, options?: IBroadcastOptions): any;
-        loadPlayer?(sessionId: string): SandboxPlayer;
+        onMessage<T = any>(messageType: '*' | string | number, callback: (client: SandboxPlayer, message: T) => void): void;
+        broadcast(type: string | number, message?: any, options?: IBroadcastOptions): void;
+        loadPlayer(sessionId: string): SandboxPlayer | undefined;
         setPrivate(isPrivate: boolean): Promise<void>;
         kick(client: SandboxPlayer, reason?: string): Promise<void>;
     }
 }
 
 
-declare module 'ZEPETO.Multiplay.DataStorage' {    
+declare module "ZEPETO.Multiplay.Currency" {
+    import { SandboxPlayer } from "ZEPETO.Multiplay";
+    const enum CurrencyError {
+        Unknown = -1,
+        NetworkError = 0
+    }
+    interface Currency {
+        debit(id: string, quantity?: number, reason?: string): Promise<boolean>;
+        credit(id: string, quantity?: number, reason?: string): Promise<boolean>;
+        getBalance(id: string): Promise<number | null>;
+        getBalances(): Promise<{
+            [key: string]: number
+        }>;
+    }
+    function loadCurrency(userId: string): Promise<Currency>;
+    function loadCurrency(player: SandboxPlayer): Promise<Currency>;
+}
+
+declare module 'ZEPETO.Multiplay.DataStorage' {
+    const enum DataStorageError {
+        Unknown = -1,
+        NetworkError = 0,
+        KeyConstraintViolated = 103,
+        ValueConstraintViolated = 104
+    }
     interface DataStorage {
         set<T>(key: string, value: T) : Promise<boolean>;
+        mset<T>(keyValueSet: { key: string; value: T; }[]): Promise<boolean>;
         get<T>(key: string): Promise<T>;
+        mget<T>(keys: string[]): Promise<{ [key: string]: T }>;
         remove(key: string): Promise<boolean>;
     }
     function loadDataStorage(userId: string): Promise<DataStorage>;
@@ -781,7 +794,7 @@ declare module 'ZEPETO.Multiplay.DataStorage' {
 declare module 'ZEPETO.Multiplay' {
     import { DataStorage } from 'ZEPETO.Multiplay.DataStorage';
     interface SandboxPlayer {
-        loadDataStorage?(): DataStorage;
+        loadDataStorage(): DataStorage;
     }
 }
 
@@ -797,7 +810,8 @@ declare module "ZEPETO.Multiplay.HttpService" {
     type HttpBodyType = string | { [key: string]: any; };
     type HttpHeader = { [key: string]: string | number; };
     const enum HttpErrorType {
-        ERR_ACCESS_DENIED = 'ERR_ACCESS_DENIED'
+        ERR_ACCESS_DENIED = 'ERR_ACCESS_DENIED',
+        ERR_LENGTH_REQUIRED = 'ERR_LENGTH_REQUIRED'
     }
     interface HttpError extends Error {
         message: string;
@@ -816,23 +830,33 @@ declare module "ZEPETO.Multiplay.HttpService" {
     const HttpService: HttpService;
 }
 
-declare module "ZEPETO.Multiplay.IWP" {
+declare module "ZEPETO.Multiplay.Inventory" {
     import { SandboxPlayer } from "ZEPETO.Multiplay";
-
-    interface IReceiptMessage {
-        receiptId: string;
-        itemId: string;
-        worldId: string;
-        purchasePrice: number;
-        status: string;
-        purchasedAt: string;
-        createdAt: string;
-        updatedAt: string;
+    const enum InventoryError {
+        Unknown = -1,
+        NetworkError = 0
     }
-
-    interface IWP {
-        onPurchased(client: SandboxPlayer, receipt: IReceiptMessage): void | Promise<void>;
+    interface InventoryRecord {
+        productId: string;
+        quantity: number;
+        createdAt: Date;
+        updatedAt: Date;
     }
+    interface Inventory {
+        use(productId: string, quantity?: number, reason?: string): Promise<boolean>;
+        add(productId: string, quantity?: number, reason?: string): Promise<boolean>;
+        madd(products: {
+            productId: string;
+            quantity: number;
+            reason?: string;
+        }[]): Promise<boolean>;
+        get(productId: string): Promise<InventoryRecord | null>;
+        has(productId: string): Promise<boolean>;
+        remove(productId: string): Promise<boolean>;
+        list(): Promise<InventoryRecord[]>;
+    }
+    function loadInventory(userId: string): Promise<Inventory>;
+    function loadInventory(player: SandboxPlayer): Promise<Inventory>;
 }
 
 declare module 'ZEPETO.Multiplay.Leaderboard' {
@@ -923,6 +947,68 @@ declare module 'ZEPETO.Multiplay.Leaderboard' {
     const Leaderboard: Leaderboard;
 }
 
+
+declare module "ZEPETO.Multiplay.Messaging" {
+    const enum MessagingError {
+        Unknown = -1,
+        ParameterError,
+        NetworkError,
+    }
+    interface Subscriber {
+        disconnect(): void;
+    }
+    interface Messaging {
+        publish<T>(topic: string, payload: T): void;
+        subscribe<T>(topic: string, callback: (topic: string, data: T, sent: number) => void): Subscriber;
+    }
+    const Messaging: Messaging;
+}
+
+declare module "ZEPETO.Multiplay.Product" {
+    const enum ProductError {
+        Unknown = -1,
+        NetworkError = 0
+    }
+    const enum PurchaseType {
+        Consumable = 'CONSUMABLE',
+        NonConsumable = 'NON_CONSUMABLE'
+    }
+    const enum ProductStatus {
+        Active = 'ACTIVE',
+        InActive = 'INACTIVE',
+        Forbidden = 'FORBIDDEN'
+    }
+    const enum ProductType {
+        Item = 'ITEM',
+        ItemPackage = 'ITEM_PACKAGE',
+        CurrencyPackage = 'CURRENCY_PACKAGE'
+    }
+    interface ProductRecord {
+        productId: string;
+        name: string;
+        price: number;
+        purchaseType: PurchaseType;
+        status: ProductStatus;
+        productType: ProductType,
+        currency: {
+            currencyId?: string;
+            name?: string,
+            isOfficialCurrency: boolean,
+        };
+        itemPackageUnits?: {
+            productId: string;
+            itemName: string;
+            quantity: number;
+        }[];
+        currencyPackageUnits?: {
+            currencyId: string;
+            currencyName: string;
+            quantity: number;
+        }[];
+    }
+    function getProduct(productId: string): Promise<ProductRecord | null>;
+    function getProducts(productIds: string[]): Promise<ProductRecord[] | null>;
+}
 
 declare module "ZEPETO.Multiplay.Schema" {
 

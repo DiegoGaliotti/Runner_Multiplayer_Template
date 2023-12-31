@@ -19,52 +19,69 @@ ScriptedImporter:
   WrapperFilters: []
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
-    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
-    UnityEngine_1 = require(\"UnityEngine\");\r\nconst TimerManager_1 = require(\"./TimerManager\");\r\nconst
-    CharacterController_1 = require(\"../Character/CharacterController\");\r\nconst
-    UIRunnerManager_1 = require(\"./UIRunnerManager\");\r\nconst HealthManager_1
-    = require(\"./HealthManager\");\r\nconst LevelManager_1 = require(\"./LevelManager\");\r\nconst
-    TeleportToRunner_1 = require(\"../Lobby/TeleportToRunner\");\r\nconst ZEPETO_Character_Controller_1
+    { value: true });\r\nconst __UnityEngine__ = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    TimerManager_1 = require(\"./TimerManager\");\r\nconst CharacterController_1
+    = require(\"../Character/CharacterController\");\r\nconst UIRunnerManager_1 =
+    require(\"./UIRunnerManager\");\r\nconst HealthManager_1 = require(\"./HealthManager\");\r\nconst
+    LevelManager_1 = require(\"./LevelManager\");\r\nconst ZEPETO_Character_Controller_1
     = require(\"ZEPETO.Character.Controller\");\r\nconst AnimatorManager_1 = require(\"../Animator/AnimatorManager\");\r\nconst
-    SideViewController_1 = require(\"../Camara/SideViewController\");\r\nconst ScoreManager_1
-    = require(\"./ScoreManager\");\r\nconst LeaderboardManager_1 = require(\"./LeaderboardManager\");\r\nclass
-    GameRunnerManager extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    // Awake
-    is called when the script instance is being loaded\r\n    Awake() {\r\n       
-    // This is how the instance of this class is allocated. Which makes it a \"singleton\"\r\n       
-    // https://en.wikipedia.org/wiki/Singleton_pattern\r\n        if (GameRunnerManager.Instance
-    == null)\r\n            GameRunnerManager.Instance = this;\r\n        else\r\n           
-    UnityEngine_1.GameObject.Destroy(this);\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    ScoreManager_1 = require(\"./ScoreManager\");\r\nconst LeaderboardManager_1 =
+    require(\"./LeaderboardManager\");\r\nconst PlayerVisibilityManager_1 = require(\"./PlayerVisibilityManager\");\r\n//
+    Class that manages the overall game flow\r\nclass GameRunnerManager extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    // Reference to the local character controlled by the player\r\n   
+    Awake() {\r\n        // Allocating the instance of this class to make it a \"singleton\"\r\n       
+    if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Equality(GameRunnerManager.Instance,
+    null))\r\n            GameRunnerManager.Instance = this;\r\n        else\r\n           
+    UnityEngine_1.GameObject.Destroy(this);\r\n        // Listening for the addition
+    of a local player and setting the local character reference\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
     => {\r\n            this._localCharacter = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\r\n       
-    });\r\n    }\r\n    Start() {\r\n        UIRunnerManager_1.default.Instance.UIOnLobby();\r\n   
-    }\r\n    OnStart() {\r\n        this.isGameRunning = false;\r\n        if (UnityEngine_1.GameObject.op_Inequality(this.teleportRunnerDoor,
-    null))\r\n            this.teleportRunnerDoor.SetActive(true);\r\n        CharacterController_1.default.Instance.CharacterRunnerController();\r\n       
-    UIRunnerManager_1.default.Instance.UIOnStart();\r\n        LevelManager_1.default.Instance.StartGame();\r\n       
-    LevelManager_1.default.Instance.PauseGame();\r\n    }\r\n    OnGameStart() {\r\n       
-    ScoreManager_1.default.Instance.ResetPoins();\r\n        this.isGameRunning =
-    true;\r\n        UIRunnerManager_1.default.Instance.UIOnGame();\r\n        HealthManager_1.default.Instance.ResetHealth();\r\n       
-    AnimatorManager_1.default.Instance.GameRunning(this.isGameRunning);\r\n       
-    TimerManager_1.default.Instance.StartTimer(); // This will instance the startTimer
-    method\r\n        LevelManager_1.default.Instance.ResumeGame();\r\n        if
-    (UnityEngine_1.GameObject.op_Inequality(this.teleportRunnerDoor, null))\r\n           
-    this.teleportRunnerDoor.SetActive(false);\r\n    }\r\n    OnGamePause() {\r\n       
-    this.isGameRunning = false;\r\n        AnimatorManager_1.default.Instance.GameRunning(this.isGameRunning);\r\n       
+    });\r\n    }\r\n    // Method called at the start of the lobby\r\n    Start()
+    {\r\n        // Setting up the initial UI state when the game start on lobby\r\n       
+    UIRunnerManager_1.default.Instance.UIOnLobby();\r\n    }\r\n    // Method called
+    when the runner game is initialized\r\n    OnRunnerInitialize() {\r\n       
+    this.isGameRunning = false; // The game its not yet running\r\n        // Activating
+    the teleport runner door if it exists\r\n        if (__UnityEngine__.Object.op_Inequality(this.teleportRunnerDoor,
+    null))\r\n            this.teleportRunnerDoor.SetActive(true);\r\n        //
+    Configuring character controller and UI for the runner game initialization\r\n       
+    CharacterController_1.default.Instance.CharacterRunnerController();\r\n       
+    UIRunnerManager_1.default.Instance.UIOnStart();\r\n        // Create a new level
+    and the pause movements\r\n        LevelManager_1.default.Instance.StartGame();\r\n       
+    LevelManager_1.default.Instance.PauseGame();\r\n        PlayerVisibilityManager_1.default.Instance.HideAllPlayers();\r\n   
+    }\r\n    // Method called when the runner game starts\r\n    OnRunnerStart()
+    {\r\n        // Resetting scores and setting the game to running state\r\n       
+    ScoreManager_1.default.Instance.ResetPoints();\r\n        this.isGameRunning
+    = true; // The game is running\r\n        // Updating UI and game elements for
+    the runner game start\r\n        UIRunnerManager_1.default.Instance.UIOnGame();\r\n       
+    HealthManager_1.default.Instance.ResetHealth();\r\n        AnimatorManager_1.default.Instance.GameRunning(this.isGameRunning);\r\n       
+    TimerManager_1.default.Instance.StartTimer();\r\n        LevelManager_1.default.Instance.ResumeGame();\r\n       
+    // Desactivating the teleport runner door if it exists\r\n        if (__UnityEngine__.Object.op_Inequality(this.teleportRunnerDoor,
+    null))\r\n            this.teleportRunnerDoor.SetActive(false);\r\n    }\r\n   
+    // Method called when the runner game is paused\r\n    OnRunnerPause() {\r\n       
+    // Pausing the game, updating UI, and showing the leaderboard\r\n        this.isGameRunning
+    = false;\r\n        AnimatorManager_1.default.Instance.GameRunning(this.isGameRunning);\r\n       
     LeaderboardManager_1.default.Instance.GetLeaderboard();\r\n        UIRunnerManager_1.default.Instance.UILeaderboard();\r\n   
-    }\r\n    OnGamePlay() {\r\n        this.isGameRunning = true;\r\n        TimerManager_1.default.Instance.ResetTimer();\r\n       
+    }\r\n    // Method called when the runner game resumes play\r\n    OnRunnerPlay()
+    {\r\n        // Resuming the game, resetting the timer, and updating UI\r\n       
+    this.isGameRunning = true;\r\n        TimerManager_1.default.Instance.ResetTimer();\r\n       
     LevelManager_1.default.Instance.ResumeGame();\r\n        AnimatorManager_1.default.Instance.GameRunning(this.isGameRunning);\r\n       
-    UIRunnerManager_1.default.Instance.UIOnGame();\r\n    }\r\n    OnGameOver() {\r\n       
-    this.isGameRunning = false;\r\n        LevelManager_1.default.Instance.EndGame();\r\n       
-    AnimatorManager_1.default.Instance.GameRunning(this.isGameRunning);\r\n       
+    UIRunnerManager_1.default.Instance.UIOnGame();\r\n    }\r\n    // Method called
+    when the runner game is over\r\n    OnRunnerGameOver() {\r\n        // Ending
+    the game, updating UI, and resetting scores and timer\r\n        this.isGameRunning
+    = false;\r\n        LevelManager_1.default.Instance.EndGame();\r\n        AnimatorManager_1.default.Instance.GameRunning(this.isGameRunning);\r\n       
     LeaderboardManager_1.default.Instance.SetScore(ScoreManager_1.default.Instance.GetTotalScore());\r\n       
-    TimerManager_1.default.Instance.ResetTimer();\r\n        ScoreManager_1.default.Instance.ResetPoins();\r\n       
-    UIRunnerManager_1.default.Instance.UIGameOver();\r\n    }\r\n    BackToLobby()
-    {\r\n        this.isGameRunning = false;\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    TimerManager_1.default.Instance.ResetTimer();\r\n        ScoreManager_1.default.Instance.ResetPoints();\r\n       
+    UIRunnerManager_1.default.Instance.UIGameOver();\r\n    }\r\n    // Method to
+    return to the lobby\r\n    BackToLobby() {\r\n        // Teleporting the local
+    character to the lobby, updating UI, and setting lobby character controller\r\n       
+    this.isGameRunning = false;\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
     => {\r\n            this._localCharacter = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\r\n       
     });\r\n        const spawnInfo = new ZEPETO_Character_Controller_1.SpawnInfo();\r\n       
     spawnInfo.position = new UnityEngine_1.Vector3(-200, 10, 0);\r\n        spawnInfo.rotation
     = UnityEngine_1.Quaternion.Euler(0, 0, 0);\r\n        this._localCharacter.Teleport(spawnInfo.position,
     spawnInfo.rotation);\r\n        AnimatorManager_1.default.Instance.GameRunning(this.isGameRunning);\r\n       
-    CharacterController_1.default.Instance.CharacterLobbyController();\r\n       
+    PlayerVisibilityManager_1.default.Instance.ViewAllPlayers();\r\n        CharacterController_1.default.Instance.CharacterLobbyController();\r\n       
     UIRunnerManager_1.default.Instance.UIOnLobby();\r\n    }\r\n}\r\nexports.default
-    = GameRunnerManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2FtZVJ1bm5lck1hbmFnZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJHYW1lUnVubmVyTWFuYWdlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFxRDtBQUNyRCw2Q0FBcUU7QUFDckUsaURBQTBDO0FBQzFDLDBFQUFtRTtBQUNuRSx1REFBZ0Q7QUFDaEQsbURBQTRDO0FBQzVDLGlEQUEwQztBQUMxQyxnRUFBeUQ7QUFDekQsNkVBQXNHO0FBQ3RHLGlFQUEwRDtBQUMxRCxxRUFBOEQ7QUFDOUQsaURBQTBDO0FBQzFDLDZEQUFxRDtBQUVyRCxNQUFxQixpQkFBa0IsU0FBUSxxQ0FBcUI7SUFTaEUsMkRBQTJEO0lBQ3BELEtBQUs7UUFDUixvRkFBb0Y7UUFDcEYsa0RBQWtEO1FBQ2xELElBQUksaUJBQWlCLENBQUMsUUFBUSxJQUFJLElBQUk7WUFBRSxpQkFBaUIsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDOztZQUNyRSx3QkFBVSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQztRQUU5QiwyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxrQkFBa0IsQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFO1lBQ3ZELElBQUksQ0FBQyxlQUFlLEdBQUcsMkNBQWEsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLFlBQVksQ0FBQyxTQUFTLENBQUM7UUFDckYsQ0FBQyxDQUFDLENBQUM7SUFDUCxDQUFDO0lBRU0sS0FBSztRQUNSLHlCQUFlLENBQUMsUUFBUSxDQUFDLFNBQVMsRUFBRSxDQUFDO0lBQ3pDLENBQUM7SUFFTSxPQUFPO1FBQ1YsSUFBSSxDQUFDLGFBQWEsR0FBRyxLQUFLLENBQUM7UUFDM0IsSUF4QzZCLHdCQUFVLENBa0dnbE8sYUFBYyxDQTFEam9PLElBQUksQ0FBQyxrQkFBa0IsRUFBSSxJQUFJO1lBQUUsSUFBSSxDQUFDLGtCQUFrQixDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQTtRQUM1RSw2QkFBbUIsQ0FBQyxRQUFRLENBQUMseUJBQXlCLEVBQUUsQ0FBQztRQUN6RCx5QkFBZSxDQUFDLFFBQVEsQ0FBQyxTQUFTLEVBQUUsQ0FBQztRQUNyQyxzQkFBWSxDQUFDLFFBQVEsQ0FBQyxTQUFTLEVBQUUsQ0FBQztRQUNsQyxzQkFBWSxDQUFDLFFBQVEsQ0FBQyxTQUFTLEVBQUUsQ0FBQztJQUV0QyxDQUFDO0lBRU0sV0FBVztRQUNkLHNCQUFZLENBQUMsUUFBUSxDQUFDLFVBQVUsRUFBRSxDQUFDO1FBQ25DLElBQUksQ0FBQyxhQUFhLEdBQUcsSUFBSSxDQUFDO1FBQzFCLHlCQUFlLENBQUMsUUFBUSxDQUFDLFFBQVEsRUFBRSxDQUFDO1FBQ3BDLHVCQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsRUFBRSxDQUFDO1FBQ3JDLHlCQUFlLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsYUFBYSxDQUFDLENBQUM7UUFDekQsc0JBQVksQ0FBQyxRQUFRLENBQUMsVUFBVSxFQUFFLENBQUMsQ0FBQywyQ0FBMkM7UUFDL0Usc0JBQVksQ0FBQyxRQUFRLENBQUMsVUFBVSxFQUFFLENBQUM7UUFDbkMsSUF4RDZCLHdCQUFVLENBa0dnbE8sYUFBYyxDQTFDam9PLElBQUksQ0FBQyxrQkFBa0IsRUFBSSxJQUFJO1lBQUUsSUFBSSxDQUFDLGtCQUFrQixDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQztJQUNsRixDQUFDO0lBRU0sV0FBVztRQUNkLElBQUksQ0FBQyxhQUFhLEdBQUcsS0FBSyxDQUFDO1FBQzNCLHlCQUFlLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsYUFBYSxDQUFDLENBQUM7UUFDekQsNEJBQWlCLENBQUMsUUFBUSxDQUFDLGNBQWMsRUFBRSxDQUFDO1FBQzVDLHlCQUFlLENBQUMsUUFBUSxDQUFDLGFBQWEsRUFBRSxDQUFDO0lBQzdDLENBQUM7SUFFTSxVQUFVO1FBQ2IsSUFBSSxDQUFDLGFBQWEsR0FBRyxJQUFJLENBQUM7UUFDMUIsc0JBQVksQ0FBQyxRQUFRLENBQUMsVUFBVSxFQUFFLENBQUM7UUFDbkMsc0JBQVksQ0FBQyxRQUFRLENBQUMsVUFBVSxFQUFFLENBQUM7UUFDbkMseUJBQWUsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLElBQUksQ0FBQyxhQUFhLENBQUMsQ0FBQztRQUN6RCx5QkFBZSxDQUFDLFFBQVEsQ0FBQyxRQUFRLEVBQUUsQ0FBQTtJQUN2QyxDQUFDO0lBRU0sVUFBVTtRQUNiLElBQUksQ0FBQyxhQUFhLEdBQUcsS0FBSyxDQUFDO1FBQzNCLHNCQUFZLENBQUMsUUFBUSxDQUFDLE9BQU8sRUFBRSxDQUFDO1FBQ2hDLHlCQUFlLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsYUFBYSxDQUFDLENBQUM7UUFDekQsNEJBQWlCLENBQUMsUUFBUSxDQUFDLFFBQVEsQ0FBQyxzQkFBWSxDQUFDLFFBQVEsQ0FBQyxhQUFhLEVBQUUsQ0FBQyxDQUFDO1FBQzNFLHNCQUFZLENBQUMsUUFBUSxDQUFDLFVBQVUsRUFBRSxDQUFDO1FBQ25DLHNCQUFZLENBQUMsUUFBUSxDQUFDLFVBQVUsRUFBRSxDQUFDO1FBQ25DLHlCQUFlLENBQUMsUUFBUSxDQUFDLFVBQVUsRUFBRSxDQUFDO0lBQzFDLENBQUM7SUFFTSxXQUFXO1FBQ2QsSUFBSSxDQUFDLGFBQWEsR0FBRyxLQUFLLENBQUM7UUFDM0IsMkNBQWEsQ0FBQyxRQUFRLENBQUMsa0JBQWtCLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRTtZQUN2RCxJQUFJLENBQUMsZUFBZSxHQUFHLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDO1FBQ3JGLENBQUMsQ0FBQyxDQUFDO1FBQ0gsTUFBTSxTQUFTLEdBQUcsSUFBSSx1Q0FBUyxFQUFFLENBQUM7UUFDbEMsU0FBUyxDQUFDLFFBQVEsR0FBRyxJQUFJLHFCQUFPLENBQUMsQ0FBQyxHQUFHLEVBQUUsRUFBRSxFQUFFLENBQUMsQ0FBQyxDQUFBO1FBQzdDLFNBQVMsQ0FBQyxRQUFRLEdBQUcsd0JBQVUsQ0FBQyxLQUFLLENBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQTtRQUM5QyxJQUFJLENBQUMsZUFBZSxDQUFDLFFBQVEsQ0FBQyxTQUFTLENBQUMsUUFBUSxFQUFFLFNBQVMsQ0FBQyxRQUFRLENBQUMsQ0FBQztRQUN0RSx5QkFBZSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLGFBQWEsQ0FBQyxDQUFDO1FBQ3pELDZCQUFtQixDQUFDLFFBQVEsQ0FBQyx3QkFBd0IsRUFBRSxDQUFDO1FBQ3hELHlCQUFlLENBQUMsUUFBUSxDQUFDLFNBQVMsRUFBRSxDQUFDO0lBQ3pDLENBQUM7Q0FFSjtBQXJGRCxvQ0FxRkMifQ==","assetPath":"Assets/Scripts/Managers/GameRunnerManager.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"isGameRunning","type":"System.Boolean","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"teleportRunnerDoor","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"GameRunnerManager","description":""},"isCompiled":true}'
-  typescriptHash: 0184477a478cd9a42bce2a16ca0e4d4f
+    = GameRunnerManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2FtZVJ1bm5lck1hbmFnZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJHYW1lUnVubmVyTWFuYWdlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSxpREFBcUQ7QUFDckQsNkNBQXFFO0FBQ3JFLGlEQUEwQztBQUMxQywwRUFBbUU7QUFDbkUsdURBQWdEO0FBQ2hELG1EQUE0QztBQUM1QyxpREFBMEM7QUFDMUMsNkVBQXNHO0FBQ3RHLGlFQUEwRDtBQUMxRCxpREFBMEM7QUFDMUMsNkRBQXFEO0FBQ3JELHVFQUFnRTtBQUVoRSwyQ0FBMkM7QUFDM0MsTUFBcUIsaUJBQWtCLFNBQVEscUNBQXFCO0lBZWhFLDREQUE0RDtJQUNyRCxLQUFLO1FBQ1AsaUVBQWlFO1FBQ2xFLElBaENDLHFDQUFxQixDQTRIeTBDLFdBQVksQ0E1RnYyQyxpQkFBaUIsQ0FBQyxRQUFRLEVBQUksSUFBSTtZQUFFLGlCQUFpQixDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7O1lBQ3JFLHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO1FBRTlCLHlGQUF5RjtRQUN6RiwyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxrQkFBa0IsQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFO1lBQ3ZELElBQUksQ0FBQyxlQUFlLEdBQUcsMkNBQWEsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLFlBQVksQ0FBQyxTQUFTLENBQUM7UUFDckYsQ0FBQyxDQUFDLENBQUM7SUFDUCxDQUFDO0lBRUQsMENBQTBDO0lBQ25DLEtBQUs7UUFDUiwrREFBK0Q7UUFDL0QseUJBQWUsQ0FBQyxRQUFRLENBQUMsU0FBUyxFQUFFLENBQUM7SUFDekMsQ0FBQztJQUVELG9EQUFvRDtJQUM3QyxrQkFBa0I7UUFDckIsSUFBSSxDQUFDLGFBQWEsR0FBRyxLQUFLLENBQUMsQ0FBQywrQkFBK0I7UUFDM0QsbURBQW1EO1FBQ25ELDJCQXlFNGtMLGFBQWMsQ0F6RXRsTCxJQUFJLENBQUMsa0JBQWtC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","assetPath":"Assets/Scripts/Managers/GameRunnerManager.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"isGameRunning","type":"System.Boolean","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"teleportRunnerDoor","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"GameRunnerManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 5d6ea3ccf824607d204df1cefeca9a34
   onlyWriteTrigger: 0

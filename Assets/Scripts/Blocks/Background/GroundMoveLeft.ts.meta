@@ -20,15 +20,22 @@ ScriptedImporter:
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
-    UnityEngine_1 = require(\"UnityEngine\");\r\nclass GroundMoveLeft extends ZEPETO_Script_1.ZepetoScriptBehaviour
-    {\r\n    constructor() {\r\n        super(...arguments);\r\n        this.groundSpeed
-    = 0;\r\n        this.isMoving = false;\r\n    }\r\n    Update() {\r\n       
-    if (this.isMoving) {\r\n            this.MoveLeft();\r\n        }\r\n    }\r\n   
-    MoveLeft() {\r\n        this.transform.position = UnityEngine_1.Vector3.op_Addition(this.transform.position,
-    UnityEngine_1.Vector3.op_Multiply(UnityEngine_1.Vector3.op_Multiply(UnityEngine_1.Vector3.left,
-    this.groundSpeed), UnityEngine_1.Time.deltaTime));\r\n    }\r\n    SetGroundSpeed(value)
-    {\r\n        this.groundSpeed = value;\r\n    }\r\n    SetMoving(value) {\r\n       
-    this.isMoving = value;\r\n    }\r\n}\r\nexports.default = GroundMoveLeft;\r\n//#
-    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR3JvdW5kTW92ZUxlZnQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJHcm91bmRNb3ZlTGVmdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBLGlEQUFzRDtBQUN0RCw2Q0FBd0Q7QUFJeEQsTUFBcUIsY0FBZSxTQUFRLHFDQUFxQjtJQUFqRTs7UUFHVyxnQkFBVyxHQUFXLENBQUMsQ0FBQztRQUN4QixhQUFRLEdBQVMsS0FBSyxDQUFBO0lBaUNqQyxDQUFDO0lBN0JHLE1BQU07UUFFRixJQUFJLElBQUksQ0FBQyxRQUFRLEVBQUU7WUFFZixJQUFJLENBQUMsUUFBUSxFQUFFLENBQUM7U0FFbkI7SUFDTCxDQUFDO0lBR00sUUFBUTtRQUdYLElBQUksQ0FBQyxTQUFTLENBQUMsUUFBUSxHQXpCdEIscUJBQU8sQ0EwQ2lrcUIsV0FBWSxDQWpCcmxxQixJQUFJLENBQUMsU0FBUyxDQUFDLFFBQVEsRUF6QnRCLHFCQUFPLENBMENpMnFCLFdBQVksQ0ExQ3AzcUIscUJBQU8sQ0EwQ2kycUIsV0FBWSxDQWpCMTFxQixxQkFBTyxDQUFDLElBQUksRUFBRyxJQUFJLENBQUMsV0FBVyxHQUFHLGtCQUFJLENBQUMsU0FBUyxHQUFDO0lBRWhGLENBQUM7SUFFTSxjQUFjLENBQUMsS0FBYTtRQUUvQixJQUFJLENBQUMsV0FBVyxHQUFHLEtBQUssQ0FBQztJQUU3QixDQUFDO0lBRU0sU0FBUyxDQUFDLEtBQVc7UUFFeEIsSUFBSSxDQUFDLFFBQVEsR0FBRyxLQUFLLENBQUM7SUFDMUIsQ0FBQztDQUdKO0FBckNELGlDQXFDQyJ9","assetPath":"Assets/Scripts/Blocks/Background/GroundMoveLeft.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"groundSpeed","type":"System.Single","isArray":false,"initValue":["0"],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"isMoving","type":"System.Boolean","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"GroundMoveLeft","description":"","hasAnimatorMove":false},"isCompiled":true}'
-  typescriptHash: c55774d6d6d5b7d2c9f4f7caf1855786
+    UnityEngine_1 = require(\"UnityEngine\");\r\n// Define the GroundMoveLeft class
+    which extends the ZepetoScriptBehaviour class\r\nclass GroundMoveLeft extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor() {\r\n        super(...arguments);\r\n       
+    // Speed of the ground movement\r\n        this.groundSpeed = 0;\r\n        //
+    Flag indicating whether the ground is currently moving\r\n        this.isMoving
+    = false;\r\n    }\r\n    // Update is called once per frame\r\n    Update() {\r\n       
+    // Check if the ground is set to move\r\n        if (this.isMoving) {\r\n           
+    // Move the ground to the left based on the speed and time since the last frame\r\n           
+    this.MoveLeft();\r\n        }\r\n    }\r\n    // Method to move the ground to
+    the left\r\n    MoveLeft() {\r\n        // Move the ground to the left (negative
+    x-direction) based on the speed and time since the last frame\r\n        this.transform.position
+    = UnityEngine_1.Vector3.op_Addition(this.transform.position, UnityEngine_1.Vector3.op_Multiply(UnityEngine_1.Vector3.op_Multiply(UnityEngine_1.Vector3.left,
+    this.groundSpeed), UnityEngine_1.Time.deltaTime));\r\n    }\r\n    // Method
+    to set the speed of the ground\r\n    SetGroundSpeed(value) {\r\n        this.groundSpeed
+    = value;\r\n    }\r\n    // Method to set the moving state of the ground\r\n   
+    SetMoving(value) {\r\n        this.isMoving = value;\r\n    }\r\n}\r\nexports.default
+    = GroundMoveLeft;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR3JvdW5kTW92ZUxlZnQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJHcm91bmRNb3ZlTGVmdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBLGlEQUFzRDtBQUN0RCw2Q0FBNEM7QUFFNUMsZ0ZBQWdGO0FBQ2hGLE1BQXFCLGNBQWUsU0FBUSxxQ0FBcUI7SUFBakU7O1FBRUksK0JBQStCO1FBQ3ZCLGdCQUFXLEdBQVcsQ0FBQyxDQUFDO1FBRWhDLHlEQUF5RDtRQUNsRCxhQUFRLEdBQVksS0FBSyxDQUFDO0lBMEJyQyxDQUFDO0lBeEJHLGtDQUFrQztJQUNsQyxNQUFNO1FBQ0YscUNBQXFDO1FBQ3JDLElBQUksSUFBSSxDQUFDLFFBQVEsRUFBRTtZQUNmLCtFQUErRTtZQUMvRSxJQUFJLENBQUMsUUFBUSxFQUFFLENBQUM7U0FDbkI7SUFDTCxDQUFDO0lBRUQsd0NBQXdDO0lBQ2pDLFFBQVE7UUFDWCxzR0FBc0c7UUFDdEcsSUFBSSxDQUFDLFNBQVMsQ0FBQyxRQUFRLEdBdkJ0QixxQkFBTyxDQW9DcStvQixXQUFZLENBYnovb0IsSUFBSSxDQUFDLFNBQVMsQ0FBQyxRQUFRLEVBdkJ0QixxQkFBTyxDQW9DcXdwQixXQUFZLENBcEN4eHBCLHFCQUFPLENBb0Nxd3BCLFdBQVksQ0FiOXZwQixxQkFBTyxDQUFDLElBQUksRUFBRyxJQUFJLENBQUMsV0FBVyxHQUFHLGtCQUFJLENBQUMsU0FBUyxHQUFDO0lBQ2hGLENBQUM7SUFFRCx3Q0FBd0M7SUFDakMsY0FBYyxDQUFDLEtBQWE7UUFDL0IsSUFBSSxDQUFDLFdBQVcsR0FBRyxLQUFLLENBQUM7SUFDN0IsQ0FBQztJQUVELCtDQUErQztJQUN4QyxTQUFTLENBQUMsS0FBYztRQUMzQixJQUFJLENBQUMsUUFBUSxHQUFHLEtBQUssQ0FBQztJQUMxQixDQUFDO0NBQ0o7QUFoQ0QsaUNBZ0NDIn0=","assetPath":"Assets/Scripts/Blocks/Background/GroundMoveLeft.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"isMoving","type":"System.Boolean","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"GroundMoveLeft","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 514f266a053e5d9be7477df45e75238c
   onlyWriteTrigger: 0
