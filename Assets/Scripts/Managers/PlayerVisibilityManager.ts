@@ -23,18 +23,16 @@ export default class PlayerVisibilityManager extends ZepetoScriptBehaviour {
 
         // Iterate through each character and show them
         charactersInRoom.forEach(character => {
-            // Activate the character's object
-            character.gameObject.SetActive(true);
-
-            // Uncomment these lines if you also want to enable specific renderers and colliders
-            /*
+            // Enable specific renderers and colliders
             character.GetComponentsInChildren<Renderer>().forEach(r => {
                 r.enabled = true;
             })
             character.GetComponentsInChildren<Collider>().forEach(r => {
                 r.enabled = true;
             })
-            */
+
+            // Uncomment these lines if you also want to activate the character's object
+            // character.gameObject.SetActive(true);
         });
     }
 
@@ -45,18 +43,16 @@ export default class PlayerVisibilityManager extends ZepetoScriptBehaviour {
 
         // Iterate through each character and hide them
         charactersInRoom.forEach(character => {
-            // Deactivate the character's object
-            character.gameObject.SetActive(false);
-
-            // Uncomment these lines if you also want to disable specific renderers and colliders
-            /*
+            // Disable specific renderers and colliders
             character.GetComponentsInChildren<Renderer>().forEach(r => {
                 r.enabled = false;
             })
             character.GetComponentsInChildren<Collider>().forEach(r => {
                 r.enabled = false;
             })
-            */
+
+            // Uncomment these lines if you also want to deactivate the character's object
+            // character.gameObject.SetActive(false)
         });
     }
 }
