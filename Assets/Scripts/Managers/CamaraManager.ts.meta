@@ -1,0 +1,38 @@
+fileFormatVersion: 2
+guid: 725ace924597f7e4caf55541efa5aeac
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst ZEPETO_Character_Controller_1
+    = require(\"ZEPETO.Character.Controller\");\r\nconst SideViewController_1 = require(\"../Camara/SideViewController\");\r\nclass
+    CamaraManager extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    // Awake
+    is called when the script instance is being loaded\r\n    Awake() {\r\n       
+    // Allocating the instance of this class to make it a \"singleton\"\r\n       
+    if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Inequality(CamaraManager.Instance,
+    null))\r\n            UnityEngine_1.GameObject.Destroy(this.gameObject);\r\n       
+    CamaraManager.Instance = this;\r\n    }\r\n    ActivateLobbyCamara() {\r\n       
+    // Turn on Zepeto camera and set up input control loop\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoCamera.gameObject.SetActive(true);\r\n       
+    SideViewController_1.default.Instance.gameObject.SetActive(false);\r\n    }\r\n   
+    ActivateRunnerCamara() {\r\n        // Turn off Zepeto camera and set up input
+    control loop\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoCamera.gameObject.SetActive(false);\r\n       
+    SideViewController_1.default.Instance.gameObject.SetActive(true);\r\n    }\r\n}\r\nexports.default
+    = CamaraManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ2FtYXJhTWFuYWdlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkNhbWFyYU1hbmFnZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBcUQ7QUFDckQsNkNBQXdDO0FBQ3hDLDZFQUE0RDtBQUM1RCxxRUFBOEQ7QUFFOUQsTUFBcUIsYUFBYyxTQUFRLHFDQUFxQjtJQUs1RCwyREFBMkQ7SUFDM0QsS0FBSztRQUNELGlFQUFpRTtRQUNqRSxJQWJDLHFDQUFxQixDQThCbXpMLGFBQWMsQ0FqQm4xTCxhQUFhLENBQUMsUUFBUSxFQUFJLElBQUk7WUFBRSx3QkFBVSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsVUFBVSxDQUFDLENBQUM7UUFDeEUsYUFBYSxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7SUFDbEMsQ0FBQztJQUVELG1CQUFtQjtRQUVmLHNEQUFzRDtRQUN0RCwyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUM7UUFDM0UsNEJBQWtCLENBQUMsUUFBUSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7SUFDNUQsQ0FBQztJQUVELG9CQUFvQjtRQUNoQix1REFBdUQ7UUFDdkQsMkNBQWEsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLFlBQVksQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDO1FBQzVFLDRCQUFrQixDQUFDLFFBQVEsQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQyxDQUFDO0lBQzNELENBQUM7Q0FFSjtBQXpCRCxnQ0F5QkMifQ==","assetPath":"Assets/Scripts/Managers/CamaraManager.ts","manifest":{"properties":[],"name":"CamaraManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: fa79fb1b6c79d7e47f6e01bbd08de4ec
+  onlyWriteTrigger: 0
