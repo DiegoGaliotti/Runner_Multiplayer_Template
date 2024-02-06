@@ -12,8 +12,8 @@ export default class CharacterController extends ZepetoScriptBehaviour {
     private _zepetoCharacter: ZepetoCharacter;
 
     // Run and walk speeds for the character
-    public runSpeed: number = 8;
-    public walkSpeed: number = 3;
+    public runSpeed: number = 5;
+    public walkSpeed: number = 2;
 
     // Awake is called when the script instance is being loaded
     public Awake(): void 
