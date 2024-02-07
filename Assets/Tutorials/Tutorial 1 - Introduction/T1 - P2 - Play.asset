@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-999896077989564338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641211c85919e4aceb79a0d364004d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls: []
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: e2a7ea2d91344c647ac3c836870ec519, type: 2}
+        m_TargetAssemblyTypeName: Unity.Tutorials.Core.Editor.TutorialPage, Unity.Tutorials.Core.Editor
+        m_MethodName: OnAfterDeserialize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  m_RequiredPlayModeState: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10,7 +41,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff771ccdf4150419d9ff4d342b069aae, type: 3}
-  m_Name: T1 - P4 - TutorialPage
+  m_Name: T1 - P2 - Play
   m_EditorClassIdentifier: 
   m_Paragraphs:
     m_Items:
@@ -20,7 +51,7 @@ MonoBehaviour:
       Text:
         m_Untranslated: 
       m_Tutorial: {fileID: 0}
-      m_Image: {fileID: 2800000, guid: f88ed91fa5356bd4baf822248dc52d57, type: 3}
+      m_Image: {fileID: 0}
       m_Video: {fileID: 0}
       m_CriteriaCompletion: 0
       m_Criteria:
@@ -28,31 +59,54 @@ MonoBehaviour:
       m_MaskingSettings:
         m_MaskingEnabled: 1
         m_UnmaskedViews:
-        - m_SelectorType: 1
+        - m_SelectorType: 0
           m_ViewType:
-            m_TypeName: 
-          m_EditorWindowType:
-            m_TypeName: UnityEditor.GameView, UnityEditor.CoreModule, Version=0.0.0.0,
+            m_TypeName: UnityEditor.Toolbar, UnityEditor.CoreModule, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
+          m_EditorWindowType:
+            m_TypeName: 
           m_AlternateEditorWindowTypes:
-            m_Items:
-            - Type:
-                m_TypeName: 
+            m_Items: []
           m_MaskType: 0
           m_MaskSizeModifier: 0
           m_UnmaskedControls: []
         - m_SelectorType: 1
           m_ViewType:
-            m_TypeName: UnityEditor.PaneDragTab, UnityEditor.CoreModule, Version=0.0.0.0,
+            m_TypeName: UnityEditor.Toolbar, UnityEditor.CoreModule, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
           m_EditorWindowType:
             m_TypeName: Unity.Tutorials.Core.Editor.TutorialWindow, Unity.Tutorials.Core.Editor,
               Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
-            m_Items: []
-          m_MaskType: 0
+            m_Items:
+            - Type:
+                m_TypeName: 
+          m_MaskType: 1
           m_MaskSizeModifier: 1
-          m_UnmaskedControls: []
+          m_UnmaskedControls:
+          - m_SelectorMode: 4
+            m_GUIContent:
+              m_Text: 
+              m_Image: {fileID: 0}
+              m_Tooltip: 
+            m_ControlName: 
+            m_PropertyPath: 
+            m_TargetType:
+              m_TypeName: 
+            m_GUIStyleName: 
+            m_ObjectReference:
+              m_SceneObjectReference:
+                m_SceneGuid: 
+                m_GameObjectGuid: 
+                m_SerializedComponentType:
+                  m_TypeName: 
+                m_ComponentIndex: 0
+                m_AssetObject: {fileID: 2800000, guid: 59c820b92bb13414cb7d87142fceeb61, type: 3}
+                m_Prefab: {fileID: 0}
+              m_FutureObjectReference: {fileID: 0}
+            m_VisualElementClassName: container--card-text
+            m_VisualElementName: CardTextContainer
+            m_VisualElementTypeName: UnityEngine.UIElements.VisualElement
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -60,9 +114,10 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 0
       Title:
-        m_Untranslated: Step 3 - Runner Game
+        m_Untranslated: 'Run Runner Template Game! '
       Text:
-        m_Untranslated: 
+        m_Untranslated: "Let\xB4s start the game, enter on the Runner template Game
+          Mode."
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}
@@ -79,16 +134,26 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 1
       Title:
-        m_Untranslated: Start Runnung and Jump!
+        m_Untranslated: Click on play button
       Text:
-        m_Untranslated: Press the start button. Start jumping to collect different
-          collectibles, avoid obstacles and use health boosts to recharge life.
+        m_Untranslated: 'At the top of the screen you will find the Toolbar.
+
+          There
+          you can find "Play Buttom" (>), please click it so to start the game.
+
+
+          <i>Once
+          you click "Play" please press "Next" on Tutorial window</i>'
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}
       m_CriteriaCompletion: 0
       m_Criteria:
-        m_Items: []
+        m_Items:
+        - Type:
+            m_TypeName: Unity.Tutorials.Core.Editor.PlayModeStateCriterion, Unity.Tutorials.Core.Editor,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+          Criterion: {fileID: -999896077989564338}
       m_MaskingSettings:
         m_MaskingEnabled: 0
         m_UnmaskedViews: []

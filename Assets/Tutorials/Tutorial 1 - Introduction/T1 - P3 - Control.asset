@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1021829953572255691
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641211c85919e4aceb79a0d364004d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -1224484070857183991, guid: 82f3073a0255594459989842029a37c8, type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.InputSystem.InputActionReference, Unity.InputSystem
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_RequiredPlayModeState: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10,7 +41,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff771ccdf4150419d9ff4d342b069aae, type: 3}
-  m_Name: T1 - P2 - TutorialPage 1
+  m_Name: T1 - P3 - Control
   m_EditorClassIdentifier: 
   m_Paragraphs:
     m_Items:
@@ -20,7 +51,7 @@ MonoBehaviour:
       Text:
         m_Untranslated: 
       m_Tutorial: {fileID: 0}
-      m_Image: {fileID: 2800000, guid: 312c02826026e3e4588419ca3d8324c2, type: 3}
+      m_Image: {fileID: 2800000, guid: 1395d427055f2e74a82026c59c21b3d6, type: 3}
       m_Video: {fileID: 0}
       m_CriteriaCompletion: 0
       m_Criteria:
@@ -41,18 +72,38 @@ MonoBehaviour:
           m_UnmaskedControls: []
         - m_SelectorType: 1
           m_ViewType:
-            m_TypeName: UnityEditor.PaneDragTab, UnityEditor.CoreModule, Version=0.0.0.0,
-              Culture=neutral, PublicKeyToken=null
+            m_TypeName: 
           m_EditorWindowType:
-            m_TypeName: Unity.Tutorials.Core.Editor.TutorialWindow, Unity.Tutorials.Core.Editor,
-              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+            m_TypeName: UnityEditor.AddressableAssets.GUI.ContentUpdatePreviewWindow,
+              Unity.Addressables.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
-            m_Items:
-            - Type:
-                m_TypeName: 
-          m_MaskType: 0
+            m_Items: []
+          m_MaskType: 1
           m_MaskSizeModifier: 0
-          m_UnmaskedControls: []
+          m_UnmaskedControls:
+          - m_SelectorMode: 4
+            m_GUIContent:
+              m_Text: 
+              m_Image: {fileID: 0}
+              m_Tooltip: 
+            m_ControlName: 
+            m_PropertyPath: 
+            m_TargetType:
+              m_TypeName: 
+            m_GUIStyleName: 
+            m_ObjectReference:
+              m_SceneObjectReference:
+                m_SceneGuid: 
+                m_GameObjectGuid: 
+                m_SerializedComponentType:
+                  m_TypeName: 
+                m_ComponentIndex: 0
+                m_AssetObject: {fileID: 2800000, guid: 59c820b92bb13414cb7d87142fceeb61, type: 3}
+                m_Prefab: {fileID: 0}
+              m_FutureObjectReference: {fileID: 0}
+            m_VisualElementClassName: 
+            m_VisualElementName: 
+            m_VisualElementTypeName: 
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -60,9 +111,9 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 0
       Title:
-        m_Untranslated: Step 1 Lobby area
+        m_Untranslated: Controls
       Text:
-        m_Untranslated: Walk towards the platfform and stand on it.
+        m_Untranslated: 'In the game you will move and jump. '
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}
@@ -79,16 +130,34 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 1
       Title:
-        m_Untranslated: Dress Up!
+        m_Untranslated: How to play
       Text:
-        m_Untranslated: Your first step is to dress up. In this area, you can choose
-          the clothes you like and put them on.
+        m_Untranslated: 'The game can be played on cell phones and PCs, the controls
+          are as follows:
+
+
+          - Cell phone: with the big finger of the right
+          hand the player can move. By pressing the jump button with your left thumb
+          you will be able to jump and if you press the same button in the air you
+          will do a double jump.
+
+          - PC: to move use "W", "S", "D" and "A.
+          To jump you must press the space bar and with shift while in the air, you
+          can double jump.
+
+
+          <i>Press "Next" in the tutorial window to
+          continue!</i>'
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}
       m_CriteriaCompletion: 0
       m_Criteria:
-        m_Items: []
+        m_Items:
+        - Type:
+            m_TypeName: Unity.Tutorials.Core.Editor.PlayModeStateCriterion, Unity.Tutorials.Core.Editor,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+          Criterion: {fileID: -1021829953572255691}
       m_MaskingSettings:
         m_MaskingEnabled: 0
         m_UnmaskedViews: []
