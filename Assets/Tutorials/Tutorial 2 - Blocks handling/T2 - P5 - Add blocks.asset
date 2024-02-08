@@ -150,9 +150,10 @@ MonoBehaviour:
           3 and 4 to the SpawnBlockManager inspector. \n<i>You can see the video
           above, or open in you PC: Assets>Tutorials>Tutorial 2 - Blocks handling>Tutorial
           2 - Media</i>\n\nBut it\xB4s really simple, just press + in the blocks
-          list and drag/drop the prefab. \n\n<b>Make sure you are in SpawnBlockManager
-          by double clicking on the gameobject to continue</b>\n\nWith this, the
-          game generates the level with 4 different blocks!"
+          list and drag/drop the prefab. \n\n<i>Make sure you are in SpawnBlockManager
+          by <b> double clicking </b>on the gameobject to continue</i>\n\nWith this,
+          the game generates the level with 4 different blocks!\n\n<i> Press \"Next\"
+          on the tutorial windows </i>"
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}

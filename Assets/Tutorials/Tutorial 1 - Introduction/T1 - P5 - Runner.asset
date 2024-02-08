@@ -164,8 +164,12 @@ MonoBehaviour:
           the game ends! </b>
 
 
-          <i>Once you finish the game, press "Next"
-          in the tutorial window </i>'
+          <b><i>(You can find the video on Assets>Tutorials>Tutorial
+          1 - Introduction> Tutorial media).</i></b>
+
+
+          <i>Once you finish
+          the game, press "Next" in the tutorial window </i>'
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}

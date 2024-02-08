@@ -109,11 +109,12 @@ MonoBehaviour:
       Text:
         m_Untranslated: 'Now, let''s go to the Ground Manager
 
-          <i> Please
-          double click on game object "GroundManager" on Hierarchy </i>
-
 
           LobbyRunner>LevelManager>EnviromentManager>GroundManager
+
+
+          <i>
+          Please double click on game object "GroundManager" on Hierarchy </i>
 
 
           You
@@ -124,7 +125,11 @@ MonoBehaviour:
           example using grass or sand).
 
           <b> Ground Speed </b> : You can
-          change the Ground speed to have an effect on the gameplay.'
+          change the Ground speed to have an effect on the gameplay.
+
+
+          <i>
+          Press "Next" on the tutorial windows </i>'
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}

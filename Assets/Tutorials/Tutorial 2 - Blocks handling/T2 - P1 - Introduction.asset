@@ -49,24 +49,12 @@ MonoBehaviour:
       Title:
         m_Untranslated: Level Editor
       Text:
-        m_Untranslated: 'Welcome to the second Runner Template Tutorial
-
-
-          In
-          this tutorial we will explain how to edit the level.
-
-
-          The most
-          important thing is to understand how the game works:
-
-          The program
-          generates random blocks that will appear in the template. So, after creating
-          all the blocks you want, you just have to configure them so that they appear
-          in your game!
-
-
-          <b>Now, we are going to use pre-assembled blocks
-          to explain how to add them!</b>'
+        m_Untranslated: "<b>Welcome to the second Runner Template Tutorial</b>\n\nIn
+          this tutorial we will explain how to edit the level.\n\nThe most important
+          thing is to understand how the game works:\nThe program generates random
+          blocks that will appear in the template. \nSo, after creating all the blocks
+          you want, you just have to configure them so that they appear in your game!\n\n<b>Now,
+          we are going to use pre-assembled blocks to explain how to add them!</b>"
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}

@@ -97,7 +97,7 @@ MonoBehaviour:
           you must enter <b>\"Managers>Level Manager\"</b>\n\nInside you will find:\n<b>Spawn
           Block Manager</b>: Where you load the created blocks\n<b>Environment Manager</b>:
           Where you load the ground and background \n\n<i>Doble click in \"SpawnBlockManager\"
-          to continue</i>"
+          to continue, it will automatically go to the next step</i>"
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}

@@ -76,7 +76,7 @@ MonoBehaviour:
         m_Untranslated: 
       Text:
         m_Untranslated: 'Tutorial 2: Change Blocks'
-      m_Tutorial: {fileID: 11400000, guid: 0727f1be30d45864bacd0501bffad31f, type: 2}
+      m_Tutorial: {fileID: 11400000, guid: 6c4bbaa829249f547a8e7bb3ea10651e, type: 2}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}
       m_CriteriaCompletion: 0

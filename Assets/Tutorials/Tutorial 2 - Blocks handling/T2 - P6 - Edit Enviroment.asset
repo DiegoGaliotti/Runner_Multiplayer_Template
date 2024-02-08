@@ -112,7 +112,8 @@ MonoBehaviour:
           with the Background Manager.\n<i> Please double click on game object \"BackgroundManager\"
           on Hierarchy </i> \n\nLobbyRunner>LevelManager>EnviromentManager>BackgroundManager
           \n\nYou can see on the inspector that you can change:\n<b> Speed </b> :
-          You can change the background speed to have an effect on the gameplay."
+          You can change the background speed to have an effect on the gameplay.\n\n<i>
+          Press \"Next\" on the tutorial windows </i>"
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}

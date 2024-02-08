@@ -229,18 +229,13 @@ MonoBehaviour:
       Title:
         m_Untranslated: The lobby!
       Text:
-        m_Untranslated: 'The lobby is where you meet other players, you can choose
+        m_Untranslated: "The lobby is where you meet other players, you can choose
           the clothes you want to wear during the game, chat with other racers, see
           the leaderboard for the last week and enter the game to achieve the highest
-          score.
-
-          (You can find the video on Assets>Tutorials>Tutorial
-          1 - Introduction> Tutorial media).
-
-
-          <i>Please walk through the
-          lobby, choose a new item of clothing and then press the "Next" button in
-          the tutorial window.</i>'
+          score.\n\n<b><i>(You can find the video on Assets>Tutorials>Tutorial 1
+          - Introduction> Tutorial media).</i></b>\n\nPlease walk through the lobby
+          and choose a new item of clothing. \n\n<i>Press the \"Next\" button in
+          the tutorial window.</i>"
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}

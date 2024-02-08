@@ -70,10 +70,10 @@ MonoBehaviour:
         m_Untranslated: "We have organized the folders in \"Projects\" and standardized
           the way you should work. Now we will look for two pre-assembled blocks
           to put in our template!\n\nWithin Projects, you must enter: \n<b>\"Assets>LevelCreator>BlocksPrefabs\"</b>
-          \nwhere you will find 4 previously created blocks. You can see that there
-          are blocks 1 and 2, which are the ones that are already in the Level and
-          you can also find blocks 3 and 4, which are the ones that we will add to
-          our SpawnBlockManager.\n\n<i> Please enter on the \"BlocksPrefabs\" folder
+          \nwhere you will find 4 pre-assembled blocks. You can see that there are
+          blocks 1 and 2, which are the ones that are already in the Level and you
+          can also find blocks 3 and 4, which are the ones that we will add to our
+          SpawnBlockManager.\n\n<i> Please enter on the \"BlocksPrefabs\" folder
           and press \"Next\" on the tutorial windows </i>"
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}

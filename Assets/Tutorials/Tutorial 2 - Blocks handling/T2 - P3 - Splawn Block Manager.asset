@@ -67,8 +67,8 @@ MonoBehaviour:
       Title:
         m_Untranslated: Spawn Block Manager Inspector
       Text:
-        m_Untranslated: 'Congratulations, you are now inside the Spawn Block Manager
-          Inspector. In it you will find that you can edit the following parameters:
+        m_Untranslated: 'Congratulations, you are now inside the <b>Spawn Block Manager
+          "Inspector" </b>. In it you will find that you can edit the following parameters:
 
 
           -

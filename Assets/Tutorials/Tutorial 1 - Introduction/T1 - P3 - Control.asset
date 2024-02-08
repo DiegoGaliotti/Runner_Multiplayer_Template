@@ -136,18 +136,18 @@ MonoBehaviour:
           are as follows:
 
 
-          - Cell phone: with the big finger of the right
-          hand the player can move. By pressing the jump button with your left thumb
-          you will be able to jump and if you press the same button in the air you
-          will do a double jump.
+          - <b>Cell phone: with the big finger of the
+          right hand the player can move. By pressing the jump button with your left
+          thumb you will be able to jump and if you press the same button in the
+          air you will do a double jump. </b>
 
-          - PC: to move use "W", "S", "D" and "A.
-          To jump you must press the space bar and with shift while in the air, you
-          can double jump.
+          - <b>PC: to move use "W",
+          "S", "D" and "A. To jump you must press the space bar and with shift while
+          in the air, you can double jump. </b>
 
 
-          <i>Press "Next" in the tutorial window to
-          continue!</i>'
+          <i> Press "Next" in the
+          tutorial window to continue! </i>'
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}

@@ -48,10 +48,10 @@ MonoBehaviour:
       Title:
         m_Untranslated: Welcome
       Text:
-        m_Untranslated: "\"Welcome to our Zepeto Developers Unity tutorial\"\n\nHere,
+        m_Untranslated: "<b>\"Welcome to our Zepeto Developers Unity tutorial\"</b>\n\nHere,
           you will learn how to create your very own runner.\nAre you ready for this
           exciting adventure?\"\n\nIn this first module you would lern how the game
-          works! \nPress Next and let\xB4s start Runner Game! \n"
+          works! \n\n<i>Press \"Next\" and let\xB4s start Runner Game! </i>"
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}
