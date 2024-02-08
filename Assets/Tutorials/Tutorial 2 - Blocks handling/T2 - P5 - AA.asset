@@ -1,5 +1,34 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8245285412820377769
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1cafc69ed04ce4439d7ec629db36ca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls: []
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Target:
+    m_SceneObjectReference:
+      m_SceneGuid: c8e9725b7fc1a344a8bc21cbd6116742
+      m_GameObjectGuid: 6b307a9f-5679-4675-801e-51e2b757887d
+      m_SerializedComponentType:
+        m_TypeName: 
+      m_ComponentIndex: 0
+      m_AssetObject: {fileID: 0}
+      m_Prefab: {fileID: 0}
+    m_FutureObjectReference: {fileID: 0}
+  m_MaterialPropertyPath: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10,15 +39,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff771ccdf4150419d9ff4d342b069aae, type: 3}
-  m_Name: 5-StartPage
+  m_Name: T2 - P5 - AA
   m_EditorClassIdentifier: 
   m_Paragraphs:
     m_Items:
-    - m_Type: 6
+    - m_Type: 7
       Title:
         m_Untranslated: 
       Text:
         m_Untranslated: 
+      m_Tutorial: {fileID: 0}
+      m_Image: {fileID: 0}
+      m_Video: {fileID: 32900000, guid: 5d9c241e5ec341149b4695295bc6b322, type: 3}
+      m_CriteriaCompletion: 0
+      m_Criteria:
+        m_Items: []
+      m_MaskingSettings:
+        m_MaskingEnabled: 0
+        m_UnmaskedViews: []
+      m_Summary: 
+      m_Description: 
+      m_InstructionBoxTitle: 
+      m_InstructionText: 
+      m_TutorialButtonText: 
+    - m_Type: 0
+      Title:
+        m_Untranslated: Add & Change Blocks
+      Text:
+        m_Untranslated: How to change and add blocks to your runner
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}
@@ -33,12 +81,13 @@ MonoBehaviour:
       m_InstructionBoxTitle: 
       m_InstructionText: 
       m_TutorialButtonText: 
-    - m_Type: 0
+    - m_Type: 1
       Title:
-        m_Untranslated: Introduction
+        m_Untranslated: Add a Pre-assembled Block
       Text:
-        m_Untranslated: In this tutorial, you will learn how to change the game blocks
-          to create various environments and levels.
+        m_Untranslated: "Now let's add two more blocks to our level!\nAdd blocks
+          3 and 4 to the SpawnBlockManager inspector. \nWith this, the game generates
+          the level with 4 different blocks!"
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}

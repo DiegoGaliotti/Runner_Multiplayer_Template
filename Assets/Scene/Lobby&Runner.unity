@@ -349,6 +349,7 @@ GameObject:
   m_Component:
   - component: {fileID: 73792054}
   - component: {fileID: 73792055}
+  - component: {fileID: 73792056}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -393,6 +394,19 @@ MonoBehaviour:
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 83245b7b71e29b84fa3d579ecabf8992, type: 3}
     isExpaned: 0
+--- !u!114 &73792056
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73792053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8534e17a0f90604c9afd4f5c73d829f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Id: 456cb05d-7fb4-45e2-aafc-6e7d74f171da
 --- !u!1001 &89860053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9708,6 +9722,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1385402645}
   - component: {fileID: 1385402646}
+  - component: {fileID: 1385402647}
   m_Layer: 0
   m_Name: EnviromentManager
   m_TagString: Untagged
@@ -9752,6 +9767,19 @@ MonoBehaviour:
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 1d615fd7b6e934e5dbe4104aaf34231f, type: 3}
     isExpaned: 0
+--- !u!114 &1385402647
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385402644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8534e17a0f90604c9afd4f5c73d829f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Id: 3e21ea00-34e3-4d94-b5ff-b44a0d1fbe52
 --- !u!1001 &1397849643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11777,7 +11805,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -13.550232}
+  m_AnchoredPosition: {x: 0, y: -13.550247}
   m_SizeDelta: {x: -101.99999, y: -111.10002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &1553123772
@@ -12843,6 +12871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1705175860}
   - component: {fileID: 1705175861}
+  - component: {fileID: 1705175862}
   m_Layer: 0
   m_Name: SpawnBlockManager
   m_TagString: Untagged
@@ -12887,19 +12916,31 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     values:
-    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":4,\"type\":\"UnityEngine.Object,
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":3,\"type\":\"UnityEngine.GameObject,
       UnityEngine.CoreModule\",\"isUnity\":true}"}'
-    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":4,\"length\":0,\"type\":\"UnityEngine.Object,
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":3,\"length\":0,\"type\":\"UnityEngine.Object,
       UnityEngine.CoreModule\",\"isUnity\":true}"}'
     - '{"type":"System.Single, mscorlib","value":"3"}'
     unityArrayValues:
     - {fileID: 937649155625450388, guid: a515b3bb10029486aacf689f5d71cc7b, type: 3}
     - {fileID: 5468121514540234229, guid: 6ab0cc452e6a4ce429cac92e92a4d026, type: 3}
-    - {fileID: 2997553031134198048, guid: 0c95cb5e0ea1c204198703c3e40347d6, type: 3}
-    - {fileID: 5865422883164982551, guid: b2403ffbe6608dc4dae229bc41c85763, type: 3}
+    - {fileID: 0}
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 33abd7457c3f24d9682cef34595be7a7, type: 3}
     isExpaned: 0
+--- !u!114 &1705175862
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705175859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8534e17a0f90604c9afd4f5c73d829f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Id: 6b307a9f-5679-4675-801e-51e2b757887d
 --- !u!1 &1706223403
 GameObject:
   m_ObjectHideFlags: 0

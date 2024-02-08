@@ -20,7 +20,7 @@ MonoBehaviour:
       Text:
         m_Untranslated: 
       m_Tutorial: {fileID: 0}
-      m_Image: {fileID: 2800000, guid: 9ed1d3a451f60df478b3d26e986b05ab, type: 3}
+      m_Image: {fileID: 2800000, guid: 57f2b29921b569b4dbcce286dbb35ff5, type: 3}
       m_Video: {fileID: 0}
       m_CriteriaCompletion: 0
       m_Criteria:
@@ -37,7 +37,7 @@ MonoBehaviour:
               Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
-          m_MaskType: 0
+          m_MaskType: 1
           m_MaskSizeModifier: 0
           m_UnmaskedControls: []
       m_Summary: 
@@ -47,10 +47,26 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 0
       Title:
-        m_Untranslated: Introduction
+        m_Untranslated: Level Editor
       Text:
-        m_Untranslated: In this tutorial, you will learn how to change the game blocks
-          to create various environments and levels.
+        m_Untranslated: 'Welcome to the second Runner Template Tutorial
+
+
+          In
+          this tutorial we will explain how to edit the level.
+
+
+          The most
+          important thing is to understand how the game works:
+
+          The program
+          generates random blocks that will appear in the template. So, after creating
+          all the blocks you want, you just have to configure them so that they appear
+          in your game!
+
+
+          <b>Now, we are going to use pre-assembled blocks
+          to explain how to add them!</b>'
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}

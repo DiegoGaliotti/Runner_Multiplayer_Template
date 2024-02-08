@@ -20,7 +20,7 @@ MonoBehaviour:
       Text:
         m_Untranslated: 
       m_Tutorial: {fileID: 0}
-      m_Image: {fileID: 2800000, guid: 23f4c306fce4b5d43a0316f723cbd0ca, type: 3}
+      m_Image: {fileID: 2800000, guid: 9ed1d3a451f60df478b3d26e986b05ab, type: 3}
       m_Video: {fileID: 0}
       m_CriteriaCompletion: 0
       m_Criteria:
@@ -28,28 +28,6 @@ MonoBehaviour:
       m_MaskingSettings:
         m_MaskingEnabled: 1
         m_UnmaskedViews:
-        - m_SelectorType: 1
-          m_ViewType:
-            m_TypeName: 
-          m_EditorWindowType:
-            m_TypeName: UnityEditor.SceneHierarchyWindow, UnityEditor.CoreModule,
-              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-          m_AlternateEditorWindowTypes:
-            m_Items: []
-          m_MaskType: 0
-          m_MaskSizeModifier: 0
-          m_UnmaskedControls: []
-        - m_SelectorType: 1
-          m_ViewType:
-            m_TypeName: 
-          m_EditorWindowType:
-            m_TypeName: UnityEditor.InspectorWindow, UnityEditor.CoreModule, Version=0.0.0.0,
-              Culture=neutral, PublicKeyToken=null
-          m_AlternateEditorWindowTypes:
-            m_Items: []
-          m_MaskType: 0
-          m_MaskSizeModifier: 0
-          m_UnmaskedControls: []
         - m_SelectorType: 1
           m_ViewType:
             m_TypeName: 
@@ -68,7 +46,7 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 0
       Title:
-        m_Untranslated: Add and change blocks
+        m_Untranslated: Add & Change Blocks
       Text:
         m_Untranslated: How to change and add blocks to your runner
       m_Tutorial: {fileID: 0}
@@ -87,20 +65,25 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 1
       Title:
-        m_Untranslated: Level Creator > Blocks Prefabs
+        m_Untranslated: Add a Pre-assembled Block
       Text:
-        m_Untranslated: 'Enter the LevelCreator>BlocksPrefabs folder where you will
-          find 4 pre-created blocks.
+        m_Untranslated: 'We have organized the folders in "Projects" and standardized
+          the way you should work. Now we will look for two pre-assembled blocks
+          to put in our template!
 
-          Let''s add two more blocks to our
-          level!
+          Within Projects, you must enter: <b>"Assets>LevelCreator>BlocksPrefabs"</b>
+          where you will find 4 previously created blocks. You can see that there
+          are blocks 1 and 2, which are the ones that are already in the Level and
+          you can also find blocks 3 and 4, which are the ones that we will add to
+          our SpawnBlockManager.
 
-          Add blocks 3 and 4 to the SpawnBlockManager Inspector.
-          With this, the game spawns the level with 4 different blocks!'
+
+          <i> Please enter on the "BlocksPrefabs"
+          folder and press "Next" on the tutorial windows </i>'
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}
-      m_CriteriaCompletion: 0
+      m_CriteriaCompletion: 1
       m_Criteria:
         m_Items: []
       m_MaskingSettings:
@@ -165,3 +148,104 @@ MonoBehaviour:
       m_Calls: []
   m_NextButton: Next
   m_DoneButton: Done
+--- !u!114 &709997688334672585
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd3e7c665e4144f519b7ee9de726ea5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls: []
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_PrefabParent: {fileID: 2997553031134198048, guid: 0c95cb5e0ea1c204198703c3e40347d6, type: 3}
+  m_FuturePrefabInstances:
+    m_Items: []
+--- !u!114 &4825382748067114486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83385cb04f0b64fff8859904da1b78e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls: []
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls: []
+  PrefabParent: {fileID: 0}
+  ComparisonMode: 0
+  InstanceCount: 1
+  m_FutureReference: {fileID: 0}
+--- !u!114 &6239852250378407656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255ef86cb95f04796b8e3b3f5b23efe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls: []
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ObjectReferences:
+    m_Items:
+    - m_SceneObjectReference:
+        m_SceneGuid: 
+        m_GameObjectGuid: 
+        m_SerializedComponentType:
+          m_TypeName: 
+        m_ComponentIndex: 0
+        m_AssetObject: {fileID: 102900000, guid: 2a3fb80408c6eb84c913890868946a7d, type: 3}
+        m_Prefab: {fileID: 0}
+      m_FutureObjectReference: {fileID: 0}
+--- !u!114 &8569144569085517174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065f6938014794cff8ac3d1382107ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls: []
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ObjectReferences:
+    m_Items:
+    - m_SceneObjectReference:
+        m_SceneGuid: 
+        m_GameObjectGuid: 
+        m_SerializedComponentType:
+          m_TypeName: 
+        m_ComponentIndex: 0
+        m_AssetObject: {fileID: 102900000, guid: 2a3fb80408c6eb84c913890868946a7d, type: 3}
+        m_Prefab: {fileID: 0}
+      m_FutureObjectReference: {fileID: 0}
