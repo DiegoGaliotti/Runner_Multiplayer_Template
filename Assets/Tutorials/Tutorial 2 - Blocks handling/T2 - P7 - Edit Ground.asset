@@ -124,7 +124,7 @@ MonoBehaviour:
           example using grass or sand).
 
           <b> Ground Speed </b> : You can
-          change the background speed to have an effect on the gameplay.'
+          change the Ground speed to have an effect on the gameplay.'
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}

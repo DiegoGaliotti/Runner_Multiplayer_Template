@@ -35,9 +35,9 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 0
       Title:
-        m_Untranslated: Play
+        m_Untranslated: Create a Block
       Text:
-        m_Untranslated: 
+        m_Untranslated: 'Lets go to the next tutorial! '
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}
@@ -54,9 +54,10 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 1
       Title:
-        m_Untranslated: Run Game
+        m_Untranslated: 'Create a new Block! '
       Text:
-        m_Untranslated: Hit PLAY and enjoy your created level!
+        m_Untranslated: 'In the next tutorial, you will learn how to create a new
+          block. The, you can make your own Runner Game! '
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}
