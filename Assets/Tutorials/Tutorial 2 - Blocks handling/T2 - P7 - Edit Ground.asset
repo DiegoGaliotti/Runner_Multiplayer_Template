@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8245285412820377769
+--- !u!114 &-2270968494515671290
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1cafc69ed04ce4439d7ec629db36ca4, type: 3}
+  m_Script: {fileID: 11500000, guid: 065f6938014794cff8ac3d1382107ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Completed:
@@ -18,17 +18,17 @@ MonoBehaviour:
   Invalidated:
     m_PersistentCalls:
       m_Calls: []
-  m_Target:
-    m_SceneObjectReference:
-      m_SceneGuid: c8e9725b7fc1a344a8bc21cbd6116742
-      m_GameObjectGuid: 6b307a9f-5679-4675-801e-51e2b757887d
-      m_SerializedComponentType:
-        m_TypeName: 
-      m_ComponentIndex: 0
-      m_AssetObject: {fileID: 0}
-      m_Prefab: {fileID: 0}
-    m_FutureObjectReference: {fileID: 0}
-  m_MaterialPropertyPath: 
+  m_ObjectReferences:
+    m_Items:
+    - m_SceneObjectReference:
+        m_SceneGuid: c8e9725b7fc1a344a8bc21cbd6116742
+        m_GameObjectGuid: c1144be1-cbc5-4cd0-aa73-874e80d4e3a6
+        m_SerializedComponentType:
+          m_TypeName: 
+        m_ComponentIndex: 0
+        m_AssetObject: {fileID: 0}
+        m_Prefab: {fileID: 0}
+      m_FutureObjectReference: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,24 +39,46 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff771ccdf4150419d9ff4d342b069aae, type: 3}
-  m_Name: T2 - P5 - AA
+  m_Name: T2 - P7 - Edit Ground
   m_EditorClassIdentifier: 
   m_Paragraphs:
     m_Items:
-    - m_Type: 7
+    - m_Type: 6
       Title:
         m_Untranslated: 
       Text:
         m_Untranslated: 
       m_Tutorial: {fileID: 0}
-      m_Image: {fileID: 0}
-      m_Video: {fileID: 32900000, guid: 5d9c241e5ec341149b4695295bc6b322, type: 3}
+      m_Image: {fileID: 2800000, guid: 57f2b29921b569b4dbcce286dbb35ff5, type: 3}
+      m_Video: {fileID: 0}
       m_CriteriaCompletion: 0
       m_Criteria:
         m_Items: []
       m_MaskingSettings:
-        m_MaskingEnabled: 0
-        m_UnmaskedViews: []
+        m_MaskingEnabled: 1
+        m_UnmaskedViews:
+        - m_SelectorType: 1
+          m_ViewType:
+            m_TypeName: 
+          m_EditorWindowType:
+            m_TypeName: UnityEditor.SceneHierarchyWindow, UnityEditor.CoreModule,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+          m_AlternateEditorWindowTypes:
+            m_Items: []
+          m_MaskType: 0
+          m_MaskSizeModifier: 0
+          m_UnmaskedControls: []
+        - m_SelectorType: 1
+          m_ViewType:
+            m_TypeName: 
+          m_EditorWindowType:
+            m_TypeName: UnityEditor.InspectorWindow, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+          m_AlternateEditorWindowTypes:
+            m_Items: []
+          m_MaskType: 0
+          m_MaskSizeModifier: 0
+          m_UnmaskedControls: []
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -64,9 +86,9 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 0
       Title:
-        m_Untranslated: Add & Change Blocks
+        m_Untranslated: Enviroment Manager
       Text:
-        m_Untranslated: How to change and add blocks to your runner
+        m_Untranslated: How to modify the environment
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}
@@ -83,17 +105,36 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 1
       Title:
-        m_Untranslated: Add a Pre-assembled Block
+        m_Untranslated: Ground Managers
       Text:
-        m_Untranslated: "Now let's add two more blocks to our level!\nAdd blocks
-          3 and 4 to the SpawnBlockManager inspector. \nWith this, the game generates
-          the level with 4 different blocks!"
+        m_Untranslated: 'Now, let''s go to the Ground Manager
+
+          <i> Please
+          double click on game object "GroundManager" on Hierarchy </i>
+
+
+          LobbyRunner>LevelManager>EnviromentManager>GroundManager
+
+
+          You
+          can see on the inspector that you can change:
+
+          <b> Ground </b>
+          : You can change the ground and thus change the style of the game (for
+          example using grass or sand).
+
+          <b> Ground Speed </b> : You can
+          change the background speed to have an effect on the gameplay.'
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}
       m_CriteriaCompletion: 0
       m_Criteria:
-        m_Items: []
+        m_Items:
+        - Type:
+            m_TypeName: Unity.Tutorials.Core.Editor.FrameSelectedCriterion, Unity.Tutorials.Core.Editor,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+          Criterion: {fileID: -2270968494515671290}
       m_MaskingSettings:
         m_MaskingEnabled: 0
         m_UnmaskedViews: []

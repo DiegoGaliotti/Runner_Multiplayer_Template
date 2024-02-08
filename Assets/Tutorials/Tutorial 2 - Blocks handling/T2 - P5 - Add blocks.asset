@@ -1,0 +1,256 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8245285412820377769
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1cafc69ed04ce4439d7ec629db36ca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls: []
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Target:
+    m_SceneObjectReference:
+      m_SceneGuid: c8e9725b7fc1a344a8bc21cbd6116742
+      m_GameObjectGuid: 6b307a9f-5679-4675-801e-51e2b757887d
+      m_SerializedComponentType:
+        m_TypeName: 
+      m_ComponentIndex: 0
+      m_AssetObject: {fileID: 0}
+      m_Prefab: {fileID: 0}
+    m_FutureObjectReference: {fileID: 0}
+  m_MaterialPropertyPath: 
+--- !u!114 &-7672174252839635999
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e52eaa6fdf2a4794ba81c7bc450905e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls: []
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_PropertyPath: GenericPropertyJSON:{"name":"property","type":-1,"arraySize":4,"arrayType":"PPtr<$GameObject>","children":[{"name":"Array","type":-1,"arraySize":4,"arrayType":"PPtr<$GameObject>","children":[{"name":"size","type":12,"val":4},{"name":"data","type":5,"val":"UnityEditor.ObjectWrapperJSON:{\"guid\":\"a515b3bb10029486aacf689f5d71cc7b\",\"localId\":937649155625450388,\"type\":3,\"instanceID\":7578}"},{"name":"data","type":5,"val":"UnityEditor.ObjectWrapperJSON:{\"guid\":\"6ab0cc452e6a4ce429cac92e92a4d026\",\"localId\":5468121514540234229,\"type\":3,\"instanceID\":9842}"},{"name":"data","type":5,"val":"UnityEditor.ObjectWrapperJSON:{\"guid\":\"\",\"localId\":0,\"type\":0,\"instanceID\":0}"},{"name":"data","type":5,"val":"UnityEditor.ObjectWrapperJSON:{\"guid\":\"\",\"localId\":0,\"type\":0,\"instanceID\":0}"}]}]}
+  m_TargetValueMode: 0
+  m_TargetValue: 4
+  m_TargetValueType: 0
+  m_Target:
+    m_SceneObjectReference:
+      m_SceneGuid: c8e9725b7fc1a344a8bc21cbd6116742
+      m_GameObjectGuid: 6b307a9f-5679-4675-801e-51e2b757887d
+      m_SerializedComponentType:
+        m_TypeName: 
+      m_ComponentIndex: 0
+      m_AssetObject: {fileID: 0}
+      m_Prefab: {fileID: 0}
+    m_FutureObjectReference: {fileID: 0}
+--- !u!114 &-567939389054237808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1cafc69ed04ce4439d7ec629db36ca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls: []
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Target:
+    m_SceneObjectReference:
+      m_SceneGuid: c8e9725b7fc1a344a8bc21cbd6116742
+      m_GameObjectGuid: 6b307a9f-5679-4675-801e-51e2b757887d
+      m_SerializedComponentType:
+        m_TypeName: 
+      m_ComponentIndex: 0
+      m_AssetObject: {fileID: 0}
+      m_Prefab: {fileID: 0}
+    m_FutureObjectReference: {fileID: 0}
+  m_MaterialPropertyPath: GenericPropertyJSON:{"name":"property","type":-1,"arraySize":4,"arrayType":"PPtr<$GameObject>","children":[{"name":"Array","type":-1,"arraySize":4,"arrayType":"PPtr<$GameObject>","children":[{"name":"size","type":12,"val":4},{"name":"data","type":5,"val":"UnityEditor.ObjectWrapperJSON:{\"guid\":\"a515b3bb10029486aacf689f5d71cc7b\",\"localId\":937649155625450388,\"type\":3,\"instanceID\":7578}"},{"name":"data","type":5,"val":"UnityEditor.ObjectWrapperJSON:{\"guid\":\"6ab0cc452e6a4ce429cac92e92a4d026\",\"localId\":5468121514540234229,\"type\":3,\"instanceID\":9842}"},{"name":"data","type":5,"val":"UnityEditor.ObjectWrapperJSON:{\"guid\":\"\",\"localId\":0,\"type\":0,\"instanceID\":0}"},{"name":"data","type":5,"val":"UnityEditor.ObjectWrapperJSON:{\"guid\":\"\",\"localId\":0,\"type\":0,\"instanceID\":0}"}]}]}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff771ccdf4150419d9ff4d342b069aae, type: 3}
+  m_Name: T2 - P5 - Add blocks
+  m_EditorClassIdentifier: 
+  m_Paragraphs:
+    m_Items:
+    - m_Type: 7
+      Title:
+        m_Untranslated: 
+      Text:
+        m_Untranslated: 
+      m_Tutorial: {fileID: 0}
+      m_Image: {fileID: 0}
+      m_Video: {fileID: 32900000, guid: 1d1e9a08c626544499bad357a7e711f7, type: 3}
+      m_CriteriaCompletion: 0
+      m_Criteria:
+        m_Items: []
+      m_MaskingSettings:
+        m_MaskingEnabled: 0
+        m_UnmaskedViews: []
+      m_Summary: 
+      m_Description: 
+      m_InstructionBoxTitle: 
+      m_InstructionText: 
+      m_TutorialButtonText: 
+    - m_Type: 0
+      Title:
+        m_Untranslated: Add & Change Blocks
+      Text:
+        m_Untranslated: How to change and add blocks to your runner
+      m_Tutorial: {fileID: 0}
+      m_Image: {fileID: 0}
+      m_Video: {fileID: 0}
+      m_CriteriaCompletion: 0
+      m_Criteria:
+        m_Items: []
+      m_MaskingSettings:
+        m_MaskingEnabled: 0
+        m_UnmaskedViews: []
+      m_Summary: 
+      m_Description: 
+      m_InstructionBoxTitle: 
+      m_InstructionText: 
+      m_TutorialButtonText: 
+    - m_Type: 1
+      Title:
+        m_Untranslated: Add a Pre-assembled Block
+      Text:
+        m_Untranslated: "Now let's add two more blocks to our level!\nAdd blocks
+          3 and 4 to the SpawnBlockManager inspector. \n<i>You can see the video
+          above, or open in you PC: Assets>Tutorials>Tutorial 2 - Blocks handling>Tutorial
+          2 - Media</i>\n\nBut it\xB4s really simple, just press + in the blocks
+          list and drag/drop the prefab. \n\n<b>Make sure you are in SpawnBlockManager
+          by double clicking on the gameobject to continue</b>\n\nWith this, the
+          game generates the level with 4 different blocks!"
+      m_Tutorial: {fileID: 0}
+      m_Image: {fileID: 0}
+      m_Video: {fileID: 0}
+      m_CriteriaCompletion: 0
+      m_Criteria:
+        m_Items:
+        - Type:
+            m_TypeName: Unity.Tutorials.Core.Editor.FrameSelectedCriterion, Unity.Tutorials.Core.Editor,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+          Criterion: {fileID: 5630624719111166120}
+      m_MaskingSettings:
+        m_MaskingEnabled: 0
+        m_UnmaskedViews: []
+      m_Summary: 
+      m_Description: 
+      m_InstructionBoxTitle: 
+      m_InstructionText: 
+      m_TutorialButtonText: 
+  m_CameraSettings:
+    m_CameraMode: 0
+    m_FocusMode: 0
+    m_Orthographic: 0
+    m_Size: 0
+    m_Pivot: {x: 0, y: 0, z: 0}
+    m_Rotation: {x: 0, y: 0, z: 0, w: 0}
+    m_FrameObject:
+      m_SceneGuid: 
+      m_GameObjectGuid: 
+      m_SerializedComponentType:
+        m_TypeName: 
+      m_ComponentIndex: 0
+      m_AssetObject: {fileID: 0}
+      m_Prefab: {fileID: 0}
+    m_Enabled: 0
+  NextButton:
+    m_Untranslated: Next
+  DoneButton:
+    m_Untranslated: Done
+  m_CompletedSound: {fileID: 0}
+  m_AutoAdvance: 0
+  Showing:
+    m_PersistentCalls:
+      m_Calls: []
+  Shown:
+    m_PersistentCalls:
+      m_Calls: []
+  Staying:
+    m_PersistentCalls:
+      m_Calls: []
+  CriteriaValidated:
+    m_PersistentCalls:
+      m_Calls: []
+  MaskingSettingsChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  NonMaskingSettingsChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnBeforePageShown:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnAfterPageShown:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnTutorialPageStay:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnBeforeTutorialQuit:
+    m_PersistentCalls:
+      m_Calls: []
+  m_NextButton: Next
+  m_DoneButton: Done
+--- !u!114 &5630624719111166120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065f6938014794cff8ac3d1382107ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls: []
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ObjectReferences:
+    m_Items:
+    - m_SceneObjectReference:
+        m_SceneGuid: c8e9725b7fc1a344a8bc21cbd6116742
+        m_GameObjectGuid: 6b307a9f-5679-4675-801e-51e2b757887d
+        m_SerializedComponentType:
+          m_TypeName: 
+        m_ComponentIndex: 0
+        m_AssetObject: {fileID: 0}
+        m_Prefab: {fileID: 0}
+      m_FutureObjectReference: {fileID: 0}

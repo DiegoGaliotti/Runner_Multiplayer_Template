@@ -7065,6 +7065,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1052731844}
   - component: {fileID: 1052731845}
+  - component: {fileID: 1052731846}
   m_Layer: 0
   m_Name: GroundManager
   m_TagString: Untagged
@@ -7113,6 +7114,19 @@ MonoBehaviour:
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: b44fb3c6e154f4e8ebfd4e80313b1c9a, type: 3}
     isExpaned: 0
+--- !u!114 &1052731846
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052731843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8534e17a0f90604c9afd4f5c73d829f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Id: c1144be1-cbc5-4cd0-aa73-874e80d4e3a6
 --- !u!4 &1058302320 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 250144912201451470, guid: 317d49277def140b1b6fa70efaa22c5a, type: 3}
@@ -10144,6 +10158,7 @@ GameObject:
   - component: {fileID: 1440510246}
   - component: {fileID: 1440510245}
   - component: {fileID: 1440510244}
+  - component: {fileID: 1440510247}
   m_Layer: 0
   m_Name: BackgroundManager
   m_TagString: Untagged
@@ -10256,6 +10271,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1440510247
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440510242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8534e17a0f90604c9afd4f5c73d829f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Id: 4050a0e7-c9ae-437b-8c44-3396305850c7
 --- !u!1 &1450776854
 GameObject:
   m_ObjectHideFlags: 0
@@ -12916,14 +12944,15 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     values:
-    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":3,\"type\":\"UnityEngine.GameObject,
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":4,\"type\":\"UnityEngine.Object,
       UnityEngine.CoreModule\",\"isUnity\":true}"}'
-    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":3,\"length\":0,\"type\":\"UnityEngine.Object,
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":4,\"length\":0,\"type\":\"UnityEngine.Object,
       UnityEngine.CoreModule\",\"isUnity\":true}"}'
     - '{"type":"System.Single, mscorlib","value":"3"}'
     unityArrayValues:
     - {fileID: 937649155625450388, guid: a515b3bb10029486aacf689f5d71cc7b, type: 3}
     - {fileID: 5468121514540234229, guid: 6ab0cc452e6a4ce429cac92e92a4d026, type: 3}
+    - {fileID: 2997553031134198048, guid: 0c95cb5e0ea1c204198703c3e40347d6, type: 3}
     - {fileID: 0}
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 33abd7457c3f24d9682cef34595be7a7, type: 3}

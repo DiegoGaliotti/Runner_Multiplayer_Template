@@ -1,5 +1,34 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1800143227355213616
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065f6938014794cff8ac3d1382107ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls: []
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ObjectReferences:
+    m_Items:
+    - m_SceneObjectReference:
+        m_SceneGuid: c8e9725b7fc1a344a8bc21cbd6116742
+        m_GameObjectGuid: 4050a0e7-c9ae-437b-8c44-3396305850c7
+        m_SerializedComponentType:
+          m_TypeName: 
+        m_ComponentIndex: 0
+        m_AssetObject: {fileID: 0}
+        m_Prefab: {fileID: 0}
+      m_FutureObjectReference: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10,7 +39,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff771ccdf4150419d9ff4d342b069aae, type: 3}
-  m_Name: T2 - P5 - Edit Enviroment
+  m_Name: T2 - P6 - Edit Enviroment
   m_EditorClassIdentifier: 
   m_Paragraphs:
     m_Items:
@@ -76,25 +105,24 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 1
       Title:
-        m_Untranslated: Ground and Background Managers
+        m_Untranslated: Background Managers
       Text:
-        m_Untranslated: 'Within the Environment Manager you will find two new separate
-          managers, the Background Manager and the Ground Manager.
-
-
-          Let''s
-          start with the Background Manager. Select the same and you can find that
-          you can edit the background speed.
-
-
-          Then, you can enter the
-          Ground Manager object and in it you can set the ground speed.'
+        m_Untranslated: "Within the Environment Manager you will find two new separate
+          managers, the Background Manager and the Ground Manager.\n\nLet's start
+          with the Background Manager.\n<i> Please double click on game object \"BackgroundManager\"
+          on Hierarchy </i> \n\nLobbyRunner>LevelManager>EnviromentManager>BackgroundManager
+          \n\nYou can see on the inspector that you can change:\n<b> Speed </b> :
+          You can change the background speed to have an effect on the gameplay."
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}
       m_CriteriaCompletion: 0
       m_Criteria:
-        m_Items: []
+        m_Items:
+        - Type:
+            m_TypeName: Unity.Tutorials.Core.Editor.FrameSelectedCriterion, Unity.Tutorials.Core.Editor,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+          Criterion: {fileID: -1800143227355213616}
       m_MaskingSettings:
         m_MaskingEnabled: 0
         m_UnmaskedViews: []

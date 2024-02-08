@@ -67,25 +67,24 @@ MonoBehaviour:
       Title:
         m_Untranslated: Add a Pre-assembled Block
       Text:
-        m_Untranslated: 'We have organized the folders in "Projects" and standardized
+        m_Untranslated: "We have organized the folders in \"Projects\" and standardized
           the way you should work. Now we will look for two pre-assembled blocks
-          to put in our template!
-
-          Within Projects, you must enter: <b>"Assets>LevelCreator>BlocksPrefabs"</b>
-          where you will find 4 previously created blocks. You can see that there
+          to put in our template!\n\nWithin Projects, you must enter: \n<b>\"Assets>LevelCreator>BlocksPrefabs\"</b>
+          \nwhere you will find 4 previously created blocks. You can see that there
           are blocks 1 and 2, which are the ones that are already in the Level and
           you can also find blocks 3 and 4, which are the ones that we will add to
-          our SpawnBlockManager.
-
-
-          <i> Please enter on the "BlocksPrefabs"
-          folder and press "Next" on the tutorial windows </i>'
+          our SpawnBlockManager.\n\n<i> Please enter on the \"BlocksPrefabs\" folder
+          and press \"Next\" on the tutorial windows </i>"
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}
       m_CriteriaCompletion: 1
       m_Criteria:
-        m_Items: []
+        m_Items:
+        - Type:
+            m_TypeName: Unity.Tutorials.Core.Editor.EditorWindowCriterion, Unity.Tutorials.Core.Editor,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+          Criterion: {fileID: 3016090635842909074}
       m_MaskingSettings:
         m_MaskingEnabled: 0
         m_UnmaskedViews: []
@@ -148,7 +147,7 @@ MonoBehaviour:
       m_Calls: []
   m_NextButton: Next
   m_DoneButton: Done
---- !u!114 &709997688334672585
+--- !u!114 &3016090635842909074
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,7 +156,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd3e7c665e4144f519b7ee9de726ea5f, type: 3}
+  m_Script: {fileID: 11500000, guid: f095ab04ffe3b514c808035bb335fa56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Completed:
@@ -166,86 +165,7 @@ MonoBehaviour:
   Invalidated:
     m_PersistentCalls:
       m_Calls: []
-  m_PrefabParent: {fileID: 2997553031134198048, guid: 0c95cb5e0ea1c204198703c3e40347d6, type: 3}
-  m_FuturePrefabInstances:
-    m_Items: []
---- !u!114 &4825382748067114486
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83385cb04f0b64fff8859904da1b78e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Completed:
-    m_PersistentCalls:
-      m_Calls: []
-  Invalidated:
-    m_PersistentCalls:
-      m_Calls: []
-  PrefabParent: {fileID: 0}
-  ComparisonMode: 0
-  InstanceCount: 1
-  m_FutureReference: {fileID: 0}
---- !u!114 &6239852250378407656
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 255ef86cb95f04796b8e3b3f5b23efe7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Completed:
-    m_PersistentCalls:
-      m_Calls: []
-  Invalidated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ObjectReferences:
-    m_Items:
-    - m_SceneObjectReference:
-        m_SceneGuid: 
-        m_GameObjectGuid: 
-        m_SerializedComponentType:
-          m_TypeName: 
-        m_ComponentIndex: 0
-        m_AssetObject: {fileID: 102900000, guid: 2a3fb80408c6eb84c913890868946a7d, type: 3}
-        m_Prefab: {fileID: 0}
-      m_FutureObjectReference: {fileID: 0}
---- !u!114 &8569144569085517174
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 065f6938014794cff8ac3d1382107ec8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Completed:
-    m_PersistentCalls:
-      m_Calls: []
-  Invalidated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ObjectReferences:
-    m_Items:
-    - m_SceneObjectReference:
-        m_SceneGuid: 
-        m_GameObjectGuid: 
-        m_SerializedComponentType:
-          m_TypeName: 
-        m_ComponentIndex: 0
-        m_AssetObject: {fileID: 102900000, guid: 2a3fb80408c6eb84c913890868946a7d, type: 3}
-        m_Prefab: {fileID: 0}
-      m_FutureObjectReference: {fileID: 0}
+  m_EditorWindowType:
+    m_TypeName: UnityEditor.ProjectBrowser, UnityEditor.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_CloseIfAlreadyOpen: 0
