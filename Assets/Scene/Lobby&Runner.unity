@@ -1089,6 +1089,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 551850060}
     m_Modifications:
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[1]
+      value: '{"type":"System.String, mscorlib","value":"IP_AESPA_TOP_7 "}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"Zepeto.ZepetoPropertyFlag, ZEPETO","value":"{\"value__\":19}"}'
+      objectReference: {fileID: 0}
     - target: {fileID: 6106929824427501375, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -2174,6 +2182,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 551850060}
     m_Modifications:
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[1]
+      value: '{"type":"System.String, mscorlib","value":"IP_MEANGIRLS_TOP_2 "}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"Zepeto.ZepetoPropertyFlag, ZEPETO","value":"{\"value__\":19}"}'
+      objectReference: {fileID: 0}
     - target: {fileID: 6106929824427501375, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2367,6 +2383,11 @@ PrefabInstance:
     - target: {fileID: 6106929824427501370, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_Name
       value: EquipPlatform (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[1]
+      value: '{"type":"System.String, mscorlib","value":"CR_6513e4f16d40402620431ff5
+        "}'
       objectReference: {fileID: 0}
     - target: {fileID: 6106929824427501375, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_RootOrder
@@ -2659,6 +2680,14 @@ PrefabInstance:
     - target: {fileID: 6106929824427501370, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_Name
       value: EquipPlatform (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[1]
+      value: '{"type":"System.String, mscorlib","value":"US_SH_133 "}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"Zepeto.ZepetoPropertyFlag, ZEPETO","value":"{\"value__\":21}"}'
       objectReference: {fileID: 0}
     - target: {fileID: 6106929824427501375, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_RootOrder
@@ -3906,6 +3935,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EquipPlatform (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[1]
+      value: '{"type":"System.String, mscorlib","value":"NK_SH_58 "}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"Zepeto.ZepetoPropertyFlag, ZEPETO","value":"{\"value__\":21}"}'
+      objectReference: {fileID: 0}
     - target: {fileID: 6106929824427501375, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -5127,6 +5164,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EquipPlatform (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[1]
+      value: '{"type":"System.String, mscorlib","value":"NK_SH_69 "}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"Zepeto.ZepetoPropertyFlag, ZEPETO","value":"{\"value__\":21}"}'
+      objectReference: {fileID: 0}
     - target: {fileID: 6106929824427501375, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -5185,6 +5230,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 551850060}
     m_Modifications:
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[1]
+      value: '{"type":"System.String, mscorlib","value":"IP_ADIDAS_BTM_4 "}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"Zepeto.ZepetoPropertyFlag, ZEPETO","value":"{\"value__\":20}"}'
+      objectReference: {fileID: 0}
     - target: {fileID: 6106929824427501375, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -5298,6 +5351,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 551850060}
     m_Modifications:
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[1]
+      value: '{"type":"System.String, mscorlib","value":"NK_TOP_55 "}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"Zepeto.ZepetoPropertyFlag, ZEPETO","value":"{\"value__\":19}"}'
+      objectReference: {fileID: 0}
     - target: {fileID: 6106929824427501375, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -8405,6 +8466,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 551850060}
     m_Modifications:
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[1]
+      value: '{"type":"System.String, mscorlib","value":"NK_BTM_12 "}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"Zepeto.ZepetoPropertyFlag, ZEPETO","value":"{\"value__\":20}"}'
+      objectReference: {fileID: 0}
     - target: {fileID: 6106929824427501375, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -8970,6 +9039,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 551850060}
     m_Modifications:
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[1]
+      value: '{"type":"System.String, mscorlib","value":"NK_BTM_34 "}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"Zepeto.ZepetoPropertyFlag, ZEPETO","value":"{\"value__\":20}"}'
+      objectReference: {fileID: 0}
     - target: {fileID: 6106929824427501375, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -9413,6 +9490,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 551850060}
     m_Modifications:
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[1]
+      value: '{"type":"System.String, mscorlib","value":"NK_BTM_15 "}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"Zepeto.ZepetoPropertyFlag, ZEPETO","value":"{\"value__\":20}"}'
+      objectReference: {fileID: 0}
     - target: {fileID: 6106929824427501375, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -12844,6 +12929,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EquipPlatform (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[1]
+      value: '{"type":"System.String, mscorlib","value":"NK_SH_59 "}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"Zepeto.ZepetoPropertyFlag, ZEPETO","value":"{\"value__\":21}"}'
+      objectReference: {fileID: 0}
     - target: {fileID: 6106929824427501375, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -12954,6 +13047,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 551850060}
     m_Modifications:
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[1]
+      value: '{"type":"System.String, mscorlib","value":"NK_BTM_5 "}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"Zepeto.ZepetoPropertyFlag, ZEPETO","value":"{\"value__\":20}"}'
+      objectReference: {fileID: 0}
     - target: {fileID: 6106929824427501375, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -13440,6 +13541,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 551850060}
     m_Modifications:
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[1]
+      value: '{"type":"System.String, mscorlib","value":"IP_HYUNDAI_TOP_12 "}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"Zepeto.ZepetoPropertyFlag, ZEPETO","value":"{\"value__\":19}"}'
+      objectReference: {fileID: 0}
     - target: {fileID: 6106929824427501375, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -13513,6 +13622,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 551850060}
     m_Modifications:
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[1]
+      value: '{"type":"System.String, mscorlib","value":"NK_TOP_56 "}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"Zepeto.ZepetoPropertyFlag, ZEPETO","value":"{\"value__\":19}"}'
+      objectReference: {fileID: 0}
     - target: {fileID: 6106929824427501375, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -13754,6 +13871,11 @@ PrefabInstance:
     - target: {fileID: 6106929824427501370, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_Name
       value: EquipPlatform (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[1]
+      value: '{"type":"System.String, mscorlib","value":"CR_651a34766d404026204b7973
+        "}'
       objectReference: {fileID: 0}
     - target: {fileID: 6106929824427501375, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_RootOrder
@@ -14101,6 +14223,11 @@ PrefabInstance:
     - target: {fileID: 6106929824427501370, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_Name
       value: EquipPlatform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[1]
+      value: '{"type":"System.String, mscorlib","value":"CR_651bf69512854e02f9a69246
+        "}'
       objectReference: {fileID: 0}
     - target: {fileID: 6106929824427501375, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_RootOrder
@@ -14484,6 +14611,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EquipPlatform (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[1]
+      value: '{"type":"System.String, mscorlib","value":"NK_SH_65 "}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"Zepeto.ZepetoPropertyFlag, ZEPETO","value":"{\"value__\":21}"}'
+      objectReference: {fileID: 0}
     - target: {fileID: 6106929824427501375, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -14545,6 +14680,14 @@ PrefabInstance:
     - target: {fileID: 6106929824427501370, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_Name
       value: EquipPlatform (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[1]
+      value: '{"type":"System.String, mscorlib","value":"NK_SH_59 "}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106929824427501371, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"Zepeto.ZepetoPropertyFlag, ZEPETO","value":"{\"value__\":21}"}'
       objectReference: {fileID: 0}
     - target: {fileID: 6106929824427501375, guid: f243c2d7391c2aa4dbaca564cc219c99, type: 3}
       propertyPath: m_RootOrder
