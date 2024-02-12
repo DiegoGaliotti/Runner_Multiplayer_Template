@@ -1,5 +1,27 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3737733109854961789
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f095ab04ffe3b514c808035bb335fa56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls: []
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_EditorWindowType:
+    m_TypeName: UnityEditor.SceneHierarchySortingWindow, UnityEditor.CoreModule,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_CloseIfAlreadyOpen: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,35 +57,10 @@ MonoBehaviour:
             m_TypeName: UnityEditor.SceneHierarchyWindow, UnityEditor.CoreModule,
               Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
-            m_Items:
-            - Type:
-                m_TypeName: 
+            m_Items: []
           m_MaskType: 0
           m_MaskSizeModifier: 0
-          m_UnmaskedControls:
-          - m_SelectorMode: 1
-            m_GUIContent:
-              m_Text: 
-              m_Image: {fileID: 0}
-              m_Tooltip: 
-            m_ControlName: Level Manager
-            m_PropertyPath: 
-            m_TargetType:
-              m_TypeName: 
-            m_GUIStyleName: 
-            m_ObjectReference:
-              m_SceneObjectReference:
-                m_SceneGuid: 
-                m_GameObjectGuid: 
-                m_SerializedComponentType:
-                  m_TypeName: 
-                m_ComponentIndex: 0
-                m_AssetObject: {fileID: 0}
-                m_Prefab: {fileID: 0}
-              m_FutureObjectReference: {fileID: 0}
-            m_VisualElementClassName: 
-            m_VisualElementName: 
-            m_VisualElementTypeName: 
+          m_UnmaskedControls: []
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -92,15 +89,25 @@ MonoBehaviour:
       Title:
         m_Untranslated: Level Manager - Hierarchy
       Text:
-        m_Untranslated: Within the managers in the Hierarchy, you will find the level
-          manager, which is made up of two more managers, the block spawner manager
-          and the environment manager.
+        m_Untranslated: "The first thing you have to know is how the Level Manager
+          works; a block controller; which generates the blocks of collectibles and
+          obstacles that you want to create, the floor that you want it to run on
+          and the background image that you want to upload.\n\nTo access this Manager,
+          you must go to <b>\"Hierarchy\"</b> where you will find the managers.\n\nThere
+          you must enter <b>\"Managers>Level Manager\"</b>\n\nInside you will find:\n<b>Spawn
+          Block Manager</b>: Where you load the created blocks\n<b>Environment Manager</b>:
+          Where you load the ground and background \n\n<i>Doble click in \"SpawnBlockManager\"
+          to continue, it will automatically go to the next step</i>"
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}
-      m_CriteriaCompletion: 0
+      m_CriteriaCompletion: 1
       m_Criteria:
-        m_Items: []
+        m_Items:
+        - Type:
+            m_TypeName: Unity.Tutorials.Core.Editor.FrameSelectedCriterion, Unity.Tutorials.Core.Editor,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+          Criterion: {fileID: 7738235420854946302}
       m_MaskingSettings:
         m_MaskingEnabled: 0
         m_UnmaskedViews: []
@@ -130,7 +137,7 @@ MonoBehaviour:
   DoneButton:
     m_Untranslated: Done
   m_CompletedSound: {fileID: 0}
-  m_AutoAdvance: 0
+  m_AutoAdvance: 1
   Showing:
     m_PersistentCalls:
       m_Calls: []
@@ -162,4 +169,138 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_NextButton: Next
-  m_DoneButton: Done
+  m_DoneButton: 
+--- !u!114 &712248684308214099
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065f6938014794cff8ac3d1382107ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls: []
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ObjectReferences:
+    m_Items:
+    - m_SceneObjectReference:
+        m_SceneGuid: c8e9725b7fc1a344a8bc21cbd6116742
+        m_GameObjectGuid: 6b307a9f-5679-4675-801e-51e2b757887d
+        m_SerializedComponentType:
+          m_TypeName: 
+        m_ComponentIndex: 0
+        m_AssetObject: {fileID: 0}
+        m_Prefab: {fileID: 0}
+      m_FutureObjectReference: {fileID: 0}
+--- !u!114 &1107577898797975877
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255ef86cb95f04796b8e3b3f5b23efe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls: []
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ObjectReferences:
+    m_Items:
+    - m_SceneObjectReference:
+        m_SceneGuid: c8e9725b7fc1a344a8bc21cbd6116742
+        m_GameObjectGuid: 456cb05d-7fb4-45e2-aafc-6e7d74f171da
+        m_SerializedComponentType:
+          m_TypeName: 
+        m_ComponentIndex: 0
+        m_AssetObject: {fileID: 0}
+        m_Prefab: {fileID: 0}
+      m_FutureObjectReference: {fileID: 0}
+    - m_SceneObjectReference:
+        m_SceneGuid: c8e9725b7fc1a344a8bc21cbd6116742
+        m_GameObjectGuid: 6b307a9f-5679-4675-801e-51e2b757887d
+        m_SerializedComponentType:
+          m_TypeName: 
+        m_ComponentIndex: 0
+        m_AssetObject: {fileID: 0}
+        m_Prefab: {fileID: 0}
+      m_FutureObjectReference: {fileID: 0}
+    - m_SceneObjectReference:
+        m_SceneGuid: c8e9725b7fc1a344a8bc21cbd6116742
+        m_GameObjectGuid: 3e21ea00-34e3-4d94-b5ff-b44a0d1fbe52
+        m_SerializedComponentType:
+          m_TypeName: 
+        m_ComponentIndex: 0
+        m_AssetObject: {fileID: 0}
+        m_Prefab: {fileID: 0}
+      m_FutureObjectReference: {fileID: 0}
+--- !u!114 &7738235420854946302
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065f6938014794cff8ac3d1382107ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls: []
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ObjectReferences:
+    m_Items:
+    - m_SceneObjectReference:
+        m_SceneGuid: c8e9725b7fc1a344a8bc21cbd6116742
+        m_GameObjectGuid: 6b307a9f-5679-4675-801e-51e2b757887d
+        m_SerializedComponentType:
+          m_TypeName: 
+        m_ComponentIndex: 0
+        m_AssetObject: {fileID: 0}
+        m_Prefab: {fileID: 0}
+      m_FutureObjectReference: {fileID: 0}
+--- !u!114 &8694256245686873607
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065f6938014794cff8ac3d1382107ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls: []
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ObjectReferences:
+    m_Items:
+    - m_SceneObjectReference:
+        m_SceneGuid: c8e9725b7fc1a344a8bc21cbd6116742
+        m_GameObjectGuid: 456cb05d-7fb4-45e2-aafc-6e7d74f171da
+        m_SerializedComponentType:
+          m_TypeName: 
+        m_ComponentIndex: 0
+        m_AssetObject: {fileID: 0}
+        m_Prefab: {fileID: 0}
+      m_FutureObjectReference: {fileID: 0}
