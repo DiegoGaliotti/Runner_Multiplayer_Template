@@ -10,7 +10,7 @@ export default class HealthManager extends ZepetoScriptBehaviour {
     // Maximum and starting health
     public maxHealth: number;
     // Current health, changes during the game by increasing or decreasing
-    public currentHealth: number; 
+    private currentHealth: number; 
     
 
     // Awake is called when the script instance is being loaded

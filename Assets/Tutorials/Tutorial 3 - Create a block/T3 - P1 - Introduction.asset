@@ -46,10 +46,11 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 0
       Title:
-        m_Untranslated: Introduction - Block Creation
+        m_Untranslated: CREATE YOUR OWN BLOCK
       Text:
-        m_Untranslated: In this tutorial, you will learn how to CUSTOMIZE AND CREATE
-          a new block so you can use them to create various environments and levels.
+        m_Untranslated: In this tutorial, you will learn how to <b>CUSTOMIZE AND
+          CREATE</b> a new block so you can use them to create various environments
+          and levels.
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}

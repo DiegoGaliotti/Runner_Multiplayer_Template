@@ -21,12 +21,12 @@ MonoBehaviour:
   m_Scenes:
   - {fileID: 102900000, guid: c8e9725b7fc1a344a8bc21cbd6116742, type: 3}
   m_DefaultSceneCameraSettings:
-    m_CameraMode: 0
+    m_CameraMode: 1
     m_FocusMode: 0
     m_Orthographic: 0
-    m_Size: 23.965714
-    m_Pivot: {x: -207.55713, y: 10.837854, z: 1.7364877}
-    m_Rotation: {x: 0, y: 0, z: 0, w: 0}
+    m_Size: 29.958807
+    m_Pivot: {x: -204.09595, y: -6.261524, z: 22.67377}
+    m_Rotation: {x: -0.13931881, y: 0.022869362, z: -0.0032213642, w: -0.989989}
     m_FrameObject:
       m_SceneGuid: 
       m_GameObjectGuid: 
@@ -40,9 +40,10 @@ MonoBehaviour:
   m_Pages:
     m_Items:
     - {fileID: 11400000, guid: b9250ed6e2440a04e8042846c16d858a, type: 2}
+    - {fileID: 11400000, guid: 6290196bf8e66744e9a645545a872224, type: 2}
+    - {fileID: 11400000, guid: 1c337453f86aae1469dba61d95653e60, type: 2}
     - {fileID: 11400000, guid: e2a7ea2d91344c647ac3c836870ec519, type: 2}
     - {fileID: 11400000, guid: 994209253c9e5a141a2a516ad75a1ea0, type: 2}
-    - {fileID: 11400000, guid: 0a71464a6a81bf248848b7c38b3a60e1, type: 2}
     - {fileID: 11400000, guid: 3f089b05b2ba9424a8ca5c4134427b71, type: 2}
   Modified:
     m_PersistentCalls:

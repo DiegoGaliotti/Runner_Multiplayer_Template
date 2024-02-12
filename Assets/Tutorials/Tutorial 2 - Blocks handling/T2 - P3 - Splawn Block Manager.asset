@@ -32,22 +32,11 @@ MonoBehaviour:
           m_ViewType:
             m_TypeName: 
           m_EditorWindowType:
-            m_TypeName: UnityEditor.SceneHierarchyWindow, UnityEditor.CoreModule,
-              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-          m_AlternateEditorWindowTypes:
-            m_Items: []
-          m_MaskType: 1
-          m_MaskSizeModifier: 0
-          m_UnmaskedControls: []
-        - m_SelectorType: 1
-          m_ViewType:
-            m_TypeName: 
-          m_EditorWindowType:
             m_TypeName: UnityEditor.InspectorWindow, UnityEditor.CoreModule, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
-          m_MaskType: 0
+          m_MaskType: 1
           m_MaskSizeModifier: 0
           m_UnmaskedControls: []
       m_Summary: 
@@ -78,22 +67,35 @@ MonoBehaviour:
       Title:
         m_Untranslated: Spawn Block Manager Inspector
       Text:
-        m_Untranslated: 'Select the Object Manager>LevelManager>SpawnBlockManager
-          in the Hierarchy. In the inspector you will find two groups:
+        m_Untranslated: 'Congratulations, you are now inside the <b>Spawn Block Manager
+          "Inspector" </b>. In it you will find that you can edit the following parameters:
+
 
           -
-          Blocks: The blocks you place will be those that are randomly generated
-          in the game.
+          <b>Blocks</b>: This is where you can add the different blocks that the
+          system will add randomly.
 
-          - Generated Blocks: You can see the blocks that
-          are generated and edit the speed at which the blocks move, by default at
-          3.'
+          - <b>Generated Blocks</b>: You can
+          see the blocks that are generated, this cannot be edited, you will only
+          see the queue of blocks while the game runs.
+
+          - <b>All Blocks
+          Speed</b>: edit the speed at which the blocks move, default at 3.
+
+
+          <i>Press
+          "Next" in the tutorial window and we will explain how to add blocks to
+          your level.</i>'
       m_Tutorial: {fileID: 0}
       m_Image: {fileID: 0}
       m_Video: {fileID: 0}
       m_CriteriaCompletion: 0
       m_Criteria:
-        m_Items: []
+        m_Items:
+        - Type:
+            m_TypeName: Unity.Tutorials.Core.Editor.PlayModeStateCriterion, Unity.Tutorials.Core.Editor,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+          Criterion: {fileID: 3043454714696051634}
       m_MaskingSettings:
         m_MaskingEnabled: 0
         m_UnmaskedViews: []
@@ -156,3 +158,92 @@ MonoBehaviour:
       m_Calls: []
   m_NextButton: Next
   m_DoneButton: Done
+--- !u!114 &3043454714696051634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641211c85919e4aceb79a0d364004d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls: []
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_RequiredPlayModeState: 1
+--- !u!114 &3235176271536700150
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09cf94368c18acd4b87b173cdb62b502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls: []
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_TargetTool: -1
+--- !u!114 &7684250876773183685
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83385cb04f0b64fff8859904da1b78e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls: []
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls: []
+  PrefabParent: {fileID: 0}
+  ComparisonMode: 0
+  InstanceCount: 1
+  m_FutureReference: {fileID: 0}
+--- !u!114 &9208483948094920250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255ef86cb95f04796b8e3b3f5b23efe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed:
+    m_PersistentCalls:
+      m_Calls: []
+  Invalidated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ObjectReferences:
+    m_Items:
+    - m_SceneObjectReference:
+        m_SceneGuid: 
+        m_GameObjectGuid: 
+        m_SerializedComponentType:
+          m_TypeName: 
+        m_ComponentIndex: 0
+        m_AssetObject: {fileID: 0}
+        m_Prefab: {fileID: 937649155625450388, guid: a515b3bb10029486aacf689f5d71cc7b, type: 3}
+      m_FutureObjectReference: {fileID: 0}
