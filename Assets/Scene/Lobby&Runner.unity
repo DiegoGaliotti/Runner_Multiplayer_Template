@@ -10747,7 +10747,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -13.550217}
+  m_AnchoredPosition: {x: 0, y: -13.550232}
   m_SizeDelta: {x: -101.99999, y: -111.10002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &1553123772
@@ -11858,13 +11858,14 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     values:
-    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":1,\"type\":\"UnityEngine.Object,
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":2,\"type\":\"UnityEngine.Object,
       UnityEngine.CoreModule\",\"isUnity\":true}"}'
-    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":1,\"length\":0,\"type\":\"UnityEngine.Object,
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":2,\"length\":0,\"type\":\"UnityEngine.Object,
       UnityEngine.CoreModule\",\"isUnity\":true}"}'
     - '{"type":"System.Single, mscorlib","value":"3"}'
     unityArrayValues:
-    - {fileID: 5854303461572051548, guid: c5f0a7d232ffa5a4fa6c49387c0b32ee, type: 3}
+    - {fileID: 937649155625450388, guid: a515b3bb10029486aacf689f5d71cc7b, type: 3}
+    - {fileID: 5468121514540234229, guid: 6ab0cc452e6a4ce429cac92e92a4d026, type: 3}
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 33abd7457c3f24d9682cef34595be7a7, type: 3}
     isExpaned: 0
